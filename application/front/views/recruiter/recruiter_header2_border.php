@@ -140,7 +140,20 @@
                           
  
 
-                                <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/recommen_candidate'); ?>"><span class="bu_home"></a>
+                                <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>>
+
+                                <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+                                
+                               
+                                 <a href="javascript:void(0);" onclick="return leave_page(1)"><span class="bu_home"></a>
+                                 <?php }else{?>
+
+                                <a href="<?php echo base_url('recruiter/recommen_candidate'); ?>"><span class="bu_home"></a>
+                                 <?php } ?>
+                                   
+
+                               
+
                                    
                                 <!-- Friend Request Start-->
 
@@ -176,9 +189,31 @@
                                         <div class="my_S">Account</div>
                                             
       </span>
-      <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><span class="h2-img h2-srrt"></span>View Profile</a>
-     <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><span class="h3-img h2-srrt"> </span>Edit Profile</a>
 
+  <!-- View profile popup show on different page of Recruiter Start -->
+
+       <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+
+   <a onclick="return leave_page(2)"><span class="h2-img h2-srrt"></span>View Profile</a>
+
+     <?php }else{?>
+       <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><span class="h2-img h2-srrt"></span>View Profile</a>
+      <?php } ?>
+  <!-- View profile popup show on different page of Recruiter ENd -->
+
+
+<!-- Edit Profile popup show on different page of Recruiter Start -->
+<?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
+
+   <a onclick="return leave_page(3)"><i class="fa fa-pencil" aria-hidden="true"></i>Edit Profile</a>
+
+     <?php }else{?>
+  <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile</a>
+      <?php } ?>
+    
+<!-- Edit Profile popup show on different page of Recruiter Start -->
+     
+     
      <?php
       $userid = $this->session->userdata('aileenuser');
       ?>

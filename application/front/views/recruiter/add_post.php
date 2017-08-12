@@ -71,17 +71,17 @@
  
 
 
-<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
-<link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css" rel="stylesheet" /> 
-   <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/jquery.datetimepicker.css'); ?>"> -->
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
  <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" /> 
 
 
    <!-- This Css is used for call popup -->
-<!--    <link rel="stylesheet" href="<?php //echo base_url() ?>css/bootstrap.min.css" />
- -->
+   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
 
 <!-- <script src="<?php //echo base_url('js/fb_login.js'); ?>"></script> -->
  
@@ -624,17 +624,16 @@
 
 </script>
 
-<!-- <script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script> 
- --><!-- <script src="<?php //echo base_url('js/jquery.wallform.js'); ?>"></script>
- <script src="<?php// echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php// echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php// echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> -->
+<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+ <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <!--  <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
  -->
 
-<!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
-<script type="text/javascript" src="<?php //echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script> -->
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script>
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
@@ -658,10 +657,13 @@ $(document).ready(function () {
 
 </script>
 
+<!-- This script always put under fancybox js-->
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
+
 <!-- script for date start -->
 
-<!-- <script src="<?php //echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
- -->
+<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+
 
 <script>
 $(function() {
@@ -1336,7 +1338,7 @@ alert(clicked_id);
         var searchplace =$.trim(document.getElementById('searchplace').value);
          alert(datepicker);
        
- if(post_name=="" && skills==""  &&  position == "" && minyear==""  && maxyear=="" && industry=="" && emp_type=="" && education=="" && other_education=="" &&  post_desc=="" && interview=="" && country=="" && state=="" && salary_type=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
+ if(post_name=="" && skills=="" && minyear==""  && maxyear=="" && industry=="" && emp_type=="" && education=="" && other_education=="" &&  post_desc=="" && interview=="" && country=="" && state=="" && salary_type=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
  {
     alert("hi");
     if(clicked_id==1)
@@ -1414,7 +1416,7 @@ alert("hi1");
 
     }
       function home(clicked_id,searchkeyword,searchplace) {
-  alert("gg");
+  alert("gg")
                               
       $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
