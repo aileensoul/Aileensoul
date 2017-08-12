@@ -140,8 +140,6 @@
                             <ul class="" id="dropdownclass">
                           
  
-
-<<<<<<< HEAD
                                 <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>>
 
                                 <?php if(($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post')){?>
@@ -154,11 +152,9 @@
                                  <?php } ?>
                                    
 
-                               
 
-=======
                                 <li<?php if($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'rec_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('recruiter/recommen_candidate'); ?>"><span class="home-22x22-h"></span></a>
->>>>>>> 980ca80717a77931502c1d95d21a38216b188fbd
+
                                    
                                 <!-- Friend Request Start-->
 
@@ -193,13 +189,12 @@
                                         <div class="my_S">Account</div>
                                             
       </span>
-<<<<<<< HEAD
-=======
+
       <a href="<?php echo base_url('recruiter/rec_profile'); ?>"><span class="icon-view-profile edit_data"></span>
       <span> View Profile </span></a>
      <a href="<?php echo base_url('recruiter/rec_basic_information'); ?>"><span class="icon-edit-profile edit_data"></span>  
       <span>Edit Profile </span></a>
->>>>>>> 980ca80717a77931502c1d95d21a38216b188fbd
+
 
   <!-- View profile popup show on different page of Recruiter Start -->
 
