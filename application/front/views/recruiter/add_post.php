@@ -857,28 +857,10 @@ if(mm<10) {
      var todaydate_new=todaydate[1]+"/"+todaydate[0]+"/"+todaydate[2];
      var todaydate_new_one = new Date(todaydate_new).getTime();
      
-     $('.day').addClass('error'); 
-      $('.month').addClass('error'); 
-      $('.year').addClass('error'); 
 
     return lastdata_new_one >= todaydate_new_one;
 }, "Last date should be grater than and equal to today date");
-$.validator.addMethod("required1", function(value, element, regexpr) {   
-    //return value == '' || value.trim().length != 0; 
-     if(!value) 
-            {
-                $('.day').addClass('error'); 
-                $('.month').addClass('error'); 
-                $('.year').addClass('error'); 
-                return false;
-            }
-            else
-            {
-              return true;
-            }
-           
-     // return regexpr.test(value);
-}, "Last Date of apply is required.");
+
 //date validation end
 
 //pattern validation at salary start//
@@ -979,7 +961,8 @@ $.validator.addMethod("required1", function(value, element, regexpr) {
 
 
                         last_date: {
-                             required1:"Last Date of apply is required.",
+                            
+                            required: true,
                            isValid: 'Last date should be grater than and equal to today date'
                             
                         },
@@ -1058,7 +1041,7 @@ $.validator.addMethod("required1", function(value, element, regexpr) {
 
                         last_date: {
 
-                           // required: "Last Date for apply required"
+                            required: "Last Date for apply required"
                         },
                        
                         maxsal:{
@@ -1400,10 +1383,9 @@ $.validator.addMethod("required1", function(value, element, regexpr) {
     }
      if(clicked_id==5)
     { 
-
-        document.getElementById('acon').style.display = 'block';
-       
         
+        document.getElementById('acon').style.display = 'block';
+      
     }
        if(clicked_id==6)
     {

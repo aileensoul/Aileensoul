@@ -260,7 +260,7 @@ $(window).load(function(){
 
     });
 	
-    $(document).ready(function () {
+    $(document).ready(function () { 
         $("body").click(function (event) {
             $("#acon").fadeOut("slow");
             // event.stopPropagation();
@@ -682,7 +682,7 @@ $(window).load(function(){
                                         <span id="notification_count"></span>
 
                                     </a><div id="notificationContainer">
-                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="<?php echo base_url('notification') ?>">See All</a></span></div>
 
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
@@ -1049,7 +1049,7 @@ $(window).load(function(){
                                         <span id="notification_count"></span>
 
                                     </a><div id="notificationContainer">
-                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="http://localhost/aileensoul/notification">See All</a></span></div>
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="<?php echo base_url('notification') ?>">See All</a></span></div>
 
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
@@ -1323,7 +1323,7 @@ for (i = 0; i < dropdowns.length; i++) {
         $("#alink").click(function ()
         {
 
-
+         
 //$("#notificationLink").hide();
             $("#acon").fadeToggle(300);
             $("#acont").fadeOut("slow");
