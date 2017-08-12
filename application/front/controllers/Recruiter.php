@@ -3652,7 +3652,8 @@ public function delete_logo()
         
            $data = array(
                 'comp_logo' => ''
-             );
+                
+            );
 
            $updatedata = $this->common->update_data($data, 'recruiter','rec_id',$id);
     
@@ -3667,5 +3668,18 @@ public function delete_logo()
             die();
 }
 //DELETE LOGO END
- 
+
+// recruiter available chek
+public function rec_avail_check($userid = " ") 
+ {
+   $contition_array = array('rec_id' => $userid, 'is_delete' => '1');
+   $availuser = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     
+        if (count($availuser) >= 0) 
+        {
+       $this->load->view('artistic/notavalible', $this->data);
+         }
+    }
+// recruiter available chek
+   
 }
