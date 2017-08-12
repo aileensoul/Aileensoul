@@ -206,7 +206,7 @@
 
                                     </div>
                                     <div class="art_no_post_text">
-                                        No Followers Available.
+                                        No Contact Request Available.
                                     </div>
                                     </div></li>
 
@@ -283,11 +283,21 @@
     }
 } else { ?>
 
-                                            <li>
+<!--                                            <li>
                                                 <div class="cq_main_lp2">
                                                     No Notifiaction  available...
                                                 </div>
-                                            </li>
+                                            </li>-->
+<li><div class="art-img-nn" id= "art-blank">
+                                    <div class="art_no_post_img">
+
+                                        <img src="<?php echo base_url('img/No_Contact_Request.png') ?>" width="100">
+
+                                    </div>
+        <div class="art_no_post_text" style="font-size: 20px;">
+                                        No Notifiaction Available.
+                                    </div>
+                                    </div></li>
 <?php } ?>
                                     </ul>
                                 </div>
