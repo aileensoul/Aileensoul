@@ -3862,6 +3862,12 @@
                     <script type="text/javascript">
                         function editpost(abc)
                         {
+
+                            var editposttitle = $('#editpostdata' + abc + 'a').html();
+                            var editpostdesc = $('#khyatii' + abc).html();
+
+                            $("#myDropdown" + abc).removeClass('show');
+
                         document.getElementById('editpostdata' + abc).style.display = 'none';
                         document.getElementById('editpostbox' + abc).style.display = 'block';
                         //document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
@@ -3869,6 +3875,13 @@
                         document.getElementById('editpostsubmit' + abc).style.display = 'block';
                         document.getElementById('khyati' + abc).style.display = 'none';
                         document.getElementById('khyatii' + abc).style.display = 'none';
+
+                         editposttitle = editposttitle.trim()
+                         editpostdesc = editpostdesc.trim()
+    
+                        $('#editpostname' + abc).val(editposttitle);
+                        $('#editpostdesc' + abc).html(editpostdesc);
+
                         }
                     </script>
 
