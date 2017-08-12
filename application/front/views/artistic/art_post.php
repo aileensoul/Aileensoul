@@ -4087,9 +4087,7 @@
                                 var percentVal = '100%';
                                 bar.width(percentVal)
                                         percent.html(percentVal);
-
-                                document.getElementById("no_post_avl_two").style.display = "none";
-                                        
+          
 
                                 },
                                 complete: function (response) {
@@ -4109,6 +4107,7 @@
                                 $("#dropdownclass").addClass("no-post-h2");
                                 } else {
                                 $("#dropdownclass").removeClass("no-post-h2");
+                                 document.getElementById("no_post_avl_two").style.display = "none";
                                 }
                                 $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
 

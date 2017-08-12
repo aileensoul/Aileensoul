@@ -5132,15 +5132,7 @@ $('#postedit').on('click', function () {
     var options = {
     beforeSend: function () { 
     // Replace this with your loading gif image
-
-    var data = $('.profile-job-post-detail').length;
-
-if(data == 0){
-           
-            document.getElementById("no_post_avl").style.display = "none";
-           }
-
-           
+      
     document.getElementById("progress_div").style.display = "block";
     var percentVal = '0%';
     bar.width(percentVal)
@@ -5156,10 +5148,13 @@ if(data == 0){
             var percentVal = '100%';
             bar.width(percentVal)
                     percent.html(percentVal);
-                    document.getElementById("no_post_avl").style.display = "none";
+
+
             },
             complete: function (response) {
             // Output AJAX response to the div container
+
+          
             document.getElementById('test-upload-product').value = '';
            document.getElementById('test-upload-des').value = '';
            document.getElementById('file-1').value = '';
@@ -5167,8 +5162,7 @@ if(data == 0){
             $(".file-preview-frame").hide();
 //            $('#progress_div').fadeOut('5000').remove();
             document.getElementById("progress_div").style.display = "none";
-
-        
+             // document.getElementById("no_post_avl").style.display = "none";
 
             //$('.job-contact-frnd div:first').remove();
             $(".art-all-post").prepend(response.responseText);
@@ -5178,6 +5172,7 @@ if(data == 0){
             $("#dropdownclass").addClass("no-post-h2");
             } else {
             $("#dropdownclass").removeClass("no-post-h2");
+            document.getElementById("no_post_avl").style.display = "none";
             }
             $('html, body').animate({scrollTop: $(".upload-image-messages").offset().top - 100}, 150);
             }
