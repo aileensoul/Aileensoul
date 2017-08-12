@@ -918,6 +918,19 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 }, "Only space, only number and only special characters are not allow");
 
 
+$.validator.addMethod("regx_num_space", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Please add proper Estimated time. Eg: '3 month' or '3 Year' ");
+
 $.validator.addMethod("required1", function(value, element, regexpr) {   
     //return value == '' || value.trim().length != 0; 
      if(!value) 
@@ -1031,6 +1044,10 @@ if(mm<10) {
                         },
                         state:{
                           required:true,
+                        },
+                        est_time:{
+                            regx_num_space:/^[0-9][a-zA-Z\s]+$/
+                            
                         }
                       
                     },

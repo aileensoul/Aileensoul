@@ -319,7 +319,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                     required: false,
                     number: true,
                     max: 168,
-                    regx:/^0*[1-9]\d*$/ 
+                    regx:/^[0-9]*$/ 
                 },
 
                

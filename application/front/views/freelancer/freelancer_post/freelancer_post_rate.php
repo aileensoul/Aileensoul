@@ -94,7 +94,7 @@
                                 <label>Hourly:</label>
                                 <input type="text" name="hourly" min="1" tabindex="1" autofocus placeholder="Enter hourly Rate"  value="<?php if ($hourly1) {
                                     echo $hourly1;
-                                } ?>">
+                                } ?>" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
                                     <?php echo form_error('hourly'); ?>
                             </fieldset>
 
