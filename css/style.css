@@ -14565,6 +14565,11 @@ text-overflow: ellipsis;}
 }
 /*
 zalak change*/
+.profile-box-art .right-menu-jr .flw_msg_btn ul li a.butt_rec  {letter-spacing: 1px;
+width: 90px;
+padding: 9px 15px;
+background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%) !important;
+border: none;}
 .file_name_pdf{color:#8c8c8c; font-size:17px; padding-left:10px; visibility:show;}
 .popup-text textarea {
     overflow-y: hidden;
@@ -14953,10 +14958,10 @@ div .comment {
     padding-right: 150px!important;
     word-break: break-all;
     background-color: #fff;
-    padding: 10px 20px 16px;
+    padding: 10px 20px 10px;
     cursor: inherit;
     font-size: 13px;
-    min-height: 40px;
+    min-height: 41px;
     position: relative;
     max-height: 120px;
     overflow-y: scroll;
