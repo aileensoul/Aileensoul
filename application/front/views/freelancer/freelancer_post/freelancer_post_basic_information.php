@@ -111,7 +111,7 @@ $phoneno = form_error('phoneno');
     echo $firstname1;
 } else {
     echo $userdata[0]['first_name'];
-} ?>">
+} ?>" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
 <?php echo form_error('firstname'); ?>
                             </fieldset>
 
@@ -467,3 +467,4 @@ $(window).load(function(){
                             }
                         }
                     </script>
+                    

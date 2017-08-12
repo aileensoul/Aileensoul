@@ -139,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <a onclick="myFunction()" class="chatdropbtn fr"><img src="<?php echo base_url('img/t_dot.png')?>"></a>
   <div id="mychat_dropdown" class="chatdropdown-content">
      <a href="javascript:void(0);" onClick="delete_history()">
-                              <span class="h4-img h2-srrt"></span>  Delete 
+                              <span class="h4-img h2-srrt"></span>  Delete All
                             </a>
   </div>
 </div>
@@ -741,7 +741,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // alert(img.getAttribute('src')); // foo.jpg
 //alert(img.src); 
         var img = img.src;
-        $('#message').append("<img  src=" + img + " height='25' width='25' >");
+        $('#message').append("<img  src=" + img + " height='21' width='21' >");
         //$('#message').append(data);
 
     }

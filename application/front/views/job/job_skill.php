@@ -219,7 +219,7 @@ if ($this->session->flashdata('success')) {
 
                    <fieldset class="full-width">
                                     <label >Job Title<font  color="red">*</font>:</label>
-                                     <input type="search" tabindex="1" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" maxlength="255">
+                                     <input type="search" tabindex="1" id="job_title" name="job_title" value="<?php echo $work_title; ?>" placeholder="Ex:- Sr. Engineer, Jr. Engineer, Software Developer, Account Manager" maxlength="255" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
                                 </fieldset>
 
 <fieldset class="full-width fresher_select main_select_data" >
@@ -595,14 +595,3 @@ $( "#searchplace" ).autocomplete({
 </script>
 <!--new script for skill end-->
 
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
-<script type="text/javascript">
-$(document).ready(function () {
-                    var input = $("#job_title");
-                    var len = input.val().length;
-                    input[0].focus();
-                    input[0].setSelectionRange(len, len);
-                });
-
-</script>
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  

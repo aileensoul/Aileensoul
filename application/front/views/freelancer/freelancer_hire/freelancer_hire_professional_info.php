@@ -90,7 +90,7 @@
                             	<fieldset class="full-width">
 									<label>Professional Info:<span class="red">*</span></label>
 									
-									<textarea tabindex="1" autofocus name ="professional_info" id="professional_info" rows="6" cols="50" placeholder="Enter Professional Information" style="resize: none;overflow: auto;" onpaste="OnPaste_StripFormatting(this, event);"><?php if($professional_info1){ echo $professional_info1; } ?></textarea>
+									<textarea tabindex="1" autofocus onfocus="var temp_value=this.value; this.value=''; this.value=temp_value" name ="professional_info" id="professional_info" rows="6" cols="50" placeholder="Enter Professional Information" style="resize: none;overflow: auto;" onpaste="OnPaste_StripFormatting(this, event);"><?php if($professional_info1){ echo $professional_info1; } ?></textarea>
 									 <?php echo form_error('professional_info'); ?> 
 									 
 								</fieldset>
@@ -394,4 +394,5 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 }
             }
         </script>
+        
 
