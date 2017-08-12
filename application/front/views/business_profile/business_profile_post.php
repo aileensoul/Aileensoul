@@ -351,7 +351,7 @@
                                                                             <?php } else { ?>
                                                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
 
-                                                                                                                                                                                        <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
+                                                                                                                                                                                                        <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
 
                                                                                     <?php
                                                                                     $a = $userlist['company_name'];
@@ -375,7 +375,7 @@
                                                                                     </div>
                                                                                 </li>
                                                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $userlist['industriyal'], 'status' => 1))->row()->industry_name; ?>
-                                                                                <!-- <?php //echo "<pre>"; print_r($category);                 ?> -->
+                                                                                <!-- <?php //echo "<pre>"; print_r($category);                  ?> -->
                                                                                 <li>
                                                                                     <div class="post-design-product_follow_main" style="display:block;">
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
@@ -1181,9 +1181,9 @@
                                                                                 <span class="h4-img h2-srrt"></span> Delete Post
                                                                             </a>
 
-                                                                                                                                                                                                        <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
-                                                                                                                                                                                                            <span class="h2-img h2-srrt"></span> Contact Person
-                                                                                                                                                                                                        </a> -->
+                                                                                                                                                                                                                            <!-- <a href="<?php echo base_url('business_profile/business_profile_contactperson/' . $row['user_id'] . ''); ?>">
+                                                                                                                                                                                                                                <span class="h2-img h2-srrt"></span> Contact Person
+                                                                                                                                                                                                                            </a> -->
                                                                             <?php
                                                                         }
                                                                     }
@@ -1417,8 +1417,8 @@
                                                                             $likeuserarray = explode(',', $active[0]['business_like_user']);
                                                                             if (!in_array($userid, $likeuserarray)) {
                                                                                 ?>               
-                                                                                                <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
-                                                                                                                                                            </i>-->
+                                                                                                    <!--                                                                        <i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true">
+                                                                                                                                                                </i>-->
                                                                                 <i class="fa fa-thumbs-up" style="color: #999;" aria-hidden="true"></i>
                                                                             <?php } else { ?> 
                         <!--                                                                        <i class="fa fa-thumbs-up" aria-hidden="true">
@@ -1709,7 +1709,7 @@
                                                                                             <?php } else { ?>
                                                                                                 <i class="fa fa-thumbs-up main_color" aria-hidden="true">
                                                                                                 </i>
-                                                                                                <?php } ?>
+                                                                                            <?php } ?>
                                                                                             <span>
                                                                                                 <?php
                                                                                                 if ($rowdata['business_comment_likes_count']) {
@@ -1750,7 +1750,7 @@
                                                                                                 </span>
                                                                                             </a>
                                                                                         </div>
-                    <?php } ?>                                   
+                                                                                    <?php } ?>                                   
                                                                                     <span role="presentation" aria-hidden="true"> · 
                                                                                     </span>
                                                                                     <div class="comment-details-menu">
@@ -1790,11 +1790,11 @@
                                                                         $acr = substr($a, 0, 1);
                                                                         ?>
                                                                         <div class="post-img-div">
-                                                                        <?php echo ucfirst(strtolower($acr)) ?>
+                                                                            <?php echo ucfirst(strtolower($acr)) ?>
                                                                         </div> 
-                    <?php
-                } else {
-                    ?>
+                                                                        <?php
+                                                                    } else {
+                                                                        ?>
 
                                                                         <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
 
@@ -1805,9 +1805,9 @@
                                                                     $acr = substr($a, 0, 1);
                                                                     ?>
                                                                     <div class="post-img-div">
-                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                        <?php echo ucfirst(strtolower($acr)) ?>
                                                                     </div>
-            <?php } ?>
+                                                                <?php } ?>
                                                             </div>
 
                                                             <div id="content" class="col-md-12  inputtype-comment cmy_2" >
@@ -1819,7 +1819,7 @@
                                                                 </div>
 
                                                             </div>
-            <?php echo form_error('post_comment'); ?> 
+                                                            <?php echo form_error('post_comment'); ?> 
                                                             <div class="comment-edit-butn  hidden-mob">       
                                                                 <button id="<?php echo $row['business_profile_post_id']; ?>" onClick="insert_comment(this.id)">Comment
                                                                 </button>
@@ -1885,7 +1885,7 @@
 
         </section>
         <footer>
-<?php echo $footer; ?>
+            <?php echo $footer; ?>
         </footer>
         <!-- Bid-modal  -->
         <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -1967,7 +1967,7 @@
 
 
                                                                     var data = <?php echo json_encode($demo);
-?>;
+            ?>;
                                                                     //alert(data);
                                                                     $(function () {
                                                                     // alert('hi');
@@ -2003,7 +2003,7 @@
     (function ($) {
 
     var data1 = <?php echo json_encode($city_data);
-?>;
+            ?>;
     //alert(data);
     $(function () {
     // alert('hi');
@@ -2428,7 +2428,7 @@
     //      z.style.display = 'block';
     //      $.ajax({ 
     //             type:'POST',
-    //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                                        ?>',
+    //          url:'<?php //echo base_url() . "business_profile/fourcomment"                                                                                         ?>',
     //             data:'art_post_id='+clicked_id,
     //             //alert(data);
     //             success:function(data){
@@ -4034,6 +4034,10 @@
 <script type="text/javascript">
     function editpost(abc)
     {
+
+    var editposttitle = $('#editpostdata' + abc + ' a').html();
+    var editpostdesc = $('#khyatii' + abc).html();
+    
     $("#myDropdown" + abc).removeClass('show');
     document.getElementById('editpostdata' + abc).style.display = 'none';
     document.getElementById('editpostbox' + abc).style.display = 'block';
@@ -4042,6 +4046,12 @@
     document.getElementById('editpostsubmit' + abc).style.display = 'block';
     document.getElementById('khyatii' + abc).style.display = 'none';
     document.getElementById('khyati' + abc).style.display = 'none';
+    
+    editposttitle = editposttitle.trim()
+    editpostdesc = editpostdesc.trim()
+    
+    $('#editpostname' + abc).val(editposttitle);
+    $('#editpostdesc' + abc).html(editpostdesc);
     }
 </script>
 <script type="text/javascript">
@@ -4067,10 +4077,15 @@
     $('#bidmodal').modal('show');
     document.getElementById('editpostdata' + abc).style.display = 'block';
     document.getElementById('editpostbox' + abc).style.display = 'none';
-    //document.getElementById('editpostdetails' + abc).style.display = 'block';
     document.getElementById('editpostdetailbox' + abc).style.display = 'none';
     document.getElementById('editpostsubmit' + abc).style.display = 'none';
     document.getElementById('khyati' + abc).style.display = 'block';
+
+//    document.getElementById('editpostdata' + abc).style.display = 'none';
+//    document.getElementById('editpostbox' + abc).style.display = 'block';
+//    document.getElementById('editpostdetailbox' + abc).style.display = 'block';
+//    document.getElementById('editpostsubmit' + abc).style.display = 'block';
+//    document.getElementById('khyati' + abc).style.display = 'none';
     } else {
     $.ajax({
     type: 'POST',
@@ -4178,7 +4193,7 @@
                     percent.html(percentVal);
             },
             complete: function (response) {
-                $('.art_no_post_avl').hide();
+            $('.art_no_post_avl').hide();
             // Output AJAX response to the div container
             document.getElementById('test-upload-product').value = '';
             document.getElementById('test-upload-des').value = '';
