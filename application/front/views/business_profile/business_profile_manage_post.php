@@ -5023,11 +5023,11 @@
             <script type="text/javascript">
                $('#file-1').on('click', function(e){
 
-var a = document.getElementById('test-upload-product').value;
-var b = document.getElementById('test-upload-des').value;
+var a = document.getElementById('test-upload_product').value;
+var b = document.getElementById('test-upload_des').value;
     document.getElementById("artpostform").reset();
-    document.getElementById('test-upload-product').value = a;
-    document.getElementById('test-upload-des').value = b;
+    document.getElementById('test-upload_product').value = a;
+    document.getElementById('test-upload_des').value = b;
     });
             </script>
 

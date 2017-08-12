@@ -11190,7 +11190,7 @@ class Business_profile extends MY_Controller {
 
                     $contactdata .= '<li>';
                     $contactdata .= '<div class="addcontact-left">';
-                    $contactdata .= '<a href="' . base_url('business-profile/dashboard/' . $busdata[0]['business_slug']) . '">';
+                    $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
                     $contactdata .= '<div class="addcontact-pic">';
 
                     if ($busdata[0]['business_user_image']) {
@@ -11670,7 +11670,7 @@ class Business_profile extends MY_Controller {
                                                                         <li class="fl">
                                                                             <div class="follow-img">';
                 if ($cdata[0]['business_user_image'] != '') {
-                    $return_html .= '<a href="' . base_url('business-profile/dashboard/' . $cdata[0]['business_slug']) . '">';
+                    $return_html .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">';
 
                     if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image'])) {
 
@@ -11681,7 +11681,7 @@ class Business_profile extends MY_Controller {
                     }
                     $return_html .= '</a>';
                 } else {
-                    $return_html .= '<a href="' . base_url('business-profile/dashboard/' . $cdata[0]['business_slug']) . '">
+                    $return_html .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">
                                                                                           <img  src="' . base_url(NOBUSIMAGE) . '"  alt="">
                                                                                     </a>';
                 }
@@ -11690,7 +11690,7 @@ class Business_profile extends MY_Controller {
                                                                         <li style="width: 67%">
                                                                             <div class="">
                                                                                 <div class="follow-li-text " style="padding: 0;">
-                                            <a href="' . base_url('business-profile/dashboard/' . $cdata[0]['business_slug']) . '">' . ucfirst(strtolower($cdata[0]['company_name'])) . '</a>
+                                            <a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">' . ucfirst(strtolower($cdata[0]['company_name'])) . '</a>
                                                                                 </div>
                                                                                 <div>';
                 $category = $this->db->get_where('industry_type', array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name;
