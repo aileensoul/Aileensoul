@@ -820,8 +820,29 @@ if(mm<10) {
     var one = new Date(value).getTime();
     var second = new Date(todaydate).getTime();
    
+    $('.day').addClass('error'); 
+      $('.month').addClass('error'); 
+      $('.year').addClass('error'); 
+
     return one <= second;
 }, "Last date should be Less than Or equal to today date");
+
+$.validator.addMethod("required1", function(value, element, regexpr) {   
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                $('.day').addClass('error'); 
+                $('.month').addClass('error'); 
+                $('.year').addClass('error'); 
+                return false;
+            }
+            else
+            {
+              return true;
+            }
+           
+     // return regexpr.test(value);
+}, "Date of Birth Is Required.");
 
 //date validation end
 
@@ -913,7 +934,7 @@ if(mm<10) {
                 },
                 dob: {
 
-                    required: true,
+                   required1:"Date of Birth Is Required.",
                     isValid: 'Last date should be Less than Or equal to today date',
                 },
                 gender: {
@@ -971,7 +992,7 @@ if(mm<10) {
                 },
                 dob: {
 
-                    required: "Date of Birth Is Required.",
+                  //  required: "Date of Birth Is Required.",
 
                 },
                 gender: {
