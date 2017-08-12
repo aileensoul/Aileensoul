@@ -1312,7 +1312,7 @@ if(mm<10) {
 //Leave Page on add and edit post page start
     function leave_page(clicked_id)
 {
-alert(clicked_id);
+//alert(clicked_id);
  
  var post_name = document.getElementById('post_name').value;
  var skills = document.getElementById('skills2').value;
@@ -1336,11 +1336,11 @@ alert(clicked_id);
  
     var searchkeyword =$.trim(document.getElementById('tags').value);
         var searchplace =$.trim(document.getElementById('searchplace').value);
-         alert(datepicker);
+      //   alert(datepicker);
        
  if(post_name=="" && skills=="" && minyear==""  && maxyear=="" && industry=="" && emp_type=="" && education=="" && other_education=="" &&  post_desc=="" && interview=="" && country=="" && state=="" && salary_type=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
  {
-    alert("hi");
+    //alert("hi");
     if(clicked_id==1)
     {
             location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
@@ -1383,9 +1383,9 @@ alert(clicked_id);
     }
      if(clicked_id==5)
     { 
-    
+
         document.getElementById('acon').style.display = 'block';
-        return false;
+       
         
     }
        if(clicked_id==6)
@@ -1410,14 +1410,13 @@ alert(clicked_id);
  else
  {
   
-alert("hi1");
       return home(clicked_id,searchkeyword,searchplace);
 
  }
 
     }
       function home(clicked_id,searchkeyword,searchplace) {
-  alert("gg")
+
                               
       $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
