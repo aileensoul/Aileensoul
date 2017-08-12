@@ -10893,6 +10893,7 @@ display: initial;}
     color: #000033;
     max-width:96%;
     float:left;
+	word-wrap:break-word;
 }
 /*.chat .chat-history .other-message:after {
     border-bottom-color: #d8eff6;
@@ -14952,10 +14953,10 @@ div .comment {
     padding-right: 150px!important;
     word-break: break-all;
     background-color: #fff;
-    padding: 20px 20px 16px;
+    padding: 10px 20px 16px;
     cursor: inherit;
     font-size: 13px;
-    min-height: 60px;
+    min-height: 40px;
     position: relative;
     max-height: 120px;
     overflow-y: scroll;
