@@ -204,23 +204,18 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .bg-images.no-cover-upload{
 	background:#fff;
 	border-bottom:1px solid #d9d9d9;
-/* IE10+ */ 
-background-image: -ms-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
-
-/* Mozilla Firefox */ 
-background-image: -moz-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
-
-/* Opera */ 
-background-image: -o-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(radial, center center, 0, center center, 286, color-stop(30, #FCFCFF), color-stop(100, #d5ebfd));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
-
-/* W3C Markup */ 
-background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%, #d5ebfd 100%);
+	/* IE10+ */ 
+	background-image: -ms-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
+	/* Mozilla Firefox */ 
+	background-image: -moz-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
+	/* Opera */ 
+	background-image: -o-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(radial, center center, 0, center center, 286, color-stop(30, #FCFCFF), color-stop(100, #d5ebfd));
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #FCFCFF 30%, #d5ebfd 100%);
+	/* W3C Markup */ 
+	background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%, #d5ebfd 100%);
 }
 .banner-box{border-bottom:1px solid #d9d9d9;}
 #notification_inside h6{height:auto;}
@@ -510,8 +505,6 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .header-icon-notification{ background-position: -32px -32px; width: 32px; height: 32px; }
 
 .edit_data{margin-top: -4px; display: inline-block; vertical-align: middle;}
-
-
 
 .clonedInput h6{padding: 5px 0px;}
 .comment-edit-butn button{padding: 8px 10px;}
