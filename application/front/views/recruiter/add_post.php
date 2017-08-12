@@ -418,7 +418,7 @@
 
 
                                    <select name="emp_type" style="cursor:pointer;" class="keyskil" id="emp_type">
-                                        <option value="" selected option disabled>Emplyment Type</option>
+                                        <option value="" selected option disabled>Employment Type</option>
                                         <option value="Part Time">Part Time</option>
                                         <option value="Full Time">Full Time</option>
                                         <option value="Internship">Internship</option>
@@ -857,10 +857,28 @@ if(mm<10) {
      var todaydate_new=todaydate[1]+"/"+todaydate[0]+"/"+todaydate[2];
      var todaydate_new_one = new Date(todaydate_new).getTime();
      
+     $('.day').addClass('error'); 
+      $('.month').addClass('error'); 
+      $('.year').addClass('error'); 
 
     return lastdata_new_one >= todaydate_new_one;
 }, "Last date should be grater than and equal to today date");
-
+$.validator.addMethod("required1", function(value, element, regexpr) {   
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                $('.day').addClass('error'); 
+                $('.month').addClass('error'); 
+                $('.year').addClass('error'); 
+                return false;
+            }
+            else
+            {
+              return true;
+            }
+           
+     // return regexpr.test(value);
+}, "Last Date of apply is required.");
 //date validation end
 
 //pattern validation at salary start//
@@ -961,8 +979,7 @@ if(mm<10) {
 
 
                         last_date: {
-                            
-                            required: true,
+                             required1:"Last Date of apply is required.",
                            isValid: 'Last date should be grater than and equal to today date'
                             
                         },
@@ -1041,7 +1058,7 @@ if(mm<10) {
 
                         last_date: {
 
-                            required: "Last Date for apply required"
+                           // required: "Last Date for apply required"
                         },
                        
                         maxsal:{
