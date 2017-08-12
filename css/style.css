@@ -446,14 +446,14 @@ a:focus {
 .header2 ul li a {
     font-size: 15px;
     color: #fff;
-    padding: 8px 18px;
+    padding: 8px 12px;
     display: inline-block;
  
 }
 .dropdown_hover .dropdown-content_hover a:hover{color: white; background-color: #1b8ab9;}
 .select2-drop{z-index: 0!important;}
 .header2 #InboxFooter a.no_msg_h:hover{color: none; text-decoration: none;}
-.header2 ul li a#InboxLink{padding:12px 20px 4px;}
+.header2 ul li a#InboxLink{padding:12px 11px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
     border-right: none;
@@ -877,7 +877,7 @@ line-height: 1;}
 }
 .action-button #message_count {
     position: absolute;
-    right: 12px;
+    right:6px;
     top: 3px;
     text-align: center;
     border-radius: 50%;
@@ -15609,6 +15609,9 @@ padding-top: 7px !important;}
     }
 }
 @media screen and (max-width: 767px) {
+    #add_contact #addcontactContainer::before {
+    right: 219px;
+}
   .mob-comment {
         display: block;
         position: absolute;
@@ -15621,7 +15624,7 @@ padding-top: 7px !important;}
         padding: 0px 0 7px;
         font-size: 22px;
     }
-    .action-button #message_count{right:175px;}
+    .action-button #message_count{right:168px;}
     .hidden-mob {
         display: none;
     }
@@ -16118,9 +16121,7 @@ padding-top: 7px !important;}
         width: 100%;
         top: 35px;
     }
-    #add_contact #addcontactContainer::before {
-        right: 155px;
-    }
+    
     #paddingtop_fixed_art {
         padding-top: 22px !important;
     }
@@ -16383,6 +16384,9 @@ padding-top: 7px !important;}
     .people-list .search input{width:95%;}
 }
 @media screen and (max-width: 479px) {
+    #add_contact #addcontactContainer::before {
+    right: 218px;
+}
     .mob-comment{right: 0;}
     .padd_set .change-password{padding: 0;}
   .post-design-box .post-design-desc .editable_text{width: 80%;}
