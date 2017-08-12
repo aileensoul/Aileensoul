@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+                <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/sprite_img.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">

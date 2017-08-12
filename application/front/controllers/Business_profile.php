@@ -3611,8 +3611,6 @@ class Business_profile extends MY_Controller {
 
             // insert notification
 
-
-
             $contition_array = array('not_type' => 8, 'not_from_id' => $userid, 'not_to_id' => $busdatatoid[0]['user_id'], 'not_product_id' => $follow[0]['follow_id'], 'not_from' => 6);
             $busnotification = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             //echo "<pre>"; print_r($busnotification); die();

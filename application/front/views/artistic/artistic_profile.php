@@ -253,7 +253,7 @@ if ($artisticdata[0]['user_id'] == $userid) {
 $userid = $this->session->userdata('aileenuser');
 if ($artisticdata[0]['user_id'] == $userid) {
     ?>
-                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo (count($flucount)); ?>)</a>
+                        <li <?php if ($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('artistic/followers/' . $artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo $flucount; ?>)</a>
                         </li>
                     <?php
                     } else {

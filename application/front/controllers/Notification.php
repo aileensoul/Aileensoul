@@ -1026,7 +1026,7 @@ array(
         $busimgcmtlike = $this->data['busimgcmtlike'] = $this->common->select_data_by_condition('notification', $contition_array, $data, $sortby = 'post_image_comment_id', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
         $this->data['totalnotifi'] = $totalnotifi = array_merge($rec_not, $job_not, $hire_not, $work_post, $artcommnet, $artlike, $artcmtlike, $artimglike, $artimgcommnet, $artfollow, $artimgcmtlike, $busimgcommnet, $busifollow, $buscommnet, $buslike, $buscmtlike, $busimgcmtlike, $busimglike);
-        $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_id");
+        $this->data['totalnotification'] = $totalnotification = $this->aasort($totalnotifi, "not_created_date");
 
         //  $notification .= '<div class="notification-data">';
         // $notification .= '<ul>';

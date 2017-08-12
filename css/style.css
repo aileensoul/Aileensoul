@@ -3925,17 +3925,18 @@ a:focus {
     }
      .all-list ul{
         display: inline-block;
+		padding:15px 0 10px;
      }
      .all-list ul li{
         padding:10px;
         display: inline-block;
         list-style-type: none;
         margin: 0;
-        float: left;
+        /*float: left;*/
      }
      .all-list ul li .list-box{
         width: 235px;
-        height: 255px;
+        height: 265px;
         background: #fff;
         border:1px solid #ddd;
         border-radius: 4px;
@@ -10117,6 +10118,8 @@ fieldset .add_post_btns:hover {
 .profile-job-profile-button ul li a.main_search_head{font-weight: 600; font-size: 16px; font-family: robotoregular;}
 .apply-btn a {
     border: 1px solid #1b8ab9;
+	min-width:72px;
+	text-align:center;
 }
 .dropdown-content2 a i {
     padding-right: 13px;
@@ -10512,7 +10515,7 @@ left: 48px;
 #notificationTitle .see_link a{color: black;
 font-size: 14px;
 float: right;
-padding: 4px !important;}
+padding: 0px 4px !important;}
 .butt_rec {
     background: #1b8ab9 !important;
     color: #fff !important;
@@ -14798,7 +14801,10 @@ text-align: center;}
 }
 .header ul li.dropdown-user a {
     padding-top: 13px !important;
-   
+   color:#d7ecf5;
+}
+.header ul li.dropdown-user a:hover{
+	color:#fff;
 }
 
 .header ul li a {
@@ -15109,8 +15115,9 @@ left: 5px;
 .header .mCSB_container ul li{width:100%; border-right:none;}
 .header .mCSB_container ul li a{padding-left:0; padding:0 10px 0 0 !important; width: 100%; letter-spacing:0;}
 .header .mCSB_container .day-text{padding-top:1px;}
-.header2 ul.notification_data_in_h2 li{border-right:0px !important;}
+.header2 .mCSB_container li{border-right:0px !important;}
 .header2 ul.notification_data_in_h2 li .data_noti_msg{margin-top:2px; width:100%; float:left;}
+header .mCSB_outside + .mCS-minimal.mCSB_scrollTools_vertical, header .mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {margin:0;}
 
 
 /***  media query  ***/

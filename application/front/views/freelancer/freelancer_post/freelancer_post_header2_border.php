@@ -62,13 +62,13 @@
                             <ul class="" id="dropdownclass">
                                
                                   
-      <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_apply_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_apply_post'); ?>"><span class="bu_home"></span></a>
+      <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_apply_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_apply_post'); ?>"><span class="home-22x22-h"></a>
                                     </li>
                                      <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
-                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
+                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="message3-24x24-h"></span>
 
                                             <span id="message_count"></span>
                                         </a>
@@ -98,13 +98,14 @@
                                         <div class="my_S">Account</div>
                                             
       </span>
-    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><span class="h2-img h2-srrt"></span> View Profile</a>
-    <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"><span class="h3-img h2-srrt"></span> Edit Profile</a>
-
+    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><span class="icon-view-profile edit_data"></span>
+      <span> View Profile </span></a>
+    <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"><span class="icon-edit-profile edit_data"></span>  
+      <span>Edit Profile </span></a>
     <?php
       $userid = $this->session->userdata('aileenuser');
       ?>
-    <a onClick="deactivate(<?php echo $userid; ?>)"><span class="h4-img h2-srrt"></span> Deactive Profile</a>
+    <a onClick="deactivate(<?php echo $userid; ?>)"><span class="icon-delete edit_data"></span>  <span>Deactive Profile</span></a>
   </div>
 </div>
                               </li>
@@ -153,14 +154,14 @@
                             <ul class="" id="dropdownclass">
                                
                                   
-      <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_apply_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_apply_post'); ?>"><span class="bu_home"></a>
+      <li <?php if(($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_apply_post')){?> class="active" <?php } ?>><a href="<?php echo base_url('freelancer/freelancer_apply_post'); ?>"><span class="home-22x22-h"></a>
                                     </li>
                                     
                                     <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
                                                            <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
                                         <?php } ?>
-                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
+                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><span class="message3-24x24-h"></span>
 
                                             <span id="message_count"></span>
                                         </a>
@@ -191,13 +192,15 @@
                                         <div class="my_S">Account</div>
                                             
       </span>
-    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><span class="h2-img h2-srrt"></span> View Profile</a>
-    <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"><span class="h3-img h2-srrt"></span> Edit Profile</a>
+    <a href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>"><span class="icon-view-profile edit_data"></span>
+      <span> View Profile </span></a>
+    <a href="<?php echo base_url('freelancer/freelancer_post_basic_information'); ?>"><span class="icon-edit-profile edit_data"></span>  
+      <span>Edit Profile </span></a>
 
     <?php
       $userid = $this->session->userdata('aileenuser');
       ?>
-    <a onClick="deactivate(<?php echo $userid; ?>)"><span class="h4-img h2-srrt"></span> Deactive Profile</a>
+    <a onClick="deactivate(<?php echo $userid; ?>)"><span class="icon-delete edit_data"></span>  <span>Deactive Profile</span></a>
   </div>
 </div>
                               </li>
@@ -320,9 +323,9 @@ $(document).ready(function() {
         } else
         {
             $('#message_count').html(msg);
-          //  $('#message_count').css({"background-color": "#FF4500", "padding": "3px 6px"});
+              $('#message_count').css({"background": "#FF4500" , "padding" : '4px 6px 4px 5.5px',"line-height" : '1',"border-radius":' 100%',"line-height": '9px' ,"font-size": '10px' });
             $('#InboxLink').addClass('msg_notification_available');
-                $('#message_count').addClass('count_add');
+           //     $('#message_count').addClass('count_add');
             //alert("welcome");
         }
 

@@ -735,7 +735,8 @@ var datepicker = document.getElementById('example2').value;
     }
      if(clicked_id==5)
     {
-            location.href = '<?php echo base_url('dashboard') ?>';
+           // location.href = '<?php echo base_url('dashboard') ?>';
+            return flase;
     }
        if(clicked_id==6)
     {

@@ -22,9 +22,9 @@ width: 25px; }
 .header2 ul li a.contact_notification_available .bu_req{  background-image: url(../img/icon_contact_request.png);}
 .dropdown_hover #art_profile:hover{color:white;}
 .dropdown_hover #art_profile{font-family: robotoregular; color: #d7ecf5; font-size: 15px; letter-spacing:0.5;}
-.u2{font-family: robotoregular; color: #d7ecf5;}
-.u2:hover{color: #fff;}
-.dropdown .img-circle{border: 2px solid #d7ecf5; background:#d7ecf5;}
+.u2{font-family: robotoregular; /*color: #d7ecf5;*/}
+/*.u2:hover{color: #fff;}
+*/.dropdown .img-circle{border: 2px solid #d7ecf5; background:#d7ecf5;}
 .header ul li a i{color: #d7ecf5;}
 .dropdown_hover span i {
     margin-right: -8px;
@@ -509,10 +509,15 @@ background-image: radial-gradient(ellipse farthest-corner at center, #FCFCFF 30%
 .header ul li a .header-icon-notification:hover{ background-position: -0px -32px; width: 32px; height: 32px; }
 .header-icon-notification{ background-position: -32px -32px; width: 32px; height: 32px; }
 
+.edit_data{margin-top: -4px;
+display: inline-block;
+vertical-align: middle;}
+
+
 
 .clonedInput h6{padding: 5px 0px;}
 .comment-edit-butn button{padding: 8px 10px;}
-#notificationContainer{overflow: hidden; border-radius: 3px;}
+#notificationContainer .content.mCustomScrollbar{overflow: hidden; border-radius: 3px;}
 .post-design-pro-img_follow{padding: 11px 5px 0px 5px;}
 .progress-bar{background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%) !important;}
 @media screen and (min-width: 768px) {

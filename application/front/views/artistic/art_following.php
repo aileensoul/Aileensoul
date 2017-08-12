@@ -262,7 +262,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                        if($artisticdata[0]['user_id'] == $userid)
                        { 
                         ?>
-                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a title="Followers"  href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo (count($flucount)); ?>)</a>
+                                    <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a title="Followers"  href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers <br> (<?php echo $flucount; ?>)</a>
                                     </li>
                             <?php }else{
 
@@ -282,7 +282,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                        $count = count($countdata);
 
                               ?> 
-                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a title="Followers"  href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo (count($count)); ?>)</a>
+                              <li <?php if($this->uri->segment(1) == 'artistic' && $this->uri->segment(2) == 'followers'){?> class="active" <?php } ?>><a title="Followers"  href="<?php echo base_url('artistic/followers/'.$artisticdata[0]['user_id']); ?>">Followers  <br>(<?php echo $count; ?>)</a>
                                     </li>
 
                             <?php }?> 

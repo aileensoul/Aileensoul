@@ -3931,6 +3931,10 @@
                         //alert(data);
                         success: function (data) {
                         $('#' + 'removepost' + abc).remove();
+                        var total_post = $('.post-design-box').length;
+                        if(total_post == 0){
+                            $('.art_no_post_avl').show();
+                        }
                         }
                 });
                 }
@@ -4944,7 +4948,9 @@
                                 percent.html(percentVal);
                         },
                         complete: function (response) { //alert(response.responseText);
-
+                        
+                        $('.art_no_post_avl').hide();
+                    
                         document.getElementById('test-upload_product').value = '';
                         document.getElementById('test-upload_des').value = '';
                         document.getElementById('file-1').value = '';
