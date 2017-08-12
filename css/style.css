@@ -10691,6 +10691,7 @@ display: initial;}
     background-color: #fff;
     /* border-left: 1px solid #e4e5e7;*/
 }
+a.mesg_link:hover, a.mesg_link:focus{color: white;}
 .people-list .search {
     padding-top: 16px!important;
     padding-right: 0px!important;
