@@ -3652,8 +3652,7 @@ public function delete_logo()
         
            $data = array(
                 'comp_logo' => ''
-                
-            );
+             );
 
            $updatedata = $this->common->update_data($data, 'recruiter','rec_id',$id);
     
@@ -3668,7 +3667,5 @@ public function delete_logo()
             die();
 }
 //DELETE LOGO END
-
-
-   
+ 
 }
