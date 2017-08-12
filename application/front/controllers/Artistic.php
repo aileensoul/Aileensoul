@@ -116,7 +116,7 @@ class Artistic extends MY_Controller {
        // echo "<pre>"; print_r($this->data['email1']); die();
         // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'art_name,designation');
 
 
         $return_array = array();
@@ -140,7 +140,7 @@ class Artistic extends MY_Controller {
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby = 'skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -167,7 +167,7 @@ class Artistic extends MY_Controller {
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -353,7 +353,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby = 'art_name,designation');
 
 
         $return_array = array();
@@ -377,7 +377,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby = 'skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -404,7 +404,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              $contition_array = array('status' => '1');
 
        
-        $citiesss = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $citiesss = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ='');
            
 
         //    
@@ -581,7 +581,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'art_name,designation');
 
 
         $return_array = array();
@@ -605,7 +605,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby = 'skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -632,7 +632,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby = '');
            
 
             foreach ($cty as $key => $value) {
@@ -783,7 +783,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='art_name,designation');
 
 
         $return_array = array();
@@ -807,7 +807,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -834,7 +834,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -1288,7 +1288,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $contition_array = array('status' => '1', 'is_delete' => '0', 'art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = 'art_name,designation');
 
 
         $return_array = array();
@@ -1312,7 +1312,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -1340,7 +1340,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -1410,7 +1410,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         $contition_array = array('status' => '1', 'is_delete' => '0' , 'art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='art_name,designation');
 
 
         $return_array = array();
@@ -1434,7 +1434,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -1461,7 +1461,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -3276,7 +3276,7 @@ $datacount = count($otherdata);
         $contition_array = array('status' => '1', 'is_delete' => '0', 'art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='art_name,designation');
 
 
         $return_array = array();
@@ -3300,7 +3300,7 @@ $datacount = count($otherdata);
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -3329,7 +3329,7 @@ $datacount = count($otherdata);
      $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -3455,7 +3455,7 @@ $datacount = count($otherdata);
         $contition_array = array('status' => '1', 'is_delete' => '0' ,'art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='art_name,designation');
 
 
         $return_array = array();
@@ -3479,7 +3479,7 @@ $datacount = count($otherdata);
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -3506,7 +3506,7 @@ $datacount = count($otherdata);
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -4148,7 +4148,7 @@ public function followtwo() {
         $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='art_name,designation');
 
 
         $return_array = array();
@@ -4172,7 +4172,7 @@ public function followtwo() {
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -4198,7 +4198,7 @@ public function followtwo() {
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -4284,7 +4284,7 @@ public function followtwo() {
         $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='art_name,designation');
 
 
         $return_array = array();
@@ -4308,7 +4308,7 @@ public function followtwo() {
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -4335,7 +4335,7 @@ public function followtwo() {
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
@@ -4525,7 +4525,7 @@ public function followtwo() {
         $contition_array = array('status' => '1', 'is_delete' => '0','art_step' => 4);
 
 
-        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artdata = $this->data['results'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='art_name,designation');
 
 
         $return_array = array();
@@ -4549,7 +4549,7 @@ public function followtwo() {
 
         $contition_array = array('status' => '1', 'type' => '2');
 
-        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $artpost = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
         // echo "<pre>"; print_r($artpost);die();
 
 
@@ -4570,7 +4570,7 @@ public function followtwo() {
              $contition_array = array('status' => '1');
 
        
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
            
 
             foreach ($cty as $key => $value) {
