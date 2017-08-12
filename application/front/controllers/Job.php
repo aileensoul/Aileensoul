@@ -162,14 +162,14 @@ class Job extends MY_Controller {
 // code for search
         $contition_array = array('re_status' => '1','re_step' => 3);
 
-        $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby="");
         // echo "<pre>"; print_r($results_recruiter);die();
 
         $contition_array = array('status' => '1');
-        $results_post = $this->data['results'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $results_post = $this->data['results'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="post_name");
         // echo "<pre>"; print_r($results_post);die();
         $contition_array = array('status' => '1', 'type' => '1');
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="skill");
         // echo "<pre>"; print_r($skill);die();
         // $return_array = array(); 
         //        //  //echo  $return_array;
@@ -201,7 +201,7 @@ class Job extends MY_Controller {
         }
 
  $contition_array = array('status' => '1');
-          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby="");
    
 
           foreach ($location_list as $key1 => $value1) {
@@ -2113,7 +2113,10 @@ class Job extends MY_Controller {
   //   echo '<pre>';     print_r($post); die();
         $contition_array = array('status' => 'publish','title_id' => $post[0]['work_job_title']);
         $jobtitle = $this->common->select_data_by_condition('job_title', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       // echo "<pre>";print_r($jobtitle);die();
 
+        $this->data['work_title'] = $jobtitle[0]['name'];
+       // echo $this->data['work_title'];die();
 
            //Job title data fetch start
         $contition_array = array('status' => 'publish');
@@ -2131,7 +2134,6 @@ class Job extends MY_Controller {
       $this->data['jobtitle'] = array_values($result1);
           //Job title data fetch ENd
 
-        $this->data['work_title'] = $jobtitle[0]['name'];
        $this->data['work_industry'] = $post[0]['work_job_industry'];
    //   echo $post[0]['keyskill'];
         $work_skill = explode(',', $post[0]['keyskill']); 
@@ -6566,6 +6568,7 @@ public function delete_workexp()
                     'user_id' => $userid,
                     'job_step' => 10
                 );
+        // echo "<pre>";print_r($data);die();
          
                 $insert_id = $this->common->insert_data_getid($data, 'job_reg');
                 if ($insert_id) {
