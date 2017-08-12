@@ -235,7 +235,7 @@
                                                 if ($board_primary1) {
                                                     echo $board_primary1;
                                                 }
-                                                ?>" maxlength="255">
+                                                ?>" maxlength="255" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
                                           </fieldset>
                                           <fieldset class="full-width">
                                              <h6>School :<span class="red">*</span></h6>
@@ -376,7 +376,7 @@
                                              if ($board_secondary1) {
                                                  echo $board_secondary1;
                                              }
-                                             ?>" maxlength="255">
+                                             ?>" maxlength="255" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
                                        </fieldset>
                                        <fieldset class="full-width">
                                           <h6>School :<span class="red">*</span></h6>
@@ -522,7 +522,7 @@
                                              if ($board_higher_secondary1) {
                                                  echo $board_higher_secondary1;
                                              }
-                                             ?>" maxlength="255">
+                                             ?>" maxlength="255" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
                                        </fieldset>
                                        <fieldset class="full-width">
                                           <h6>Stream :<span class="red">*</span></h6>
@@ -781,7 +781,7 @@
                                                 if ($college1) {
                                                  echo $college1;
                                                      }
-                                                     ?>" maxlength="255">
+                                                     ?>" maxlength="255" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
                                              <?php echo form_error('college'); ?>
                                              <!-- </fieldset>
                                                 <fieldset class="full-width"> -->
@@ -989,7 +989,7 @@
                                              if ($college1) {
                                                  echo $college1;
                                              }
-                                             ?>" maxlength="255">
+                                             ?>" maxlength="255" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value">
                                           <?php echo form_error('college'); ?>    
                                           <!--    </fieldset>
                                              <fieldset class=""> -->
@@ -3814,37 +3814,6 @@ $.fancybox.open('<div class="message"><h2>Are you sure you want to Delete this D
    //script for only jpg png image upload start
 </script>
 
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
-<script type="text/javascript">
-$(document).ready(function () {
-                    var input = $("#board_primary");
-                    var len = input.val().length;
-                    input[0].focus();
-                    input[0].setSelectionRange(len, len);
-                });
-
-$(document).ready(function () {
-                    var input = $("#board_secondary");
-                    var len = input.val().length;
-                    input[0].focus();
-                    input[0].setSelectionRange(len, len);
-                });
-
-$(document).ready(function () {
-                    var input = $("#board_higher_secondary");
-                    var len = input.val().length;
-                    input[0].focus();
-                    input[0].setSelectionRange(len, len);
-                });
-$(document).ready(function () {
-                    var input = $("#college1");
-                    var len = input.val().length;
-                    input[0].focus();
-                    input[0].setSelectionRange(len, len);
-                });
-
-</script>
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  
 
 
 <style type="text/css">

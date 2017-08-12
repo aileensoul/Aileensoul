@@ -174,7 +174,7 @@
                                 <?php echo form_open(base_url('job/job_insert'), array('id' => 'jobseeker_regform', 'name' => 'jobseeker_regform', 'class' => 'clearfix')); ?>
                                 <fieldset>
                                     <label >First Name <font  color="red">*</font> :</label>
-                                    <input type="text" name="first_name" id="first_name" tabindex="1" placeholder="Enter your First Name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php echo $job[0]['first_name'];?>" maxlength="35">
+                                    <input type="text" name="first_name" id="first_name" tabindex="1" placeholder="Enter your First Name" style="text-transform: capitalize;" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value" value="<?php echo $job[0]['first_name'];?>" maxlength="35">
                                 </fieldset>
                                 <fieldset>
                                     <label >Last Name <font  color="red">*</font>:</label>

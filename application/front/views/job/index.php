@@ -312,7 +312,7 @@ $pincode_error = form_error('pincode_error');
 
                                 <fieldset <?php if ($fname) { ?> class="error-msg" <?php } ?>>
                                     <label>First Name :<span class="red">*</span></label>
-                                    <input type="text" tabindex="1" autofocus name="fname" id="fname" placeholder="Enter First name" style="text-transform: capitalize;" onfocus="this.value = this.value;" value="<?php if ($fname1) {
+                                    <input type="text" tabindex="1" autofocus name="fname" id="fname" placeholder="Enter First name" style="text-transform: capitalize;" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value" value="<?php if ($fname1) {
                                         echo $fname1;
                                     } else {
                                         echo $job[0]['first_name'];
@@ -1169,18 +1169,6 @@ else
             }
         </script>
 <!-- THIS FUNCTION IS USED FOR PASTE SAME DESCRIPTION THAT COPIED END -->  
-
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE START -->  
-<script type="text/javascript">
-$(document).ready(function () {
-                    var input = $("#fname");
-                    var len = input.val().length;
-                    input[0].focus();
-                    input[0].setSelectionRange(len, len);
-                });
-</script>
-<!-- THIS FUNCTION IS USED FOR CURSOR END WHEN TEXT COMPLETE END -->  
-
 
 <style type="text/css">
     .date-dropdowns label{margin-top: 42px !important;}
