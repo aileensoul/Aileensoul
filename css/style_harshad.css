@@ -520,6 +520,10 @@ vertical-align: middle;}
 #notificationContainer .content.mCustomScrollbar{overflow: hidden; border-radius: 3px;}
 .post-design-pro-img_follow{padding: 11px 5px 0px 5px;}
 .progress-bar{background: linear-gradient(354deg, #1b8ab9 0%, #1b8ab9 44%, #3bb0ac 100%) !important;}
+.header2 ul li a{padding:8px 12px;}
+.header2 ul li a#InboxLink{padding:12px 12px 4px;}
+
+
 @media screen and (min-width: 768px) {
 	.mob-progressbar.temp{display:none !important;}
 }
