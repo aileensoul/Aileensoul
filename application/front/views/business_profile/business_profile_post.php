@@ -1901,6 +1901,21 @@
                 </div>
             </div>
         </div>
+        
+        
+        <div class="modal fade message-box biderror" id="posterrormodal" role="dialog">
+            <div class="modal-dialog modal-lm">
+                <div class="modal-content">
+                    <button type="button" class="posterror-modal-close" data-dismiss="modal">&times;
+                    </button>       
+                    <div class="modal-body">
+                      <!--<img class="icon" src="images/dollar-icon.png" alt="" />-->
+                        <span class="mes">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Model Popup Close -->
 
         <!-- Bid-modal-2  -->
@@ -3473,7 +3488,7 @@
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3503,14 +3518,14 @@
     if (foundPresent1 == true && fileInput.length <= 10) {
     } else {
     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-    $('#bidmodal').modal('show');
+    $('#posterrormodal').modal('show');
     //setInterval('window.location.reload()', 10000);
     // window.location='';
 
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3523,13 +3538,13 @@
     if (foundPresent1 == true && fileInput.length == 1) {
     } else {
     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-    $('#bidmodal').modal('show');
+    $('#posterrormodal').modal('show');
     // setInterval('window.location.reload()', 10000);
 
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3543,13 +3558,13 @@
 
     if (product_name == '') {
     $('.biderror .mes').html("<div class='pop_content'>You have to add audio title.");
-    $('#bidmodal').modal('show');
+    $('#posterrormodal').modal('show');
     //setInterval('window.location.reload()', 10000);
 
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3559,13 +3574,13 @@
 
     } else {
     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
-    $('#bidmodal').modal('show');
+    $('#posterrormodal').modal('show');
     //setInterval('window.location.reload()', 10000);
 
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3579,13 +3594,13 @@
 
     if (product_name == '') {
     $('.biderror .mes').html("<div class='pop_content'>You have to add pdf title.");
-    $('#bidmodal').modal('show');
+    $('#posterrormodal').modal('show');
     //setInterval('window.location.reload()', 10000);
 
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3598,13 +3613,13 @@
     } else {
     $('.biderror .mes').html("<div class='pop_content'>You can only upload one type of file at a time...either photo or video or audio or pdf.");
     }
-    $('#bidmodal').modal('show');
+    $('#posterrormodal').modal('show');
     // setInterval('window.location.reload()', 10000);
 
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3631,13 +3646,13 @@
     else if (foundPresentvideo == false) {
 
     $('.biderror .mes').html("<div class='pop_content'>This File Format is not supported Please Try to Upload MP4 or WebM files..");
-    $('#bidmodal').modal('show');
+    $('#posterrormodal').modal('show');
     // setInterval('window.location.reload()', 10000);
 
     $(document).on('keydown', function (e) {
     if (e.keyCode === 27) {
     //$( "#bidmodal" ).hide();
-    $('#bidmodal').modal('hide');
+    $('#posterrormodal').modal('hide');
     $('.modal-post').show();
     }
     });
@@ -3994,7 +4009,7 @@
     $('#likeusermodal').modal('hide');
     }
     });
-    $('.modal-close').on('click', function () {
+    $('.posterror-modal-close').on('click', function () {
     $('#myModal').modal('show');
     $("#test-upload-product").prop("readonly", false);
     });</script>
