@@ -71,17 +71,17 @@
  
 
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/timeline.css'); ?>">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css" rel="stylesheet" /> 
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
+   <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/jquery.datetimepicker.css'); ?>"> -->
  <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" /> 
 
 
    <!-- This Css is used for call popup -->
-   <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-
+<!--    <link rel="stylesheet" href="<?php //echo base_url() ?>css/bootstrap.min.css" />
+ -->
 
 <!-- <script src="<?php //echo base_url('js/fb_login.js'); ?>"></script> -->
  
@@ -624,17 +624,17 @@
 
 </script>
 
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
-<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
- <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<!-- <script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script> 
+ --><!-- <script src="<?php //echo base_url('js/jquery.wallform.js'); ?>"></script>
+ <script src="<?php// echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php// echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php// echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> -->
 <!--  <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
  -->
 
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script>
+<!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
+<script type="text/javascript" src="<?php //echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script> -->
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
@@ -660,8 +660,8 @@ $(document).ready(function () {
 
 <!-- script for date start -->
 
-<script src="<?php echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
-
+<!-- <script src="<?php //echo base_url('js/jquery.date-dropdowns.js'); ?>"></script>
+ -->
 
 <script>
 $(function() {
@@ -1310,21 +1310,23 @@ if(mm<10) {
 //Leave Page on add and edit post page start
     function leave_page(clicked_id)
 {
-
-//alert(clicked_id);
+alert(clicked_id);
  
  var post_name = document.getElementById('post_name').value;
- var skills = document.getElementById('skills').value;
- var other_skill = document.getElementById('other_skill').value;
+ var skills = document.getElementById('skills2').value;
+  var position = document.getElementById('position').value;
  var minyear = document.getElementById('minyear').value;
- //var minmonth = document.getElementById('minmonth').value;
  var maxyear = document.getElementById('maxyear').value;
- //var maxmonth = document.getElementById('maxmonth').value;
+ var industry = document.getElementById('industry').value;
+ var emp_type = document.getElementById('emp_type').value;
+ var education = document.getElementById('education').value;
+ var other_education = document.getElementById('other_education').value;
  var post_desc = document.getElementById('post_desc').value;
  var interview = document.getElementById('interview').value;
  var country = document.getElementById('country').value;
  var state = document.getElementById('state').value;
  var city = document.getElementById('city').value;
+  var salary_type = document.getElementById('salary_type').value;
  var datepicker = document.getElementById('example2').value;
  var minsal = document.getElementById('minsal').value;
  var maxsal = document.getElementById('maxsal').value;
@@ -1332,11 +1334,11 @@ if(mm<10) {
  
     var searchkeyword =$.trim(document.getElementById('tags').value);
         var searchplace =$.trim(document.getElementById('searchplace').value);
-        // alert(searchkeyword);
+         alert(datepicker);
        
- if(post_name=="" && skills=="" && other_skill=="" && minyear==""  && maxyear=="" &&  post_desc=="" && interview=="" && country=="" && state=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
+ if(post_name=="" && skills==""  &&  position == "" && minyear==""  && maxyear=="" && industry=="" && emp_type=="" && education=="" && other_education=="" &&  post_desc=="" && interview=="" && country=="" && state=="" && salary_type=="" && datepicker=="" && minsal=="" && maxsal=="" && currency=="" && searchkeyword =="" && searchplace =="")
  {
-    
+    alert("hi");
     if(clicked_id==1)
     {
             location.href = '<?php echo base_url() ?>recruiter/recommen_candidate';
@@ -1405,14 +1407,14 @@ if(mm<10) {
  else
  {
   
-
+alert("hi1");
       return home(clicked_id,searchkeyword,searchplace);
 
  }
 
     }
       function home(clicked_id,searchkeyword,searchplace) {
-  
+  alert("gg");
                               
       $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile("+ clicked_id +','+'"'+ searchkeyword + '"'+','+'"'+ searchplace + '"' +")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
           $('#bidmodal').modal('show');
