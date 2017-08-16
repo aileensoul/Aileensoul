@@ -3598,7 +3598,7 @@ public function ajax_designation() {
             'not_status' => 0,
             'not_product_id' => $insert_id,
             'not_from' => 1,
-             "not_active" => 1, 
+            "not_active" => 1, 
             'not_created_date' => date('y-m-d h:i:s'),
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');
@@ -3668,5 +3668,18 @@ public function delete_logo()
             die();
 }
 //DELETE LOGO END
+
+// recruiter available chek
+public function rec_avail_check($userid = " ") 
+ {
+   $contition_array = array('rec_id' => $userid, 'is_delete' => '1');
+   $availuser = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+     
+        if (count($availuser) >= 0) 
+        {
+       $this->load->view('artistic/notavalible', $this->data);
+         }
+    }
+// recruiter available chek
    
 }

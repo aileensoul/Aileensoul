@@ -269,7 +269,7 @@
                                       </select> -->
 
 
-                                      <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90">
+                                      <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  size="90" placeholder="Enter Skill">
 
                                         <?php echo form_error('skills'); ?>
                                     </fieldset>

@@ -24,7 +24,7 @@ class General extends MY_Controller {
    $searchTerm = $_GET['term']; 
       if (!empty($searchTerm)) {
      $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
-     $citylist = $this->common->select_data_by_search('cities', $search_condition,$contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     $citylist = $this->common->select_data_by_search('cities', $search_condition,$contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
      }
       foreach($citylist as $key => $value){
         //   $citydata[$key]['id'] = $value['id'];
@@ -83,7 +83,7 @@ class General extends MY_Controller {
       if (!empty($searchTerm)) {
            $contition_array = array('status' => 1);
      $search_condition = "(language_name LIKE '" . trim($searchTerm) . "%')";
-     $languagelist = $this->common->select_data_by_search('language', $search_condition,$contition_array, $data = 'language_name as text', $sortby = 'language_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+     $languagelist = $this->common->select_data_by_search('language', $search_condition,$contition_array, $data = 'language_name as text', $sortby = 'language_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str5 = '', $groupby = 'language_name');
      }
       foreach($languagelist as $key => $value){
         //   $citydata[$key]['id'] = $value['id'];
