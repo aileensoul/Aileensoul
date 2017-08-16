@@ -18,9 +18,9 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-        <!-- <script src="<?php //echo base_url('js/jquery.min.js');                                                  ?>"></script> -->
-        <!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');         ?>"></script>
-           <script src="<?php //echo base_url('js/jquery.wallform.js');         ?>"></script> -->
+        <!-- <script src="<?php //echo base_url('js/jquery.min.js');                                                   ?>"></script> -->
+        <!-- <script src="<?php //echo base_url('js/jquery-ui.min.js');          ?>"></script>
+           <script src="<?php //echo base_url('js/jquery.wallform.js');          ?>"></script> -->
         <script>
             $(document).ready(function ()
             {
@@ -111,13 +111,13 @@
                                               tabindex="-1" aria-hidden="true" rel="noopener" title="<?php echo $businessdata[0]['company_name']; ?>">
                                              
                             <?php if ($businessdata[0]['profile_background'] != '') { ?>
-                                                                   <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                                   </div> <?php
+                                                                       <div>  <img src="<?php echo base_url($this->config->item('bus_bg_thumb_upload_path') . $businessdata[0]['profile_background']); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                                       </div> <?php
                             } else {
                                 ?>
-                                                                   <div> 
-                                                                       <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
-                                                                   </div> <?php } ?>
+                                                                       <div> 
+                                                                           <img src="<?php echo base_url(WHITEIMAGE); ?>" class="bgImage" alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                                       </div> <?php } ?>
                                            </a>
                                        </div>
                                        <div class="profile-boxProfileCard-content clearfix">
@@ -126,12 +126,12 @@
                             <?php
                             if ($businessdata[0]['business_user_image']) {
                                 ?>
-                                                                       <div> 
-                                                                           <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
-                                                                       </div>
+                                                                           <div> 
+                                                                               <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" style="height: 77px; width: 71px; z-index: 3; position: relative; ">
+                                                                           </div>
                             <?php } else { ?> <div> 
-                                                                           <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
-                                                                       </div>  <?php } ?>                           
+                                                                               <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo $businessdata[0]['company_name']; ?>">
+                                                                           </div>  <?php } ?>                           
                                                    </a>
                                            </div>
                                            <div class="profile-box-user  profile-text-bui-user  fr col-md-9">
@@ -209,32 +209,33 @@
                                                     ?>
                                                     <div class="left_iner_img_profile">
 
-<?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
-                                                                $a = $businessdata[0]['company_name'];
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-profile">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
+                                                        <?php
+                                                        if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
+                                                            $a = $businessdata[0]['company_name'];
+                                                            $acr = substr($a, 0, 1);
+                                                            ?>
+                                                            <div class="post-img-profile">
+                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                            </div> 
+                                                            <?php
+                                                        } else {
+                                                            ?>
 
-                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
+                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="<?php echo $businessdata[0]['company_name']; ?>" >
 
-                                                        <?php }?>
+                                                        <?php } ?>
                                                     </div>
                                                 <?php } else { ?>
                                                     <div class="left_iner_img_profile">  
-                                                         <?php 
-                                          $a = $businessdata[0]['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-profile">
-                                            <?php echo  ucfirst(strtolower($acr))?>
-                                            </div>
+                                                        <?php
+                                                        $a = $businessdata[0]['company_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-profile">
+    <?php echo ucfirst(strtolower($acr)) ?>
+                                                        </div>
                                                     </div>
-                                                <?php } ?>                           
+<?php } ?>                           
                                                 <!-- 
                                                    <img class="profile-boxProfileCard-avatarImage js-action-profile-avatar" src="images/imgpsh_fullsize (2).jpg" alt="" style="    height: 68px;
                                                    width: 68px;">
@@ -243,13 +244,13 @@
                                         </div>
                                         <div class="right_left_box_design ">
                                             <span class="profile-company-name ">
-                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo  ucfirst(strtolower($businessdata[0]['company_name'])); ?>"> 
-                                                    <?php echo  ucfirst(strtolower($businessdata[0]['company_name'])); ?>
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucfirst(strtolower($businessdata[0]['company_name'])); ?>"> 
+<?php echo ucfirst(strtolower($businessdata[0]['company_name'])); ?>
                                                 </a> 
                                             </span>
-                                            <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+<?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                             <div class="profile-boxProfile-name">
-                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo  ucfirst(strtolower($businessdata[0]['company_name'])); ?>" >
+                                                <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucfirst(strtolower($businessdata[0]['company_name'])); ?>" >
                                                     <?php
                                                     if ($category) {
                                                         echo $category;
@@ -262,20 +263,20 @@
                                             <ul class=" left_box_menubar">
                                                 <li
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" 
-                                                    <?php } ?>>
+<?php } ?>>
                                                     <a  class="padding_less_left" title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post'); ?>">Dashboard
                                                     </a>
                                                 </li>
                                                 <li 
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" 
-                                                    <?php } ?>>
+<?php } ?>>
                                                     <a title="Followers" href="<?php echo base_url('business_profile/followers'); ?>">Followers 
                                                         <br> (<?php echo (count($businessfollowerdata)); ?>)
                                                     </a>
                                                 </li>
                                                 <li  
                                                     <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" 
-                                                    <?php } ?>>
+<?php } ?>>
                                                     <a  class="padding_less_right" title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata[0]['business_slug']); ?>">Following 
                                                         <br> (<?php echo (count($businessfollowingdata)); ?>) 
                                                     </a>
@@ -311,7 +312,6 @@
                                 <div class="post-design-top col-md-12" >
                                     <div class="post-design-pro-img " style="padding-left: 17px;"> 
                                         <?php
-
                                         $companyname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->company_name;
 
 
@@ -330,61 +330,63 @@
                                             <?php if ($userimageposted) { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
 
-                                                  <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userimageposted)) {
-                                                                $a = $companynameposted;
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-div">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
+                                                    <?php
+                                                    if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userimageposted)) {
+                                                        $a = $companynameposted;
+                                                        $acr = substr($a, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                        </div> 
+                                                        <?php
+                                                    } else {
+                                                        ?>
 
-                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
+                                                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $userimageposted); ?>" name="image_src" id="image_src" />
 
-                                                    <?php }?>
+                                                    <?php } ?>
                                                 </a>
                                             <?php } else { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>">
-                                                    <?php 
-                                          $a = $companynameposted;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo   ucfirst(strtolower($acr))?>
-                                            </div>
+                                                    <?php
+                                                    $a = $companynameposted;
+                                                    $acr = substr($a, 0, 1);
+                                                    ?>
+                                                    <div class="post-img-div">
+        <?php echo ucfirst(strtolower($acr)) ?>
+                                                    </div>
                                                 </a>
                                             <?php } ?>
                                         <?php } else { ?>
-                                            <?php if ($business_userimage) { ?>
+    <?php if ($business_userimage) { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
 
 
-                                                  <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
-                                                                $a = $companyname;
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-div">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
+                                                    <?php
+                                                    if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                        $a = $companyname;
+                                                        $acr = substr($a, 0, 1);
+                                                        ?>
+                                                        <div class="post-img-div">
+                                                        <?php echo ucfirst(strtolower($acr)) ?>
+                                                        </div> 
+                                                        <?php
+                                                    } else {
+                                                        ?>
 
-                                                    <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
 
-                                                    <?php }?>
+                                                <?php } ?>
                                                 </a>
-                                            <?php } else { ?>
+                                                <?php } else { ?>
                                                 <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>">
-                                                    <?php 
-                                          $a = $companyname;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo   ucfirst(strtolower($acr))?>
-                                            </div>
+                                                    <?php
+                                                    $a = $companyname;
+                                                    $acr = substr($a, 0, 1);
+                                                    ?>
+                                                    <div class="post-img-div">
+                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                    </div>
                                                 </a>
                                                 <?php
                                             }
@@ -394,8 +396,6 @@
                                     <div class="post-design-name fl col-xs-8 col-md-10">
                                         <ul>
                                             <?php
-                                            
-
                                             $slugname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->business_slug;
 
                                             $categoryid = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->industriyal;
@@ -410,9 +410,9 @@
                                                 <li>
                                                     <div class="else_post_d">
                                                         <div class="post-design-product">
-                                                            <a  class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo  ucfirst(strtolower($companynameposted)); ?></a>
+                                                            <a  class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucfirst(strtolower($companynameposted)); ?></a>
                                                             <p class="posted_with" > Posted With </p>
-                                                            <a  class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo  ucfirst(strtolower($companyname)); ?></a>
+                                                            <a  class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucfirst(strtolower($companyname)); ?></a>
                                                             <span role="presentation" aria-hidden="true"> · </span><span class="ctre_date"  >
                                                                 <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>                     
                                                             </span> 
@@ -421,7 +421,7 @@
                                                 </li>
                                             <?php } else { ?>
                                                 <li>
-                                                    <div class="post-design-product"><a class="post_dot" href="<?php echo base_url('business_profile/business_resume/' . $slugname); ?>"> <span class="span_main_name">  <?php echo  ucfirst(strtolower($companyname)); ?> </span> </a>
+                                                    <div class="post-design-product"><a class="post_dot" href="<?php echo base_url('business_profile/business_resume/' . $slugname); ?>"> <span class="span_main_name">  <?php echo ucfirst(strtolower($companyname)); ?> </span> </a>
                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                         <span> 
                                                             <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($busienss_data[0]['created_date']))); ?>      
@@ -433,9 +433,9 @@
                                                 <div class="post-design-product"><a>
                                                         <?php
                                                         if ($category) {
-                                                            echo  ucfirst(strtolower($category));
+                                                            echo ucfirst(strtolower($category));
                                                         } else {
-                                                            echo  ucfirst(strtolower($busienss_data[0]['other_industrial']));
+                                                            echo ucfirst(strtolower($busienss_data[0]['other_industrial']));
                                                         }
                                                         ?>
                                                     </a>
@@ -557,14 +557,14 @@
                                                     <!-- two image start -->
                                                     <div class="one-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
-                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
                                                 <?php } elseif (count($businessmultiimage) == 2) { ?>
                                                     <!-- two image start -->
                                                     <div class="one-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
-                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
                                                 <?php } elseif (count($businessmultiimage) == 3) { ?>
@@ -574,7 +574,7 @@
                                                     <!-- two image start -->
                                                     <div class="one-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
-                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
                                                     <?php // }    ?>
@@ -582,13 +582,13 @@
                                                     <!-- two image start -->
                                                     <div class="one-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>" onclick="openModal();
-                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <!-- two image end -->
                                                 <?php } else { ?>
                                                     <div class="one-image" >
                                                         <img src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $data['image_name']) ?>"  onclick="openModal();
-                                                            currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
+                                                                        currentSlide(<?php echo $i; ?>)" class="hover-shadow cursor">
                                                     </div>
                                                     <?php
                                                 }
@@ -648,7 +648,7 @@
 
                                                     if (!in_array($userid, $likeuserarray)) {
                                                         ?>               
-                                                                   <!--<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>-->
+                                                                       <!--<i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i>-->
                                                         <i class="fa fa-thumbs-up fa-1x" style="color: #999;" aria-hidden="true"></i>
                                                     <?php } else { ?> 
                                                         <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
@@ -744,7 +744,7 @@
                                                     echo "You";
                                                     echo "&nbsp;";
                                                 } else {
-                                                    echo  ucfirst(strtolower($business_fname1));
+                                                    echo ucfirst(strtolower($business_fname1));
                                                     echo "&nbsp;";
                                                 }
                                                 ?>
@@ -789,7 +789,7 @@
                                         ?>
                                         <div class="like_one_other">
                                             <?php
-                                            echo  ucfirst(strtolower($business_fname1));
+                                            echo ucfirst(strtolower($business_fname1));
                                             echo "&nbsp;";
                                             ?>
                                             <?php
@@ -899,49 +899,48 @@
                                             if ($businessprofiledata) {
                                                 foreach ($businessprofiledata as $rowdata) {
                                                     $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
+                                                    $companyslug = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->business_slug;
                                                     ?>
                                                     <div class="all-comment-comment-box">
-                                                        <div class="post-design-pro-comment-img"> 
-                                                            <?php
-                                                            $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
-                                                            if ($business_userimage != '') {
-                                                                ?>
+                                                        <div class="post-design-pro-comment-img"><a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $companyslug) ?>"> 
+                                                                <?php
+                                                                $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
+                                                                if ($business_userimage != '') {
+                                                                    ?>
 
-
-                              <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
-                                                                $a = $companyname;
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-div">
+                                                                    <?php
+                                                                    if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                                        $a = $companyname;
+                                                                        $acr = substr($a, 0, 1);
+                                                                        ?>
+                                                                        <div class="post-img-div">
+                                                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                                        </div> 
+                                                                        <?php
+                                                                    } else {
+                                                                        ?>
+                                                                        <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                                    <?php } ?>
+                                                                    <?php
+                                                                } else {
+                                                                    ?>
+                                                                    <?php
+                                                                    $a = $companyname;
+                                                                    $acr = substr($a, 0, 1);
+                                                                    ?>
+                                                                    <div class="post-img-div">
                                                                     <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
+                                                                    </div>
+                                                                    <?php
+                                                                }
                                                                 ?>
-                                                                                                  
-                                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
-
-                                                                <?php }?>
-                                                                <?php
-                                                            } else {
-                                                                ?>
-                                                                <?php 
-                                          $a = $companyname;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo   ucfirst(strtolower($acr))?>
-                                            </div>
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </div>
+                                                            </a></div>
                                                         <div class="comment-name">
-                                                            <b>  <?php
+                                                            <b> <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $companyslug) ?>"> <?php
                                                                 echo $companyname;
                                                                 echo '</br>';
                                                                 ?>
-                                                            </b>
+                                                                </a></b>
                                                         </div>
                                                         <div class="comment-details" id= "<?php echo "showcomment" . $rowdata['business_profile_post_comment_id']; ?>">
                                                             <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
@@ -996,7 +995,7 @@
                                                                         <i class="fa fa-thumbs-up fa-1x" aria-hidden="true"></i> 
                                                                     <?php } else { ?>
                                                                         <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
-                                                                    <?php } ?>
+                                                                        <?php } ?>
                                                                     <span>
                                                                         <?php
                                                                         if ($rowdata['business_comment_likes_count']) {
@@ -1037,7 +1036,7 @@
                                                                         </span>
                                                                     </a>
                                                                 </div>
-                                                            <?php } ?>                                       
+        <?php } ?>                                       
                                                             <span role="presentation" aria-hidden="true"> · </span>
                                                             <div class="comment-details-menu">
                                                                 <p><?php
@@ -1067,28 +1066,29 @@
                                         if ($business_userimage) {
                                             ?>
 
-<?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
-                                                                $a = $business_user;
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-div">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
-                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                            <?php
+                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
+                                                $a = $business_user;
+                                                $acr = substr($a, 0, 1);
+                                                ?>
+                                                <div class="post-img-div">
+                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                </div> 
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
 
-                                            <?php }?>
+                                            <?php } ?>
                                             <?php
                                         } else {
                                             ?>
-                                            <?php 
-                                          $a = $business_user;
-                                          $acr = substr($a, 0, 1);?>
+                                            <?php
+                                            $a = $business_user;
+                                            $acr = substr($a, 0, 1);
+                                            ?>
                                             <div class="post-img-div">
-                                            <?php echo   ucfirst(strtolower($acr))?>
+                                            <?php echo ucfirst(strtolower($acr)) ?>
                                             </div>
                                             <?php
                                         }
@@ -1097,11 +1097,11 @@
 
                                     <div class="col-md-12 inputtype-comment cmy_2">
                                         <div contenteditable="true" class="editable_text" name="<?php echo $busienss_data[0]['business_profile_post_id']; ?>"  id="<?php echo "post_comment" . $busienss_data[0]['business_profile_post_id']; ?>" placeholder="Add a Comment ..." value= "" onClick="entercomment(<?php echo $busienss_data[0]['business_profile_post_id']; ?>)" onpaste="OnPaste_StripFormatting(this, event);"></div>
-                                   
- <div class="mob-comment">
-              <button  id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)"><img src="<?php echo base_url('img/send.png') ?>"></button> 
-              
-               </div>
+
+                                        <div class="mob-comment">
+                                            <button  id="<?php echo $busienss_data[0]['business_profile_post_id']; ?>" onClick="insert_comment(this.id)"><img src="<?php echo base_url('img/send.png') ?>"></button> 
+
+                                        </div>
 
                                     </div>
                                     <div class="comment-edit-butn  hidden-mob">        
@@ -1163,7 +1163,7 @@
                                                     <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
                                                 <?php } else { ?>
                                                     <i class="fa fa-thumbs-up fa-1x " aria-hidden="true"></i>
-                                                <?php } ?>
+                                                    <?php } ?>
                                                 <span class="<?php echo 'likeimage' . $busdata['image_id']; ?>"> <?php
                                                     $contition_array = array('post_image_id' => $busdata['image_id'], 'is_unlike' => 0);
                                                     $likecount = $this->common->select_data_by_condition('bus_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -1201,8 +1201,8 @@
 
                                                     </span> 
                                                     <span> Comment</span>
-                                                <?php }
-                                                ?> 
+        <?php }
+        ?> 
                                             </div>
                                         </li>
 
@@ -1215,8 +1215,8 @@
                                                         ?>
                                                     </span> 
                                                     <span> Like</span>
-                                                <?php }
-                                                ?> 
+        <?php }
+        ?> 
 
                                             </div>
                                         </li>
@@ -1256,7 +1256,7 @@
                                                 echo "You";
                                                 echo "&nbsp;";
                                             } else {
-                                                echo  ucfirst(strtolower($business_fname1));
+                                                echo ucfirst(strtolower($business_fname1));
                                                 echo "&nbsp;";
                                             }
                                             ?>
@@ -1269,7 +1269,7 @@
                                                 echo "&nbsp;";
                                                 echo "others";
                                                 ?> 
-                                            <?php } ?>
+            <?php } ?>
                                         </div>
                                     </a>
                                 </div>
@@ -1299,7 +1299,7 @@
                                     ?>
                                     <div class="like_one_other_img" style="">
                                         <?php
-                                        echo  ucfirst(strtolower($business_fname1));
+                                        echo ucfirst(strtolower($business_fname1));
                                         echo "&nbsp;";
                                         ?>
                                         <?php
@@ -1311,7 +1311,7 @@
                                             echo "&nbsp;";
                                             echo "others";
                                             ?> 
-                                        <?php } ?>
+        <?php } ?>
                                     </div>
                                 </a>
                             </div>
@@ -1329,7 +1329,7 @@
                                                 $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
                                                 ?>
                                                 <div class="all-comment-comment-box">
-                                                    <div class="post-design-pro-comment-img"> 
+                                                    <div class="post-design-pro-comment-img"> <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $companyslug) ?>">
                                                         <?php
                                                         $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                                                         if ($business_userimage != '') {
@@ -1341,34 +1341,35 @@
                                                                 $acr = substr($a, 0, 1);
                                                                 ?>
                                                                 <div class="post-img-div">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                <?php echo ucfirst(strtolower($acr)) ?>
                                                                 </div> 
                                                                 <?php
                                                             } else {
                                                                 ?>
 
-                                                            <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
-                                                            <?php }?>
+                                                                <img  src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage); ?>"  alt="">
+                                                            <?php } ?>
 
                                                             <?php
                                                         } else {
                                                             ?>
-                                                             <?php 
-                                          $a = $companyname;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo   ucfirst(strtolower($acr))?>
-                                            </div>
                                                             <?php
-                                                        }
-                                                        ?>
+                                                            $a = $companyname;
+                                                            $acr = substr($a, 0, 1);
+                                                            ?>
+                                                            <div class="post-img-div">
+                                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                            </div>
+                    <?php
+                }
+                ?></a>
                                                     </div>
                                                     <div class="comment-name">
-                                                        <b>  <?php
-                                                            echo  ucfirst(strtolower($companyname));
-                                                            echo '</br>';
-                                                            ?>
-                                                        </b>
+                                                        <b>  <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $companyslug) ?>"><?php
+                echo ucfirst(strtolower($companyname));
+                echo '</br>';
+                ?>
+                                                            </a></b>
                                                     </div>
                                                     <div class="comment-details" id= "<?php echo "imgshowcomment" . $rowdata['post_image_comment_id']; ?>">
                                                         <?php
@@ -1412,7 +1413,7 @@
                                                                 <?php } else {
                                                                     ?>
                                                                     <i class="fa fa-thumbs-up main_color" aria-hidden="true"></i>
-                                                                <?php } ?>
+                                                                    <?php } ?>
                                                                 <span>
                                                                     <?php
                                                                     $contition_array = array('post_image_comment_id' => $rowdata['post_image_comment_id'], 'is_unlike' => '0');
@@ -1456,15 +1457,15 @@
                                                                 <a id="<?php echo $rowdata['post_image_comment_id']; ?>"   onClick="imgcomment_delete(this.id)"> Delete<span class="<?php echo 'imginsertcomment' . $rowdata['post_image_comment_id']; ?>">
                                                                     </span> </a> 
                                                             </div>
-                                                        <?php } ?>
+                <?php } ?>
                                                         <!-- comment delete end -->
                                                         <!-- created date start -->
                                                         <span role="presentation" aria-hidden="true"> · </span>
                                                         <div class="comment-details-menu">
                                                             <p><?php
-                                                                echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
-                                                                echo '</br>';
-                                                                ?>
+                echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($rowdata['created_date'])));
+                echo '</br>';
+                ?>
                                                             </p>
                                                         </div>
                                                         <!-- created date end -->
@@ -1497,15 +1498,16 @@
                                         <?php
                                     } else {
                                         ?>
-                                        <?php 
-                                          $a = $business_user;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-div">
-                                            <?php echo   ucfirst(strtolower($acr))?>
-                                            </div>
-                                        <?php
-                                    }
-                                    ?>
+                                            <?php
+                                            $a = $business_user;
+                                            $acr = substr($a, 0, 1);
+                                            ?>
+                                        <div class="post-img-div">
+                                        <?php echo ucfirst(strtolower($acr)) ?>
+                                        </div>
+            <?php
+        }
+        ?>
                                 </div>
 
                                 <div class="col-md-12 inputtype-comment cmy_2">
@@ -1518,15 +1520,15 @@
                             </div>
                             <!-- insert comment code end -->
                         </div>
-                        <?php
-                    }
-                    ?>
+                    <?php
+                }
+                ?>
                     <!-- like comment end -->
                 </div>
-                <?php
-                $i++;
-            }
-            ?>
+    <?php
+    $i++;
+}
+?>
             <!-- slider image rotation end  -->
             <a class="prev" style="left: 0px" onclick="plusSlides( - 1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -1538,7 +1540,7 @@
     <!-- slider end -->
 </section>
 <footer>
-    <?php // echo $footer;            ?> 
+<?php // echo $footer;             ?> 
     <!-- Bid-modal  -->
     <div class="modal fade message-box biderror" id="bidmodal" role="dialog" style="z-index: 999999 !important;">
         <div class="modal-dialog modal-lm">
@@ -1643,92 +1645,84 @@
     });</script>
 
 
-    <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data = <?php echo json_encode($demo); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#tags1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#tag1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#tags1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
 <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data1 = <?php echo json_encode($de); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#searchplace1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data1, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
+    jQuery.noConflict();
+    (function ($) {
+
+    var data = <?php echo json_encode($demo); ?>;
+    //alert(data);
+
+
+    $(function () {
+    // alert('hi');
+    $("#tags1").autocomplete({
+    source: function (request, response) {
+    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+    response($.grep(data, function (item) {
+    return matcher.test(item.label);
+    }));
+    },
+            minLength: 1,
+            select: function (event, ui) {
+            event.preventDefault();
+            $("#tag1").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+            // window.location.href = ui.item.value;
+            }
+    ,
+            focus: function (event, ui) {
+            event.preventDefault();
+            $("#tags1").val(ui.item.label);
+            }
+    });
+    });
+    })(jQuery);</script>
+<script>
+    jQuery.noConflict();
+    (function ($) {
+
+    var data1 = <?php echo json_encode($de); ?>;
+    //alert(data);
+
+
+    $(function () {
+    // alert('hi');
+    $("#searchplace1").autocomplete({
+    source: function (request, response) {
+    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+    response($.grep(data1, function (item) {
+    return matcher.test(item.label);
+    }));
+    },
+            minLength: 1,
+            select: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace1").val(ui.item.label);
+            $("#selected-tag").val(ui.item.label);
+            // window.location.href = ui.item.value;
+            }
+    ,
+            focus: function (event, ui) {
+            event.preventDefault();
+            $("#searchplace1").val(ui.item.label);
+            }
+    });
+    });
+    })(jQuery);</script>
 
 <script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
+    function check() {
+    var keyword = $.trim(document.getElementById('tags1').value);
+    var place = $.trim(document.getElementById('searchplace1').value);
+    if (keyword == "" && place == "") {
+    return false;
+    }
+    }
+</script>
 
-                    
+
 <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
-<!-- <script src="<?php //echo base_url('js/bootstrap.min.js');         ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/bootstrap.min.js');          ?>"></script> -->
 <script type="text/javascript">
     $(document).ready(function () {
     $('.blocks').jMosaic({items_type: "li", margin: 0});

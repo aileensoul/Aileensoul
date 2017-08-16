@@ -3,7 +3,7 @@
     <!-- END HEAD -->
     <!-- start header -->
      
-<?php echo $header; ?>
+<?php echo $header;?>
     <!-- END HEADER -->
     <!-- pallavi 14-4-2017 -->
     <?php echo $freelancer_hire_header2_border; ?>

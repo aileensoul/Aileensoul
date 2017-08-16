@@ -451,7 +451,7 @@ a:focus {
  
 }
 .dropdown_hover .dropdown-content_hover a:hover{color: white; background-color: #1b8ab9;}
-.select2-drop{z-index: 0!important;}
+
 .header2 #InboxFooter a.no_msg_h:hover{color: none; text-decoration: none;}
 .header2 ul li a#InboxLink{padding:12px 11px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
@@ -877,7 +877,7 @@ line-height: 1;}
 }
 .action-button #message_count {
     position: absolute;
-    right:6px;
+    right:2px;
     top: 3px;
     text-align: center;
     border-radius: 50%;
@@ -4386,7 +4386,7 @@ z-index: 2;
 display: none;
 float: left;
 width: 358px;
-right: -8px;
+right: -17px;
 }
 #InboxContainer:before {
     content: '';
@@ -9052,7 +9052,7 @@ fieldset .add_post_btns {
     position: relative;
     display: inline-block;
     color: white;
-    padding: 7px 16px;
+    padding: 7px 16px 0px 10px;
     cursor: pointer;
 }
 .dropdown-content_hover {
@@ -14818,11 +14818,12 @@ text-align: center;}
 .header ul li.dropdown-user a {
     padding-top: 13px !important;
    color:#d7ecf5;
+   padding: 20px;
 }
 .header ul li.dropdown-user a:hover{
 	color:#fff;
 }
-
+.all{cursor: pointer;}
 .header ul li a {
    
     padding-bottom: 1px !important;
@@ -15089,8 +15090,8 @@ padding-top: 14px;
 
 .circle-1 strong {
   position: absolute;
- top: 55px;
-left: 5px;
+  top: 55px;
+  left: 5px;
   width: 100%;
   text-align: center;
   line-height: 40px;
@@ -15665,6 +15666,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
         margin-left: 16px;
         margin-right: 16px;
     }
+    #InboxContainer{right: -5px;}
 
 }
 @media (min-width: 1280px) {
@@ -15675,6 +15677,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
     #InboxContainer:before {right:27px;}
 }
 @media screen and (max-width: 1200px) {
+        #InboxContainer{right: -7px;}
     .circle-1 strong{font-size: 27px;   top: 31px;}
     .edit_profile_job{bottom: 32px;}
     .edit_pr_bar .circles{padding-left: 0px;}
@@ -15866,6 +15869,7 @@ padding-top: 7px !important;}
 }
 @media screen and (max-width: 991px) {
     .tab-none{display:none;}
+        #InboxContainer{right: -4px;}
     .common-form1{max-width:750px; float:none; margin:0 auto;}
     .job-menu-profile{margin-top:20px; padding-bottom:10px;}
     .right_left_box_design{padding:9px 12px 12px 12px !important;}
@@ -16729,7 +16733,7 @@ padding-top: 7px !important;}
         font-size: 16px;
         padding: 7px;
     }
-    .job_con #InboxContainer::before{right: 144px;}
+    .job_con #InboxContainer::before{right: 134px;}
     .profile-text1 .alert.alert-warning{width:100%; float:left;}
     .email-img{float: left; width: 35px;}
     .main-txt{float: left; width: 87%; text-align: justify;}
