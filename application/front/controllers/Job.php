@@ -2292,9 +2292,14 @@ class Job extends MY_Controller {
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-     $contition_array = array('skill' => $ski,'type' => 3);
+     $contition_array = array('skill' => $ski,'type' => 1);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+    if(count($skilldata) < 0){
+           $contition_array = array('skill' => $ski,'type' => 3);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+      }
      if($skilldata){
          $skill[] = $skilldata[0]['skill_id'];
            }else{
@@ -4438,17 +4443,18 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $jobdata = $this->data['jobdata'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-       
+    
 
       // echo "<pre>"; print_r($jobdata);die();
-           $job_skill = $this->data['jobdata'][0]['keyskill'];
+    $job_skill = $this->data['jobdata'][0]['keyskill'];
             $postuserarray = explode(',', $job_skill);
+        
 // post detail
-        $contition_array = array('is_delete' => 0, 'status' => 1 ,'user_id !=' => $userid);
-//        echo "<pre>"; print_r($contition_array);die();
+       // $contition_array = array('is_delete' => 0, 'status' => 1 ,'user_id !=' => $userid);
+        $contition_array = array('is_delete' => 0, 'status' => 1);
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        //echo "<pre>"; print_r($postdata);die();
+       
          $contition_array = array('status' => 1 ,'user_id' => $userid, 'type' => 3);
         $skill_data=$this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
     
@@ -4459,7 +4465,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
 
              $skill_id = array_filter(array_map('trim', $skill_id));
              $postuserarray = array_filter(array_map('trim', $postuserarray));
-           // echo "<pre>"; print_r($skill_id);
+//            echo "<pre>"; print_r($skill_id);
 //echo "<pre>"; print_r($postuserarray);
               $result = array_intersect($postuserarray, $skill_id);
   
@@ -4479,8 +4485,8 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
                 }
           
         }
-        //die();
-        // echo "<pre>";print_r($recommendata);die();
+       
+        
      //  echo "<pre>";print_r($skill_data);die();
    //for getting data from skill table for other skill
        foreach ($skill_data as $skill) {  
@@ -4569,7 +4575,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
                //echo "<pre>";print_r($qbc);die();
                  $this->data['postdetail'] = $qbc;
                  
-               
+              
         $this->data['falguni'] = 1;
 // code for search
         $contition_array = array('re_status' => '1','re_step' => 3);
@@ -6535,9 +6541,15 @@ public function delete_workexp()
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-     $contition_array = array('skill' => $ski,'type' => 3);
+     $contition_array = array('skill' => $ski,'type' => 1);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+      if(count($skilldata) < 0){
+           $contition_array = array('skill' => $ski,'type' => 3);
+     //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+     $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+      }
+     
      if($skilldata){
          $skill[] = $skilldata[0]['skill_id'];
            }else{
