@@ -9,7 +9,7 @@
                             <fieldset class="col-md-3 col-sm-5 col-xs-5">
                              <!--    <label>Find Your Skills</label>
                               -->  
-                              <input type="text" id="tags" name="skills" placeholder="Find Your freelancer">
+                              <input type="text" id="tags" name="skills" placeholder="Find freelancer">
                                 </select>
 
                             </fieldset>
