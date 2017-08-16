@@ -1628,6 +1628,7 @@ class Freelancer extends MY_Controller {
             // print_r($postdata);
             // exit;
         } else {
+            $this->free_apply_avail_check($id);
             $userid = $id;
             //echo $userid; 
              $contition_array = array('is_delete' => '0', 'user_id' => $userid, 'status' => '1', 'free_hire_step' => 3);
@@ -3536,6 +3537,7 @@ class Freelancer extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'status' => '1');
             $this->data['freelancerhiredata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
+             $this->free_apply_avail_check($id);
             $contition_array = array('user_id' => $id, 'status' => '1', 'free_hire_step' => 3);
             $this->data['freelancerhiredata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
@@ -3655,7 +3657,7 @@ class Freelancer extends MY_Controller {
             $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             //echo "<pre>"; print_r($this->data['freelancerpostdata']); die();
         } else {
-
+              $this->free_hire_avail_check($id);
             $contition_array = array('user_id' => $id, 'free_post_step' => 7);
             $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
@@ -4341,4 +4343,36 @@ class Freelancer extends MY_Controller {
       
         
     }
+    
+      // hire available chek
+public function free_hire_avail_check($userid = " ") 
+ {
+   $contition_array = array('user_id' => $userid, 'is_delete' => '1');
+   $availuser = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        if (count($availuser) > 0) 
+        {
+       redirect('freelancer/nohireavailable');
+         } 
+    }
+    
+    public function nohireavailable() {
+         
+        $this->load->view('freelancer/freelancer_hire/notavalible', $this->data);  
+     }
+    // apply available chek
+    public function free_apply_avail_check($userid = " ") 
+ {
+   $contition_array = array('user_id' => $userid, 'is_delete' => '1');
+   $availuser = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        if (count($availuser) > 0) 
+        {
+       redirect('freelancer/nopostavailable');
+         } 
+    }
+      public function nopostavailable() {
+         
+        $this->load->view('freelancer/freelancer_post/notavalible', $this->data);  
+     }
 }
