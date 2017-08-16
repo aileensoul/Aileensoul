@@ -1681,6 +1681,9 @@ array(
     if($lastuser[0]['message_from'] == $userid){
      
   $id =    $this->data['lstusr'] = $lastuser[0]['message_to'];
+  
+  
+  
     }else{
     
   $id =  $this->data['lstusr'] = $lastuser[0]['message_from'];

@@ -10703,6 +10703,12 @@ a.mesg_link:hover, a.mesg_link:focus{color: white;}
 }
    .common-form fieldset input:focus{   border: 1px solid #1b8ab9 !important;       
         color: #1b8ab9!important;}
+      .common-form fieldset .select2-search-field input:focus{border: none!important; } 
+      
+   .common-form fieldset .select2-search  input:focus{border: none!important; } 
+      
+
+
   .people-list .search input:focus .fa-search{color: #1b8ab9;}       
      .people-list .search input:focus{   border-bottom: 1px solid #1b8ab9 !important;       
         color: #1b8ab9!important;}
@@ -14523,9 +14529,10 @@ text-overflow: ellipsis;}
 .post-design-name ul li .else_post_d .post-design-product a {
     padding-left: 0;
 }
-.post-design-name ul li .else_post_d {
+.fa-file-pdf-o{font-size: 3em;}
+/*.post-design-name ul li .else_post_d {
     padding-left: 7px;
-}
+}*/
 .text-center.tab-block a {
     font-size: 16px;
     margin: 0px 15px;
@@ -14764,7 +14771,7 @@ display: inline-block;
 margin: 0 auto;
 text-align: center;}
 .addcontact-left a{padding-left: 30px !important;}*/
-
+.common-form fieldset.hs-submit input:focus{color: white!important;}
 .addcontact-left{width: 71%!important;
 margin: 0 auto;
 text-align: center;}
@@ -14819,6 +14826,7 @@ text-align: center;}
     padding-top: 13px !important;
    color:#d7ecf5;
    padding: 20px;
+   padding-right: 10px;
 }
 .header ul li.dropdown-user a:hover{
 	color:#fff;

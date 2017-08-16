@@ -127,7 +127,7 @@ if ($returnpage == 'freelancer_post') {
                             $sub_lname = substr($lname, 0, 1);
                             ?>
                             <div class="post-img-user">
-                                <?php echo ucfirst(strtolower($sub_fname)) . "  " . ucfirst(strtolower($sub_lname)); ?>
+                                <?php echo ucfirst(strtolower($sub_fname)) . ucfirst(strtolower($sub_lname)); ?>
                             </div>
     <!--                            <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE);  ?>" alt="" />-->
                         <?php } ?>
