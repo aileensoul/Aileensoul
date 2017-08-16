@@ -11362,7 +11362,7 @@ class Business_profile extends MY_Controller {
                 $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
                 $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
                 //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
-                $contactdata .= '<li id="' . $friend['contact_from_id'] . '">';
+                $contactdata .= '<li id="' . $contact['contact_from_id'] . '">';
                 $contactdata .= '<div class="list-box">';
                 $contactdata .= '<div class="profile-img">';
                 if ($busdata[0]['business_user_image'] != '') {
