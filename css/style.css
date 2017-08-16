@@ -14529,9 +14529,10 @@ text-overflow: ellipsis;}
 .post-design-name ul li .else_post_d .post-design-product a {
     padding-left: 0;
 }
-.post-design-name ul li .else_post_d {
+.fa-file-pdf-o{font-size: 3em;}
+/*.post-design-name ul li .else_post_d {
     padding-left: 7px;
-}
+}*/
 .text-center.tab-block a {
     font-size: 16px;
     margin: 0px 15px;
