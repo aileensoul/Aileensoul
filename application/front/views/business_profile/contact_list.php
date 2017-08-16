@@ -179,9 +179,9 @@
                                                 </div>
                                                 <div class="fw">
                                                     <p class="connect-link">
-                                                        <a href="#" class="cr-accept acbutton  ani" onclick = "return contactapprove(<?php echo $friend['contact_from_id']; ?>, 1);"><span class="cr-accept1"><i class="fa fa-check" aria-hidden="true"></i>
+                                                        <a href="#" class="cr-accept acbutton  ani" onclick = "return contactapprove1(<?php echo $friend['contact_from_id']; ?>, 1);"><span class="cr-accept1"><i class="fa fa-check" aria-hidden="true"></i>
                                                             </span></a>
-                                                        <a href="#" class="cr-decline" onclick = "return contactapprove(<?php echo $friend['contact_from_id']; ?>, 0);"><span class="cr-decline1"><i class="fa fa-times" aria-hidden="true"></i>
+                                                        <a href="#" class="cr-decline" onclick = "return contactapprove1(<?php echo $friend['contact_from_id']; ?>, 0);"><span class="cr-decline1"><i class="fa fa-times" aria-hidden="true"></i>
                                                             </span></a>
                                                     </p>
                                                 </div>
@@ -366,7 +366,7 @@
 //
 //    }
 
-    function contactapprove(toid, status) {
+    function contactapprove1(toid, status) {
 
         $.ajax({
             url: "<?php echo base_url(); ?>business_profile/contact_list_approve",
@@ -375,7 +375,6 @@
             success: function (data) {
                 //document.getElementById(toid).remove();
                 $('#contactlist').html(data);
-
             }
         });
 

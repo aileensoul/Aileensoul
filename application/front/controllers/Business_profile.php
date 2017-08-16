@@ -11390,19 +11390,30 @@ class Business_profile extends MY_Controller {
                 $contactdata .= '</div>';
                 $contactdata .= '<div class="profile-content">';
                 $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
-                $contactdata .= '<h5>' . $busdata[0]['company_name'] . '</h5>';
-                $contactdata .= '<p>' . $inddata[0]['industry_name'] . '</p>';
-                $contactdata .= '</a>';
-                $contactdata .= '<p class="connect-link">';
-                $contactdata .= '<a href="javascript:void(0);" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
-                $contactdata .= '<a href="javascript:void(0);" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
+                $contactdata .= '<div class="main_data_cq">   <span title="' . $busdata[0]['company_name'] . '" class="main_compny_name">' . $busdata[0]['company_name'] . '</span></div>';
+                $contactdata .= '<div class="main_data_cq"><span class="dc_cl_m" title="' . $inddata[0]['industry_name'] . '"> ' . $inddata[0]['industry_name'] . '</span></div>';
+                $contactdata .= '</a></div>';
+                $contactdata .= '<div class="fw"><p class="connect-link">';
+                $contactdata .= '<a href="javascript:void(0);" class="cr-accept acbutton  ani" onclick = "return contactapprove1(' . $contact['contact_from_id'] . ',1);"><span class="cr-accept1"><i class="fa fa-check" aria-hidden="true"></i></span></a>';
+                $contactdata .= '<a href="javascript:void(0);" class="cr-decline" onclick = "return contactapprove1(' . $contact['contact_from_id'] . ',0);"><span class="cr-decline1"><i class="fa fa-times" aria-hidden="true"></i></span></a>';
                 $contactdata .= '</p>';
                 $contactdata .= '</div>';
                 $contactdata .= '</div>';
                 $contactdata .= '</li>';
             }
         } else {
-            $contactdata = 'No contact request available...';
+//            $contactdata = 'No contact request available...';
+            $contactdata = '<li><div class="art-img-nn" id= "art-blank">
+                                    <div class="art_no_post_img">
+
+                                        <img src="'.base_url('img/No_Contact_Request.png') .'" width="100">
+
+                                    </div>
+        <div class="art_no_post_text" style="font-size: 20px;">
+                                        No Notifiaction Available.
+                                    </div>
+                                    </div></li>';
+            
         }
         echo $contactdata;
     }

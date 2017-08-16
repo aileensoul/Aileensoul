@@ -430,9 +430,10 @@
             type: "POST",
             data: 'toid=' + toid + '&status=' + status,
             dataType: "json",
-            success: function (data) { //alert(data.contactcount);
+            success: function (data) { 
             
                 $('.notification_data_in_con').html(data.contactdata);
+                var not_contact_count =  $('.addcontact-left').length;
                 $('.acceptcount').html(data.contactcount);
                 
                 var segment = '<?php echo $this->uri->segment(2); ?>';
@@ -441,8 +442,11 @@
                     $('.art-img-nn').hide();
                     business_contacts_header(slug);
                 }
-                
-
+                if(not_contact_count == 0){
+                    
+                    var data_html = "<li><div class='art-img-nn' id='art-blank'><div class='art_no_post_img'><img src='<?php echo base_url(); ?>img/No_Contact_Request.png'></div><div class='art_no_post_text'>No Contact Request Available.</div></div></li>";
+                    $('#contactlist').html(data_html);
+                }
 
             }
         });
