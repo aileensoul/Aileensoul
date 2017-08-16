@@ -14770,7 +14770,7 @@ display: inline-block;
 margin: 0 auto;
 text-align: center;}
 .addcontact-left a{padding-left: 30px !important;}*/
-
+.common-form fieldset.hs-submit input:focus{color: white!important;}
 .addcontact-left{width: 71%!important;
 margin: 0 auto;
 text-align: center;}
