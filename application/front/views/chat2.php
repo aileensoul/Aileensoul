@@ -445,7 +445,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				html += '<span class="message-data-name fl"><i class="fa fa-circle online"></i>' + data.nickname + ' </span>';
                 
                 html += ' </div>';
-                html += '    <div class="msg_left_data">   <div class="message my-message">' + data.message + '</div><div class="messagedelete"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></div>';
+                html += '    <div class="msg_left_data">   <div class="message my-message">' + print_message + '</div><div class="messagedelete"> <a href="javascript:void(0);" onclick="delete_chat(2,' + data.id + ')"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></div>';
                 html += '</li>';
 
                 $('.' + 'status' + curuser).html(print_message);
