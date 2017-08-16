@@ -396,6 +396,13 @@ float: left;}
 /*	.btn2 , .btn3{padding: 8px 10px!important;}
 */	.blog .main-inner header{padding: 5px 0px;}
  }
+
+ label.error {
+  margin-bottom: 0px;
+bottom: -20px;
+color: #fff !important;
+}
+
 @media screen and (max-width: 540px) {
 
 	.main-comtai h1 {
