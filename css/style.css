@@ -518,7 +518,7 @@ select {
     outline: none;
     padding: 5px 15px;
     color: #000;
-    font-size: 15px !important;
+    font-size: 13px !important;
     font-weight: 400;
     border-radius: 4px;
     width: 100%;
@@ -1705,8 +1705,7 @@ margin-bottom: 15px;
     color: #fff;
     padding: 8px 20px;
 }
-input:focus, textarea:focus, select:focus{  border: 1px solid #1b8ab9 !important;
-    color: #1b8ab9!important;}
+
 #jobseeker_regform input:focus{   border: 1px solid #1b8ab9 !important;
     color: #1b8ab9!important;}
     #jobseeker_regform input#submit:focus{border: none!important;}
@@ -2583,7 +2582,7 @@ border-top: none;
     border: 1px solid transparent;
     outline: none;
     background-color: #ffffff;
-    padding: 4px 8px;
+    padding: 4px 4px;
     color: #000;
     font-size: 14px;
     font-weight: 400;
@@ -8017,7 +8016,7 @@ body.modal-open {
     /* Chrome, Safari */
     
     color: #aaa;
-    font-size: 18px;
+
 }
 li.fr a {
     text-decoration: none !important;
@@ -8197,23 +8196,23 @@ border-bottom: 1px solid #000033;
 }
 ::-webkit-input-placeholder {
     color: #999;
-    font-size: 15px;
+   
 }
 ::-moz-placeholder {
     color: #999;
-    font-size: 15px;
+  
 }
 /* firefox 19+ */
 
 :-ms-input-placeholder {
     color: #999;
-    font-size: 15px;
+   
 }
 /* ie */
 
 input:-moz-placeholder {
     color: #999;
-    font-size: 15px;
+   
 }
 .select2-container--default .select2-search--inline .select2-search__field {
     width: 30%;
@@ -9015,18 +9014,17 @@ fieldset .add_post_btns {
     margin-right: -8px;
 }
 .header2 input::-webkit-input-placeholder {
-    font-size: 15px;
+   
     line-height: 3;
 }
 .header2 input::-moz-placeholder {
-    font-size: 16px;
+  
     line-height: 16px;
 }
 /* Firefox 19+ */
 
 .header2 input::-moz-placeholder {
-    font-size: 13px;
-    /*line-height: 3;*/
+    
 }
 /* Firefox 18- */
 
@@ -9039,7 +9037,7 @@ fieldset .add_post_btns {
     color: #7f7f7e;
 }
 .common-form form input::-webkit-input-placeholder {
-    font-size: 15px;
+    
     line-height: 3;
 }
 .radio_check_text {
@@ -15031,19 +15029,19 @@ float: right; position:relative;}
 }
 
 .people-list input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-size:18px;
+
   font-family:'arial';
 }
 .people-list input::-moz-placeholder { /* Firefox 19+ */
-  font-size:18px;
+
   font-family:'arial';
 }
 .people-list input:-ms-input-placeholder { /* IE 10+ */
-  font-size:18px;
+
   font-family:'arial';
 }
 .people-list input:-moz-placeholder { /* Firefox 18- */
-  font-size:18px;
+
   font-family:'arial';
 }
 
