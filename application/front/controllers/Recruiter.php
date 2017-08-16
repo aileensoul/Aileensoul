@@ -3598,7 +3598,7 @@ public function ajax_designation() {
             'not_status' => 0,
             'not_product_id' => $insert_id,
             'not_from' => 1,
-             "not_active" => 1, 
+            "not_active" => 1, 
             'not_created_date' => date('y-m-d h:i:s'),
             );
         $insert_id = $this->common->insert_data_getid($data, 'notification');

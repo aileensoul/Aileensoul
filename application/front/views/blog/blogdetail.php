@@ -30,7 +30,7 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style-main.css'); ?>">
-
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
 <!-- This Css is used for call popup -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 
