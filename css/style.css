@@ -10703,7 +10703,12 @@ a.mesg_link:hover, a.mesg_link:focus{color: white;}
 }
    .common-form fieldset input:focus{   border: 1px solid #1b8ab9 !important;       
         color: #1b8ab9!important;}
-      .common-form fieldset .select2-search-field input:focus{border: none!important; }  
+      .common-form fieldset .select2-search-field input:focus{border: none!important; } 
+      
+   .common-form fieldset .select2-search  input:focus{border: none!important; } 
+      
+
+      
   .people-list .search input:focus .fa-search{color: #1b8ab9;}       
      .people-list .search input:focus{   border-bottom: 1px solid #1b8ab9 !important;       
         color: #1b8ab9!important;}
