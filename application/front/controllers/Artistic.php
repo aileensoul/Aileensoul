@@ -1395,7 +1395,8 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $contition_array = array('user_id' => $userid, 'is_delete' => 0);
             $this->data['artsdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+             
+            $this->art_avail_check($id);
             $contition_array = array('user_id' => $id, 'status' => '1' , 'art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -3267,7 +3268,7 @@ $datacount = count($otherdata);
             $contition_array = array('user_id' => $userid, 'status' => '1');
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+            $this->art_avail_check($id);
             $contition_array = array('user_id' => $id, 'status' => '1' , 'art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
@@ -4127,7 +4128,7 @@ public function followtwo() {
             //echo "<pre>"; print_r($this->data['userlist']); die();
         } else {
 
-
+            $this->art_avail_check($id);
             $contition_array = array('user_id' => $id, 'status' => '1', 'is_delete' => '0', 'art_step' => 4);
             $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4264,7 +4265,8 @@ public function followtwo() {
             $this->data['userlist'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
 
-
+            $this->art_avail_check($id);
+           
             $artdata = $this->common->select_data_by_id('art_reg', 'user_id', $id, $data = '*');
 
             $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
@@ -4354,9 +4356,6 @@ public function followtwo() {
         }
         
         $this->data['de'] = array_values($res);
-
-
-
 
 
         if($this->data['artisticdata']){
@@ -7675,7 +7674,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
 
         } else {
-
+          $this->art_avail_check($id);
            $contition_array = array('user_id' => $id, 'status' => '1');
 
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -7829,7 +7828,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+             $this->art_avail_check($id);
             $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -7953,7 +7952,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+             $this->art_avail_check($id);
             $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -8079,7 +8078,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else { 
-
+             $this->art_avail_check($id);
             $contition_array = array('user_id' => $id, 'status' => '1','art_step' => 4);
             $artisticdata = $this->data['artisticdata'] = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -12239,7 +12238,24 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
         return $array = $ret;
     }
-
+   
+    // recruiter available chek
+public function art_avail_check($userid = " ") 
+ {
+   $contition_array = array('user_id' => $userid, 'is_delete' => '1');
+   $availuser = $this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        if (count($availuser) > 0) 
+        {
+       redirect('artistic/noavailable');
+         } 
+    }
+// recruiter available chek
+   
+     public function noavailable() {
+         
+        $this->load->view('artistic/notavalible', $this->data);  
+     }
     
 
 }
