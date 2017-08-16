@@ -2292,14 +2292,15 @@ class Job extends MY_Controller {
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-     $contition_array = array('skill' => $ski,'type' => 1);
+     $contition_array = array('skill' => trim($ski),'type' => 1);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-    if(count($skilldata) < 0){
-           $contition_array = array('skill' => $ski,'type' => 3);
+   
+     if(count($skilldata) < 0){ 
+           $contition_array = array('skill' => trim($ski),'type' => 3);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-      }
+      } 
      if($skilldata){
          $skill[] = $skilldata[0]['skill_id'];
            }else{
@@ -2312,7 +2313,7 @@ class Job extends MY_Controller {
       $skill[] = $this->common->insert_data_getid($data, 'skill');
            }
           }
-          
+         
           $skills = implode(',',$skill); 
       }
       
@@ -6537,24 +6538,24 @@ public function delete_workexp()
       }
       
       // skills  start   
-      
+    
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-     $contition_array = array('skill' => $ski,'type' => 1);
+     $contition_array = array('skill' => trim($ski),'type' => 1);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
-      if(count($skilldata) < 0){
-           $contition_array = array('skill' => $ski,'type' => 3);
+      if(count($skilldata) < 0){ 
+           $contition_array = array('skill' => trim($ski),'type' => 3);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
       }
-     
+  
      if($skilldata){
          $skill[] = $skilldata[0]['skill_id'];
            }else{
                  $data = array(
-                    'skill' => $ski,
+                    'skill' => trim($ski),
                     'status' => '1',
                     'type' => 3,
                     'user_id' => $userid,
@@ -6562,7 +6563,7 @@ public function delete_workexp()
       $skill[] = $this->common->insert_data_getid($data, 'skill');
            }
           }
-          
+        //  die();
           $skills = implode(',',$skill); 
       }
       
