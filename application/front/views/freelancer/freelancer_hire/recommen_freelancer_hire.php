@@ -164,13 +164,14 @@
 
                                                     <?php
                                                 } else {
-                                                    $fname = $freehiredata['fullname'];
-                                                    $lname = $freehiredata['username'];
+                                                    $fname = $freehiredata[0]['fullname'];
+                                                    $lname = $freehiredata[0]['username'];
                                                     $sub_fname = substr($fname, 0, 1);
-                                                    $sub_lname = substr($lname, 0, 1);
+                                                    $sub_lname = substr($lname, 0, 1); 
+                                                    
                                                     ?>
                                                     <div class="post-img-profile">
-                                                        <?php echo ucfirst(strtolower($sub_fname)) . "  " . ucfirst(strtolower($sub_lname)); ?>
+                                                        <?php echo ucfirst(strtolower($sub_fname)) .  ucfirst(strtolower($sub_lname)); ?>
                                                     </div>
                                                     <?php
                                                 }
@@ -285,7 +286,7 @@
                                                                                 $sub_post_lname = substr($post_lname, 0, 1);
                                                                                 ?>
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($sub_post_fname)) . " " . ucfirst(strtolower($sub_post_lname)); ?>
+                                                                                    <?php echo ucfirst(strtolower($sub_post_fname)) . ucfirst(strtolower($sub_post_lname)); ?>
                                                                                 </div>
             <!--                                                                                <img src="<?php //echo base_url(NOIMAGE);   ?>" alt="<?php //echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']);   ?>"> -->
                                                                             </a>
