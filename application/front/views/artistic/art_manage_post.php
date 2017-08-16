@@ -1039,7 +1039,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                    <!-- <textarea name="product_title" placeholder="Post Your Product...."></textarea>  -->
                                 <textarea id= "test-upload-product" placeholder="Post Your Art...."  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form);  onkeyup=check_length(this.form); onblur=check_length(this.form); name=my_text rows=4 cols=30 class="post_product_name"></textarea>
                                <div class="fifty_val">  
-                                    <input size=1 class="text_num" tabindex="-500" value=50 name=text_num readonly> 
+                                    <input size=1 class="text_num mian_box_num" tabindex="-500" value=50 name=text_num readonly> 
                                 </div>
 
                             
