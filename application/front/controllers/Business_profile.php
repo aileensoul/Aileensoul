@@ -1394,7 +1394,9 @@ class Business_profile extends MY_Controller {
 
             //echo "<pre>"; print_r($this->data['business_profile_data']); die();
         } else {
-
+             
+             $this->bus_avail_check($id);
+             
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -3233,6 +3235,8 @@ class Business_profile extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0');
             $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
+            
+            $this->bus_avail_check($id);
 
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4052,6 +4056,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else { //echo "hii"; die();
+             $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4);
 
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4174,7 +4179,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
-
+               $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6346,7 +6351,8 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
-
+              $this->bus_avail_check($id);
+              
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6464,7 +6470,8 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+             $this->bus_avail_check($id);
+             
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6572,7 +6579,8 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+             $this->bus_avail_check($id);
+             
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6686,7 +6694,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+             $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -11602,7 +11610,7 @@ class Business_profile extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0');
             $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+             $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'is_delete' => '0');
@@ -13293,4 +13301,22 @@ class Business_profile extends MY_Controller {
     }
 
 //chat changes 15-7 end 
+    
+    // recruiter available chek
+public function bus_avail_check($userid = " ") 
+ {
+   $contition_array = array('business_slug' => $userid, 'is_delete' => '1');
+   $availuser = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        if (count($availuser) > 0) 
+        {
+       redirect('business_profile/noavailable');
+         } 
+    }
+// recruiter available chek
+   
+     public function noavailable() {
+         
+        $this->load->view('business_profile/notavalible', $this->data);  
+     }
 }
