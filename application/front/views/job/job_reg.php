@@ -449,8 +449,6 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
 
                 }
 
-
-
             },
 
         });
