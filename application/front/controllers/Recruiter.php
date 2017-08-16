@@ -1051,7 +1051,7 @@ class Recruiter extends MY_Controller {
     // }
 
     public function rec_post($id="") { 
-         $this->recruiter_apply_check(); 
+        
         //echo "falguni"; die();
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
@@ -1071,6 +1071,7 @@ class Recruiter extends MY_Controller {
            //echo "<pre>"; print_r($this->data['postdata']); die();
 
         if ($id == $userid || $id == '') {
+             $this->recruiter_apply_check(); 
             //echo "hii"; die();
             $join_str[0]['table'] = 'recruiter';
             $join_str[0]['join_table_id'] = 'recruiter.user_id';
@@ -1083,8 +1084,7 @@ class Recruiter extends MY_Controller {
            //echo "<pre>"; print_r($this->data['postdata']); die();
 
         } else { 
-            //echo "hello"; die()
-            ;
+            $this->rec_avail_check($id);
       $contition_array = array('user_id' => $id, 'is_delete' => 0 ,'re_step' => 3);
            $this->data['postdataone'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
             
@@ -1472,16 +1472,20 @@ class Recruiter extends MY_Controller {
       if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-     $contition_array = array('skill' => $ski,'type' => 4);
+     $contition_array = array('skill' => trim($ski),'type' => 1);
+    $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+ //echo "<pre>";print_r($skilldata);
+    if(count($skilldata) < 0){ 
+           $contition_array = array('skill' => trim($ski),'type' => 4);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
- //echo "<pre>";print_r($skilldata);
+      }
      if($skilldata){
          $skill1[] = $skilldata[0]['skill_id'];
       //echo "<pre>";print_r($skill1);die();
            }else{
                  $data = array(
-                    'skill' => $ski,
+                    'skill' => trim($ski),
                     'status' => '1',
                     'type' => 4,
                     'user_id' => $userid,
@@ -2363,7 +2367,8 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         if ($id == $userid || $id == '') {
             $this->recruiter_apply_check(); 
             $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
-        } else {
+        } else { 
+            $this->rec_avail_check($id);
             $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $id, $data = '*', $join_str = array());
         }
 //echo '<pre>'; print_r( $this->data['recdata']); die();
@@ -3672,14 +3677,18 @@ public function delete_logo()
 // recruiter available chek
 public function rec_avail_check($userid = " ") 
  {
-   $contition_array = array('rec_id' => $userid, 'is_delete' => '1');
+   $contition_array = array('user_id' => $userid, 'is_delete' => '1');
    $availuser = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-     
-        if (count($availuser) >= 0) 
+    
+        if (count($availuser) > 0) 
         {
-       $this->load->view('artistic/notavalible', $this->data);
-         }
+       redirect('recruiter/noavailable');
+         } 
     }
 // recruiter available chek
    
+     public function noavailable() {
+         
+        $this->load->view('recruiter/notavalible', $this->data);  
+     }
 }

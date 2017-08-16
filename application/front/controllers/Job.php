@@ -3888,12 +3888,7 @@ $files[] = $_FILES;
     //job seeker PRINTDATA controller Start
     public function job_printpreview($id="") {
       
-      if($id == "")
-      {
-         $this->job_apply_check(); 
-
-      }
-      
+     
 
         $userid = $this->session->userdata('aileenuser');
 
@@ -3909,9 +3904,8 @@ $files[] = $_FILES;
      //if user deactive profile then redirect to job/index untill active profile End
 
         if ($id == $userid || $id == '') {
-
-          //  echo "string"; die();
-
+           $this->job_apply_check(); 
+          
             //for getting data job_reg table
             $contition_array = array('job_reg.user_id' => $userid, 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
 
@@ -3947,7 +3941,7 @@ $files[] = $_FILES;
             $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
        // echo "<pre>";print_r( $this->data['other_skill']);die();
         } else {
-            //echo "bjb"; die();
+             $this->job_avail_check($id);
 
             //for getting data job_reg table
             $contition_array = array('job_reg.user_id' => $id, 'job_reg.is_delete' => 0, 'job_reg.status' => 1);
@@ -6647,4 +6641,22 @@ public function temp(){
 
     $this->load->view('job/temo4');
     }
+    
+    // recruiter available chek
+public function job_avail_check($userid = " ") 
+ {
+   $contition_array = array('user_id' => $userid, 'is_delete' => '1');
+   $availuser = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        if (count($availuser) > 0) 
+        {
+       redirect('job/noavailable');
+         } 
+    }
+// recruiter available chek
+   
+     public function noavailable() {
+         
+        $this->load->view('job/notavalible', $this->data);  
+     }
 }
