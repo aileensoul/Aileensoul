@@ -1259,7 +1259,6 @@
                                                                     <?php
 //                                                                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
                                                                     $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
-
                                                                     $allowespdf = array('pdf');
                                                                     $allowesvideo = array('mp4', 'webm', 'qt', 'mov', 'MP4');
                                                                     $allowesaudio = array('mp3');

@@ -110,28 +110,29 @@
                 <div class="user-pic">
                     <?php if ($businessdata1[0]['business_user_image'] != '') { ?>
 
-                    <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image'])) {
-                                                                $a = $businessdata1[0]['company_name'];
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-user">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
+                        <?php
+                        if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image'])) {
+                            $a = $businessdata1[0]['company_name'];
+                            $acr = substr($a, 0, 1);
+                            ?>
+                            <div class="post-img-user">
+                                <?php echo ucfirst(strtolower($acr)) ?>
+                            </div> 
+                            <?php
+                        } else {
+                            ?>
 
-                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
+                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
 
-                        <?php }?>
+                        <?php } ?>
                     <?php } else { ?>
-                         <?php 
-                                          $a = $businessdata1[0]['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-user">
-                                            <?php echo  ucfirst(strtolower($acr))?>
-                                            </div>
+                        <?php
+                        $a = $businessdata1[0]['company_name'];
+                        $acr = substr($a, 0, 1);
+                        ?>
+                        <div class="post-img-user">
+                        <?php echo ucfirst(strtolower($acr)) ?>
+                        </div>
                     <?php } ?>
 
                     <?php
@@ -141,16 +142,16 @@
 
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
-                    <?php } ?>
+<?php } ?>
                 </div>
 
                 <!-- <div id="popup-form">
-                <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                 <input type="hidden" name="hitext" id="hitext" value="5">
                 <input type="submit" name="cancel5" id="cancel5" value="Cancel">
                 <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                <?php echo form_close(); ?>
+<?php echo form_close(); ?>
         </div> -->
 
             </div>
@@ -198,10 +199,10 @@
 
                         if ($status == 0 || $status == " ") {
                             ?>                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                                          </div>
+                                                                                                                                                                                              </div>
                         <?php } elseif ($status == 1) { ?>                                                                                                                                                                                     <div class="msg_flw_btn_1" id= "unfollowdiv">                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                                          </div>
-                        <?php } ?>
+                                                                                                                                                                                              </div>
+    <?php } ?>
                                   </div> 
                                   <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
                               </div>
@@ -210,7 +211,7 @@
 
 
                           </div> -->
-                    <?php } ?>
+<?php } ?>
 
 
                     <?php
@@ -235,311 +236,305 @@
                             ?>
 
 
-                            <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
+    <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
                                 <a href="#" onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>);" style="cursor: pointer;">
 
-                                <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
+                                    <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
                                     <a onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
-                                    <?php } ?>
+    <?php } ?>
 
                                     <div class="">
-                                    
-                                                <?php
-                                                //print_r($contactperson[0]['status']) ; die();
 
-                                                if ($contactperson[0]['status'] == 'cancel') {
-                                                    ?>
-                                                  <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+                                        <?php
+                                        //print_r($contactperson[0]['status']) ; die();
 
-                                                            </div>
-                                                            
-
-                                                            <div class="addtocont">
-                                                    <span class="ft-13"><i class="icon-user"></i>
-                                                       Add to contact </span>
-                                                    </div> 
+                                        if ($contactperson[0]['status'] == 'cancel') {
+                                            ?>
+                                            <div>   
+                                                <div class="add-contact">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
                                                 </div>
-                                                <?php } elseif ($contactperson[0]['status'] == 'pending') { ?>   
-                                                  <div class="cance_req_main_box">   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div>
-                                                         <span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_cancel.png');?>"></span>
-                                                            </div>
 
-                                                            </div>
-                                                            
 
-                                                            <div class="addtocont">
+                                                <div class="addtocont">
+                                                    <span class="ft-13"><i class="icon-user"></i>
+                                                        Add to contact </span>
+                                                </div> 
+
+                                            </div>
+    <?php } elseif ($contactperson[0]['status'] == 'pending') { ?>   
+                                            <div class="cance_req_main_box">   
+                                                <div class="add-contact">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div>
+                                                        <span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_cancel.png'); ?>"></span>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="addtocont">
                                                     <span class="ft-13 cl_haed_s">
-                                                      Cancel request </span>
-                                                    </div> 
+                                                        Cancel request </span>
+                                                </div> 
+
+                                            </div>
+    <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
+                                            <div class="fw in_mian_chng">   
+                                                <div class="in_your_contact">
+
+                                                    <div class="in_your_contact_change">
+                                                        <span class="in_your_contct_img">
+                                                            <img src="<?php echo base_url('img/icon_contact_accept.png'); ?>">
+                                                        </span>
+                                                    </div>
 
                                                 </div>
-                                                <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
-                                                 <div class="fw in_mian_chng">   
-                                                            <div class="in_your_contact">
-                                                             
-                                                            <div class="in_your_contact_change">
-                                                            <span class="in_your_contct_img">
-                                                                <img src="<?php echo base_url('img/icon_contact_accept.png');?>">
-                                                            </span>
-                                                            </div>
 
-                                                            </div>
-                                                            
 
-                                                            <div class="addtocont">
+                                                <div class="addtocont">
                                                     <span class="ft-13 ai_text">
-                                                       In Contacts </span>
-                                                    </div> 
+                                                        In Contacts </span>
+                                                </div> 
+
+                                            </div>
+    <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
+
+                                            <div>   
+                                                <div class="add-contact">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
                                                 </div>
-                                                <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
 
-                                                  <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
 
-                                                            </div>
-                                                            
-
-                                                            <div class="addtocont">
+                                                <div class="addtocont">
                                                     <span class="ft-13"><i class="icon-user"></i>
-                                                       Add to contact </span>
-                                                    </div> 
+                                                        Add to contact </span>
+                                                </div> 
+
+                                            </div>
+    <?php } else { ?>
+
+                                            <div>   
+                                                <div class="add-contact">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
                                                 </div>
-                                                <?php } else { ?>
 
-                                                   <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
 
-                                                            </div>
-                                                            
-
-                                                            <div class="addtocont">
+                                                <div class="addtocont">
                                                     <span class="ft-13"><i class="icon-user"></i>
-                                                       Add to contact </span>
-                                                    </div> 
+                                                        Add to contact </span>
+                                                </div> 
 
-                                                </div>
-                                                <?php } ?>
-                                            
+                                            </div>
+    <?php } ?>
+
                                 </a>
                         </div>
 
-                    <?php } ?>
+<?php } ?>
                 </div></div>
-                <!-- PICKUP -->
-                <!-- menubar -->
-                <div class="business-data-menu padding_less_right ">
+            <!-- PICKUP -->
+            <!-- menubar -->
+            <div class="business-data-menu padding_less_right ">
 
 
 
-                    <div class="profile-main-box-buis-menu">  
+                <div class="profile-main-box-buis-menu">  
 
-                        <div class="profile-main-box-buis-menu ml0">  
-                            <?php
-                            $userid = $this->session->userdata('aileenuser');
-                            if ($businessdata1[0]['user_id'] == $userid) {
-                                ?>     
-                                <ul class="current-user bpro-fw6">
+                    <div class="profile-main-box-buis-menu ml0">  
+                        <?php
+                        $userid = $this->session->userdata('aileenuser');
+                        if ($businessdata1[0]['user_id'] == $userid) {
+                            ?>     
+                            <ul class="current-user bpro-fw6">
 
                                 <?php } else { ?>
-                                    <ul class="bpro-fw">
-                                    <?php } ?>
+                                <ul class="bpro-fw">
+<?php } ?>
 
 
-                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $businessdata1[0]['business_slug']); ?>">Dashboard</a>
+                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_manage_post') { ?> class="active" <?php } ?>><a title="Dashboard" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $businessdata1[0]['business_slug']); ?>">Dashboard</a>
+                                </li>
+
+                                <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"> Details</a>
+                                </li>
+
+                                <?php
+                                $userid = $this->session->userdata('aileenuser');
+                                if ($businessdata1[0]['user_id'] == $userid) {
+                                    ?> 
+
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<span class="acceptcount"><?php echo (count($businesscontacts)); ?></span>)</a>
                                     </li>
 
-                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_resume') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug']); ?>"> Details</a>
-                                    </li>
 
-                                    <?php
-                                        $userid = $this->session->userdata('aileenuser');
-                                        if ($businessdata1[0]['user_id'] == $userid) {
-                                            ?> 
+                                <?php
+                                } else {
 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<span class="acceptcount"><?php echo (count($businesscontacts)); ?></span>)</a>
-                                        </li>
-
-
-                                        <?php }else{
-
-                                            $userid = $businessdata1[0]['user_id'];
+                                    $userid = $businessdata1[0]['user_id'];
                                     $contition_array = array('contact_type' => 2, 'status' => 'confirm');
                                     $search_condition = "((contact_from_id = ' $userid') OR (contact_to_id = '$userid'))";
                                     $businesscontacts1 = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
                                     foreach ($businesscontacts1 as $keval => $ke) {
-                                       //echo "<pre>"; print_r($ke); die();
-                                      if($ke['contact_from_id'] == $userid){
+                                        //echo "<pre>"; print_r($ke); die();
+                                        if ($ke['contact_from_id'] == $userid) {
 
-                                    $contition_array = array('user_id' => $ke['contact_to_id'], 'is_delete' => '0');
-                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+                                            $contition_array = array('user_id' => $ke['contact_to_id'], 'is_delete' => '0');
+                                            $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+                                        } else {
 
-                                      }else{
-
-                                        $contition_array = array('user_id' => $ke['contact_from_id'], 'is_delete' => '0');
-                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition= array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
-
-                                      }
-                                      if($contavl1){
-                                        $countconval[] = $contavl1;
-                                      }
-                                      
+                                            $contition_array = array('user_id' => $ke['contact_from_id'], 'is_delete' => '0');
+                                            $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+                                        }
+                                        if ($contavl1) {
+                                            $countconval[] = $contavl1;
+                                        }
                                     }
+                                    ?>
 
-                                            ?>
-
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($countconval)); ?>)</a>
-                                        </li>
-
-
-                                        <?php }?>
-
-                                    <?php
-                                    $userid = $this->session->userdata('aileenuser');
-                                    if ($businessdata1[0]['user_id'] == $userid) {
-                                        ?> 
-                                                                                                                          <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                                </li> -->
-
-                                       <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                        </li> -->
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($countconval)); ?>)</a>
+                                    </li>
 
 
-                                    <?php } ?>
-
-                                    <?php
-                                    $userid = $this->session->userdata('aileenuser');
-                                    if ($businessdata1[0]['user_id'] == $userid) {
-                                        ?> 
-
-
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo ($flubuscount); ?>)</a>
-                                        </li>
-
-
-                                        <?php
-                                    } else {
-
-                                        $businessregid = $businessdata1[0]['business_profile_id'];
-                                        $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
-                                        $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                        //echo "<pre>"; print_r($followerotherdata); die();
-                                        foreach ($followerotherdata as $followkey) {
-
-                      $contition_array = array('business_profile_id' => $followkey['follow_from'], 'status' => '1');
-                      $busaval = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                      if($busaval){ //echo "hii"; die();
-
-                      $countdata[] =  $busaval;
-                         }
-                       $count = count($countdata);
-                     }
-
-
-                                        ?> 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo ($count); ?>)</a>
-                                        </li>
-
-                                    <?php } ?>
-
-                                    <?php
-                                    $userid = $this->session->userdata('aileenuser');
-                                    if ($businessdata1[0]['user_id'] == $userid) {
-                                        ?>          
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<?php echo (count($businessfollowingdata)); ?>)</a>
-                                        </li>
-                                        <?php
-                                    } else {
-                                        $businessregid = $businessdata1[0]['business_profile_id'];
-                                        $contition_array = array('follow_from' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
-                                        $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                        ?>
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<?php echo (count($followerotherdata)); ?>)</a>
-                                        </li>
-                                    <?php } ?>
-
-                                </ul>
-
-
+<?php } ?>
 
                                 <?php
                                 $userid = $this->session->userdata('aileenuser');
+                                if ($businessdata1[0]['user_id'] == $userid) {
+                                    ?> 
+                                                                                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                                    </li> -->
 
-                                if ($businessdata1[0]['user_id'] != $userid) {
-                                    ?>
-
-                                    <div class="flw_msg_btn fr top_follow">
-                                        <ul>
-                                            <li>
-                                                <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
-
-                                                    <?php
-                                                    $userid = $this->session->userdata('aileenuser');
-
-                                                    $contition_array = array('user_id' => $userid, 'status' => '1');
-
-                                                    $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                                    $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
-                                                    //echo "<pre>"; print_r($status); die();
+                                           <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                                            </li> -->
 
 
-                                                    $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
-                                                    if ($logslug != $this->uri->segment(3)) {
-                                                        if ($status == 0 || $status == " ") {
-                                                            ?>
-                                                            <div class="msg_flw_btn_1" id= "followdiv">
-                                                                <button id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser_two(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                            </div>
-                                                        <?php } elseif ($status == 1) { ?>
-                                                            <div class="msg_flw_btn_1" id= "unfollowdiv">
-                                                                <button class="bg_following"  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser_two(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                            </div>
-                                                        <?php } ?>
-                                                    </div>         
+<?php } ?>
+
+                                <?php
+                                $userid = $this->session->userdata('aileenuser');
+                                if ($businessdata1[0]['user_id'] == $userid) {
+                                    ?> 
 
 
-                                                </li>
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo ($flubuscount); ?>)</a>
+                                    </li>
 
-                                                <li>
-                                                    <a  href="<?php echo base_url('chat/abc/5/5/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
-                                                    
-                                            <?php } ?>
 
-                                        </ul>   
-                                    </div>
+    <?php
+} else {
+
+    $businessregid = $businessdata1[0]['business_profile_id'];
+    $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
+    $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    //echo "<pre>"; print_r($followerotherdata); die();
+    foreach ($followerotherdata as $followkey) {
+
+        $contition_array = array('business_profile_id' => $followkey['follow_from'], 'status' => '1');
+        $busaval = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if ($busaval) { //echo "hii"; die();
+            $countdata[] = $busaval;
+        }
+        $count = count($countdata);
+    }
+    ?> 
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo ($count); ?>)</a>
+                                    </li>
 
                                 <?php } ?>
 
-                        </div>
+<?php
+$userid = $this->session->userdata('aileenuser');
+if ($businessdata1[0]['user_id'] == $userid) {
+    ?>          
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<?php echo (count($businessfollowingdata)); ?>)</a>
+                                    </li>
+                                    <?php
+                                } else {
+                                    $businessregid = $businessdata1[0]['business_profile_id'];
+                                    $contition_array = array('follow_from' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
+                                    $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                    ?>
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<?php echo (count($followerotherdata)); ?>)</a>
+                                    </li>
+                                <?php } ?>
+
+                            </ul>
+
+
+
+<?php
+$userid = $this->session->userdata('aileenuser');
+
+if ($businessdata1[0]['user_id'] != $userid) {
+    ?>
+
+                                <div class="flw_msg_btn fr top_follow">
+                                    <ul>
+                                        <li>
+                                            <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
+
+    <?php
+    $userid = $this->session->userdata('aileenuser');
+
+    $contition_array = array('user_id' => $userid, 'status' => '1');
+
+    $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+    $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
+    //echo "<pre>"; print_r($status); die();
+
+
+    $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
+    if ($logslug != $this->uri->segment(3)) {
+        if ($status == 0 || $status == " ") {
+            ?>
+                                                        <div class="msg_flw_btn_1" id= "followdiv">
+                                                            <button id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser_two(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
+                                                        </div>
+                                                    <?php } elseif ($status == 1) { ?>
+                                                        <div class="msg_flw_btn_1" id= "unfollowdiv">
+                                                            <button class="bg_following"  id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser_two(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
+                                                        </div>
+                                                    <?php } ?>
+                                                </div>         
+
+
+                                            </li>
+
+                                            <li>
+                                                <a  href="<?php echo base_url('chat/abc/5/5/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
+
+    <?php } ?>
+
+                                    </ul>   
+                                </div>
+
+                                    <?php } ?>
+
                     </div>
                 </div>
-                <!-- pickup -->
             </div>
+            <!-- pickup -->
         </div>
     </div>
+</div>
 </div>
 
 
@@ -569,154 +564,160 @@
                         <h3> Followers</h3>
                         <div class="contact-frnd-post">
 
-                            <?php if (count($userlist) > 0) { ?>
+<?php if (count($userlist) > 0) { ?>
 
-                                <?php foreach ($userlist as $user) { 
+    <?php
+    foreach ($userlist as $user) {
 
-               $contition_array = array('business_profile_id' => $user['follow_from'], 'status' => '1', 'is_deleted' => '0');
-              $followdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contition_array = array('business_profile_id' => $user['follow_from'], 'status' => '1', 'is_deleted' => '0');
+        $followdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo '<pre>';  print_r($followdata); die();
-                            if(count($followdata) > 0){
-                                    ?>
-                                    <div class="job-contact-frnd ">
+        if (count($followdata) > 0) {
+            ?>
+                                        <div class="job-contact-frnd ">
 
-                                        <div class="profile-job-post-detail clearfix">
-                                            <div class="profile-job-post-title-inside clearfix">
-                                                <div class="profile-job-post-location-name">
-                                                    <div class="user_lst"><ul>
+                                            <div class="profile-job-post-detail clearfix">
+                                                <div class="profile-job-post-title-inside clearfix">
+                                                    <div class="profile-job-post-location-name">
+                                                        <div class="user_lst"><ul>
 
-                                                            <li class="fl">
-                                                                <div class="follow-img">
+                                                                <li class="fl">
+                                                                    <div class="follow-img">
 
-                                                                    <?php
-                                                                    $followerimage = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from']))->row()->business_user_image;
+            <?php
+            $followerimage = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from']))->row()->business_user_image;
 
-                                                                    $followername = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from']))->row()->company_name;
+            $followername = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from']))->row()->company_name;
 
-                                                                    $followerslug = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from']))->row()->business_slug;
-                                                                    ?>
-                                                                    <?php if ($followerimage != '') { ?>
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $followerslug); ?>">
+            $followerslug = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from']))->row()->business_slug;
+            ?>
+                                                                        <?php if ($followerimage != '') { ?>
+                                                                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $followerslug); ?>">
 
-                        <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $followerimage)) {
-                                                                $a = $followername;
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-userlist">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
+                                                                            <?php
+                                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $followerimage)) {
+                                                                                $a = $followername;
+                                                                                $acr = substr($a, 0, 1);
+                                                                                ?>
+                                                                                    <div class="post-img-userlist">
+                                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                    </div> 
+                                                                                    <?php
+                                                                                } else {
+                                                                                    ?>
 
-                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $followerimage); ?>" height="50px" width="50px" alt="" >
+                                                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $followerimage); ?>" height="50px" width="50px" alt="" >
 
-                            <?php }?>
-                                                                        </a>
-                                                                    <?php } else { ?>
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $followerslug); ?>">
-                                                                             <?php 
-                                          $a =  $followername;
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-userlist">
-                                            <?php echo  ucfirst(strtolower($acr))?>
-                                            </div>
+                                                                                <?php } ?>
+                                                                            </a>
+            <?php } else { ?>
+                                                                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $followerslug); ?>">
+                                                                                <?php
+                                                                                $a = $followername;
+                                                                                $acr = substr($a, 0, 1);
+                                                                                ?>
+                                                                                <div class="post-img-userlist">
+                                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                </div>
 
                                                                             </a>
-                                                                    <?php } ?> 
-                                                                </div>
-                                                            </li>
-                                                            <li class="folle_text">
-                                                                <div class="">
-                                                                    <div class="follow-li-text " style="padding: 0;">
-                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $followerslug); ?>"><?php echo ucfirst(strtolower($followername)); ?></a></div>
-
-
-                                                                    <!-- category start -->
-                                                                    <div>
-
-                                                                        <?php
-                                                                        $categoryid = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from'], 'status' => 1))->row()->industriyal;
-
-                                                                        $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
-
-                                                                        $othercategory = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from'], 'status' => 1))->row()->other_industrial;
-                                                                        ?>
-
-
-                                                                        <a><?php
-                                                                            if ($category) {
-                                                                                echo $category;
-                                                                            } else {
-
-                                                                                echo $othercategory;
-                                                                            }
-                                                                            ?></a>
-
+            <?php } ?> 
                                                                     </div>
-
-                                                                    <!--  category end -->
-                                                            </li>
-
-                                                            <li class="fr" id ="<?php echo "frfollow" . $user['follow_from']; ?>">
-
-                                                                <?php
-                                                                $contition_array = array('user_id' => $userid, 'status' => '1');
-                                                                $busdatauser = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                                                                //echo $artisticdatauser[0]['art_id']; die();
-                                                                $contition_array = array('follow_from' => $busdatauser[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'follow_to' => $user['follow_from']);
+                                                                </li>
+                                                                <li class="folle_text">
+                                                                    <div class="">
+                                                                        <div class="follow-li-text " style="padding: 0;">
+                                                                            <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $followerslug); ?>"><?php echo ucfirst(strtolower($followername)); ?></a></div>
 
 
-                                                                $status_list = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+                                                                        <!-- category start -->
+                                                                        <div>
+
+            <?php
+            $categoryid = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from'], 'status' => 1))->row()->industriyal;
+
+            $category = $this->db->get_where('industry_type', array('industry_id' => $categoryid, 'status' => 1))->row()->industry_name;
+
+            $othercategory = $this->db->get_where('business_profile', array('business_profile_id' => $user['follow_from'], 'status' => 1))->row()->other_industrial;
+            ?>
 
 
-                                                                if (($status_list[0]['follow_status'] == 0 || $status_list[0]['follow_status'] == ' ' ) && $user['follow_from'] != $busdatauser[0]['business_profile_id']) {
-                                                                    ?>
+                                                                            <a><?php
+                                                                if ($category) {
+                                                                    echo $category;
+                                                                } else {
+
+                                                                    echo $othercategory;
+                                                                }
+            ?></a>
+
+                                                                        </div>
+
+                                                                        <!--  category end -->
+                                                                </li>
+
+                                                                <li class="fr" id ="<?php echo "frfollow" . $user['follow_from']; ?>">
+
+            <?php
+             
+            $contition_array = array('user_id' => $userid, 'status' => '1');
+            $busdatauser = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            
+           
+            
+            
+            //echo $artisticdatauser[0]['art_id']; die();
+            $contition_array = array('follow_from' => $busdatauser[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'follow_to' => $user['follow_from']);
+            $status_list = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
+
+            
+            if (($status_list[0]['follow_status'] == 0 || $status_list[0]['follow_status'] == ' ' ) && $user['follow_from'] != $busdatauser[0]['business_profile_id']) {
+                ?>
 
 
-                                                                    <div class="user_btn follow_btn_<?php echo $user['follow_from']; ?>" id= "followdiv">
-                                                                        <button id="<?php echo "follow" . $user['follow_from']; ?>" onClick="followuser_two(<?php echo $user['follow_from']; ?>)">Follow</button>
-                                                                    </div> 
+                                                                        <div class="user_btn follow_btn_<?php echo $user['follow_from']; ?>" id= "followdiv">
+                                                                            <button id="<?php echo "follow" . $user['follow_from']; ?>" onClick="followuser_two(<?php echo $user['follow_from']; ?>)">Follow</button>
+                                                                        </div> 
 
-                                                                <?php } else if ($user['follow_from'] == $busdatauser[0]['business_profile_id']) { ?>
+            <?php } else if ($user['follow_from'] == $busdatauser[0]['business_profile_id']) { ?>
 
-                                                                <?php } else { ?>
+                                                                    <?php } else { ?>
 
-                                                                    <div class="user_btn_f follow_btn_<?php echo $user['follow_from']; ?>" id= "unfollowdiv">
-                                                                        <button class="bg_following" id="<?php echo "unfollow" . $user['follow_from']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_from']; ?>)"><span>Following</span></button>
-                                                                    </div>   
+                                                                        <div class="user_btn_f follow_btn_<?php echo $user['follow_from']; ?>" id= "unfollowdiv">
+                                                                            <button class="bg_following" id="<?php echo "unfollow" . $user['follow_from']; ?>" onClick="unfollowuser_two(<?php echo $user['follow_from']; ?>)"><span>Following</span></button>
+                                                                        </div>   
 
-                                                                <?php } ?>
-                                                            </li>
+            <?php } ?>
+                                                                </li>
 
-                                                        </ul>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
+
+
                                             </div>
 
-
                                         </div>
-                                    
+
+
+        <?php }
+    }
+} ?>
+
+                            <div class="art-img-nn" id= "art-blank" style="display: none">
+                                <div class="art_no_post_img">
+
+                                    <img src="<?php echo base_url('img/icon_no_follower.png') ?>">
+
                                 </div>
-
-
-                            <?php } } }  ?>
-
-                               <div class="art-img-nn" id= "art-blank" style="display: none">
-                                    <div class="art_no_post_img">
-
-                                        <img src="<?php echo base_url('img/icon_no_follower.png') ?>">
-
-                                    </div>
-                                    <div class="art_no_post_text">
-                                        No Followers Available.
-                                    </div>
+                                <div class="art_no_post_text">
+                                    No Followers Available.
                                 </div>
+                            </div>
 
-                            
+
 
                             <div class="col-md-1">
                             </div>
@@ -731,19 +732,19 @@
             </footer>      
 
 
-<!-- Bid-modal for this modal appear or not start -->
-        <div class="modal fade message-box" id="query" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close" id="query" data-dismiss="modal">&times;</button>       
-                    <div class="modal-body">
-                        <span class="mes">
-                        </span>
+            <!-- Bid-modal for this modal appear or not start -->
+            <div class="modal fade message-box" id="query" role="dialog">
+                <div class="modal-dialog modal-lm">
+                    <div class="modal-content">
+                        <button type="button" class="modal-close" id="query" data-dismiss="modal">&times;</button>       
+                        <div class="modal-body">
+                            <span class="mes">
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Bid-modal for this modal appear or not  Popup Close -->
+            <!-- Bid-modal for this modal appear or not  Popup Close -->
             <!-- Bid-modal  -->
             <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
                 <div class="modal-dialog modal-lm">
@@ -788,17 +789,17 @@
 
 
             <!-- script for skill textbox automatic start (option 2)-->
-<script type="text/javascript">
+            <script type="text/javascript">
 
-    $(document).ready(function(){
+                $(document).ready(function () {
 
-    var nb = $('div.job-contact-frnd').length;
-    //alert(nb);
-    if (nb == 0){
-    document.getElementById('art-blank').style.display = 'block';
-    }
+                    var nb = $('div.job-contact-frnd').length;
+                    //alert(nb);
+                    if (nb == 0) {
+                        document.getElementById('art-blank').style.display = 'block';
+                    }
 
-    });</script>
+                });</script>
 
 
 
@@ -817,33 +818,33 @@
             <!-- script for business autofill -->
             <script>
 
-                                                                var data = <?php echo json_encode($demo); ?>;
-                                                                // alert(data);
+    var data = <?php echo json_encode($demo); ?>;
+    // alert(data);
 
 
-                                                                $(function () {
-                                                                    // alert('hi');
-                                                                    $("#tags").autocomplete({
-                                                                        source: function (request, response) {
-                                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                            response($.grep(data, function (item) {
-                                                                                return matcher.test(item.label);
-                                                                            }));
-                                                                        },
-                                                                        minLength: 1,
-                                                                        select: function (event, ui) {
-                                                                            event.preventDefault();
-                                                                            $("#tags").val(ui.item.label);
-                                                                            $("#selected-tag").val(ui.item.label);
-                                                                            // window.location.href = ui.item.value;
-                                                                        }
-                                                                        ,
-                                                                        focus: function (event, ui) {
-                                                                            event.preventDefault();
-                                                                            $("#tags").val(ui.item.label);
-                                                                        }
-                                                                    });
-                                                                });
+    $(function () {
+        // alert('hi');
+        $("#tags").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data, function (item) {
+                    return matcher.test(item.label);
+                }));
+            },
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+            }
+        });
+    });
 
             </script>
 
@@ -880,87 +881,87 @@
 
             </script>
             <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data = <?php echo json_encode($demo); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#tags1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#tag1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#tags1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
-<script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data1 = <?php echo json_encode($de); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#searchplace1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data1, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
+                jQuery.noConflict();
 
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
+                (function ($) {
+
+                    var data = <?php echo json_encode($demo); ?>;
+                    //alert(data);
+
+
+                    $(function () {
+                        // alert('hi');
+                        $("#tags1").autocomplete({
+                            source: function (request, response) {
+                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                response($.grep(data, function (item) {
+                                    return matcher.test(item.label);
+                                }));
+                            },
+                            minLength: 1,
+                            select: function (event, ui) {
+                                event.preventDefault();
+                                $("#tag1").val(ui.item.label);
+                                $("#selected-tag").val(ui.item.label);
+                                // window.location.href = ui.item.value;
                             }
-                        }
-                    </script>
+                            ,
+                            focus: function (event, ui) {
+                                event.preventDefault();
+                                $("#tags1").val(ui.item.label);
+                            }
+                        });
+                    });
+
+                })(jQuery);
+
+            </script>
+            <script>
+                jQuery.noConflict();
+
+                (function ($) {
+
+                    var data1 = <?php echo json_encode($de); ?>;
+                    //alert(data);
+
+
+                    $(function () {
+                        // alert('hi');
+                        $("#searchplace1").autocomplete({
+                            source: function (request, response) {
+                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                response($.grep(data1, function (item) {
+                                    return matcher.test(item.label);
+                                }));
+                            },
+                            minLength: 1,
+                            select: function (event, ui) {
+                                event.preventDefault();
+                                $("#searchplace1").val(ui.item.label);
+                                $("#selected-tag").val(ui.item.label);
+                                // window.location.href = ui.item.value;
+                            }
+                            ,
+                            focus: function (event, ui) {
+                                event.preventDefault();
+                                $("#searchplace1").val(ui.item.label);
+                            }
+                        });
+                    });
+
+                })(jQuery);
+
+            </script>
+
+            <script type="text/javascript">
+                function check() {
+                    var keyword = $.trim(document.getElementById('tags1').value);
+                    var place = $.trim(document.getElementById('searchplace1').value);
+                    if (keyword == "" && place == "") {
+                        return false;
+                    }
+                }
+            </script>
             <script type="text/javascript">
                 function checkvalue() {
                     //alert("hi");
@@ -1340,7 +1341,7 @@
             </script>  
 
 
-           
+
 
             <!-- scroll page script start -->
             <script type="text/javascript">
@@ -1360,32 +1361,32 @@
 
 
             <script type="text/javascript">
-                    
-  function contact_person_query(clicked_id, status) { 
 
-   
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "business_profile/contact_person_query" ?>',
-                            data: 'toid=' + clicked_id + '&status=' + status,
-                            success: function (data) { //alert(data);
-                              // return data;
-                               contact_person_model(clicked_id, status, data);
-                            }
-                        });
-                    }
-
-                    
-</script>
-
-                <script type="text/javascript">
+                function contact_person_query(clicked_id, status) {
 
 
-                    function contact_person_model(clicked_id, status, data) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/contact_person_query" ?>',
+                        data: 'toid=' + clicked_id + '&status=' + status,
+                        success: function (data) { //alert(data);
+                            // return data;
+                            contact_person_model(clicked_id, status, data);
+                        }
+                    });
+                }
 
-                        if(data == 1){
 
-                            if (status == 'pending') {
+            </script>
+
+            <script type="text/javascript">
+
+
+                function contact_person_model(clicked_id, status, data) {
+
+                    if (data == 1) {
+
+                        if (status == 'pending') {
 
                             $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                             $('#bidmodal').modal('show');
@@ -1395,49 +1396,49 @@
                             $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
                             $('#bidmodal').modal('show');
 
-                        }else{ 
-                           contact_person(clicked_id); 
+                        } else {
+                            contact_person(clicked_id);
                         }
 
-                }else{
+                    } else {
 
-                      $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
-                      $('#query').modal('show');
-                            
-                }
-                        
-                       
+                        $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
+                        $('#query').modal('show');
 
                     }
-                </script>
 
 
-<script type="text/javascript">
-                    function contact_person(clicked_id) {
-                        
-                        $.ajax({
-                            type: 'POST',
-                            url: '<?php echo base_url() . "business_profile/contact_person" ?>',
-                            data: 'toid=' + clicked_id,
-                            success: function (data) {
-                                //   alert(data);
-                                $('#contact_per').html(data);
 
-                            }
-                        });
-                    }
-</script>
-
-<script type="text/javascript">
-    
-     $(document).on('keydown', function (e) {
-                if (e.keyCode === 27) {
-                //$( "#bidmodal" ).hide();
-                $('#query').modal('hide');
-                //$('.modal-post').show();
                 }
+            </script>
+
+
+            <script type="text/javascript">
+                function contact_person(clicked_id) {
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '<?php echo base_url() . "business_profile/contact_person" ?>',
+                        data: 'toid=' + clicked_id,
+                        success: function (data) {
+                            //   alert(data);
+                            $('#contact_per').html(data);
+
+                        }
+                    });
+                }
+            </script>
+
+            <script type="text/javascript">
+
+                $(document).on('keydown', function (e) {
+                    if (e.keyCode === 27) {
+                        //$( "#bidmodal" ).hide();
+                        $('#query').modal('hide');
+                        //$('.modal-post').show();
+                    }
                 });
-</script>
+            </script>
 
 
 
