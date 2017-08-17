@@ -3725,8 +3725,8 @@ class Chat extends MY_Controller {
                                                     }
 
             $notmsg .= '</div><div class="notification-data-inside">';
-//            $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
-            $notmsg .= '<h6>' . ucwords($msg['first_name']) . '</h6>';
+            $notmsg .= '<h6>' . ucwords($msg['first_name']) . ' ' . ucwords($msg['last_name']) . '</h6>';
+     //       $notmsg .= '<h6>' . ucwords($msg['first_name']) . '</h6>';
             $notmsg .= '<div class="msg_desc_a">';
 
             $message = str_replace('\\r', '', $msg['message']); 

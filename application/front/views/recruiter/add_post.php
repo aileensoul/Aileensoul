@@ -276,7 +276,7 @@
                                 <fieldset class="full-width"<?php if ($post_name) { ?> class=" error-msg" <?php } ?> >
                                     <label class="control-label">Job Title:<span style="color:red">*</span></label>
                                    <!--  <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" /> -->
-                                     <input type="search" tabindex="1" id="post_name" name="post_name" value="" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" style="text-transform: capitalize;" onfocus="this.value = this.value;" maxlength="255">
+                                     <input type="search" tabindex="1" autofocus id="post_name" name="post_name" value="" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" style="text-transform: capitalize;" onfocus="var temp_value=this.value; this.value=''; this.value=temp_value" maxlength="255">
                                     <span id="fullname-error"></span>
                                     <?php echo form_error('post_name'); ?>
                                 </fieldset>
