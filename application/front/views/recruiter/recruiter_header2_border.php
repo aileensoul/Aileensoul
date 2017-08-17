@@ -344,6 +344,7 @@ $(document).ready(function() {
             $("#message_count").html('');
             $('#InboxLink').removeClass('msg_notification_available');
             $('span#message_count').removeAttr('style');
+            document.getElementById('message_count').style.display = "none";
         } else
         {
             $('#message_count').html(msg);
