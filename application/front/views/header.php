@@ -386,7 +386,7 @@ $(window).load(function(){
             $(".dropdown-menu").hide();
             $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
-            $("#notification_count").hide();
+          //  $("#notification_count").hide();
             $("#dropdown-content_hover").hide();
             $("#acon").hide();
             $("#InboxContainer").fadeToggle(300);
@@ -406,7 +406,7 @@ $(window).load(function(){
             $("#Frnd_req_count").hide();
             $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
-            $("#notification_count").hide();
+         //   $("#notification_count").hide();
             $("#InboxContainer").hide();
             $("#Inbox_count").hide();
             $("#dropdown-content_hover").hide();
@@ -426,7 +426,7 @@ $(window).load(function(){
             $("#Frnd_req_count").hide();
             $("#acon").hide();
             $("#notificationContainer").hide();
-            $("#notification_count").hide();
+          //  $("#notification_count").hide();
             $("#InboxContainer").hide();
             $("#Inbox_count").hide();
 //$(".dropdown-user").hide();
@@ -1334,7 +1334,7 @@ for (i = 0; i < dropdowns.length; i++) {
             $("#dropdown-content_hover").hide();
             $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
-            $("#notification_count").hide();
+         //   $("#notification_count").hide();
 
 
             $("#Frnd_reqContainer").hide();
