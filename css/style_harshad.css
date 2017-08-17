@@ -42,6 +42,7 @@
 .modal-close1{padding: 0px 6px;
 float: right;
 border-radius: 100%;}
+.tabs-left > li.active > a .fa-file-pdf-o{font-size: inherit;}
 
 /*all module-common end*/
 
