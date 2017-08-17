@@ -31,7 +31,7 @@
           });
         </script>-->
 
-        
+
         <meta name="p:domain_verify" content="d0a13cf7576745459dc0ca6027df5513"/>
         <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <meta charset="utf-8">
@@ -163,7 +163,7 @@
                             <div class="col-md-5 col-sm-6">
                                 <div class="login">
                                     <h4>Join Aileensoul - It's Free</h4>
-                                    <form role="form" name="register_form" id="register_form" method="post">
+                                    <form role="form" name="register_form" id="register_form" method="post" autocomplete="off">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
@@ -178,10 +178,10 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <input tabindex="7" type="text" name="email_reg" id="email_reg" class="form-control input-sm" placeholder="Email Address" autocomplete="off">
+                                            <input tabindex="7" type="text" name="email_reg" id="email_reg" class="form-control input-sm" placeholder="Email Address" autocomplete="off" value="">
                                         </div>
                                         <div class="form-group">
-                                            <input tabindex="8" type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password">
+                                            <input tabindex="8" type="password" name="password_reg" id="password_reg" class="form-control input-sm" placeholder="Password" value="">
                                         </div>
                                         <div class="form-group dob">
                                             <label class="d_o_b"> Date Of Birth :</label>
@@ -300,7 +300,7 @@
                             <ul>
                                 <li><a href="<?php echo base_url('about_us'); ?>" target="_blank">About Us</a>|</li>
                                 <li><a href="<?php echo base_url('contact_us'); ?>" target="_blank">Contact Us</a>|</li>
-				<li><a href="<?php echo base_url('blog'); ?>" target="_blank">Blog</a>|</li>
+                                <li><a href="<?php echo base_url('blog'); ?>" target="_blank">Blog</a>|</li>
                                 <li><a href="<?php echo base_url('feedback'); ?>" target="_blank">Send Us Feedback</a></li>
                             </ul>
                         </div>
@@ -419,8 +419,8 @@
                 {
 //                                            var essssmail = $('#email_login').val();
 //                                            alert(essssmail);
-//                                            <?php // $this->session->set_userdata('email',essssmail);      ?>
-//                                            var sessionValue = "<?php // echo $this->session->userdata('email');     ?>";
+//                                            <?php // $this->session->set_userdata('email',essssmail);        ?>
+//                                            var sessionValue = "<?php // echo $this->session->userdata('email');       ?>";
 //                                           
                     if (response.data == "ok") {
                         $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
@@ -467,13 +467,13 @@
         }, "Email Should be in Small Character");
 
 
-        jQuery.validator.addMethod("noSpace", function(value, element) { 
-      return value == '' || value.trim().length != 0;  
-    }, "No space please and don't leave it empty");
+        jQuery.validator.addMethod("noSpace", function (value, element) {
+            return value == '' || value.trim().length != 0;
+        }, "No space please and don't leave it empty");
 
-$.validator.addMethod("regx", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+        $.validator.addMethod("regx", function (value, element, regexpr) {
+            return regexpr.test(value);
+        }, "Only space, only number and only special characters are not allow");
 
 
 
@@ -481,11 +481,11 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
             rules: {
                 first_name: {
                     required: true,
-                    regx:/^["-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                    regx: /^["-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                 },
                 last_name: {
                     required: true,
-                    regx:/^["-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                    regx: /^["-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
                 },
                 email_reg: {
                     required: true,
@@ -579,79 +579,79 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                 '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
             }
 
-              
-        var todaydate = new Date();
-        var dd = todaydate.getDate();
-        var mm = todaydate.getMonth()+1; //January is 0!
-        var yyyy = todaydate.getFullYear();
 
-        if(dd<10) {
-            dd='0'+dd
-        } 
+            var todaydate = new Date();
+            var dd = todaydate.getDate();
+            var mm = todaydate.getMonth() + 1; //January is 0!
+            var yyyy = todaydate.getFullYear();
 
-        if(mm<10) {
-            mm='0'+mm
-        } 
+            if (dd < 10) {
+                dd = '0' + dd
+            }
 
-           var todaydate = yyyy+'/'+mm+'/'+dd;
-           var value =  selyear+'/'+selmonth+'/'+selday;
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            var todaydate = yyyy + '/' + mm + '/' + dd;
+            var value = selyear + '/' + selmonth + '/' + selday;
 
 
             var d1 = Date.parse(todaydate);
             var d2 = Date.parse(value);
-           //var one = new Date(value).getTime();
-         // var second = new Date(todaydate).getTime();
-    //alert(one); alert(second);
+            //var one = new Date(value).getTime();
+            // var second = new Date(todaydate).getTime();
+            //alert(one); alert(second);
 
-        if (d1 < d2){
-        
-           $(".dateerror").html("Date of birth always less than to today's date.");
-            
-            return false;
-         }else{
+            if (d1 < d2) {
 
+                $(".dateerror").html("Date of birth always less than to today's date.");
 
-            if ((0 == selyear % 4) && (0 != selyear % 100) || (0 == selyear % 400))
-            {
-
-
-                if (selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11) {
-
-                    if (selday == 31) {
-
-                        $(".dateerror").html("This month has only 30 days.");
-                        return false;
-                    }
-                } else if (selmonth == 2) { //alert("hii");
-                    if (selday == 31 || selday == 30) {
-                        $(".dateerror").html("This month has only 29 days.");
-                        return false;
-
-                    }
-
-                }
-
+                return false;
             } else {
 
 
-                if (selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11) {
+                if ((0 == selyear % 4) && (0 != selyear % 100) || (0 == selyear % 400))
+                {
 
-                    if (selday == 31) {
 
-                        $(".dateerror").html("This month has only 30 days.");
-                        return false;
+                    if (selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11) {
+
+                        if (selday == 31) {
+
+                            $(".dateerror").html("This month has only 30 days.");
+                            return false;
+                        }
+                    } else if (selmonth == 2) { //alert("hii");
+                        if (selday == 31 || selday == 30) {
+                            $(".dateerror").html("This month has only 29 days.");
+                            return false;
+
+                        }
+
                     }
-                } else if (selmonth == 2) {
-                    if (selday == 31 || selday == 30 || selday == 29) {
-                        $(".dateerror").html("This month has only 28 days.");
-                        return false;
+
+                } else {
+
+
+                    if (selmonth == 4 || selmonth == 6 || selmonth == 9 || selmonth == 11) {
+
+                        if (selday == 31) {
+
+                            $(".dateerror").html("This month has only 30 days.");
+                            return false;
+                        }
+                    } else if (selmonth == 2) {
+                        if (selday == 31 || selday == 30 || selday == 29) {
+                            $(".dateerror").html("This month has only 28 days.");
+                            return false;
+
+                        }
 
                     }
 
                 }
-
             }
-        }
 
 
             $.ajax({
@@ -669,7 +669,7 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
                         $("#btn-register").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Sign Up ...');
 
                         window.location = "<?php echo base_url() ?>dashboard";
-                        // setTimeout(' window.location.href = "<?php //echo base_url()      ?>dashboard"; ', 4000);
+                        // setTimeout(' window.location.href = "<?php //echo base_url()        ?>dashboard"; ', 4000);
                     } else {
                         $("#register_error").fadeIn(1000, function () {
                             $("#register_error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
@@ -745,18 +745,15 @@ $.validator.addMethod("regx", function(value, element, regexpr) {
 
 
 <script type="text/javascript">
-    //For Scroll page at perticular position js Start
-    $(document).ready(function () {
+$(window).bind("pageshow", function() {
+    $("#register_form").trigger('reset');
+    $("#email_reg").val('');
+    $("#password_reg").val('');
+});
 
-        //  $(document).load().scrollTop(1000);
-
-
-
-        $("#email_reg").val('');
-        $("#password_reg").val('');
-
-    });
-    //For Scroll page at perticular position js End
+$(document).ready(function(){
+    $("#register_form").trigger('reset');
+})
 </script>
 
 
