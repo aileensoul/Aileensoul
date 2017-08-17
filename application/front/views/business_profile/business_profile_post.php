@@ -747,7 +747,7 @@
                                     <?php // echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
                                     <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
                                     <div class="main-text-area col-md-12" >
-                                        <div class="popup-img-in"> 
+                                        <div class="popup-img-in popup-img-bui"> 
                                             <?php
                                             if ($businessdata[0]['business_user_image'] != '') {
                                                 ?>
@@ -787,10 +787,10 @@
                                             }
                                             ?>
                                         </div>
-                                        <div id="myBtn1"  class="editor-content col-md-10 popup-text" >
+                                        <div id="myBtn1"  class="editor-content col-md-10 popup-text bui_pop_rd" >
                                             <textarea id="test-upload-product" placeholder="<?php echo $this->lang->line("post_your_product"); ?>"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
                                             <div class="fifty_val">                       
-                                                <input size=1 value=50 name=text_num tabindex="-600" class="text_num"  readonly> 
+                                                <input size=1 value=50 name=text_num tabindex="-600" class="text_num mian_box_num"  readonly> 
                                             </div>
                                             <div class="camera_in padding-left padding_les_left camer_h">
                                                 <i class=" fa fa-camera" >
