@@ -14848,11 +14848,11 @@ text-align: center;}
 .header ul li a {
    
     padding-bottom: 1px !important;
-padding-top: 5px !important;
+padding-top:10px !important;
 display: inline-block;
     border-right: 0.2px solid #1985b3;
-    margin-top: 6px;
-    margin-bottom: 6px;
+ /*   margin-top: 6px;
+    margin-bottom: 6px;*/
 }
 
 .header ul li #notificationsmsgBody a {
@@ -15683,7 +15683,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 .bui_pop_rd{    padding: 16px 0px 11px 16px;}
 .popup-img-bui{padding-left:3px !important;
     padding-right: 0px;
-    padding-top: 9px;
+    padding-top: 0  px;
     float: left;}
 /***  media query  ***/
 
