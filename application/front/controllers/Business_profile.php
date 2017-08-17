@@ -11551,7 +11551,6 @@ class Business_profile extends MY_Controller {
     public function bus_contact($id = "") {
         $this->data['slug_id'] = $id;
         $id = $this->uri->segment(3);
-
         // CODE FOR SECOND HEADER SEARCH START
 
         $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
@@ -11599,23 +11598,24 @@ class Business_profile extends MY_Controller {
 
         $this->data['demo'] = array_values($result1);
         
-        
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $slug_id = $this->data['slug_data'][0]['business_slug'];
+        
         if ($id == $this->data['slug_data'][0]['business_slug'] || $id == '') {
             $contition_array = array('business_slug' => $slug_id, 'status' => '1', 'business_step' => 4);
             $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $contition_array = array('user_id' => $userid, 'is_delete' => '0');
             $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-             $this->bus_avail_check($id);
+            $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'is_delete' => '0');
             $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
+        
         $this->data['business_common'] = $this->load->view('business_profile/business_common', $this->data, TRUE);
         $this->load->view('business_profile/bus_contact', $this->data);
     }
@@ -13305,7 +13305,7 @@ class Business_profile extends MY_Controller {
     // recruiter available chek
 public function bus_avail_check($userid = " ") 
  {
-   $contition_array = array('business_slug' => $userid, 'is_delete' => '1');
+   $contition_array = array('business_slug' => $userid, 'is_deleted' => '1');
    $availuser = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
     
         if (count($availuser) > 0) 
