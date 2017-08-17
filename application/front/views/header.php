@@ -111,7 +111,7 @@ $(window).load(function(){
         if (msg == 0)
         {
             $("#notification_count").html('');
-             $('#notification_count').css({"background-color": "#1b8ab9" , "padding": "5px 6px"});
+             $('#notification_count').css({"background-color": " " , "padding": "5px 6px"});
             $('#notificationLink').removeClass('notification_available');
         } else
         {
