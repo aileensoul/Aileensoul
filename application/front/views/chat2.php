@@ -476,6 +476,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 
     $('#submit').click(function (e) {
+//        alert(12121);
+//        return false;
         e.preventDefault();
 
         var $field = $('#message');
@@ -486,6 +488,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
        // data = data.replace(/<br><br>/g, '');
+        data = data.replace(/<div><br><\/div>/gi, " ");
         data = data.replace(/<br>/, '');
 
         if (data == '' || data == '<br>') {
@@ -510,10 +513,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             if (check_perticular(txt) == true) {
                 return false;
             }
-            txt = txt.replace(/&nbsp;/gi, " ");
-            //txt = txt.replace(/<br><br>/g, '');
-            txt = txt.replace(/&gt;/gi, ">");
-            txt = txt.replace(/div/gi, "p");
+            var txt = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
+            txt = txt.replace(/<div><br><\/div>/gi, " ");
+            txt = txt.replace(/<br>/, '');
+
+//            txt = txt.replace(/&nbsp;/gi, " ");
+//            txt = txt.replace(/<div><br><\/div>/gi, " ");
+//            txt = txt.replace(/&gt;/gi, ">");
+//            txt = txt.replace(/div/gi, "p");
             if (txt == '' || txt == '<br>') {
                 return false;
             }
@@ -560,6 +567,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         var data = $('#message').html().replace(/<div>/gi, '<br>').replace(/<\/div>/gi, '');
         data = data.replace(/<br><br>/g, '');
+        data = data.replace(/<div><br><\/div>/gi, " ");
         data = data.replace(/<br><br><br><br>/, '');
         data = data.replace(/<br>/, '');
         if (data == '' || data == '<br>') {

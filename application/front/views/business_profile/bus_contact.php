@@ -734,8 +734,9 @@ $(document).ready(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
 
             var page = $(".page_number:last").val();
-            var total_record = $(".total_record").val();
-            var perpage_record = $(".perpage_record").val();
+            var total_record = $(".total_record:last").val();
+            var perpage_record = $(".perpage_record:last").val();
+            
             if (parseInt(perpage_record) <= parseInt(total_record)) {
                 var available_page = total_record / perpage_record;
                 available_page = parseInt(available_page, 10);

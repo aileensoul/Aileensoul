@@ -11643,7 +11643,6 @@ class Business_profile extends MY_Controller {
         $slug_id = $this->data['slug_data'][0]['business_slug'];
 
         if ($id == $slug_id || $id == '') {
-
             $busuid = $busuid = $this->session->userdata('aileenuser');
             $contition_array = array('user_id' => $busuid, 'is_deleted' => 0, 'status' => 1);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -11654,9 +11653,10 @@ class Business_profile extends MY_Controller {
 
             $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2);
             $search_condition = "(contact_to_id = '$busuid' OR contact_from_id = '$busuid')";
-            $unique_user = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str = '', $groupby = '');
+            $unique_user2 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str = '', $groupby = '');
             $unique_user1 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
         } else {
+            
             $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $busuid = $this->data['busuid'] = $businessdata1[0]['user_id'];
@@ -11666,7 +11666,7 @@ class Business_profile extends MY_Controller {
 
             $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2);
             $search_condition = "(contact_to_id = '$busuid' OR contact_from_id = '$busuid')";
-            $unique_user = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str = '', $groupby = '');
+            $unique_user2 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str = '', $groupby = '');
             $unique_user1 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
         }
         $return_html = '';
@@ -11678,7 +11678,10 @@ class Business_profile extends MY_Controller {
         $return_html .= '<input type = "hidden" class = "total_record" value = "' . $_GET["total_record"] . '" />';
         $return_html .= '<input type = "hidden" class = "perpage_record" value = "' . $perpage . '" />';
         if (count($unique_user1) > 0) {
-            foreach ($unique_user as $user) {
+//            echo '<pre>';
+//            print_r($unique_user);
+//            exit;
+            foreach ($unique_user2 as $user) {
                 if ($busuid == $user['contact_from_id']) {
                     $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
                     $contition_array = array('contact_from_id' => $login, 'contact_to_id' => $user['contact_to_id'], 'contact_type' => 2);
