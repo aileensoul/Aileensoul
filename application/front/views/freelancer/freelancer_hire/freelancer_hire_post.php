@@ -463,7 +463,7 @@ if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) {
                                                                     }
                                                                     ?></span>
                                                             </li>
-                                                            <!-- vishang 14-4 start -->
+                                                           
                                                             <li>
                                                                 <b>Required Experience</b>
                                                                 <span>
@@ -473,7 +473,7 @@ if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) {
                                                                             echo $post['post_exp_year'];
                                                                         }
                                                                         if ($post['post_exp_month']) {
-                                                                            if ($post['post_exp_year'] == '') {
+                                                                            if ($post['post_exp_year'] == ''|| $post['post_exp_year'] == '0') {
                                                                                 echo 0;
                                                                             }
                                                                             echo ".";
@@ -489,7 +489,7 @@ if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) {
                                                             </li>
 
 
-                                                            <!-- vishang 14-4 end -->
+                                                           
 
 
 
