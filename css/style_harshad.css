@@ -43,7 +43,7 @@
 float: right;
 border-radius: 100%;}
 .tabs-left > li.active > a .fa-file-pdf-o{font-size: inherit;}
-
+.fa-file-pdf-o{font-size: inherit;}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
