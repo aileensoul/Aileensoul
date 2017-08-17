@@ -334,7 +334,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var lname = '<?php echo $loglname; ?>';
         var message = message;
         var str = message.replace(/<div><br><\/div>/gi, "");
-
+        
         if (str == '') {
             return false;
         } else if (/^\s+$/gi.test(str))
