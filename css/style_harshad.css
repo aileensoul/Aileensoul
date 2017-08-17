@@ -36,7 +36,12 @@
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*all module-common start*/
-
+.art_no_post_img{text-align: center;}
+.art_no_post_text{text-align: center;}
+.flw_msg_btn{margin-top: 8px;}
+.modal-close1{padding: 0px 6px;
+float: right;
+border-radius: 100%;}
 
 /*all module-common end*/
 
@@ -76,7 +81,7 @@
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-
+.profile-head-text{font-family: arial;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
