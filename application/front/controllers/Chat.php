@@ -3650,8 +3650,9 @@ class Chat extends MY_Controller {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-">';
-                        $usrsrch .= '' . str_replace('\\', '', $user['message']) . '';
+">';                   $message = $user['message'];
+                       $message =   preg_replace('[^(<br( \/)?>)*|(<br( \/)?>)*$]', '', $message);
+                        $usrsrch .= '' . str_replace('\\', '', $message) . '';
                         $usrsrch .= '</div>';
                         $usrsrch .= '</div>';
                         $usrsrch .= '</li></a>';
