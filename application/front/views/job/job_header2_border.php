@@ -32,7 +32,7 @@
                         <?php echo $job_search; ?>
                         </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-12 h2-smladd mob-width">
+                  <div class="col-sm-5 col-md-5 col-xs-12 h2-smladd mob-width second_right_header">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">

@@ -15683,8 +15683,8 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
 }
 @media screen and (min-width: 1200px) and (max-width: 1350px) {
     .header2 {
-        margin-left: 16px;
-        margin-right: 16px;
+       /* margin-left: 16px;
+        margin-right: 16px;*/
     }
     #InboxContainer{right: -5px;}
 
