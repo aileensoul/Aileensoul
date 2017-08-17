@@ -758,7 +758,7 @@
                                                     $a = $businessdata[0]['company_name'];
                                                     $acr = substr($a, 0, 1);
                                                     ?>
-                                                    <div class="post-img-profile">
+                                                    <div class="post-img-div">
                                                         <?php echo ucfirst(strtolower($acr)) ?>
                                                     </div>
                                                     <?php
@@ -887,7 +887,7 @@
                                                 $a = $businessdata[0]['company_name'];
                                                 $acr = substr($a, 0, 1);
                                                 ?>
-                                                <div class="post-img-profile">
+                                                <div class="post-img-div">
                                                     <?php echo ucfirst(strtolower($acr)) ?>
                                                 </div> 
                                                 <?php
