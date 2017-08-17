@@ -73,7 +73,7 @@ $smileys = array(
 	':vvimpir)'			=>	array('vvimpir.png',			'19',	'19',	'vvimpir'),
 	':wink)'			=>	array('wink.png',			'19',	'19',	'wink'),
 	':yatin)'			=>	array('yatin.png',			'19',	'19',	'yatin'),
-	':zalak)'			=>	array('zalak.png',			'19',	'19',	'zalak'),
+//	':zalak)'			=>	array('zalak.png',			'19',	'19',	'zalak'),
 
 	':zip'	=>	array('zip.png',		'19',	'19',	'zip')
 

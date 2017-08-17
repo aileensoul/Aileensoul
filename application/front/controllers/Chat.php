@@ -3652,6 +3652,9 @@ class Chat extends MY_Controller {
     text-overflow: ellipsis;
 ">';                   $message = $user['message'];
                        $message =   preg_replace('[^(<br( \/)?>)*|(<br( \/)?>)*$]', '', $message);
+                       $message =   preg_replace('%26amp;', '&', $message);
+                       $message =   preg_replace('%26gt;', '>', $message);
+                       $message =   preg_replace('%26lt;', '<', $message);
                         $usrsrch .= '' . str_replace('\\', '', $message) . '';
                         $usrsrch .= '</div>';
                         $usrsrch .= '</div>';
@@ -3731,10 +3734,11 @@ class Chat extends MY_Controller {
             $notmsg .= '<div class="msg_desc_a">';
 
             $message = str_replace('\\r', '', $msg['message']); 
-             $message = str_replace('\\t', '', $message); 
-               $message = str_replace('\\', '', $message);
-               $message = str_replace('%26amp;', '&', $message);
-              
+            $message = str_replace('\\t', '', $message); 
+            $message = str_replace('\\', '', $message);
+            $message = str_replace('%26amp;', '&', $message);
+            $message = str_replace('%26gt;', '>', $message);
+            $message = str_replace('%26lt;', '<', $message);
         
             $notmsg .= '' . $message . '';
             $notmsg .= '</div><div class="data_noti_msg"><span class="day-text2">' . $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($not[0]['not_created_date']))) . '</span></div>';

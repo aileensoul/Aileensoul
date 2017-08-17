@@ -81,7 +81,7 @@
                 </fieldset>
                 <fieldset class="hs-submit full-width">
 
-                    <input type="reset"  value="Cancel" name="cancel">
+                    <input type="reset"  value="Reset" name="Reset" class="reset">
                     <input type="submit"  value="Save" name="submit">
                     
                 </fieldset>
@@ -104,6 +104,11 @@
 <script type="text/javascript" src="<?php echo base_url() ?>js/jquery.validate.min.js"></script>
 <script type="text/javascript">
       $(document).ready(function () { 
+          
+     $(".reset").click(function() { alert("hi");
+     $("label.error").hide();
+  $(".error").removeClass("error");
+});
   
  $.validator.addMethod( "notEqualTo", function( value, element, param ) {
      return this.optional( element ) || !$.validator.methods.equalTo.call( this, value, element, param );
@@ -161,7 +166,7 @@
                         
                         password2: {
                             required: "Confirm Password Is Required.",
-                            equalTo: "Value Is Not Same Like New Password",
+                            equalTo: "New Password And Confirm Password Is Not Match",
                         }
                  
                     },
