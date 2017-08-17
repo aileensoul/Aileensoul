@@ -1,13 +1,13 @@
 
                          <!-- <?php //echo form_open('search/recruiter_search');  ?> -->
                          <form action=<?php echo base_url('search/recruiter_search')?> method="get">
-                            <fieldset class="col-md-3 col-sm-5 col-xs-5">
+                            <fieldset class="col-md-3 col-sm-5 col-xs-5 sec_h2">
 
                               <input type="text" id="tags" name="skills" placeholder="job seeker,keywords,skills">
         
                               
                             </fieldset>
-                            <fieldset class="col-md-3 col-sm-5 col-xs-5">
+                            <fieldset class="col-md-3 col-sm-5 col-xs-5 sec_h2">
                               
                             
 

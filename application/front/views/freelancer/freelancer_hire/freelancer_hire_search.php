@@ -2,7 +2,7 @@
                         <div class="job-search-box1 clearfix">
                       <!--  <?php
                          //echo form_open('search/freelancer_hire_search'); ?> -->
-                            <fieldset class="col-md-3 col-sm-5 col-xs-5">
+                            <fieldset class="col-md-3 col-sm-5 col-xs-5 sec_h2">
                       <form action=<?php echo base_url('search/freelancer_hire_search')?> method="get">
                              <!--    <label>Find Your Skills</label>
                               -->  
@@ -10,7 +10,7 @@
                                 </select>
 
                             </fieldset>
-                            <fieldset class="col-md-3 col-sm-5 col-xs-5">
+                            <fieldset class="col-md-3 col-sm-5 col-xs-5 sec_h2">
                              <!--    <label>Find Your Location</label>
                               -->  
 

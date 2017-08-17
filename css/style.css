@@ -9126,8 +9126,8 @@ fieldset .add_post_btns {
     font-weight: 600;
 }
 /*Dhaval Tooltip 24/ 5*/
-
-.no-post-h2{padding-right: 11px !important;}
+/*
+.no-post-h2{padding-right: 11px !important;}*/
 .cameraButton .tooltiptext_rec {
     visibility: hidden;
     width: 180px;
