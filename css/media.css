@@ -120,8 +120,6 @@
 	.cover-picture, .profile-banner { padding: 90px 0; }
 
 	.change-password-box { width: 100%; }
-	.change-password { padding: 40px 0; }
-	.change-password-box form { padding: 15px; }
 }
 @media only screen and (max-width: 479px){
 	.apply-btn a { margin-bottom: 5px; }

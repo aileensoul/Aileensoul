@@ -81,7 +81,7 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-.profile-head-text{font-family: arial;}
+/*.profile-head-text{font-family: arial;}*/
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -555,6 +555,8 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*extra css start*/
+.change-password{padding: 0px 0px;}
+
 /*extra css end*/
 
 }
@@ -578,7 +580,7 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*all module-common start*/
-
+.post-img-user{width: 100%; height: 100%;}
 
 /*all module-common end*/
 

@@ -25,7 +25,7 @@
 			</div>
 		</div>
 	</section>
-	<footer>
+	<!-- <footer>
 		
 		<div class="copyright">
 			<div class="container">
@@ -39,6 +39,6 @@
 				</div>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 </body>
 </html>

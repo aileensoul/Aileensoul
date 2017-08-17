@@ -317,7 +317,7 @@ if ($returnpage == 'job') {
                   Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                </li>
      
-              <li class="fw">
+              <li class="">
               <a class="post_title" href="javascript:void(0)" title="Post Title">
                <?php 
                                               $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
@@ -642,7 +642,7 @@ if ($returnpage == 'job') {
                                            Created Date : <?php echo date('d-M-Y',strtotime($post['created_date'])); ?>
                                           </li>
                
-                                           <li class="fw">
+                                           <li class="">
                                             <a class="post_title" href="javascript:void(0)" title="Post Title">
                                              <?php 
                                               $cache_time = $this->db->get_where('job_title', array('title_id' => $post['post_name']))->row()->name;
