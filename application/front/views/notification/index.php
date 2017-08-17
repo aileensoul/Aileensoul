@@ -182,7 +182,7 @@
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Started following you in artistic."; ?></h6>
+                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Started following you in artistic profile."; ?></h6>
                                              <div  class="hout_noti">
                                                     <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -223,7 +223,7 @@
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commented on your post in artistic."; ?></h6>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commented on your post in artistic profile."; ?></h6>
                                                     <div  class="hout_noti">
                                                         <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -266,7 +266,7 @@
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your post in artistic."; ?></h6>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your post in artistic profile."; ?></h6>
                                                     <div  class="hout_noti">
                                                         <?php   echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -311,7 +311,7 @@
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your post's comment in artistic."; ?></h6>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your post's comment in artistic profile."; ?></h6>
                                                   <div  class="hout_noti">
                                                         <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -350,7 +350,7 @@
                                                 </div>
                                                 
                                                 <div class="notification-data-inside" id="notification_inside">
-                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your photo in artistic."; ?></h6>
+                                                    <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your photo in artistic profile."; ?></h6>
                                                     <div  class="hout_noti">
                                                         <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                     </div>
@@ -392,7 +392,7 @@
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commneted on your photo in artistic."; ?></h6>
+                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Commneted on your photo in artistic profile."; ?></h6>
                                                 <div  class="hout_noti">
                                                     <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>
@@ -436,7 +436,7 @@
                                             </div>
                                             
                                             <div class="notification-data-inside" id="notification_inside">
-                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your photo's comment in artistic."; ?></h6>
+                                                <h6><?php echo "<b>" . "  " . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . "</b> Likes your photo's comment in artistic profile."; ?></h6>
                                                 <div  class="hout_noti">
                                                     <?php  echo $this->common->time_elapsed_string($total['not_created_date'], $full = false); ?>
                                                 </div>

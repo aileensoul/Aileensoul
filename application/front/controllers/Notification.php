@@ -1110,7 +1110,7 @@ array(
                                                     }
 
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Started following you in artistic.</span></h6>';
+                $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Started following you in artistic profile.</span></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div></div></a></li>';
@@ -1148,7 +1148,7 @@ array(
                 $notification .= '</div><div class="notification-data-inside">';
                 //$notification .= '';
                 $notification .= '<h6>';
-                $notification .= '<b>' . ' ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b><span class="noti-msg-y"> Commneted on your post in artistic.</span>';
+                $notification .= '<b>' . ' ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b><span class="noti-msg-y"> Commneted on your post in artistic profile.</span>';
                 $notification .= '</h6><div><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div></div></a></li>';
@@ -1186,7 +1186,7 @@ array(
                                                     }
 
                 $notification .= '</div><div class="notification-data-inside">';
-                $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes your post in artistic.</sapn></h6>';
+                $notification .= '<h6><b>' . '  ' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes your post in artistic profile.</sapn></h6>';
                 $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                 $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                 $notification .= '</span></div></div> </div></a> </li>';
@@ -1219,7 +1219,7 @@ array(
                                                     }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
-                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes your post`s comment in artistic.</h6>';
+                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes your post`s comment in artistic profile.</h6>';
                     $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                     $notification .= '</span></div>';
@@ -1253,7 +1253,7 @@ array(
                                                     }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
-                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes your photo in artistic. </sapn></h6>';
+                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y"> Likes your photo in artistic profile. </sapn></h6>';
                     $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                     $notification .= '</span></div></div>';
@@ -1288,7 +1288,7 @@ array(
                                                     }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
-                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Commented on your photo in artistic.</sapn></h6>';
+                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Commented on your photo in artistic profile.</sapn></h6>';
                     $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                     $notification .= '</span></div> </div>';
@@ -1323,7 +1323,7 @@ array(
                                                     }
                     $notification .= '</div>';
                     $notification .= '<div class="notification-data-inside">';
-                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes your photo`s comment in artistic.</h6>';
+                    $notification .= '<h6><b>' . ucwords($total['first_name']) . ' ' . ucwords($total['last_name']) . '</b> <span class="noti-msg-y">Likes your photo`s comment in artistic profile.</h6>';
                     $notification .= '<div ><i class="clockimg" ></i><span class="day-text">';
                     $notification .= '' . $this->common->time_elapsed_string($total['not_created_date'], $full = false) . '';
                     $notification .= '</span></div></div>';
@@ -2871,7 +2871,7 @@ array(
                     <div class="post-img-div">DP</div>
                 </div>
                 <div class="notification-data-inside">
-                    <h6><b>  Dhruti Panchal</b> <span class="noti-msg-y"> Started following you in artistic.</span></h6>
+                    <h6><b>  Dhruti Panchal</b> <span class="noti-msg-y"> Started following you in artistic profile.</span></h6>
                     <div><i class="clockimg"></i><span class="day-text">1 month ago</span>
                     </div>
                 </div>
