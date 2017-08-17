@@ -169,7 +169,7 @@
 
 }
 @media screen and (max-width: 1279px) {
-	.header2{width:1140px;}
+	
 	/*header start*/
 
 
@@ -178,6 +178,8 @@
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
+
+.header2{width:1140px;}
 
 /*header2 end*/
 
@@ -255,6 +257,9 @@
 
 /*header2 start*/
 
+.header2{width:940px;}
+
+
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -319,7 +324,7 @@
 /*extra css start*/
 /*extra css end*/
 
-	.header2{width:940px;}
+	
 }
 @media screen and (max-width: 1024px) {
 	/*header start*/
