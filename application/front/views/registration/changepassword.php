@@ -105,7 +105,7 @@
 <script type="text/javascript">
       $(document).ready(function () { 
           
-     $(".reset").click(function() { alert("hi");
+     $(".reset").click(function() {
      $("label.error").hide();
   $(".error").removeClass("error");
 });
