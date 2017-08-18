@@ -389,7 +389,7 @@ $pincode_error = form_error('pincode_error');
 
    
                                     <label>Languages Known:<span class="red">*</span></label> 
-                                     <input id="lan" name="language" value="<?php if($language2){echo $language2.',';} ?>" placeholder="Select a Language" style="width: 100%"  tabindex="8">
+                                     <input id="lan" name="language"  value="<?php if($language2){echo $language2.',';} ?>" placeholder="Select a Language" style="width: 100%"  tabindex="8">
 
 
 <?php echo form_error('lan'); ?>

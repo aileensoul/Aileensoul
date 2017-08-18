@@ -568,7 +568,7 @@ $.validator.addMethod("regdigit", function(value, element, regexpr) {
                   return regexpr.test(value);
             }
      // return regexpr.test(value);
-},"Only digit alloewd");
+},"Only digit allowed");
 
 
                             $("#jobseeker_regform").validate({

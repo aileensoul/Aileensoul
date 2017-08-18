@@ -181,7 +181,7 @@
                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" class="main-pic">
 
 						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-								<img src="img/cam.png">Update Profile Picture</a>
+								<img src="img/cam.png">Upload Profile Picture</a>
 	
 
 						</div>
@@ -190,7 +190,7 @@
 						<div class="profile-photo no-image-upload">
 							<img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
 							<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-							<img src="img/u1.png">Update Profile Picture</a>
+							<img src="img/u1.png">Upload Profile Picture</a>
 						</div>
 
 						  <?php } ?>
@@ -438,7 +438,7 @@
 		</div>
 	</footer> -->
         
-<?php if($userdata[0]['user_slider'] == 1){?>
+<?php  if($userdata[0]['user_slider'] == 1){?>
 	<div id="onload-Modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="main_sl">
@@ -1044,7 +1044,7 @@ var currentSlide_width=0;
     	setTimeout(function(){
             $('#left_img').removeClass('custom-disabled');
             //....and whatever else you need to do
-    }, 2000);
+    }, 2500);
 
     setTimeout(function(){
             $('#right_img').addClass('custom-disabled');
@@ -1054,7 +1054,7 @@ var currentSlide_width=0;
     setTimeout(function(){
             $('#right_img').removeClass('custom-disabled');
             //....and whatever else you need to do
-    }, 2000);
+    }, 2500);
 
 
  	$('#right_img').removeClass('abc_left');

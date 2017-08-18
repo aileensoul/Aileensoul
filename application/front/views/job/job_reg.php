@@ -188,13 +188,13 @@
                                 <fieldset class="fresher_radio col-xs-12" >
                                     <label>Fresher <font  color="red">*</font> : </label>
                                     <div class="main_raio">
-                                        <input type="radio" value="Fresher" tabindex="4" id="test1" name="fresher" class="radio_job" id="fresher">
+                                        <input type="radio" value="Fresher" tabindex="" id="test1" name="fresher" class="radio_job" id="fresher">
                                         <label for="test1" class="point_radio" >Yes</label>
                                     </div>
 
 
                                     <div class="main_raio">
-                                        <input type="radio" tabindex="5" value="Experience" id="test2" class="radio_job" name="fresher" id="fresher" checked>
+                                        <input type="radio" tabindex="" value="Experience" id="test2" class="radio_job" name="fresher" id="fresher" checked>
                                         <label for="test2" class="point_radio">No</label>
                                     </div>
 
@@ -223,7 +223,7 @@
 
                                 
                              <fieldset class="full-width fresher_select main_select_data" >
-    <label for="cities">Preffered loation for job<font  color="red">*</font> : </label>
+    <label for="cities">Preffered location for job<font  color="red">*</font> : </label>
     <input id="cities2" name="cities"  size="90" tabindex="9" placeholder="Enter Preferred Cites">
   </fieldset>
 
@@ -234,7 +234,7 @@
 
                                     <div class="job_reg">
                               <!--<input type="reset">-->
-                                        <input type="submit" tabindex="10"  id="submit" name="" value="Register" tabindex="10">
+                                        <input type="submit"   id="submit" name="" value="Register" tabindex="10">
 
                                     </div>
                                 </fieldset>
