@@ -1021,7 +1021,7 @@
                                                             <span>
                                                                 <div class="ft-15 t_artd">
                                                                     <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                                        <a class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></a>
+                                                                        <a class="ft-15 t_artd" id="<?php echo 'editpostval' . $row['art_post_id']; ?>"><?php echo $this->common->make_links($row['art_post']); ?></a>
                                                                     </div>
                                                                     <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none;">
                                                                         <input type="text" placeholder="Title" id="<?php echo 'editpostname' . $row['art_post_id']; ?>" class="my_text" name="editpostname"  value="<?php echo $row['art_post']; ?>" style=" margin-bottom: 10px;" onKeyDown=check_lengthedit(<?php echo $row['art_post_id']; ?>); onKeyup=check_lengthedit(<?php echo $row['art_post_id']; ?>); onblur=check_lengthedit(<?php echo $row['art_post_id']; ?>);>
@@ -1426,7 +1426,7 @@
                                                                                         <?php
                                                                                     } else {
                                                                                         ?>
-                                                                                        <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
+                                                                                        
 
 
 
@@ -1448,7 +1448,7 @@
                                                                                             <div class="post-img-div">
                                                                                                 <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                                                                                             </div>
-                                                                                        </a>
+                                                                                       
                                                                                         <?php
                                                                                     }
                                                                                     ?>
@@ -3862,8 +3862,7 @@
                     <script type="text/javascript">
                         function editpost(abc)
                         {
-
-                            var editposttitle = $('#editpostdata' + abc + 'a').html();
+                            var editposttitle = $('#editpostval' + abc).html();
                             var editpostdesc = $('#khyatii' + abc).html();
 
                             $("#myDropdown" + abc).removeClass('show');

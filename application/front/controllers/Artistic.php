@@ -1981,7 +1981,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                                 <div class="post-design-desc">
                                     <div class="ft-15 t_artd">
                                         <div id="editpostdata' . $row['art_post_id'] . '" style="display:block;">
-                                            <a>' . $this->common->make_links($row['art_post']) . '</a>
+                                            <a id="editpostval' . $row['art_post_id'].'">' . $this->common->make_links($row['art_post']) . '</a>
                                         </div>
                                         <div id="editpostbox' . $row['art_post_id'] . '" style="display:none;">
                                             
@@ -4076,7 +4076,7 @@ public function followtwo() {
                     $notfound = '<div class="art-img-nn">
          <div class="art_no_post_img">
 
-           <img src="'.base_url('img/art-no.png').'">
+           <img src="'.base_url('img/icon_no_following.png').'">
         
          </div>
          <div class="art_no_post_text">

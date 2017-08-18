@@ -502,7 +502,7 @@
                                         <span> 
                                             
                                              <div id="<?php echo 'editpostdata' . $art_data[0]['art_post_id']; ?>" style="display:block;">
-                                                            <a class="ft-15 t_artd"><?php echo $this->common->make_links($art_data[0]['art_post']); ?></a>
+                                                            <a class="ft-15 t_artd" id="<?php echo 'editpostval' . $art_data[0]['art_post_id']; ?>"><?php echo $this->common->make_links($art_data[0]['art_post']); ?></a>
                                                         </div>
 
  <div id="<?php echo 'editpostbox' . $art_data[0]['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
@@ -2517,6 +2517,10 @@ $( "#searchplace1" ).autocomplete({
    <script type="text/javascript">
    function editpost(abc)
    {
+
+         var editposttitle = $('#editpostval' + abc).html();
+         var editpostdesc = $('#khyatii' + abc).html();
+
        document.getElementById('editpostdata' + abc).style.display = 'none';
        document.getElementById('editpostbox' + abc).style.display = 'block';
        //document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
@@ -2524,6 +2528,12 @@ $( "#searchplace1" ).autocomplete({
        document.getElementById('editpostsubmit' + abc).style.display = 'block';
        document.getElementById('khyati' + abc).style.display = 'none';
        document.getElementById('khyatii' + abc).style.display = 'none';
+
+       editposttitle = editposttitle.trim()
+       editpostdesc = editpostdesc.trim()
+    
+       $('#editpostname' + abc).val(editposttitle);
+       $('#editpostdesc' + abc).html(editpostdesc);
 
    }
 </script>

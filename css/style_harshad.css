@@ -72,6 +72,7 @@ border-radius: 100%;}
 
 /*recruiter profile start*/
 
+.job-saved-box form .select2-selection__rendered li{margin: 0;}
 .rec_check{margin-top: -15px;}
 /*recruiter profile End*/
 
@@ -93,6 +94,8 @@ border-radius: 100%;}
 .else_post_d{padding-left: 7px;}
 .post-design-name ul li .post_dot{font-size: 15px;}
 .follow_left_box_main_btn .bg_following{margin-top: 0px;}
+
+.addcontact-text{width: 60%;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
