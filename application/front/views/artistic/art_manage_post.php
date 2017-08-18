@@ -1338,7 +1338,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                                                 <div class="post-design-desc ">
                                                     <span> 
                                                         <div id="<?php echo 'editpostdata' . $row['art_post_id']; ?>" style="display:block;">
-                                                            <span class="ft-15 t_artd"><?php echo $this->common->make_links($row['art_post']); ?></span>
+                                                            <span class="ft-15 t_artd" id="<?php echo 'editpostval' . $row['art_post_id']; ?>"><?php echo $this->common->make_links($row['art_post']); ?></span>
                                                         </div>
 
             <div id="<?php echo 'editpostbox' . $row['art_post_id']; ?>" style="display:none; margin-bottom: 10px;">
@@ -4178,6 +4178,13 @@ if (size > 10485760)
    <script type="text/javascript">
    function editpost(abc)
    { //alert("hii");
+
+
+     var editposttitle = $('#editpostval' + abc).html();
+     var editpostdesc = $('#khyatii' + abc).html();
+
+    $("#myDropdown" + abc).removeClass('show');
+
        document.getElementById('editpostdata' + abc).style.display = 'none';
        document.getElementById('editpostbox' + abc).style.display = 'block';
        //document.getElementById('editpostdetails' + abc).style.display = 'none', 'display:inline !important';
@@ -4186,7 +4193,11 @@ if (size > 10485760)
        document.getElementById('khyati' + abc).style.display = 'none';
        document.getElementById('khyatii' + abc).style.display = 'none';
 
-       $("#myDropdown" + abc).removeClass("show");
+       editposttitle = editposttitle.trim()
+       editpostdesc = editpostdesc.trim()
+    
+       $('#editpostname' + abc).val(editposttitle);
+       $('#editpostdesc' + abc).html(editpostdesc);
 
 
    }

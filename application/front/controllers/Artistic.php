@@ -1981,7 +1981,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                                 <div class="post-design-desc">
                                     <div class="ft-15 t_artd">
                                         <div id="editpostdata' . $row['art_post_id'] . '" style="display:block;">
-                                            <a>' . $this->common->make_links($row['art_post']) . '</a>
+                                            <a id="editpostval' . $row['art_post_id'].'">' . $this->common->make_links($row['art_post']) . '</a>
                                         </div>
                                         <div id="editpostbox' . $row['art_post_id'] . '" style="display:none;">
                                             
