@@ -481,7 +481,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $followe
           <div class="art-img-nn">
          <div class="art_no_post_img">
 
-           <img src="<?php echo base_url('img/art-no.png')?>">
+           <img src="<?php echo base_url('img/icon_no_follower.png')?>">
         
          </div>
          <div class="art_no_post_text">

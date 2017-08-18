@@ -4076,7 +4076,7 @@ public function followtwo() {
                     $notfound = '<div class="art-img-nn">
          <div class="art_no_post_img">
 
-           <img src="'.base_url('img/art-no.png').'">
+           <img src="'.base_url('img/icon_no_following.png').'">
         
          </div>
          <div class="art_no_post_text">
