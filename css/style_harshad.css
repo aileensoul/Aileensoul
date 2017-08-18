@@ -96,6 +96,13 @@ border-radius: 100%;}
 .follow_left_box_main_btn .bg_following{margin-top: 0px;}
 
 .addcontact-text{width: 60%;}
+.posterror-modal-close{float: right; border-radius: 100%;
+padding: 10px;
+height: inherit;
+line-height: 14px;
+margin: -37px -35px 1px -20px;
+font-size: 22px;}
+.image_profile audio{height: 90%;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
