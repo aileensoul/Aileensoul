@@ -1426,7 +1426,7 @@
                                                                                         <?php
                                                                                     } else {
                                                                                         ?>
-                                                                                        <a href="<?php echo base_url('artistic/art_manage_post/' . $rowdata['user_id'] . ''); ?>">
+                                                                                        
 
 
 
@@ -1448,7 +1448,7 @@
                                                                                             <div class="post-img-div">
                                                                                                 <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                                                                                             </div>
-                                                                                        </a>
+                                                                                       
                                                                                         <?php
                                                                                     }
                                                                                     ?>
