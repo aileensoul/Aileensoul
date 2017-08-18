@@ -1078,7 +1078,7 @@
                                                                 <?php
                                                                 $allowed = array('gif', 'PNG', 'jpg', 'png');
                                                                 $allowespdf = array('pdf');
-                                                                $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm');
+                                                                $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm','MP4');
                                                                 $allowesaudio = array('mp3');
                                                                 $filename = $artmultiimage[0]['image_name'];
                                                                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -1860,7 +1860,7 @@
                                         <li>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                                    <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="visibility:hidden;">
                                                 </div>
                                             </div>
                                             <label for="file-1">
@@ -1923,16 +1923,16 @@
                         $('#file-fr').fileinput({
                         language: 'fr',
                                 uploadUrl: '#',
-                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf']
+                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4']
                         });
                         $('#file-es').fileinput({
                         language: 'es',
                                 uploadUrl: '#',
-                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf']
+                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4']
                         });
                         $("#file-1").fileinput({
                         uploadUrl: '#', // you must set a valid URL here else you will get an error
-                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf'],
+                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4'],
                                 overwriteInitial: false,
                                 maxFileSize: 1000000,
                                 maxFilesNum: 10,
@@ -1969,7 +1969,7 @@
                         $(document).ready(function () {
                         $("#test-upload").fileinput({
                         'showPreview': false,
-                                'allowedFileExtensions': ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf'],
+                                'allowedFileExtensions': ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4'],
                                 'elErrorContainer': '#errorBlock'
                         });
                         $("#kv-explorer").fileinput({
@@ -3333,7 +3333,7 @@
                         var ext = vfirstname.split('.').pop();
                         var ext1 = vname.split('.').pop();
                         var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png'];
-                        var allowesvideo = ['mp4', 'webm'];
+                        var allowesvideo = ['mp4', 'webm', 'MP4'];
                         var allowesaudio = ['mp3'];
                         var allowespdf = ['pdf'];
                         var foundPresent = $.inArray(ext, allowedExtensions) > - 1;
