@@ -66,6 +66,24 @@ border-radius: 100%;}
 
 /*job profile start*/
 
+.img_work_exp{margin-top: -46px;}
+#jobseeker_regform input#submit:focus {
+ opacity: 0.8;
+}
+
+#work_certi input.delete_graduation {
+    background: url(../img/error.png) no-repeat;
+    background-size: auto auto;
+    background-size: 100%;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-left: -10px;
+    margin-top: -48px;
+}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -81,22 +99,8 @@ border-radius: 100%;}
 
 /*Freelancer hire profile End*/
 /*---------------------------------------------------profile-css--------------------------------------------------*/
-#jobseeker_regform input#submit:focus {
- opacity: 0.8;
-}
-input.datad_delete {
-    background: url(../img/error.png) no-repeat;
-    background-size: auto auto;
-    background-size: 100%;
-    height: 20px;
-    width: 20px;
-    min-width: 20px;
-    padding: 0px;
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-left: -10px;
-    margin-top: -6px;
-}
+
+
 
 /*Freelancer post profile start*/
 #univer{background: #1b8ab9; color: white; margin-top: 10px;}

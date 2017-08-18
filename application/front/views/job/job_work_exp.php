@@ -374,7 +374,7 @@
                                     ?>"  maxlength="15" />&nbsp;&nbsp;&nbsp; <span id="companyphn-error"> </span>
                                  <?php echo form_error('companyphn'); ?>
                                  <label style="    margin-top: -14px; display: block;">Experience Certificate:</label>
-                                 <input style="width:50%; margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" tabindex="6" class="certificate" placeholder="CERTIFICATE" />
+                                 <input style="width:100%;  margin-bottom: 50px; display: inline-block;" type="file" name="certificate[]" id="certificate" tabindex="6" class="certificate fl" placeholder="CERTIFICATE" />
 <div class="bestofmine_image_degree" style="color:#f00; display: block;"></div>
                                  &nbsp;&nbsp;&nbsp; 
 
@@ -382,13 +382,13 @@
                                  <?php
                                     if ($work_certificate1) {
                                         ?>
-                                 <div class="img_work_exp" style=" " >
+                                 <div class="img_work_exp fl" style=" " >
                                     <?php
                                                    $ext = explode('.',$work_certificate1);
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                         <a href="<?php echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; font-size: 3em; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }//if($ext[1] == 'pdf')
                                                       else
@@ -408,7 +408,7 @@
                                           ?>
                                            <div style="float: left;" id="work_certi">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" class="delete_graduation"  value="Delete certificate" onClick="delete_workexp('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
+                                                   <input  type="button" class="delete_graduation"  value="" onClick="delete_workexp('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
                                                 </div>
                                              </div>
 
@@ -534,7 +534,7 @@
                               <!--  </fieldset>
                                  <fieldset class="full-width"> -->
                               <label style="      margin-top: -14px;  display: block;">Experience Certificate:</label>
-                              <input style="width: 50%; margin-bottom: 10px; display: inline-block;" type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
+                              <input style="width: 50%; display: inline-block;" type="file" name="certificate[]" id="certificate" class="certificate" placeholder="CERTIFICATE" />&nbsp;&nbsp;&nbsp; 
                               <?php
                                  if ($work_certificate1) {
                                      ?>
