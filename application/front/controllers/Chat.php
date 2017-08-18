@@ -3652,10 +3652,10 @@ class Chat extends MY_Controller {
     overflow: hidden;
     text-overflow: ellipsis;
 ">';                   $message = $user['message'];
-                       $message =   preg_replace('[^(<br( \/)?>)*|(<br( \/)?>)*$]', '', $message);
-                       $message =   preg_replace('%26amp;', '&', $message);
-                       $message =   preg_replace('%26gt;', '>', $message);
-                       $message =   preg_replace('%26lt;', '<', $message);
+                       $message =   str_replace('[^(<br( \/)?>)*|(<br( \/)?>)*$]', '', $message);
+                       $message =   str_replace('%26amp;', '&', $message);
+                       $message =   str_replace('%26gt;', '>', $message);
+                       $message =   str_replace('%26lt;', '<', $message);
                         $usrsrch .= '' . str_replace('\\', '', $message) . '';
                         $usrsrch .= '</div>';
                         $usrsrch .= '</div>';
