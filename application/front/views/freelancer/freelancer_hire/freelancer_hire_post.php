@@ -364,11 +364,11 @@ if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) {
                                                                                     <?php if ($cityname || $countryname) { ?>
                                                                             <div class="fr lction display_inline">
 
-                                                                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+                                                                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"></i>
                                                                             <?php if ($cityname) { ?> 
                                                                                 <?php echo $cityname . ","; ?>
                 <?php } ?>
-                                                                            <?php echo $countryname; ?></i></p>
+                                                                            <?php echo $countryname; ?></p>
                                                                             </div>
             <?php } ?>
         <?php } else { ?>
@@ -377,10 +377,10 @@ if ($returnpage == '' && $freelancr_user_data[0]['user_id'] == $userid) {
                                                                                     <?php if ($cityname || $countryname) { ?>
                                                                             <div class="fr lction display_inline">
 
-                                                                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"> <?php if ($cityname) { ?>
+                                                                                <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"> </i><?php if ($cityname) { ?>
                                                                                 <?php echo $cityname . ","; ?>
                 <?php } ?>
-                <?php echo $countryname; ?></i></p>
+                <?php echo $countryname; ?></p>
                                                                             </div>
             <?php } ?>
         <?php } ?>
