@@ -408,7 +408,7 @@
                                           ?>
                                            <div style="float: left;" id="work_certi">
                                                 <div class="hs-submit full-width fl">
-                                                   <input  type="button" style="padding: 6px 18px 6px;min-width: 0;font-size: 14px" value="Delete certificate" onClick="delete_workexp('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
+                                                   <input  type="button" class="delete_graduation"  value="Delete certificate" onClick="delete_workexp('<?php echo $workdata[$x]['work_id']; ?>','<?php echo $work_certificate1; ?>')">
                                                 </div>
                                              </div>
 
