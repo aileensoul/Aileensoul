@@ -1891,6 +1891,7 @@ class Chat extends MY_Controller {
             if ($userlist) {
 
                 foreach ($userlist as $user) {
+                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
                     $usrsrch .= '<li class="clearfix">';
 
                    
@@ -1938,7 +1939,6 @@ class Chat extends MY_Controller {
 
                     $usrsrch .= '<div class="about">';
                     $usrsrch .= '<div class="name">';
-                    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
                     
                        
                                 $username = substr($user['first_name'] . ' ' . $user['last_name'], 0, 25); 
@@ -1946,13 +1946,13 @@ class Chat extends MY_Controller {
                                                                 if (strlen($user['first_name'] . $user['last_name']) > 15) {
                                                        $usrsrch .= ' ...';
                                                                 }
-                    $usrsrch .= '<br></a>';
+                    $usrsrch .= '<br>';
                     $usrsrch .= '</div><div class="status" style=" width: 145px;
     color: #003;    max-height: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-">' . $user['message'] . '</div></div></li>';
+">' . $user['message'] . '</div></div></li></a>';
                 }
             } else {
 
@@ -3492,7 +3492,7 @@ class Chat extends MY_Controller {
         $search_condition = "((message_to = '$userid')) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
 
         //20-7-2017@nkit
-        if ($message_from_profile == 1) {
+        if ($message_from_profile == 2) {
             $join_str4[0]['table'] = 'messages';
             $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
             $join_str4[0]['from_table_id'] = 'job_reg.job_id';
@@ -3500,7 +3500,7 @@ class Chat extends MY_Controller {
 
             $fromlist = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,fname as first_name,lname as last_name,job_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
-        if ($message_from_profile == 2) {
+        if ($message_from_profile == 1) {
             $join_str4[0]['table'] = 'messages';
             $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
             $join_str4[0]['from_table_id'] = 'recruiter.rec_id';
@@ -3508,7 +3508,7 @@ class Chat extends MY_Controller {
             $contition_array = array('is_delete' => '0', 're_status' => '1');
             $fromlist = $this->common->select_data_by_search('recruiter', $search_condition, $contition_array, $data = 'messages.id,message_from,rec_firstname as first_name,rec_lastname as last_name,recruiter_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
-        if ($message_from_profile == 3) {
+        if ($message_from_profile == 4) {
             $join_str4[0]['table'] = 'messages';
             $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
             $join_str4[0]['from_table_id'] = 'freelancer_hire_reg.reg_id';
@@ -3516,7 +3516,7 @@ class Chat extends MY_Controller {
 
             $fromlist = $this->common->select_data_by_search('freelancer_hire_reg', $search_condition, $contition_array, $data = 'messages.id,message_from,username as last_name,fullname as first_name,freelancer_hire_user_image as user_image ,message,user_id', $sortby = 'messages.id', $orderby = 'ASC', $limit = '', $offset = '', $join_str4, $groupby = '');
         }
-        if ($message_from_profile == 4) {
+        if ($message_from_profile == 3) {
             $join_str4[0]['table'] = 'messages';
             $join_str4[0]['join_table_id'] = 'messages.message_from_profile_id';
             $join_str4[0]['from_table_id'] = 'freelancer_post_reg.freelancer_post_reg_id';
@@ -3569,6 +3569,8 @@ class Chat extends MY_Controller {
                 array_push($return_arrayfrom, $return);
            
         }
+        
+      
 
         $userlist = array_merge($return_arrayto, $return_arrayfrom);
 
@@ -3588,12 +3590,12 @@ class Chat extends MY_Controller {
         if ($return_arraysel[0] == '') {
             $return_arraysel = array();
         }
-     
+   
 
       $userlist =  $this->data['userlist'] = array_merge($return_arraysel, $userlist);
       $userlist = $this->aasort($userlist, "id");
-  
-                     foreach ($userlist as $user) {
+
+                     foreach ($userlist as $user) { 
                     if ($user['user_id'] != $toid) {
 
                         $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';

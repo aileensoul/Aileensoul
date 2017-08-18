@@ -21,12 +21,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_harshad.css" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/style_new.css" />
         <style type="text/css">
             .msg_right:hover .messagedelete{ visibility: visible;opacity: 1;}
             .msg_right .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
             .msg_left_data:hover .messagedelete{ visibility: visible;opacity: 1;}
             .msg_left_data .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
         </style>
+        
+         <script>
+                    $(document).ready(function ($) {
+                        if (screen.width <= 767) { alert("hi");
+                            document.getElementById('chat').style.display = 'none';
+                        }
+                    });
+                </script>
     <body>
         <?php
         echo $header;
@@ -77,6 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     if ($lstusrdata) {
                         ?>
                         <div class="chat" id="chat" style="display:block;">
+                      
                             <div class="chat-header clearfix border_btm">
 
                                 <?php
@@ -270,13 +280,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <!-- Model Popup Close -->
                 <!------  commen script khyati 15-7  ---------------->
-                <script>
-                    jQuery(document).ready(function ($) {
-                        if (screen.width <= 767) {
-                            document.getElementById('chat').style.display = 'none';
-                        }
-                    });
-                </script>
+               
                 <script type="text/javascript">
                     var request_timestamp = 0;
 
