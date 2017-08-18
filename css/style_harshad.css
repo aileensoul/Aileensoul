@@ -72,6 +72,7 @@ border-radius: 100%;}
 
 /*recruiter profile start*/
 
+.job-saved-box form .select2-selection__rendered li{margin: 0;}
 .rec_check{margin-top: -15px;}
 /*recruiter profile End*/
 
