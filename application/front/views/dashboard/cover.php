@@ -181,7 +181,7 @@
                     <img src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" alt="" class="main-pic">
 
 						<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-								<img src="img/cam.png">Update Profile Picture</a>
+								<img src="img/cam.png">Upload Profile Picture</a>
 	
 
 						</div>
@@ -190,7 +190,7 @@
 						<div class="profile-photo no-image-upload">
 							<img src="<?php echo base_url(NOIMAGE); ?>" alt="" class="main-pic"> 
 							<a class="upload-profile" href="javascript:void(0);" onclick="updateprofilepopup();">
-							<img src="img/u1.png">Update Profile Picture</a>
+							<img src="img/u1.png">Upload Profile Picture</a>
 						</div>
 
 						  <?php } ?>

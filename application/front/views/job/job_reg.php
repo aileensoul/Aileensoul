@@ -223,7 +223,7 @@
 
                                 
                              <fieldset class="full-width fresher_select main_select_data" >
-    <label for="cities">Preffered loation for job<font  color="red">*</font> : </label>
+    <label for="cities">Preffered location for job<font  color="red">*</font> : </label>
     <input id="cities2" name="cities"  size="90" tabindex="9" placeholder="Enter Preferred Cites">
   </fieldset>
 
