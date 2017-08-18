@@ -67,6 +67,7 @@ border-radius: 100%;}
 /*job profile start*/
 
 .img_work_exp{margin-top: -46px;}
+.img_work_exp .fa-file-pdf-o{font-size: 3em;}
 #jobseeker_regform input#submit:focus {
  opacity: 0.8;
 }
