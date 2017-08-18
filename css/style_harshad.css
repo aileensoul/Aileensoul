@@ -28,6 +28,7 @@
 /*header2 start*/
 #inboxcontainer::before{right: 17px;}
 .header2 ul li{border-right: 1px solid #1985b3;}
+#InboxContainer{right: -17px;}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -428,7 +429,7 @@ span.fu-time{font-size: 13px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-
+.header2 .job-search-box1 fieldset.sec_h2{width: 144px;}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
