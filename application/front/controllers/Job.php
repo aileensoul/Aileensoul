@@ -6294,9 +6294,9 @@ public function creat_pdf_graduation($id,$seg) {
             {
                 $select = '<title>'.$pdf[0]['edu_certificate'].'</title>';
                 $select .= '<link rel="icon" href="'.base_url('images/favicon.png').'">';
-                $select .= '<form action="'.base_url().'/job/job_education_update/graduation" method="post">';
+            //    $select .= '<form action="'.base_url().'/job/job_education_update/graduation" method="post">';
                 //$select .= '<button type="submit">Back</button>';
-                $select .= '</form>';
+              //  $select .= '</form>';
                 echo $select;
                  //echo form_close();
             }
