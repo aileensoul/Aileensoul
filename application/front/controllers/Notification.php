@@ -636,10 +636,10 @@ class Notification extends MY_Controller {
     public function select_notification() { //echo "hello"; die();
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('not_read' => 2, 'not_to_id' => $userid, 'not_type !=' => 1, 'not_type !=' => 2);
-        $result = $this->common->select_data_by_condition('notification', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $result = $this->common->select_data_by_condition('notification', $contition_array, $data = 'count(*) as total', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         //echo '<pre>'; print_r($result); 
-        $count = count($result);
+        $count = $result[0]['total'];
         echo $count;
     }
 

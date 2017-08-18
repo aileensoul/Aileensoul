@@ -29,13 +29,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             .msg_left_data .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
         </style>
         
-         <script>
+<!--         <script>
                     $(document).ready(function ($) {
                         if (screen.width <= 767) { alert("hi");
-                            document.getElementById('chat').style.display = 'none';
+                            document.getElementById('chat').style.display = 'block';
                         }
                     });
                 </script>
+                 <script>
+                    $(document).ready(function ($) {
+                        if (screen.width <= 767) { 
+                            $("#userlist").click(function ()
+        { alert("hi000");
+          document.getElementById('chat').style.display = 'block';  
+        });
+                        }
+                    });
+                </script>-->
     <body>
         <?php
         echo $header;
@@ -82,10 +92,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php
                     $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 
-
+ 
                     if ($lstusrdata) {
                         ?>
-                        <div class="chat" id="chat" style="display:block;">
+                        <div class="chat" id="chat"  style="display:block;">
                       
                             <div class="chat-header clearfix border_btm">
 
@@ -713,7 +723,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     $('#seemsg').html(data.seeall);
                                     setTimeout(
                                             chatmsg,
-                                            5000
+                                            500
                                             );
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {
