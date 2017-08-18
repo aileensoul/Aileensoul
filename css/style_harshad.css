@@ -66,6 +66,25 @@ border-radius: 100%;}
 
 /*job profile start*/
 
+.img_work_exp{margin-top: -46px;}
+.img_work_exp .fa-file-pdf-o{font-size: 3em;}
+#jobseeker_regform input#submit:focus {
+ opacity: 0.8;
+}
+
+#work_certi input.delete_graduation {
+    background: url(../img/error.png) no-repeat;
+    background-size: auto auto;
+    background-size: 100%;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-left: -10px;
+    margin-top: -48px;
+}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -83,6 +102,7 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 
+
 /*Freelancer post profile start*/
 #univer{background: #1b8ab9; color: white; margin-top: 10px;}
 /*Freelancer post profile End*/
@@ -96,6 +116,13 @@ border-radius: 100%;}
 .follow_left_box_main_btn .bg_following{margin-top: 0px;}
 
 .addcontact-text{width: 60%;}
+.posterror-modal-close{float: right; border-radius: 100%;
+padding: 10px;
+height: inherit;
+line-height: 14px;
+margin: -37px -35px 1px -20px;
+font-size: 22px;}
+.image_profile audio{height: 90%;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/

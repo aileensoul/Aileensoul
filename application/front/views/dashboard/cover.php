@@ -438,7 +438,7 @@
 		</div>
 	</footer> -->
         
-<?php if($userdata[0]['user_slider'] == 1){?>
+<?php  if($userdata[0]['user_slider'] == 1){?>
 	<div id="onload-Modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="main_sl">
@@ -1044,7 +1044,7 @@ var currentSlide_width=0;
     	setTimeout(function(){
             $('#left_img').removeClass('custom-disabled');
             //....and whatever else you need to do
-    }, 2000);
+    }, 2500);
 
     setTimeout(function(){
             $('#right_img').addClass('custom-disabled');
@@ -1054,7 +1054,7 @@ var currentSlide_width=0;
     setTimeout(function(){
             $('#right_img').removeClass('custom-disabled');
             //....and whatever else you need to do
-    }, 2000);
+    }, 2500);
 
 
  	$('#right_img').removeClass('abc_left');
