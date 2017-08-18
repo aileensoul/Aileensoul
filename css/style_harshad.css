@@ -10,8 +10,9 @@
     margin-top: 5px;
   
 }
+
 .header ul li{height:inherit; border-right:none!important;} 
-.header ul li a{ padding-top:5px!important;}
+.header ul li a{ padding-top:5px!important; border-right: 1px solid #1985b3;}
 .header ul li.dropdown-user a{padding-top: 8px!important;}
 #notificationLink span{background: none;}
 #notificationLink span{top: 3px;}
@@ -25,7 +26,9 @@
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-
+#inboxcontainer::before{right: 17px;}
+.header2 ul li{border-right: 1px solid #1985b3;}
+#InboxContainer{right: -17px;}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -80,13 +83,16 @@ border-radius: 100%;}
 
 
 /*Freelancer post profile start*/
-
+#univer{background: #1b8ab9; color: white; margin-top: 10px;}
 /*Freelancer post profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
 /*.profile-head-text{font-family: arial;}*/
+.else_post_d{padding-left: 7px;}
+.post-design-name ul li .post_dot{font-size: 15px;}
+.follow_left_box_main_btn .bg_following{margin-top: 0px;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -235,7 +241,9 @@ border-radius: 100%;}
 
 
 /*Freelancer post profile start*/
-
+.common-form fieldset.mgrd input[type="radio"]{margin: 0px;}
+span.fu-time{font-size: 13px;}
+.pu-time{font-size: 13px;}
 /*Freelancer post profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -421,7 +429,7 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-
+.header2 .job-search-box1 fieldset.sec_h2{width: 144px;}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/

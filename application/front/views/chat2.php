@@ -703,13 +703,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 dataType: 'json',
                                 data: '',
                                 success: function (data) { //alert(data);
-
+                                    
                                     $('#userlist').html(data.leftbar);
                                     $('.notification_data_in_h2').html(data.headertwo);
                                     $('#seemsg').html(data.seeall);
                                     setTimeout(
                                             chatmsg,
-                                            500
+                                            5000
                                             );
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {

@@ -101,10 +101,10 @@ $work_hour = form_error('work_hour');
                             <label> Working As</label>
                                 <input type="radio" tabindex="1" autofocus name="job_type" id="job_type" value="Full Time" <?php if ($job_type1 == 'Full Time') {
                                     echo 'checked';
-                                } ?>>Full Time
+                                } ?>> <span class="fu-time">Full Time</span>
                                 <input type="radio" tabindex="1" name="job_type" id="job_type" value="Part Time" <?php if ($job_type1 == 'Part Time') {
                                     echo 'checked';
-                                } ?>>Part Time
+                                } ?>> <sapn class="pu-time">Part Time</sapn>
 <?php echo form_error('job_type'); ?>
                             </fieldset>
 

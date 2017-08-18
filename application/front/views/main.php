@@ -163,7 +163,7 @@
                             <div class="col-md-5 col-sm-6">
                                 <div class="login">
                                     <h4>Join Aileensoul - It's Free</h4>
-                                    <form role="form" name="register_form" id="register_form" method="post" autocomplete="off">
+                                    <form role="form" name="register_form" id="register_form" method="post" autocomplete="off" novalidate="novalidate">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
@@ -419,8 +419,8 @@
                 {
 //                                            var essssmail = $('#email_login').val();
 //                                            alert(essssmail);
-//                                            <?php // $this->session->set_userdata('email',essssmail);        ?>
-//                                            var sessionValue = "<?php // echo $this->session->userdata('email');       ?>";
+//                                            <?php // $this->session->set_userdata('email',essssmail);         ?>
+//                                            var sessionValue = "<?php // echo $this->session->userdata('email');        ?>";
 //                                           
                     if (response.data == "ok") {
                         $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
@@ -456,12 +456,29 @@
 
 <!-- login validtaion and submit end -->
 
+<script type="text/javascript">
+    $(window).load(function(){
+        $("#register_form").trigger('reset');
+        $("#register_form").reset();
+        $("#email_reg").val('');
+        $("#password_reg").val('');
+    });
+
+    $(document).ready(function () {
+        $("#register_form").trigger('reset');
+        $("#register_form").reset();
+    });
+</script>
+
+
+
 <!-- validation for edit email formate form strat -->
 
 <script>
 
     $(document).ready(function () {
 
+    //$("#register_form").submit(function () {
         $.validator.addMethod("lowercase", function (value, element, regexpr) {
             return regexpr.test(value);
         }, "Email Should be in Small Character");
@@ -669,7 +686,7 @@
                         $("#btn-register").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Sign Up ...');
 
                         window.location = "<?php echo base_url() ?>dashboard";
-                        // setTimeout(' window.location.href = "<?php //echo base_url()        ?>dashboard"; ', 4000);
+                        // setTimeout(' window.location.href = "<?php //echo base_url()         ?>dashboard"; ', 4000);
                     } else {
                         $("#register_error").fadeIn(1000, function () {
                             $("#register_error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');
@@ -742,20 +759,6 @@
 
     });
 </script>
-
-
-<script type="text/javascript">
-$(window).bind("pageshow", function() {
-    $("#register_form").trigger('reset');
-    $("#email_reg").val('');
-    $("#password_reg").val('');
-});
-
-$(document).ready(function(){
-    $("#register_form").trigger('reset');
-})
-</script>
-
 
 
 <script type="text/javascript">
