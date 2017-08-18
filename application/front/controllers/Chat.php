@@ -1280,7 +1280,7 @@ class Chat extends MY_Controller {
             if ($userlist) {
 
                 foreach ($userlist as $user) {
-                    $usrsrch = '<li class="clearfix">';
+                    $usrsrch .= '<li class="clearfix">';
 
                     if ($user['user_image']) {
                         $usrsrch .= ' <div class="chat_heae_img">';
@@ -1707,7 +1707,7 @@ class Chat extends MY_Controller {
 
             // FOR BUSINESS
 
-            if ($message_from_profile == 5) {
+            if ($message_from_profile == 5) { 
                 // message to user
                 $contition_array = array('business_profile.is_deleted' => '0', 'status' => '1', 'message_to !=' => $userid);
 
@@ -1718,7 +1718,8 @@ class Chat extends MY_Controller {
 
                 $search_condition = "((company_name LIKE '" . trim($usrsearchdata) . "%') AND (message_to !='" . $usrid . "' )) AND ((message_from_profile = $message_from_profile AND message_to_profile = $message_to_profile) OR (message_from_profile = $message_to_profile AND message_to_profile = $message_from_profile)) AND (message_from_profile_id = $message_from_profile_id OR message_to_profile_id = $message_from_profile_id) AND is_message_from_delete != $userid AND is_message_to_delete != $userid";
                 $tolist = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'message_to,company_name as first_name,business_user_image as user_image,message,user_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str7, $groupby = '');
-            }
+          
+                }
 
             // FOR ARTISTIC
 
@@ -1890,7 +1891,7 @@ class Chat extends MY_Controller {
             if ($userlist) {
 
                 foreach ($userlist as $user) {
-                    $usrsrch = '<li class="clearfix">';
+                    $usrsrch .= '<li class="clearfix">';
 
                    
 
@@ -2530,7 +2531,7 @@ class Chat extends MY_Controller {
                     if ($user['user_id'] != $toid) {
                        $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
                     //    $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $user['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '">';
-                        $usrsrch .= '<li class="clearfix">';
+                        $usrsrch = '<li class="clearfix">';
                         if ($user['user_id'] == $toid) {
                             $usrsrch .= 'class ="active"';
                         }
@@ -3755,11 +3756,12 @@ class Chat extends MY_Controller {
                 // notification message end
         
       //echo $usrsrch;
-      
+      $seeall = '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $userlist[0]['user_id'] . '" >See All</a>';
       echo json_encode(
                         array(
                             "leftbar" => $usrsrch,
                             "headertwo" => $notmsg,
+                            "seeall" => $seeall,
                 ));
     }
 
