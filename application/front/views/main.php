@@ -467,7 +467,7 @@
     $(document).ready(function () {
         $("#register_form").trigger('reset');
         $("#register_form").reset();
-    })
+    });
 </script>
 
 
