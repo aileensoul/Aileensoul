@@ -13,6 +13,7 @@ class Main extends CI_Controller {
           $this->load->model('email_model');
          $this->load->helper('cookie');
            $this->load->model('logins');
+           $this->lang->load('message', 'english');
           
         if ($this->session->userdata('aileenuser')) { 
           redirect('dashboard', 'refresh');

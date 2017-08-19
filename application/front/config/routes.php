@@ -65,6 +65,8 @@ $route['blog/comment_insert'] = "blog/comment_insert";
 $route['blog/tag/(:any)'] = "blog/tagsearch/$1";
 $route['blog/(:any)'] = "blog/index/$1";
 
+$route['about-us'] = "about_us";
+$route['contact-us'] = "contact_us";
 
 // $route['blog/blogdetail/(:any)'] = "blog";
 /* Report Route end */

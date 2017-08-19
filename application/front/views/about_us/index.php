@@ -57,8 +57,8 @@
         
         <div class="col-md-6 col-sm-8 pull-right col-xs-12">
           <ul>
-            <li><a href="<?php echo base_url('about_us'); ?>" target="_blank">About Us</a>|</li>
-            <li><a href="<?php echo base_url('contact_us'); ?>" target="_blank">Contact Us</a>|</li>
+            <li><a href="<?php echo base_url('about-us'); ?>" target="_blank">About Us</a>|</li>
+            <li><a href="<?php echo base_url('contact-us'); ?>" target="_blank">Contact Us</a>|</li>
             <li><a href="<?php echo base_url('blog'); ?>" target="_blank">Blog</a>|</li>
             <li><a href="<?php echo base_url('feedback'); ?>" target="_blank">Send Us Feedback</a></li>
           </ul>
