@@ -4,6 +4,7 @@
 
 <style type="text/css">
     #popup-form img{display: none;}
+	audio:not([controls]){display:block;}
 </style>
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
@@ -743,7 +744,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
                                     <?php if ($singlearray2[0]['image_name']) { ?>
                                         <td class="image_profile"> 
-                                            <audio  controls>
+                                            <audio>
 
 
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3"">
@@ -5192,6 +5193,11 @@ $('#postedit').on('click', function () {
     $(".upload-image-form").ajaxForm(options);
     return false;
     });
+	var vids = $("video"); 
+	$.each(vids, function(){
+		   this.controls = false; 
+	}); 
+	
 </script>
 
  <!-- post upload using javascript end -->
