@@ -47,17 +47,12 @@
             <div class="contact-list ">
                 <h3 class="list-title">Contact Request Notifications</h3>
                 <div class="noti_cq">
-
                     <div class="cq_post">
                         <ul>
-
-
                             <?php
                             if ($friendlist_con) { //echo "hii";
                                 foreach ($friendlist_con as $friend) {
-                                    ?>
-
-
+                                ?>
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
 
