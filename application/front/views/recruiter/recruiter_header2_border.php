@@ -428,10 +428,10 @@ $(document).ready(function() {
                     $('#userlist').html(data.leftbar);
                     $('.notification_data_in_h2').html(data.headertwo);
                     $('#seemsg').html(data.seeall);
-                 setTimeout(
-                        chatmsg,
-                       500
-                        );
+                 // setTimeout(
+                 //        chatmsg,
+                 //       500
+                 //        );
                 },
              error: function (XMLHttpRequest, textStatus, errorThrown) {
             }           

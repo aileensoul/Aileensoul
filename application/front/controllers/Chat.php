@@ -3754,7 +3754,7 @@ class Chat extends MY_Controller {
         if($userlist){
       $seeall = '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $userlist[0]['user_id'] . '" >See All</a>';
         }else{
-         $seeall = '<div>
+         $seeall = '<div class="fw">
   <div class="art-img-nn">
                                                 <div class="art_no_post_img">
                                                     <img src="' . base_url() . 'img/icon_no_message.png">
