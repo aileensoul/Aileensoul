@@ -1,3 +1,7 @@
+/* cover*/
+.bg{border-top:none }
+.banner-box .upload-camera{z-index: 3;}
+/*cover*/
 /*header start*/
 
 /*.header ul li a{margin-top: 6px; margin-bottom: 6px; padding-top: 5px!important;}
@@ -28,7 +32,7 @@
 /*header2 start*/
 #inboxcontainer::before{right: 17px;}
 .header2 ul li{border-right: 1px solid #1985b3;}
-#InboxContainer{right: -17px;}
+#InboxContainer{right: -7px;}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -50,12 +54,13 @@ border-radius: 100%;}
 .like_one_other a{padding-left: 21px;}
 .popup-text textarea{font-size: 15px!important;}
 .post-design-commnet-box .editable_text{line-height: 100%;}
+.job-saved-box h3{border-bottom: none;}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*chat module start*/
-
+.notifications li .notification-data-inside div{padding-top: 0px!important}
 /*chat module end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -454,7 +459,7 @@ span.fu-time{font-size: 13px;}
 @media screen and (max-width: 991px) {
 /*header start*/
 
-
+#floatBarsG{margin-top: 0%;}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -523,14 +528,30 @@ span.fu-time{font-size: 13px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*extra css start*/
+
+.cls-ve{top: 12px;
+right: 10px;}
+
 /*extra css end*/
 
 	
 }
+
+
+@media screen and (max-width: 800px) {
+
+    #floatBarsG{margin-top: 0%; margin-left: -83px;}
+    .floatBarsG{width: 20px; height: 20px;}
+
+}
+
+
+
 @media screen and (max-width: 767px) {
 /*header start*/
+#floatBarsG {margin-top: 0%; margin-left: -98px;}
 
-
+.floatBarsG{width: 20px; height: 20px;}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -679,10 +700,35 @@ span.fu-time{font-size: 13px;}
 /*extra css end*/
 
 }
+
+
+@media screen and (max-width: 540px) {
+.cls-ve {
+    top: 10px;
+    right: 3px;
+}
+
+
+label.cameraButton{opacity: 0.8;}
+
+
+
+
+
+}
+
+@media screen and (max-width: 481px) {
+
+    .cls-ve {
+    top: 25px;
+    right: 3px;
+}
+}
+
 @media screen and (max-width: 479px) {
 /*header start*/
 
-
+#floatBarsG{margin-left: -188px; margin-top:-3%; }
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/

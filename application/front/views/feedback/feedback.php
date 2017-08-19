@@ -246,7 +246,7 @@
                                               $("#feedback_subject").val('');
                                               $("#feedback_message").val('');
                                               
-                                               $.fancybox.open('<div class="alert alert-danger feedback"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your feedback send successfully' + ' !</div>');
+                                               $.fancybox.open('<div class="alert alert-danger feedback"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your feedback sent successfully' + ' !</div>');
 //                                                 $("#feedbacksucc").fadeIn(1000, function () {
 //                                                    $("#feedbacksucc").html('<div class="alert alert-danger feedback"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your feedback send successfully' + ' !</div>');
 //                                                    $("#btn-register").html('Sign Up');
@@ -255,7 +255,7 @@
                                             }
                                             else {
                                                 
-                                                $.fancybox.open('<div class="alert alert-danger feedback"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your feedback not send successfully' + ' !</div>'); 
+                                                $.fancybox.open('<div class="alert alert-danger feedback"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your feedback not sent successfully' + ' !</div>'); 
 //                                                $("#feedbacksucc").fadeIn(1000, function () {
 //                                                    $("#feedbacksucc").html('<div class="alert alert-danger feedback"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your feedback not send successfully' + ' !</div>');
 //                                                    $("#btn-register").html('Sign Up');

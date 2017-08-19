@@ -408,6 +408,19 @@ class Search extends CI_Controller {
         }
         
         $this->data['de'] = array_values($res);
+        
+        $title = '';
+        if($searchskill){
+            $title .= $searchskill;
+        }
+        if($searchskill && $search_place){
+            $title .= ' Art in ';
+        }
+        if($search_place){
+            $title .= $search_place;
+        }
+        $this->data['title'] = "$title | Aileensoul";
+        $this->data['head'] = $this->load->view('head', $this->data, TRUE);
 
         $this->load->view('artistic/recommen_candidate', $this->data);
     }
@@ -609,6 +622,19 @@ public function business_search() {
         }
         
         $this->data['de'] = array_values($res);
+        
+        $title = '';
+        if($search_business){
+            $title .= $search_business;
+        }
+        if($search_business && $search_place){
+            $title .= ' Business in ';
+        }
+        if($search_place){
+            $title .= $search_place;
+        }
+        $this->data['title'] = "$title | Aileensoul";
+        $this->data['head'] = $this->load->view('head', $this->data, TRUE);
         $this->load->view('business_profile/recommen_business', $this->data);
     }
 
@@ -1548,6 +1574,19 @@ foreach ($resul as $key => $value) {
        // echo "<pre>"; print_r($this->data['de']);die();
 
        // echo "<pre>"; print_r($this->data['postdetail']); die();
+        
+        $title = '';
+        if($searchkeyword){
+            $title .= $searchkeyword;
+        }
+        if($searchkeyword && $search_place){
+            $title .= ' Job Seeker in ';
+        }
+        if($search_place){
+            $title .= $search_place;
+        }
+        $this->data['title'] = "$title | Aileensoul";
+        $this->data['head'] = $this->load->view('head', $this->data, TRUE);
 
         $this->load->view('recruiter/recommen_candidate1', $this->data);
     }
@@ -1940,6 +1979,22 @@ foreach ($resul as $key => $value) {
         $this->data['de'] = array_values($res);
 
 //echo "<pre>";print_r($this->data['freelancerpostdata']);die();
+        
+        
+        $title = '';
+        if($searchkeyword){
+            $title .= 'Hire ';
+            $title .= $searchkeyword;
+        }
+        if($searchkeyword && $search_place){
+            $title .= ' Freelancer in ';
+        }
+        if($search_place){
+            $title .= $search_place;
+        }
+        $this->data['title'] = "$title | Aileensoul";
+        $this->data['head'] = $this->load->view('head', $this->data, TRUE);
+       
         $this->load->view('freelancer/freelancer_hire/recommen_freelancer_hire', $this->data);
     }
 
@@ -2238,6 +2293,19 @@ foreach ($resul as $key => $value) {
         }
         
         $this->data['de'] = array_values($res);
+        
+        $title = '';
+        if($search_skill){
+            $title .= $search_skill;
+        }
+        if($search_skill && $search_place){
+            $title .= ' Freelancer in ';
+        }
+        if($search_place){
+            $title .= $search_place;
+        }
+        $this->data['title'] = "$title | Aileensoul";
+        $this->data['head'] = $this->load->view('head', $this->data, TRUE);
 
         $this->load->view('freelancer/freelancer_post/recommen_freelancer_post', $this->data);
     }
@@ -2618,7 +2686,19 @@ foreach ($resul as $key => $value) {
         $this->data['demo'] = array_values($result1);
  //echo "<pre>"; print_r($this->data['demo']);die();
 
-
+        
+        $title = '';
+        if($search_job){
+            $title .= $search_job;
+        }
+        if($search_job && $search_place){
+            $title .= ' Job Opening in ';
+        }
+        if($search_place){
+            $title .= $search_place;
+        }
+        $this->data['title'] = "$title | Aileensoul";
+        $this->data['head'] = $this->load->view('head', $this->data, TRUE);
 
         $this->load->view('job/job_all_post1', $this->data);
     }

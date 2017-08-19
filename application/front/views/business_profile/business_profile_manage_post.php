@@ -523,8 +523,8 @@
 
                       $countdata[] =  $busaval;
                          }
-                       $count = count($countdata);
-                     }
+                       
+                     }$count = count($countdata);
 
                                             ?> 
                                             <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>  (<?php echo ($count); ?>)</a>

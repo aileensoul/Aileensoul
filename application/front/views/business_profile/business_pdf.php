@@ -460,8 +460,9 @@
 
                       $countdata[] =  $busaval;
                          }
-                       $count = count($countdata);
+                       
                      }
+                     $count = count($countdata);
 
 
                                                 ?> 
