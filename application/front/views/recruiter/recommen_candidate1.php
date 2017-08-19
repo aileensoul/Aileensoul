@@ -363,9 +363,9 @@ if($experiance[0]['experience_year'] != ''){ ?>
                                                    }
                                                 }
 
-                                                
+                                              if($year != 0){  
                                                  echo $year; echo "&nbsp"; echo "Year";
-                                                 echo "&nbsp";
+                                              }echo "&nbsp";
                                                  if($total_work_month != 0)
                                                  {
                                                    echo $total_work_month; echo "&nbsp"; echo "Month";
