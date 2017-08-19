@@ -266,7 +266,7 @@
                                                         foreach ($profile as $p) {
                                                             //                                                 echo "<pre>"; print_r($p);die();
                                                             ?>
-                                                            <div class="profile-job-profile-button clearfix box_search_module" style="margin-bottom: 20px!important;">
+                                                            <div class="profile-job-profile-button clearfix box_search_module">
                                                                 <div class="profile-job-post-location-name-rec">
                                                                     <div class="module_Ssearch" style="display: inline-block; float: left;">
                                                                         <div class="search_img" style="height: 110px; width: 108px;" >
