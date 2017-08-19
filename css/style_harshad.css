@@ -1,6 +1,7 @@
 /* cover*/
 .bg{border-top:none }
 .banner-box .upload-camera{z-index: 3;}
+.btn-success:hover{background-color:#1b8ab9; color: white;}
 /*cover*/
 /*header start*/
 
@@ -20,7 +21,7 @@
 .header ul li.dropdown-user a{padding-top: 8px!important;}
 #notificationLink span{background: none;}
 #notificationLink span{top: 3px;}
-#notificationContainer{margin-top: 20px;}
+#notificationContainer{margin-top: 22px; right: 1}
 .dropdown-menu{top: 37px;}
 .header ul li #abody ul li a{border: none;}
 #atittle a{border: none;}
@@ -458,7 +459,9 @@ span.fu-time{font-size: 13px;}
 }
 @media screen and (max-width: 991px) {
 /*header start*/
-
+.header2 {
+    top: 43px;
+}
 #floatBarsG{margin-top: 0%;}
 /*header end*/
 
@@ -542,6 +545,9 @@ right: 10px;}
 
     #floatBarsG{margin-top: 0%; margin-left: -83px;}
     .floatBarsG{width: 20px; height: 20px;}
+    .cover-pic {
+    right: 5%;
+}
 
 }
 

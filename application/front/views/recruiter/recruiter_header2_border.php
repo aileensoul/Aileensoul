@@ -110,12 +110,12 @@
         <div class="header2 ">
             <div class="container">
                 <div class="row">
-                  <div class="col-sm-7 col-md-7 col-xs-6 hidden-mob">
+                  <div class="col-sm-7 col-md-7 col-xs-12 hidden-mob">
                         <div class="job-search-box1 clearfix">
                            <?php echo $rec_search; ?>
                     </div>
                     </div>
-                  <div class="col-sm-5 col-md-5 col-xs-6 fw-479">
+                  <div class="col-sm-5 col-md-5 col-xs-12 fw-479">
                        <div class="search-mob-block">
                                  <div class="">
                                      <a href="#search">
