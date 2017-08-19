@@ -216,7 +216,7 @@
                                               ?>
                                               
 
-                                            <div id="addcontactTitle">Contact Request <?php if(count($contactperson) > 0){ ?> <a class="contact-see-all fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a><?php } ?></div>
+                                            <div id="addcontactTitle">Contact Request <span class="see_link" id="seecontact"></span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
@@ -338,7 +338,7 @@
                                         <div id="addcontactContainer">
                                           <div id="addcontactBody" class="notifications">
 
-                                            <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
+                                            <div id="addcontactTitle">Contact Request <span class="see_link" id="seecontact"></span></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>
@@ -499,9 +499,12 @@
         $.ajax({
             url: "<?php echo base_url(); ?>business_profile/contact_notification",
             type: "POST",
+            dataType: 'json',
+            data: '',
             success: function (data) {
 
-                $('.notification_data_in_con').html(data);
+                $('.notification_data_in_con').html(data.contactdata);
+                $('#seecontact').html(data.seeall);
 
             }
         });

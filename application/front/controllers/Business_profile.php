@@ -10707,7 +10707,7 @@ class Business_profile extends MY_Controller {
 //echo "<pre>"; print_r($contactperson); die();
 
 
-        if ($contactperson) {
+      
             foreach ($contactperson as $contact) {
 
 
@@ -10816,18 +10816,25 @@ class Business_profile extends MY_Controller {
                 }
                 //$contactdata .= '</ul>';
             }
-        } else {
-
-            $contactdata = '<div class="art-img-nn">
+        
+         if($contactperson){
+      $seeall = '<a class="fr" href="' . base_url() . 'business_profile/contact_list">See All</a>';
+    
+        }else{
+         $seeall = '<div class="fw"><div class="art-img-nn">
                                                 <div class="art_no_post_img">
                                                     <img src="'.base_url().'img/No_Contact_Request.png">
                                                 </div>
                                                 <div class="art_no_post_text_c">
                                                     No Contact Request Available.
                                                 </div>
-                             </div>';
+                             </div></div>';      
         }
-        echo $contactdata;
+      echo json_encode(
+                        array(
+                            "contactdata" => $contactdata,
+                            "seeall" => $seeall,
+                ));
     }
 
     /*public function contact_approve() {
