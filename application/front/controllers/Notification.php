@@ -1639,7 +1639,7 @@ class Notification extends MY_Controller {
         if($totalnotification){
       $seeall = '<a href="' . base_url() . 'notification>See All</a>';
         }else{
-         $seeall = '<div>
+         $seeall = '<div class="fw">
   <div class="art-img-nn">
                                                 <div class="art_no_post_img">
                                                     <img src="' . base_url() . 'img/icon_notification_big.png">
