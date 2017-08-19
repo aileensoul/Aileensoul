@@ -230,9 +230,15 @@ font-size: 22px;}
 
 }
 @media screen and (max-width: 1279px) {
+
+    
+#InboxContainer::before {
+    right: 17px;
+}
+}
+@media screen and (max-width: 1279px) {
 	
 /*header start*/
-
 
 /*header end*/
 
