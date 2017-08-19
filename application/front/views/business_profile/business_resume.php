@@ -111,29 +111,30 @@
                 <div class="user-pic">
                     <?php if ($businessdata1[0]['business_user_image'] != '') { ?>
 
-                    <?php
-                                                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image'])) {
-                                                                $a = $businessdata1[0]['company_name'];
-                                                                $acr = substr($a, 0, 1);
-                                                                ?>
-                                                                <div class="post-img-user">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                                </div> 
-                                                                <?php
-                                                            } else {
-                                                                ?>
+                        <?php
+                        if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image'])) {
+                            $a = $businessdata1[0]['company_name'];
+                            $acr = substr($a, 0, 1);
+                            ?>
+                            <div class="post-img-user">
+                                <?php echo ucfirst(strtolower($acr)) ?>
+                            </div> 
+                            <?php
+                        } else {
+                            ?>
 
 
-                        <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
+                            <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata1[0]['business_user_image']); ?>" alt="" >
 
-                        <?php }?>
+                        <?php } ?>
                     <?php } else { ?>
-                         <?php 
-                                          $a = $businessdata1[0]['company_name'];
-                                          $acr = substr($a, 0, 1);?>
-                                            <div class="post-img-user">
-                                            <?php echo   ucfirst(strtolower($acr))?>
-                                            </div>
+                        <?php
+                        $a = $businessdata1[0]['company_name'];
+                        $acr = substr($a, 0, 1);
+                        ?>
+                        <div class="post-img-user">
+                        <?php echo ucfirst(strtolower($acr)) ?>
+                        </div>
                     <?php } ?>
 
                     <?php
@@ -143,16 +144,16 @@
 
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
 
-                    <?php } ?>
+<?php } ?>
                 </div>
 
                 <!-- <div id="popup-form">
-                <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                 <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                 <input type="hidden" name="hitext" id="hitext" value="5">
                 <input type="submit" name="cancel5" id="cancel5" value="Cancel">
                 <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save">
-                <?php echo form_close(); ?>
+<?php echo form_close(); ?>
         </div> -->
 
             </div>
@@ -161,7 +162,7 @@
 
 
                     <div class="profile-left">
-                        <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo  ucfirst(strtolower($businessdata1[0]['company_name'])); ?></a></h4>
+                        <h4 class="profile-head-text"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> <?php echo ucfirst(strtolower($businessdata1[0]['company_name'])); ?></a></h4>
 
                         <h4 class="profile-head-text_dg"><a href="<?php echo base_url('business_profile/business_resume/' . $businessdata1[0]['business_slug'] . ''); ?>"> 
 
@@ -172,7 +173,7 @@
                                     $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal']))->row()->industry_name;
                                 }
                                 if ($businessdata1[0]['other_industrial']) {
-                                    echo  ucfirst(strtolower($businessdata1[0]['other_industrial']));
+                                    echo ucfirst(strtolower($businessdata1[0]['other_industrial']));
                                 }
                                 ?>
 
@@ -201,10 +202,10 @@
 
                         if ($status == 0 || $status == " ") {
                             ?>                                                                                                                                                                                      <div class="msg_flw_btn_1" id= "followdiv">                                                                                                                                                                                          <button  id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
-                                                                                                                                                                                          </div>
+                                                                                                                                                                                              </div>
                         <?php } elseif ($status == 1) { ?>                                                                                                                                                                                     <div class="msg_flw_btn_1" id= "unfollowdiv">                                                                                                                                                                                          <button id="<?php echo "unfollow" . $businessdata1[0]['business_profile_id']; ?>" onClick="unfollowuser(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Following </button>
-                                                                                                                                                                                          </div>
-                        <?php } ?>
+                                                                                                                                                                                              </div>
+    <?php } ?>
                                   </div> 
                                   <a href="<?php echo base_url('chat/abc/' . $businessdata1[0]['user_id']); ?>">Message</a>
                               </div>
@@ -213,7 +214,7 @@
 
 
                           </div> -->
-                    <?php } ?>
+<?php } ?>
 
 
                     <?php
@@ -238,116 +239,116 @@
                             ?>
 
 
-                                 <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
+    <?php if ($contactperson[0]['status'] == 'cancel' || $contactperson[0]['status'] == '' || $contactperson[0]['status'] == 'reject') { ?>
                                 <a href="#" onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>);" style="cursor: pointer;">
 
-                                <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
+                                    <?php } elseif ($contactperson[0]['status'] == 'pending' || $contactperson[0]['status'] == 'confirm') { ?>   
                                     <a onclick="return contact_person_query(<?php echo $businessdata1[0]['user_id']; ?>,<?php echo "'" . $contactperson[0]['status'] . "'"; ?>)" style="cursor: pointer;">
-                                    <?php } ?>
+    <?php } ?>
 
 
-                                      <?php
-                                                //print_r($contactperson[0]['status']) ; die();
+                                    <?php
+                                    //print_r($contactperson[0]['status']) ; die();
 
-                                                if ($contactperson[0]['status'] == 'cancel') {
-                                                    ?>
-                                                    <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+                                    if ($contactperson[0]['status'] == 'cancel') {
+                                        ?>
+                                        <div>   
+                                            <div class="add-contact">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
-                                                            </div>
-                                                            
+                                            </div>
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13"><i class="icon-user"></i>
-                                                       Add to contact </span>
-                                                    </div> 
 
+                                            <div class="addtocont">
+                                                <span class="ft-13"><i class="icon-user"></i>
+                                                    Add to contact </span>
+                                            </div> 
+
+                                        </div>
+
+    <?php } elseif ($contactperson[0]['status'] == 'pending') { ?>   
+                                        <div class="cance_req_main_box">   
+                                            <div class="add-contact">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div>
+                                                    <span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_cancel.png'); ?>"></span>
                                                 </div>
 
-                                                <?php } elseif ($contactperson[0]['status'] == 'pending') { ?>   
-                                                   <div class="cance_req_main_box">   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div>
-                                                         <span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_cancel.png');?>"></span>
-                                                            </div>
+                                            </div>
 
-                                                            </div>
-                                                            
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13 cl_haed_s">
-                                                      Cancel request </span>
-                                                    </div> 
+                                            <div class="addtocont">
+                                                <span class="ft-13 cl_haed_s">
+                                                    Cancel request </span>
+                                            </div> 
 
-                                                </div>
-                                                <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
-                                                     <div class="fw in_mian_chng">   
-                                                            <div class="in_your_contact">
-                                                             
-                                                            <div class="in_your_contact_change">
-                                                            <span class="in_your_contct_img">
-                                                                <img src="<?php echo base_url('img/icon_contact_accept.png');?>">
-                                                            </span>
-                                                            </div>
+                                        </div>
+    <?php } elseif ($contactperson[0]['status'] == 'confirm') { ?>
+                                        <div class="fw in_mian_chng">   
+                                            <div class="in_your_contact">
 
-                                                            </div>
-                                                            
-
-                                                            <div class="addtocont">
-                                                    <span class="ft-13 ai_text">
-                                                       In Contacts </span>
-                                                    </div> 
-
-                                                </div>
-                                                <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
-   <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
-
-                                                            </div>
-                                                            
-
-                                                            <div class="addtocont">
-                                                    <span class="ft-13"><i class="icon-user"></i>
-                                                       Add to contact </span>
-                                                    </div> 
-
+                                                <div class="in_your_contact_change">
+                                                    <span class="in_your_contct_img">
+                                                        <img src="<?php echo base_url('img/icon_contact_accept.png'); ?>">
+                                                    </span>
                                                 </div>
 
-                                                <?php } else { ?>
-   <div>   
-                                                            <div class="add-contact">
-                                                             <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png');?>"></span></div>
+                                            </div>
 
-                                                            </div>
-                                                            
 
-                                                            <div class="addtocont">
-                                                    <span class="ft-13"><i class="icon-user"></i>
-                                                       Add to contact </span>
-                                                    </div> 
+                                            <div class="addtocont">
+                                                <span class="ft-13 ai_text">
+                                                    In Contacts </span>
+                                            </div> 
 
-                                                </div>
+                                        </div>
+    <?php } elseif ($contactperson[0]['status'] == 'reject') { ?>
+                                        <div>   
+                                            <div class="add-contact">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
 
-                                                <?php } ?>                            </span>
-                                     
+                                            </div>
+
+
+                                            <div class="addtocont">
+                                                <span class="ft-13"><i class="icon-user"></i>
+                                                    Add to contact </span>
+                                            </div> 
+
+                                        </div>
+
+    <?php } else { ?>
+                                        <div>   
+                                            <div class="add-contact">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                                <div><span class="cancel_req_busi">   <img src="<?php echo base_url('img/icon_contact_add.png'); ?>"></span></div>
+
+                                            </div>
+
+
+                                            <div class="addtocont">
+                                                <span class="ft-13"><i class="icon-user"></i>
+                                                    Add to contact </span>
+                                            </div> 
+
+                                        </div>
+
+    <?php } ?>                            </span>
+
                                 </a>
                         </div>
 
-                    <?php } ?>
+<?php } ?>
                 </div>
                 <!-- PICKUP -->
                 <!-- menubar -->
@@ -362,9 +363,9 @@
                             ?>     
                             <ul class="current-user bpro-fw6">
 
-                            <?php } else { ?>
+                                <?php } else { ?>
                                 <ul class="bpro-fw">
-                                <?php } ?>  
+<?php } ?>  
 
 
 
@@ -375,61 +376,57 @@
                                 </li>
 
                                 <?php
-                                        $userid = $this->session->userdata('aileenuser');
-                                        if ($businessdata1[0]['user_id'] == $userid) {
-                                            ?> 
+                                $userid = $this->session->userdata('aileenuser');
+                                if ($businessdata1[0]['user_id'] == $userid) {
+                                    ?> 
 
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>(<span class="acceptcount"><?php echo (count($businesscontacts)); ?></span>)</a>
-                                        </li>
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>(<span class="acceptcount"><?php echo (count($businesscontacts)); ?></span>)</a>
+                                    </li>
 
 
-                                        <?php }else{
+                                <?php
+                                } else {
 
-                                            $userid = $businessdata1[0]['user_id'];
+                                    $userid = $businessdata1[0]['user_id'];
                                     $contition_array = array('contact_type' => 2, 'status' => 'confirm');
                                     $search_condition = "((contact_from_id = ' $userid') OR (contact_to_id = '$userid'))";
                                     $businesscontacts1 = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
 
                                     foreach ($businesscontacts1 as $keval => $ke) {
-                                       //echo "<pre>"; print_r($ke); die();
-                                      if($ke['contact_from_id'] == $userid){
+                                        //echo "<pre>"; print_r($ke); die();
+                                        if ($ke['contact_from_id'] == $userid) {
 
-                                    $contition_array = array('user_id' => $ke['contact_to_id'], 'is_delete' => '0');
-                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+                                            $contition_array = array('user_id' => $ke['contact_to_id'], 'is_delete' => '0');
+                                            $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+                                        } else {
 
-                                      }else{
-
-                                        $contition_array = array('user_id' => $ke['contact_from_id'], 'is_delete' => '0');
-                                    $contavl1 = $this->common->select_data_by_search('user', $search_condition= array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
-
-                                      }
-                                      if($contavl1){
-                                        $countconval[] = $contavl1;
-                                      }
-                                      
+                                            $contition_array = array('user_id' => $ke['contact_from_id'], 'is_delete' => '0');
+                                            $contavl1 = $this->common->select_data_by_search('user', $search_condition = array(), $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = '', $groupby = '');
+                                        }
+                                        if ($contavl1) {
+                                            $countconval[] = $contavl1;
+                                        }
                                     }
+                                    ?>
+
+                                    <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($countconval)); ?>)</a>
+                                    </li>
 
 
-                                            ?>
-
-                                        <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'bus_contact') { ?> class="active" <?php } ?>><a title="Details" href="<?php echo base_url('business_profile/bus_contact/' . $businessdata1[0]['business_slug']); ?>"> Contacts <br>  (<?php echo (count($countconval)); ?>)</a>
-                                        </li>
-
-
-                                        <?php }?>
+<?php } ?>
 
                                 <?php
                                 $userid = $this->session->userdata('aileenuser');
                                 if ($businessdata1[0]['user_id'] == $userid) {
                                     ?> 
-                                                                                                                          <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
-                                                                                                                                                                                                </li> -->
+                                                                                                                              <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'business_profile_save_post') { ?> class="active" <?php } ?>><a href="<?php echo base_url('business_profile/business_profile_save_post'); ?>">Saved Post</a>
+                                                                                                                                                                                                    </li> -->
 
-                                   <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
-                                    </li> -->
+                                       <!--  <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'userlist') { ?> class="active" <?php } ?>><a title="Userlist" href="<?php echo base_url('business_profile/userlist/' . $businessdata1[0]['business_slug']); ?>">Userlist<br> (<?php echo (count($userlistcount)); ?>)</a>
+                                        </li> -->
 
 
-                                <?php } ?>
+<?php } ?>
 
                                 <?php
                                 $userid = $this->session->userdata('aileenuser');
@@ -441,34 +438,32 @@
                                     </li>
 
 
-                                    <?php
-                                } else {
+    <?php
+} else {
 
-                                    $businessregid = $businessdata1[0]['business_profile_id'];
-                                    $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
-                                    $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    $businessregid = $businessdata1[0]['business_profile_id'];
+    $contition_array = array('follow_to' => $businessregid, 'follow_status' => '1', 'follow_type' => '2');
+    $followerotherdata = $this->data['followerotherdata'] = $this->common->select_data_by_condition('follow', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                     foreach ($followerotherdata as $followkey) {
+    foreach ($followerotherdata as $followkey) {
 
-                      $contition_array = array('business_profile_id' => $followkey['follow_from'], 'status' => '1');
-                      $busaval = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                      if($busaval){ //echo "hii"; die();
-
-                      $countdata[] =  $busaval;
-                         }
-                       $count = count($countdata);
-                     }
-
-                                    ?> 
+        $contition_array = array('business_profile_id' => $followkey['follow_from'], 'status' => '1');
+        $busaval = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        if ($busaval) { 
+            $countdata[] = $busaval;
+        }
+    }
+    $count = count($countdata);
+    ?> 
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'followers') { ?> class="active" <?php } ?>><a title="Followers" href="<?php echo base_url('business_profile/followers/' . $businessdata1[0]['business_slug']); ?>">Followers <br>(<?php echo $count; ?>)</a>
                                     </li>
 
                                 <?php } ?>
 
-                                <?php
-                                $userid = $this->session->userdata('aileenuser');
-                                if ($businessdata1[0]['user_id'] == $userid) {
-                                    ?>          
+<?php
+$userid = $this->session->userdata('aileenuser');
+if ($businessdata1[0]['user_id'] == $userid) {
+    ?>          
                                     <li <?php if ($this->uri->segment(1) == 'business_profile' && $this->uri->segment(2) == 'following') { ?> class="active" <?php } ?>><a title="Following" href="<?php echo base_url('business_profile/following/' . $businessdata1[0]['business_slug']); ?>">Following <br> (<?php echo (count($businessfollowingdata)); ?>)</a>
                                     </li>
                                     <?php
@@ -485,32 +480,32 @@
 
 
 
-                            <?php
-                            $userid = $this->session->userdata('aileenuser');
+<?php
+$userid = $this->session->userdata('aileenuser');
 
-                            if ($businessdata1[0]['user_id'] != $userid) {
-                                ?>
+if ($businessdata1[0]['user_id'] != $userid) {
+    ?>
 
                                 <div class="flw_msg_btn fr top_follow">
                                     <ul>
                                         <li>
                                             <div class="<?php echo "fr" . $businessdata1[0]['business_profile_id']; ?>">
 
-                                                <?php
-                                                $userid = $this->session->userdata('aileenuser');
+    <?php
+    $userid = $this->session->userdata('aileenuser');
 
-                                                $contition_array = array('user_id' => $userid, 'status' => '1');
+    $contition_array = array('user_id' => $userid, 'status' => '1');
 
-                                                $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    $bup_id = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                                $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
-                                                //echo "<pre>"; print_r($status); die();
+    $status = $this->db->get_where('follow', array('follow_type' => 2, 'follow_from' => $bup_id[0]['business_profile_id'], 'follow_to' => $businessdata1[0]['business_profile_id']))->row()->follow_status;
+    //echo "<pre>"; print_r($status); die();
 
 
-                                                $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
-                                                if ($logslug != $this->uri->segment(3)) {
-                                                    if ($status == 0 || $status == " ") {
-                                                        ?>
+    $logslug = $this->db->get_where('business_profile', array('user_id' => $userid))->row()->business_slug;
+    if ($logslug != $this->uri->segment(3)) {
+        if ($status == 0 || $status == " ") {
+            ?>
                                                         <div class="msg_flw_btn_1" id= "followdiv">
                                                             <button id="<?php echo "follow" . $businessdata1[0]['business_profile_id']; ?>" onClick="followuser_two(<?php echo $businessdata1[0]['business_profile_id']; ?>)">Follow</button>
                                                         </div>
@@ -526,13 +521,13 @@
 
                                             <li>
                                                 <a  href="<?php echo base_url('chat/abc/5/5/' . $businessdata1[0]['user_id']); ?>">Message</a></li>
-                                                
-                                        <?php } ?>
+
+    <?php } ?>
 
                                     </ul>   
                                 </div>
 
-                            <?php } ?>
+                                    <?php } ?>
 
                     </div>
                 </div>
@@ -561,15 +556,15 @@
                         <h3>Details </h3> 
                         <div class=" fr rec-edit-pro">
 
-                            <?php
+<?php
 
-                            function text2link($text) {
-                                $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
-                                $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
-                                $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
-                                return $text;
-                            }
-                            ?>      
+function text2link($text) {
+    $text = preg_replace('/(((f|ht){1}t(p|ps){1}:\/\/)[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '<a href="\\1" target="_blank" rel="nofollow">\\1</a>', $text);
+    $text = preg_replace('/([[:space:]()[{}])(www.[-a-zA-Z0-9@:%_\+.~#?&\/\/=]+)/i', '\\1<a href="http://\\2" target="_blank" rel="nofollow">\\2</a>', $text);
+    $text = preg_replace('/([_\.0-9a-z-]+@([0-9a-z][0-9a-z-]+\.)+[a-z]{2,3})/i', '<a href="mailto:\\1" rel="nofollow" target="_blank">\\1</a>', $text);
+    return $text;
+}
+?>      
 
                         </div> 
 
@@ -603,19 +598,19 @@
                                                 </li>
 
                                                 <li> <b>State</b><span> <?php
-                                                        echo
-                                                        $this->db->get_where('states', array('state_id' => $businessdata1[0]['state']))->row()->state_name;
-                                                        ?> </span>
+                            echo
+                            $this->db->get_where('states', array('state_id' => $businessdata1[0]['state']))->row()->state_name;
+?> </span>
                                                 </li>
 
-                                                <?php
-                                                if ($businessdata1[0]['user_id'] == $userid) {
-                                                    if ($businessdata1[0]['city']) {
-                                                        ?>
+                                                        <?php
+                                                        if ($businessdata1[0]['user_id'] == $userid) {
+                                                            if ($businessdata1[0]['city']) {
+                                                                ?>
                                                         <li><b> City</b> <span><?php
-                                                                echo
-                                                                $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
-                                                                ?></span> </li>
+                                                        echo
+                                                        $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
+                                                        ?></span> </li>
                                                         <?php
                                                     } else {
                                                         ?>
@@ -628,9 +623,9 @@
                                                     if ($businessdata1[0]['city']) {
                                                         ?>
                                                         <li><b> City</b> <span><?php
-                                                                echo
-                                                                $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
-                                                                ?></span> </li>
+                                                        echo
+                                                        $this->db->get_where('cities', array('city_id' => $businessdata1[0]['city']))->row()->city_name;
+                                                        ?></span> </li>
                                                         <?php
                                                     } else {
                                                         
@@ -648,7 +643,7 @@
                                                     } else {
                                                         ?>
                                                         <li><b> Pincode:</b> <span>
-                                                                <?php echo PROFILENA; ?>
+                                                        <?php echo PROFILENA; ?>
                                                             </span> </li>
                                                         <?php
                                                     }
@@ -689,17 +684,17 @@
 
 
 
-                                                    <?php
-                                                    if ($businessdata1[0]['user_id'] == $userid) {
-                                                        if ($businessdata1[0]['contact_mobile']) {
-                                                            ?>
+<?php
+if ($businessdata1[0]['user_id'] == $userid) {
+    if ($businessdata1[0]['contact_mobile']) {
+        ?>
                                                             <li> <b>Contact Mobile</b><span> <?php echo $businessdata1[0]['contact_mobile']; ?> </span>
                                                             </li>
                                                             <?php
                                                         } else {
                                                             ?>
                                                             <li><b> Contact Mobile </b> <span>
-                                                                    <?php echo PROFILENA; ?>
+                                                            <?php echo PROFILENA; ?>
                                                                 </span> </li>
                                                             <?php
                                                         }
@@ -728,7 +723,7 @@
                                                         } else {
                                                             ?>
                                                             <li><b> Contact Website:</b> <span>
-                                                                    <?php echo PROFILENA; ?>
+                                                            <?php echo PROFILENA; ?>
                                                                 </span> </li>
                                                             <?php
                                                         }
@@ -764,13 +759,13 @@
                                             <div class="profile-job-profile-menu">
                                                 <ul class="clearfix">
                                                     <li> <b>Business  Type </b> <span><?php
-                                                            $business_typename = $this->db->get_where('business_type', array('type_id' => $businessdata1[0]['business_type']))->row()->business_name;
-                                                            if ($business_typename) {
-                                                                echo $business_typename;
-                                                            } else {
-                                                                echo $businessdata1[0]['other_business_type'];
-                                                            }
-                                                            ?></span>
+                                                    $business_typename = $this->db->get_where('business_type', array('type_id' => $businessdata1[0]['business_type']))->row()->business_name;
+                                                    if ($business_typename) {
+                                                        echo $business_typename;
+                                                    } else {
+                                                        echo $businessdata1[0]['other_business_type'];
+                                                    }
+                                                    ?></span>
                                                     </li>
 
                                                     <li> <b>Category</b><span><?php
@@ -784,17 +779,17 @@
                                                     </li>
 
                                                          <!-- <li> <b>Other Category</b><span><?php
-                                                    echo
-                                                    $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal']))->row()->industry_name;
-                                                    ?></span>
+                                                            echo
+                                                            $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal']))->row()->industry_name;
+                                                            ?></span>
                                                         </li> -->
 
-                                                    
+
                                                     <li><b>Details Of Your Business </b> 
 
                                                         <span>
                                                             <p> <?php echo $this->common->make_links($businessdata1[0]['details']);
-                                                    ?></p>
+                                                            ?></p>
                                                         </span>
                                                     </li>
 
@@ -815,7 +810,7 @@
                                             <div class="profile-job-profile-menu">
 
                                                 <div  class="buisness-profile-pic">
-                 <!--     <img src="<?php //echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);    ?>" alt="" > -->
+                 <!--     <img src="<?php //echo base_url(BUSINESSPROFILEIMAGE . $businessdata1[0]['business_profile_image']);     ?>" alt="" > -->
                                                     <!-- 
                                                     popup -->
 
@@ -823,25 +818,25 @@
 
 
 
-                                                    <?php
-                                                    if (count($busimagedata) > 0) {
+<?php
+if (count($busimagedata) > 0) {
 
-                                                            //echo count($busimagedata); die();
+    //echo count($busimagedata); die();
 
-                                                        if (count($busimagedata) > 3) { 
+    if (count($busimagedata) > 3) {
 
-                                                            $i = 1;
-                                                            $k = 1;
-                                                            foreach ($busimagedata as $image) {
+        $i = 1;
+        $k = 1;
+        foreach ($busimagedata as $image) {
 
-                                                                if ($i <= 2) {
-                                                                    ?>
+            if ($i <= 2) {
+                ?>
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">          
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $k; ?>)" class="hover-shadow cursor">
                                                                         </div>
                                                                     </div>
-                                                                <?php } else { ?>
+            <?php } else { ?>
                                                                     <div class="column1">
                                                                         <div class="bui_res_i2">  
                                                                             <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $k; ?>)" class="hover-shadow cursor">
@@ -857,20 +852,20 @@
 
 
 
-                                                                    <?php
-                                                                } $i++;
-                                                                $k++;
-                                                                if ($i == 4) {
-                                                                    break;
-                                                                }
-                                                            }
-                                                        } else {
-                                                            $i = 1;
-                                                            $k = 1;
-                                                            foreach ($busimagedata as $image) {
+                <?php
+            } $i++;
+            $k++;
+            if ($i == 4) {
+                break;
+            }
+        }
+    } else {
+        $i = 1;
+        $k = 1;
+        foreach ($busimagedata as $image) {
 
-                                                                if ($i <= 2) {
-                                                                    ?>
+            if ($i <= 2) {
+                ?>
                                                                     <div class="column1">
                                                                         <div class="bui_res_i">          <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $image['image_name']); ?>"  onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
                                                                         </div>
@@ -888,31 +883,31 @@
 
 
 
-                                                                    <?php
-                                                                } $i++;
-                                                                $k++;
-                                                                if ($i == 4) {
-                                                                    break;
-                                                                }
-                                                            }
-                                                        }
-                                                    } else {
-                                                        ?>
+                <?php
+            } $i++;
+            $k++;
+            if ($i == 4) {
+                break;
+            }
+        }
+    }
+} else {
+    ?>
                                                         <span class="images_add_bui"><h6>No Image Available</h6> 
 
-                                                            <?php
-                                                            $userid = $this->session->userdata('aileenuser');
+                                                        <?php
+                                                        $userid = $this->session->userdata('aileenuser');
 
-                                                            if ($businessdata1[0]['user_id'] == $userid) {
-                                                                ?>
+                                                        if ($businessdata1[0]['user_id'] == $userid) {
+                                                            ?>
                                                                 <a href="<?php echo base_url('business_profile/image') ?>">Add Images</a>
 
                                                             <?php } ?>
 
                                                         </span>
-                                                        <?php
-                                                    }
-                                                    ?>
+    <?php
+}
+?>
                                                     <div class="modal fade modal_popup" id="myModal" role="dialog" style="z-index: 1003">
                                                         <div class="modal-dialog" style="width: 88%;">
 
@@ -924,10 +919,10 @@
                                                                 </div>
                                                                 <div class="modal-body popup-img-popup">
                                                                     <div>
-                                                                        <?php
-                                                                        $j = 1;
-                                                                        foreach ($busimagedata as $imagemul) {
-                                                                            ?>
+<?php
+$j = 1;
+foreach ($busimagedata as $imagemul) {
+    ?>
                                                                             <div class="bui_popup_img"> 
                                                                                 <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $imagemul['image_name']); ?>"  onclick="openModal();currentSlide(<?php echo $j; ?>)" class="hover-shadow cursor">   </div> 
                                                                             <?php
@@ -938,7 +933,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                   <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                                                    <!--  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                                                                 </div>
                                                             </div>
 
@@ -950,10 +945,10 @@
 
                                                         <div class="modal-content2"> 
                                                             <span class="close2 cursor" onclick="closeModal()">&times;</span>  
-                                                            <?php
-                                                            $i = 1;
-                                                            foreach ($busimagedata as $image) {
-                                                                ?>
+<?php
+$i = 1;
+foreach ($busimagedata as $image) {
+    ?>
                                                                 <div class="mySlides">
                                                                     <div class="numbertext"><?php echo $i ?> / <?php echo count($busimagedata); ?></div>
                                                                     <div class="slider_img">
@@ -961,10 +956,10 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <?php
-                                                                $i++;
-                                                            }
-                                                            ?>
+    <?php
+    $i++;
+}
+?>
 
                                                             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                                                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -1001,7 +996,7 @@
             <footer>
 
                 <footer>
-                    <?php echo $footer; ?>
+<?php echo $footer; ?>
                 </footer>
                 <!-- Bid-modal  -->
                 <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
@@ -1018,18 +1013,18 @@
                 <!-- Model Popup Close -->
 
                 <!-- Bid-modal for this modal appear or not start -->
-        <div class="modal fade message-box" id="query" role="dialog">
-            <div class="modal-dialog modal-lm">
-                <div class="modal-content">
-                    <button type="button" class="modal-close" id="query" data-dismiss="modal">&times;</button>       
-                    <div class="modal-body">
-                        <span class="mes">
-                        </span>
+                <div class="modal fade message-box" id="query" role="dialog">
+                    <div class="modal-dialog modal-lm">
+                        <div class="modal-content">
+                            <button type="button" class="modal-close" id="query" data-dismiss="modal">&times;</button>       
+                            <div class="modal-body">
+                                <span class="mes">
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Bid-modal for this modal appear or not  Popup Close -->
+                <!-- Bid-modal for this modal appear or not  Popup Close -->
 
 
                 <!-- Bid-modal-2  -->
@@ -1040,14 +1035,14 @@
                             <div class="modal-body">
                                 <span class="mes">
                                     <div id="popup-form">
-                                        <?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+<?php echo form_open_multipart(base_url('business_profile/user_image_insert'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                                         <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                                         <input type="hidden" name="hitext" id="hitext" value="4">
                                         <div class="popup_previred">
                                             <img id="preview" src="#" alt="your image"/>
                                         </div>
                                         <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save" >
-                                        <?php echo form_close(); ?>
+<?php echo form_close(); ?>
                                     </div>
                                 </span>
                             </div>
@@ -1087,33 +1082,33 @@
                 <!-- script for business autofill -->
                 <script>
 
-                                                                var data = <?php echo json_encode($demo); ?>;
-                                                                // alert(data);
+                    var data = <?php echo json_encode($demo); ?>;
+                    // alert(data);
 
 
-                                                                $(function () {
-                                                                    // alert('hi');
-                                                                    $("#tags").autocomplete({
-                                                                        source: function (request, response) {
-                                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                            response($.grep(data, function (item) {
-                                                                                return matcher.test(item.label);
-                                                                            }));
-                                                                        },
-                                                                        minLength: 1,
-                                                                        select: function (event, ui) {
-                                                                            event.preventDefault();
-                                                                            $("#tags").val(ui.item.label);
-                                                                            $("#selected-tag").val(ui.item.label);
-                                                                            // window.location.href = ui.item.value;
-                                                                        }
-                                                                        ,
-                                                                        focus: function (event, ui) {
-                                                                            event.preventDefault();
-                                                                            $("#tags").val(ui.item.label);
-                                                                        }
-                                                                    });
-                                                                });
+                    $(function () {
+                        // alert('hi');
+                        $("#tags").autocomplete({
+                            source: function (request, response) {
+                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                response($.grep(data, function (item) {
+                                    return matcher.test(item.label);
+                                }));
+                            },
+                            minLength: 1,
+                            select: function (event, ui) {
+                                event.preventDefault();
+                                $("#tags").val(ui.item.label);
+                                $("#selected-tag").val(ui.item.label);
+                                // window.location.href = ui.item.value;
+                            }
+                            ,
+                            focus: function (event, ui) {
+                                event.preventDefault();
+                                $("#tags").val(ui.item.label);
+                            }
+                        });
+                    });
 
                 </script>
 
@@ -1151,88 +1146,88 @@
                 </script>
 
                 <script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data = <?php echo json_encode($demo); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#tags1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#tag1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#tags1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
-<script>
-   jQuery.noConflict();
-   
-   (function ($) {
-   
-       var data1 = <?php echo json_encode($de); ?>;
-       //alert(data);
-   
-   
-       $(function () {
-           // alert('hi');
-           $("#searchplace1").autocomplete({
-               source: function (request, response) {
-                   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                   response($.grep(data1, function (item) {
-                       return matcher.test(item.label);
-                   }));
-               },
-               minLength: 1,
-               select: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-                   $("#selected-tag").val(ui.item.label);
-                   // window.location.href = ui.item.value;
-               }
-               ,
-               focus: function (event, ui) {
-                   event.preventDefault();
-                   $("#searchplace1").val(ui.item.label);
-               }
-           });
-       });
-   
-   })(jQuery);
-   
-</script>
+                    jQuery.noConflict();
 
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
+                    (function ($) {
+
+                        var data = <?php echo json_encode($demo); ?>;
+                        //alert(data);
+
+
+                        $(function () {
+                            // alert('hi');
+                            $("#tags1").autocomplete({
+                                source: function (request, response) {
+                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                    response($.grep(data, function (item) {
+                                        return matcher.test(item.label);
+                                    }));
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    event.preventDefault();
+                                    $("#tag1").val(ui.item.label);
+                                    $("#selected-tag").val(ui.item.label);
+                                    // window.location.href = ui.item.value;
+                                }
+                                ,
+                                focus: function (event, ui) {
+                                    event.preventDefault();
+                                    $("#tags1").val(ui.item.label);
+                                }
+                            });
+                        });
+
+                    })(jQuery);
+
+                </script>
+                <script>
+                    jQuery.noConflict();
+
+                    (function ($) {
+
+                        var data1 = <?php echo json_encode($de); ?>;
+                        //alert(data);
+
+
+                        $(function () {
+                            // alert('hi');
+                            $("#searchplace1").autocomplete({
+                                source: function (request, response) {
+                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                    response($.grep(data1, function (item) {
+                                        return matcher.test(item.label);
+                                    }));
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    event.preventDefault();
+                                    $("#searchplace1").val(ui.item.label);
+                                    $("#selected-tag").val(ui.item.label);
+                                    // window.location.href = ui.item.value;
+                                }
+                                ,
+                                focus: function (event, ui) {
+                                    event.preventDefault();
+                                    $("#searchplace1").val(ui.item.label);
+                                }
+                            });
+                        });
+
+                    })(jQuery);
+
+                </script>
+
+                <script type="text/javascript">
+                    function check() {
+                        var keyword = $.trim(document.getElementById('tags1').value);
+                        var place = $.trim(document.getElementById('searchplace1').value);
+                        if (keyword == "" && place == "") {
+                            return false;
                         }
-                    </script>
-                    
+                    }
+                </script>
+
                 <script type="text/javascript">
                     function checkvalue() {
                         //alert("hi");
@@ -1556,7 +1551,7 @@
 
                         });
                     });
-                    </script>
+                </script>
 
                 <script>
                     function picpopup() {
@@ -1567,7 +1562,7 @@
                     }
                 </script>
 
-                
+
 
 
                 <script type="text/javascript">
@@ -1600,62 +1595,62 @@
 
                 <!-- scroll page script end -->
 
-<script type="text/javascript">
-                    
-  function contact_person_query(clicked_id, status) { 
+                <script type="text/javascript">
 
-   
+                    function contact_person_query(clicked_id, status) {
+
+
                         $.ajax({
                             type: 'POST',
                             url: '<?php echo base_url() . "business_profile/contact_person_query" ?>',
                             data: 'toid=' + clicked_id + '&status=' + status,
                             success: function (data) { //alert(data);
-                              // return data;
-                               contact_person_model(clicked_id, status, data);
+                                // return data;
+                                contact_person_model(clicked_id, status, data);
                             }
                         });
                     }
 
-                    
-</script>
+
+                </script>
 
                 <script type="text/javascript">
 
 
                     function contact_person_model(clicked_id, status, data) {
 
-                        if(data == 1){
+                        if (data == 1) {
 
                             if (status == 'pending') {
 
-                            $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                            $('#bidmodal').modal('show');
+                                $('.biderror .mes').html("<div class='pop_content'> Do you want to cancel  contact request?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
 
-                        } else if (status == 'confirm') {
+                            } else if (status == 'confirm') {
 
-                            $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                            $('#bidmodal').modal('show');
+                                $('.biderror .mes').html("<div class='pop_content'> Do you want to remove this user from your contact list?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='contact_person(" + clicked_id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                $('#bidmodal').modal('show');
 
-                        }else{ 
-                           contact_person(clicked_id); 
+                            } else {
+                                contact_person(clicked_id);
+                            }
+
+                        } else {
+
+                            $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
+                            $('#query').modal('show');
+
                         }
 
-                }else{
 
-                      $('#query .mes').html("<div class='pop_content'>Sorry, we can't process this request at this time.");
-                      $('#query').modal('show');
-                            
-                }
-                        
-                       
 
                     }
                 </script>
 
 
-<script type="text/javascript">
+                <script type="text/javascript">
                     function contact_person(clicked_id) {
-                        
+
                         $.ajax({
                             type: 'POST',
                             url: '<?php echo base_url() . "business_profile/contact_person" ?>',
@@ -1667,18 +1662,18 @@
                             }
                         });
                     }
-</script>
+                </script>
 
-<script type="text/javascript">
-    
-     $(document).on('keydown', function (e) {
-                if (e.keyCode === 27) {
-                //$( "#bidmodal" ).hide();
-                $('#query').modal('hide');
-                //$('.modal-post').show();
-                }
-                });
-</script>
+                <script type="text/javascript">
+
+                    $(document).on('keydown', function (e) {
+                        if (e.keyCode === 27) {
+                            //$( "#bidmodal" ).hide();
+                            $('#query').modal('hide');
+                            //$('.modal-post').show();
+                        }
+                    });
+                </script>
 
 
                 <!-- all popup close close using esc start -->
@@ -1691,7 +1686,7 @@
 
                     $(document).on('keydown', function (e) {
                         if (e.keyCode === 27) { //alert("jii");
-                           // $('#myModal1').modal('hide');
+                            // $('#myModal1').modal('hide');
                             document.getElementById("myModal1").style.display = "none";
 
                         }
