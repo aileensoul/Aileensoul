@@ -603,13 +603,10 @@ $(window).load(function(){
                                         <span id="notification_count"></span>
 
                                     </a><div id="notificationContainer">
-<<<<<<< HEAD
-                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
-=======
-                                      <div id="InboxBody" class="Inbox">
-                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="<?php echo base_url('notification') ?>">See All</a></span></div>
->>>>>>> 424929d646f1a0e12c565f760ff00f6655cb84fc
 
+                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
+
+                                      
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
 <div>
@@ -975,13 +972,10 @@ $(window).load(function(){
                                         <span id="notification_count"></span>
 
                                     </a><div id="notificationContainer">
-<<<<<<< HEAD
-                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
-=======
-                                      <div id="InboxBody" class="Inbox">
-                                        <div id="notificationTitle">Notifications <span class="see_link" id="see_link"></span></div>
->>>>>>> 424929d646f1a0e12c565f760ff00f6655cb84fc
 
+                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
+
+                       
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
 <div>
