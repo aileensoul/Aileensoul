@@ -3759,7 +3759,19 @@ class Chat extends MY_Controller {
                 // notification message end
         
       //echo $usrsrch;
+        if($userlist){
       $seeall = '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $userlist[0]['user_id'] . '" >See All</a>';
+        }else{
+         $seeall = '<div>
+    <ul class="notification_data_in_con"><div class="art-img-nn">
+                                                <div class="art_no_post_img">
+                                                    <img src="../img/icon_no_message.png">
+                                                </div>
+                                                <div class="art_no_post_text_c">
+                                                    No Contact Request Available.
+                                                </div>
+                             </div></ul></div>';      
+        }
       echo json_encode(
                         array(
                             "leftbar" => $usrsrch,
