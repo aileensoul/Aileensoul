@@ -3760,7 +3760,7 @@ class Chat extends MY_Controller {
                                                     <img src="' . base_url() . 'img/icon_no_message.png">
                                                 </div>
                                                 <div class="art_no_post_text_c">
-                                                    No Contact Request Available.
+                                                    No Messages Available.
                                                 </div>
                              </div></ul></div>';      
         }
