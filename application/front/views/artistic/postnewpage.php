@@ -516,10 +516,10 @@
 
                                 ?>
 
-                            <input size=1 id="text_num" class="text_num" value="<?php echo (50 - $a);?>" name=text_num readonly>
+                            <input size=1 id="text_num" tabindex="-500" class="text_num" value="<?php echo (50 - $a);?>" name=text_num readonly>
 
                            <?php }else{?>
-                           <input size=1 id="text_num" class="text_num" value=50 name=text_num readonly> 
+                           <input size=1 id="text_num" class="text_num" tabindex="-500" value=50 name=text_num readonly> 
 
                             <?php }?>
 

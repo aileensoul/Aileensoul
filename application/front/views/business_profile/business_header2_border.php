@@ -186,8 +186,37 @@
                                         </a>
                                         <div id="addcontactContainer">
                                           <div id="addcontactBody" class="notifications">
+                                              
+                                              <?php
+                                              $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
+        $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                                            <div id="addcontactTitle">Contact Request <a class="fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a></div>
+        $contition_array = array('contact_from_id' => $userid, 'status' => 'confirm');
+        $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+        $unique_user = array_merge($contactperson_req, $contactperson_con);
+
+
+        $new = array();
+        foreach ($unique_user as $value) {
+            $new[$value['contact_id']] = $value;
+        }
+
+        $post = array();
+
+        foreach ($new as $key => $row) {
+
+            $post[$key] = $row['contact_id'];
+        }
+        array_multisort($post, SORT_DESC, $new);
+
+        $contactperson = $new;
+        
+                                              ?>
+                                              
+
+                                            <div id="addcontactTitle">Contact Request <?php if(count($contactperson) > 0){ ?> <a class="contact-see-all fr" href="<?php echo base_url('business_profile/contact_list'); ?>">See All</a><?php } ?></div>
 <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
 <div>

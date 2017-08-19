@@ -1,6 +1,10 @@
 /* cover*/
 .bg{border-top:none }
 .banner-box .upload-camera{z-index: 3;}
+.upload-result:hover{background-color:#1b8ab9; color: white; border: 1px solid #1b8ab9;}
+
+.cancel-result:hover{background-color:#fff; color: #1b8ab9; border: 1px solid #1b8ab9;}
+.btn-success:active{background-color: white; color: #1b8ab9; }
 /*cover*/
 /*header start*/
 
@@ -20,7 +24,7 @@
 .header ul li.dropdown-user a{padding-top: 8px!important;}
 #notificationLink span{background: none;}
 #notificationLink span{top: 3px;}
-#notificationContainer{margin-top: 20px;}
+#notificationContainer{margin-top: 23px; right: 1px;}
 .dropdown-menu{top: 37px;}
 .header ul li #abody ul li a{border: none;}
 #atittle a{border: none;}
@@ -60,7 +64,11 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*chat module start*/
-.notifications li .notification-data-inside div{padding-top: 0px!important}
+
+#msg_block .input-group .comment{line-height: 1.2;}
+#InboxBody{overflow: hidden!important; border-radius: 3px; }
+.people-list ul li{padding-top: 10px;}
+#addcontactBody{overflow: hidden!important; border-radius: 3px; }
 /*chat module end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -129,12 +137,13 @@ line-height: 14px;
 margin: -37px -35px 1px -20px;
 font-size: 22px;}
 .image_profile audio{height: 90%;}
+.search_button{margin-top: 8px;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Artisitc profile start*/
-
+.profile-head-text_dg textarea{padding: 6px 15px;}
 /*Artisitc profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -458,7 +467,9 @@ span.fu-time{font-size: 13px;}
 }
 @media screen and (max-width: 991px) {
 /*header start*/
-
+.header2 {
+    top: 43px;
+}
 #floatBarsG{margin-top: 0%;}
 /*header end*/
 
@@ -542,6 +553,9 @@ right: 10px;}
 
     #floatBarsG{margin-top: 0%; margin-left: -83px;}
     .floatBarsG{width: 20px; height: 20px;}
+    .cover-pic {
+    right: 5%;
+}
 
 }
 
@@ -843,6 +857,7 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*recruiter profile start*/
+.designation_rec{width: 71%!important;}
 
 /*recruiter profile End*/
 
