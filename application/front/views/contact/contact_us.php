@@ -298,7 +298,7 @@
                                               $("#contact_subject").val('');
                                               $("#contact_message").val('');
                                               
-                                          $.fancybox.open('<div class="alert alert-danger contactus"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your message send successfully' + ' !</div>');
+                                          $.fancybox.open('<div class="alert alert-danger contactus"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your message sent successfully' + ' !</div>');
                                           
 //                                                 $("#contactsucc").fadeIn(1000, function () {
 //                                                    $("#contactsucc").html('<div class="alert alert-danger contactus"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + 'Your message send successfully' + ' !</div>');
@@ -308,7 +308,7 @@
                                             }
                                             else {
                                           
-                                           $.fancybox.open('<div class="alert alert-danger contactus"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your conatct not send successfully' + ' !</div>');
+                                           $.fancybox.open('<div class="alert alert-danger contactus"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your conatct not sent successfully' + ' !</div>');
 //                                                $("#contactsucc").fadeIn(1000, function () {
 //                                                    $("#contactsucc").html('<div class="alert alert-danger contactus"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' +'your conatct not send successfully' + ' !</div>');
 //                                                    $("#btn-register").html('Sign Up');
