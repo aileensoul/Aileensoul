@@ -782,7 +782,6 @@ class Recruiter extends MY_Controller {
                     're_comp_state' => $this->input->post('state'),
                     're_comp_city' => $this->input->post('city'),
                     'comp_logo' => $logo,
-
                     'is_delete' => 0,
                     're_status' => 1,
                     'created_date' => date('y-m-d h:i:s'),
