@@ -127,25 +127,15 @@ if ($returnpage == 'freelancer_post') {
                             $sub_lname = substr($lname, 0, 1);
                             ?>
                             <div class="post-img-user">
-                                <?php echo ucfirst(strtolower($sub_fname)) . ucfirst(strtolower($sub_lname)); ?>
+                                <?php echo ucfirst(strtolower($sub_fname)).ucfirst(strtolower($sub_lname)); ?>
                             </div>
-    <!--                            <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE);  ?>" alt="" />-->
+   
                         <?php } ?>
-                <!-- <a href="#popup-form" class="fancybox"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a> -->
+               
                         <?php if ($returnpage == '' && $freelancerhiredata[0]['user_id'] == $userid) { ?>
                             <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                         <?php } ?>
                     </div>
-
-
-                    <!-- <div id="popup-form"> -->
-                    <!-- <?php //echo form_open_multipart(base_url('freelancer/user_image_insert'), array('id' => 'userimage','name' => 'userimage', 'class' => 'clearfix'));    ?> -->
-                    <!-- <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
-                    <input type="hidden" name="hitext" id="hitext" value="1">
-                    <input type="submit" name="cancel4" id="cancel4" value="Cancel">
-                    <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"> -->
-                    <!-- </form> -->
-                    <!-- </div> -->
 
                 </div>
                 <div class="job-menu-profile mob-block">
