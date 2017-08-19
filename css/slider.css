@@ -380,7 +380,7 @@
   overflow:hidden;
 }
 #onload-Modal .carousel-control{display:none;}
-.lfar_sl a{font-size:30px; opacity:0.8;}
+.lfar_sl a{font-size:30px; opacity:0.8; margin-top: 3px;}
 .lfar_sl a:hover{opacity:1;}
 .slider-13 .imh_logo{position:relative;}
 .slider-13 .imh_logo .img1{position:absolute; left:25px;}
