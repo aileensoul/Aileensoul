@@ -604,9 +604,10 @@ $(window).load(function(){
 
                                     </a><div id="notificationContainer">
 
-                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
+                                      <div id="InboxBody" class="Inbox">
+                                        <div id="notificationTitle">Notifications <span class="see_link"><a href="<?php echo base_url('notification') ?>">See All</a></span></div>
 
-                                      
+
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
 <div>
@@ -973,9 +974,10 @@ $(window).load(function(){
 
                                     </a><div id="notificationContainer">
 
-                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
+                                      <div id="InboxBody" class="Inbox">
+                                        <div id="notificationTitle">Notifications <span class="see_link" id="see_link"></span></div>
 
-                       
+
                                              <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
                                             
 <div>
@@ -983,7 +985,7 @@ $(window).load(function(){
         
     </ul></div>
 
-                            </div>        </div>
+                            </div>       
 
                                         </div>
                                 </li>

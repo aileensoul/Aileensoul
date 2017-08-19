@@ -508,7 +508,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         if (data == '' || data == '<br>') {
                             return false;
                         }
-                        if (check_perticular(txt) == true) {
+                        if (check_perticular(data) == true) {
                             return false;
                         }
 
