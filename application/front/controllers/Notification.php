@@ -709,7 +709,7 @@ class Notification extends MY_Controller {
         $this->load->view('notification/freelancer_hire_post', $this->data);
     }
 
-    public function not_header($id = "") {
+        public function not_header($id = "") {
 
         $userid = $this->session->userdata('aileenuser');
         $contition_array = array('notification.not_type' => 3, 'notification.not_to_id' => $userid, 'notification.not_from' => 2, 'created_date BETWEEN DATE_SUB(NOW(), INTERVAL 2 MONTH) AND NOW()');
@@ -1636,11 +1636,26 @@ class Notification extends MY_Controller {
                 break;
             }
         }
-        //  $notification .= '</div> </ul>';
-        //$notification .= '<div id="notificationFooter">';
-        //$notification .= '<a href="' . base_url('notification') . '">See All</a></div>';
+        if($totalnotification){
+      $seeall = '<a href="' . base_url() . 'notification>See All</a>';
+        }else{
+         $seeall = '<div>
+  <div class="art-img-nn">
+                                                <div class="art_no_post_img">
+                                                    <img src="' . base_url() . 'img/icon_notification_big.png">
+                                                </div>
+                                                <div class="art_no_post_text_c">
+                                                    No Notification Available.
+                                                </div>
+                             </div></div>';      
+        }
+      echo json_encode(
+                        array(
+                            "notification" => $notification,
+                            "seeall" => $seeall,
+                ));
 
-        echo $notification;
+      
     }
 
     public function msg_header($id = "") {

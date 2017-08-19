@@ -414,7 +414,7 @@
 
                                <fieldset <?php if ($emp_type) { ?> class="error-msg" <?php } ?> class="two-select-box1">
                                 
-                                <label style="cursor:pointer;" class="control-label">Employment Type:</label>
+                                <label style="cursor:pointer;" class="control-label">Employment Type:<span style="color:red">*</span></label>
 
 
                                    <select name="emp_type" style="cursor:pointer;" class="keyskil" id="emp_type">
@@ -967,13 +967,14 @@ if(mm<10) {
                             
                         },
                         minsal:{
+                             required: true,
                             //number:true,
                             maxlength:11,
                              pattern: /^([0-9]\d*)(\\d+)?$/
 
                         },
                         maxsal:{
-                            
+                             required: true,
                              number:true,
                               min: 0,
                              greaterThan: "#minsal",
@@ -1045,7 +1046,12 @@ if(mm<10) {
                         },
                        
                         maxsal:{
+                            required: "Maximum salary is Required",
                             greaterThan:"Maximum salary should be grater than Minimum salary"
+                        },
+                        
+                         minsal:{
+                           required: "Minimum salary is Required"
                         },
                        
 

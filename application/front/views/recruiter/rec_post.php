@@ -429,31 +429,31 @@ if ($returnpage == 'job') {
                                             <!-- vishang 14-4 start -->
                                               <li>
                                                 <b>Required Experience</b>
-                                                 <span>
+<!--                                                 <span>
                                                    <p title="Min - Max">
                                                        <?php 
 
 
-                                                            if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
-                                                            { 
- 
-
-                                                               echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ".   "Fresher can also apply.";
-                                                                 } 
-                                                             else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
-                                                                  {
-                                                               echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
-                                                                    }
-                                                                  else
-                                                                {
-                                                                  echo "Fresher";
-         
-                                                                  }
+//                                                            if(($post['min_year'] !='0' || $post['max_year'] !='0') && ($post['fresher'] == 1))
+//                                                            { 
+// 
+//
+//                                                               echo $post['min_year'].' Year - '.$post['max_year'] .' Year'." , ".   "Fresher can also apply.";
+//                                                                 } 
+//                                                             else if(($post['min_year'] !='0' || $post['max_year'] !='0'))
+//                                                                  {
+//                                                               echo $post['min_year'].' Year - '.$post['max_year'] . ' Year';
+//                                                                    }
+//                                                                  else
+//                                                                {
+//                                                                  echo "Fresher";
+//         
+//                                                                  }
 
                                                                   ?> 
     
                                                                   </p>  
-                                                                  </span>
+                                                                  </span>-->
                                                                   </li>
 
 
@@ -776,6 +776,7 @@ if ($returnpage == 'job') {
     
                                                                   </p>  
                                                                   </span>
+                                                
                                                                   </li>
 
 
