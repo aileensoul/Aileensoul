@@ -43,7 +43,5 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_yatin.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/lato.css'); ?>">
      <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/sprite_img.css'); ?>">
 </head>
