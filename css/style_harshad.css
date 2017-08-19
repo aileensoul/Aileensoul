@@ -34,9 +34,7 @@
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-#inboxcontainer::before{right: 17px;}
-.header2 ul li{border-right: 1px solid #1985b3;}
-#InboxContainer{right: -7px;}
+
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -138,6 +136,8 @@ margin: -37px -35px 1px -20px;
 font-size: 22px;}
 .image_profile audio{height: 90%;}
 .search_button{margin-top: 8px;}
+#addcontactContainer{margin-top: 0px; right: 8px;}
+.notifications li .notification-data-inside div{font-size: 12px;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -149,6 +149,10 @@ font-size: 22px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*extra css start*/
+#inboxcontainer::before{right: 17px;}
+.header2 ul li{border-right: 1px solid #1985b3;}
+.header2 ul#dropdownclass li{border-right: none!important;}
+#InboxContainer{right: -7px;}
 /*extra css end*/
 
 /*--------------------------------------------------@media-profile-css-start-------------------------------------------------*/
@@ -230,15 +234,9 @@ font-size: 22px;}
 
 }
 @media screen and (max-width: 1279px) {
-
-    
-#InboxContainer::before {
-    right: 17px;
-}
-}
-@media screen and (max-width: 1279px) {
 	
 /*header start*/
+
 
 /*header end*/
 

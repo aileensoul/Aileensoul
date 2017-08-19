@@ -15706,7 +15706,7 @@ fieldset .select2-container-multi .select2-choices .select2-search-choice a.sele
         width: 1280px;
     }
     /*.header2{margin-left: 16px; margin-right: 16px;}*/
-    #InboxContainer:before {right:27px;}
+    #InboxContainer:before {right:17px;}
 }
 @media screen and (max-width: 1200px) {
         #InboxContainer{right: -7px;}
