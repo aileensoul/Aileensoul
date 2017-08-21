@@ -388,7 +388,10 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; font-size: 3em; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                        <!--  <a href="<?php //echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; font-size: 3em; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a> -->
+
+                                                         <a title="open pdf" href="<?php echo base_url($this->config->item('job_work_main_upload_path') . $work_certificate1) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+
                                                       <?php
                                                       }//if($ext[1] == 'pdf')
                                                       else
@@ -544,7 +547,9 @@
                                                    if($ext[1] == 'pdf')
                                                       { 
                                                    ?>
-                                                         <a href="<?php echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id'].'/experience') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                        <!--  <a href="<?php //echo base_url('job/creat_pdf_workexp/'.$workdata[$x]['work_id'].'/experience') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a> -->
+
+                                                          <a title="open pdf" href="<?php echo base_url($this->config->item('job_work_main_upload_path') . $work_certificate1) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                       <?php
                                                       }//if($ext[1] == 'pdf')
                                                       else
