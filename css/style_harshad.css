@@ -134,7 +134,7 @@ height: inherit;
 line-height: 14px;
 margin: -37px -35px 1px -20px;
 font-size: 22px;}
-.image_profile audio{height: 90%;}
+.image_profile audio{height: 88%;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
 .notifications li .notification-data-inside div{font-size: 13px!important; line-height: 15px; padding-top: 0px!important}
@@ -145,6 +145,7 @@ font-size: 22px;}
 
 /*Artisitc profile start*/
 .profile-head-text_dg textarea{padding: 6px 15px;}
+
 /*Artisitc profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/

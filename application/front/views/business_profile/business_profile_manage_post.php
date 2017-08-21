@@ -5,6 +5,18 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/gyc.css'); ?>">
 
 <!--post save success pop up style strat -->
+<style type="text/css">
+    #popup-form img{display: none;}
+   audio:not([controls]){display:block!important;}
+   #audio_bg {
+       height: 80px;
+    width: 98px;
+    background-image: url(../images/music-icon_play.png);
+    background-size: 100%;
+    display: contents;
+    /* visibility: hidden; */
+}
+</style>
 
 <!--post save success pop up style strat -->
 
@@ -957,8 +969,8 @@
                                         <tr>
 
                                             <?php if ($singlearray2[0]['image_name']) { ?>
-                                                <td class="image_profile"> 
-                                                    <audio controls="false">
+                                                <td class="image_profile" id="audio_bg"> 
+                                                    <audio >
 
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[0]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
@@ -968,8 +980,8 @@
                                             <?php } ?>
 
                                             <?php if ($singlearray2[1]['image_name']) { ?>
-                                                <td class="image_profile">
-                                                    <audio  controls="false">
+                                                 <td class="image_profile" id="audio_bg">
+                                                    <audio  >
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -977,8 +989,8 @@
                                                 </td>
                                             <?php } ?>
                                             <?php if ($singlearray2[2]['image_name']) { ?>
-                                                <td class="image_profile">
-                                                    <audio  controls="false">
+                                                <td class="image_profile" id="audio_bg">
+                                                    <audio  >
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[2]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -989,8 +1001,8 @@
                                         <tr>
 
                                             <?php if ($singlearray2[3]['image_name']) { ?>
-                                                <td class="image_profile"> 
-                                                    <audio  controls="false">
+                                                 <td class="image_profile" id="audio_bg">
+                                                    <audio  >
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -998,8 +1010,8 @@
                                                 </td>
                                             <?php } ?>
                                             <?php if ($singlearray2[4]['image_name']) { ?>
-                                                <td class="image_profile">
-                                                    <audio  controls="false">
+                                                 <td class="image_profile" id="audio_bg">
+                                                    <audio  >
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -1007,8 +1019,8 @@
                                                 </td>
                                             <?php } ?>
                                             <?php if ($singlearray2[5]['image_name']) { ?>
-                                                <td class="image_profile">
-                                                    <audio  controls="false">
+                                                  <td class="image_profile" id="audio_bg">
+                                                    <audio  >
                                                         <source src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                         Your browser does not support the audio tag.
@@ -5037,3 +5049,9 @@ var b = document.getElementById('test-upload_des').value;
     });
             </script>
 
+<script type="text/javascript">
+        var vids = $("video"); 
+    $.each(vids, function(){
+           this.controls = false; 
+    }); 
+</script>
