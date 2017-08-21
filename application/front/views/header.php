@@ -55,53 +55,53 @@ $(window).load(function(){
 <style>
 
     /*style for span id=notification_count start*/
-  /*  .msg_dot{padding: 0!important;}
-    #notification_count
-    {   padding: 3px;
-        background: #1b8ab9;
-        color: #ffffff;
-        font-weight: bold;
-        margin-left: 7px;
- 
-        -moz-border-radius: 9px;
-        -webkit-border-radius: 2px;
-        position: absolute;
-
-
-    }*/
+    /*  .msg_dot{padding: 0!important;}
+      #notification_count
+      {   padding: 3px;
+          background: #1b8ab9;
+          color: #ffffff;
+          font-weight: bold;
+          margin-left: 7px;
+   
+          -moz-border-radius: 9px;
+          -webkit-border-radius: 2px;
+          position: absolute;
+  
+  
+      }*/
     /*style for span id=notification_count End*/
 
     /*style for span id=message_count start*/
 
-/*
-    #message_count
-    {
-        padding: 3px;
-        background: #1b8ab9;
-        color: #ffffff;
-        font-weight: bold;
-        margin-left: 7px;
-     
-        -moz-border-radius: 9px;
-        -webkit-border-radius: 2px;
-        position: absolute;
-
-        font-size: 10px;
-        top: 3px;
-        line-height: normal;
-        right: 1px;
-    }*/
+    /*
+        #message_count
+        {
+            padding: 3px;
+            background: #1b8ab9;
+            color: #ffffff;
+            font-weight: bold;
+            margin-left: 7px;
+         
+            -moz-border-radius: 9px;
+            -webkit-border-radius: 2px;
+            position: absolute;
+    
+            font-size: 10px;
+            top: 3px;
+            line-height: normal;
+            right: 1px;
+        }*/
     /*style for span id=message_count End*/
 
 </style>
 <!-- style for span id=notification_count end-->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/animate.css" />
 <!-- script for fetch all unread notification start-->
-<link rel="stylesheet" href="<?php echo base_url('z2/scrollbar/style.css')?>">
-  <link rel="stylesheet" href="<?php echo base_url('z2/scrollbar/jquery.mCustomScrollbar.css')?>">
+<link rel="stylesheet" href="<?php echo base_url('z2/scrollbar/style.css') ?>">
+<link rel="stylesheet" href="<?php echo base_url('z2/scrollbar/jquery.mCustomScrollbar.css') ?>">
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php // echo base_url('js/script.js');  ?>"></script>
-<!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js');  ?>"></script> -->
+<script type="text/javascript" src="<?php // echo base_url('js/script.js');   ?>"></script>
+<!-- <script type="text/javascript" src="<?php //echo base_url('js/select2_new.js');   ?>"></script> -->
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script> 
 <script type="text/javascript" charset="utf-8">
 
@@ -111,12 +111,12 @@ $(window).load(function(){
         if (msg == 0)
         {
             $("#notification_count").html('');
-             $('#notification_count').css({"background-color": " " , "padding": "5px 6px"});
+            $('#notification_count').css({"background-color": " ", "padding": "5px 6px"});
             $('#notificationLink').removeClass('notification_available');
         } else
         {
             $('#notification_count').html(msg);
-            $('#notification_count').css({"background-color": "#FF4500" , "padding": "5px 6px"});
+            $('#notification_count').css({"background-color": "#FF4500", "padding": "5px 6px"});
             document.getElementById('notification_count').style.display = 'block';
             $('#notificationLink').addClass('notification_available');
         }
@@ -180,10 +180,15 @@ $(window).load(function(){
         });
 
     });
-	
-    $(document).ready(function () { 
+
+    $(document).ready(function () {
         $("body").click(function (event) {
-            $("#acon").fadeOut("slow");
+//            var clicked_class = $(this).attr('class');
+//            alert(clicked_class);
+//            
+//            if (clicked_class != 'pushmenu-push') {
+                $("#acon").fadeOut("slow");
+//            }
             // event.stopPropagation();
         });
 
@@ -204,16 +209,16 @@ $(window).load(function(){
         });
 
     });
-	/*$(.dropdown-user).ready(function () {
-        $("body").click(function (event) {
-            $("#InboxContainer").fadeOut("slow");
+    /*$(.dropdown-user).ready(function () {
+     $("body").click(function (event) {
+     $("#InboxContainer").fadeOut("slow");
+     
+     // event.stopPropagation();
+     });
+     
+     });*/
 
-            // event.stopPropagation();
-        });
 
-    });*/
-
-	
 
     $(document).ready(function () {
         $('.dropdown-user').click(function (event) {
@@ -224,10 +229,10 @@ $(window).load(function(){
             // event.stopPropagation();
         });
     });
-	
-	
-	
-	
+
+
+
+
 
     $(document).on("dropdown-user", function () {
         $(".dropdown-menu").hide();
@@ -307,7 +312,7 @@ $(window).load(function(){
             $(".dropdown-menu").hide();
             $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
-          //  $("#notification_count").hide();
+            //  $("#notification_count").hide();
             $("#dropdown-content_hover").hide();
             $("#acon").hide();
             $("#InboxContainer").fadeToggle(300);
@@ -327,7 +332,7 @@ $(window).load(function(){
             $("#Frnd_req_count").hide();
             $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
-         //   $("#notification_count").hide();
+            //   $("#notification_count").hide();
             $("#InboxContainer").hide();
             $("#Inbox_count").hide();
             $("#dropdown-content_hover").hide();
@@ -347,7 +352,7 @@ $(window).load(function(){
             $("#Frnd_req_count").hide();
             $("#acon").hide();
             $("#notificationContainer").hide();
-          //  $("#notification_count").hide();
+            //  $("#notification_count").hide();
             $("#InboxContainer").hide();
             $("#Inbox_count").hide();
 //$(".dropdown-user").hide();
@@ -362,17 +367,17 @@ $(window).load(function(){
 
 <script type="text/javascript">
     /*$(document).ready(function () {
-         Show hide popover
-        $("myDropdown").click(function () {
-            $(this).find(".dropdown-menu").fadeToggle("slow");
-        });
-    });
-    $(document).on("click", function (event) {
-        var $trigger = $(".myDropdown");
-        if ($trigger !== event.target && !$trigger.has(event.target).length) {
-            $(".myDropdown").fadeOut("slow");
-        }
-    });*/
+     Show hide popover
+     $("myDropdown").click(function () {
+     $(this).find(".dropdown-menu").fadeToggle("slow");
+     });
+     });
+     $(document).on("click", function (event) {
+     var $trigger = $(".myDropdown");
+     if ($trigger !== event.target && !$trigger.has(event.target).length) {
+     $(".myDropdown").fadeOut("slow");
+     }
+     });*/
 </script>
 
 <!-- -->
@@ -405,8 +410,9 @@ $(window).load(function(){
                                     <ul class="">
 
 
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                            <li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"> <span class="all"></span></a>
+                                        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                            <!--<li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"> <span class="all"></span></a>-->
+                                            <li id="a_li"><a id="alink" class=" action-button shadow animate"> <span class="all"></span></a>
 
                                                 <div id="acon">
                                                     <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
@@ -489,7 +495,7 @@ $(window).load(function(){
                                                 </div>
                                             </li>
 
-        <?php } else { ?>
+                                        <?php } else { ?>
 
                                             <li id="a_li">
                                                 <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"><span class="all"></span>
@@ -576,59 +582,59 @@ $(window).load(function(){
                                                 </div>
 
                                             </li>
-        <?php } ?>
+                                        <?php } ?>
 
 
 
-          <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
-              <span id="notification_count"></span>
-          </a></li> -->
+                  <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                      <span id="notification_count"></span>
+                  </a></li> -->
                                         <!-- general notification start -->
-<!--                                        <li id="notification_li">
-                                            <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+                                        <!--                                        <li id="notification_li">
+                                                                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+                                        
+                                                                                        <span id="notification_count"></span>
+                                        
+                                                                                    </a><div id="notificationContainer">
+                                                                                        <div id="notificationTitle">Notddifications</div>
+                                        
+                                                                                        <div id="notificationsBody" class="notifications">
+                                        
+                                        
+                                                                                        </div>
+                                                                                </li>-->
+                                        <li id="notification_li">
+                                            <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="header-icon-notification "></i>
 
                                                 <span id="notification_count"></span>
 
                                             </a><div id="notificationContainer">
-                                                <div id="notificationTitle">Notddifications</div>
 
-                                                <div id="notificationsBody" class="notifications">
+                                                <div id="InboxBody" class="Inbox">
+                                                    <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
 
 
+                                                    <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+
+                                                        <div>
+                                                            <ul class="notification_data_in">
+
+                                                            </ul></div>
+                                                    </div>
                                                 </div>
-                                        </li>-->
-                                     <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="header-icon-notification "></i>
 
-                                        <span id="notification_count"></span>
-
-                                    </a><div id="notificationContainer">
-
-                                      <div id="InboxBody" class="Inbox">
-                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
-
-
-                                             <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
-                                            
-<div>
-    <ul class="notification_data_in">
-        
-    </ul></div>
-</div>
-                                    </div>
-
-                                        </div>
-                                </li>
+                                            </div>
+                                        </li>
                                         <!-- general notification end -->
                                         <?php
                                         $userid = $this->session->userdata('aileenuser');
                                         ?>
 
-                                    <!-- <li><a href="<?php //echo base_url('message/message_chat/')       ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
+                                            <!-- <li><a href="<?php //echo base_url('message/message_chat/')        ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
                                         <!--                                <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
-                                                                                                 <span class="badge bg-theme"><?php //echo $message_count; ?></span> 
-        <?php } ?>
+                                                                                                     <span class="badge bg-theme"><?php //echo $message_count;  ?></span> 
+                                        <?php } ?>
                                                                             <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
                                                                             
                                                                                 <span id="message_count"></span>
@@ -645,7 +651,7 @@ $(window).load(function(){
                                                                                 </div>
                                                                         </li>-->
 
-                                   <!--  <li><a href="<?php //echo base_url('friendrequest')       ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
+                                           <!--  <li><a href="<?php //echo base_url('friendrequest')        ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
 
                                         <!-- BEGIN USER LOGIN DROPDOWN -->
                                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -655,18 +661,18 @@ $(window).load(function(){
                                                 <!-- <div id="hi" class="notifications"> -->
                                                 <?php if ($userdata[0]['user_image'] != '') { ?>
                                                     <img alt="" class="img-circle" src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
-                                                <?php
+                                                    <?php
                                                 } else {
 
                                                     $a = $userdata[0]['first_name'];
                                                     $acr = substr($a, 0, 1);
                                                     ?>
                                                     <div class="custom-user">
-            <?php echo ucfirst(strtolower($acr)); ?>
+                                                        <?php echo ucfirst(strtolower($acr)); ?>
 
                                                     </div>
-                                                                                    <!-- <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE); ?>" height="50" width="50" alt="Smiley face" /> -->
-        <?php } ?>
+                                                                                    <!-- <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE);  ?>" height="50" width="50" alt="Smiley face" /> -->
+                                                <?php } ?>
 
                                                 <span class="u2 username username-hide-on-mobile hidden-xs"> <?php
                                                     if (isset($userdata[0]['first_name'])) {
@@ -681,29 +687,29 @@ $(window).load(function(){
                                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="myDropdown">
 
                                                 <!-- <li>
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                            
-                                           <a  onclick="return leave_page(6)">
-                                                            <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
-                                            
-        <?php } else { ?>
+                                                <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                                
+                                               <a  onclick="return leave_page(6)">
+                                                                <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
+                                                
+                                                <?php } else { ?>
 
-                                           <a href="<?php echo base_url() . 'profile' ?>">
-                                                            <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
-        <?php } ?>
+                                               <a href="<?php echo base_url() . 'profile' ?>">
+                                                                <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
+                                                <?php } ?>
                                                     
                                                 </li>
                                                 <li>
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                            
-                                           <a  onclick="return leave_page(7)">
-                                                            <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
-                                            
-        <?php } else { ?>
+                                                <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                                
+                                               <a  onclick="return leave_page(7)">
+                                                                <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
+                                                
+                                                <?php } else { ?>
 
-                                          <a href="<?php echo base_url('registration/changepassword') ?>">
-                                                            <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
-        <?php } ?>
+                                              <a href="<?php echo base_url('registration/changepassword') ?>">
+                                                                <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
+                                                <?php } ?>
                                                     
                                                 </li> -->
                                                 <li class="my_account">
@@ -715,16 +721,16 @@ $(window).load(function(){
                                                         <i class="fa fa-cog" aria-hidden="true"></i> Setting</a> 
                                                 </li>
                                                 <li class="logout">
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                                    <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
 
                                                         <a  onclick="return leave_page(8)">
                                                             <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
 
-        <?php } else { ?>
+                                                    <?php } else { ?>
 
                                                         <a href="<?php echo base_url('dashboard/logout') ?>">
                                                             <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
-        <?php } ?>
+                                                    <?php } ?>
 
 
                                                     <!--                                            Logout-->
@@ -745,7 +751,7 @@ $(window).load(function(){
                             </div>
 
 
-    <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -775,8 +781,9 @@ $(window).load(function(){
                                 <ul class="">
 
 
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                        <li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"><span class="all"></span></a>
+                                    <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                        <!--<li id="a_li"><a id="alink" class=" action-button shadow animate" onclick="return leave_page(5)"><span class="all"></span></a>-->
+                                        <li id="a_li"><a id="alink" class=" action-button shadow animate"><span class="all"></span></a>
 
                                             <div id="acon">
                                                 <div id="atittle">Profiles <a href="<?php echo base_url('dashboard') ?>" class="fr">All</a></div>
@@ -858,7 +865,7 @@ $(window).load(function(){
 
                                             </div>
                                         </li>
-        <?php } else { ?>
+                                    <?php } else { ?>
 
                                         <li id="a_li">
                                             <a id="alink" class=" action-button shadow animate" href="javascript:void(0)"> <span class="all"></span>
@@ -945,60 +952,60 @@ $(window).load(function(){
                                             </div>
 
                                         </li>
-        <?php } ?>
+                                    <?php } ?>
 
 
 
-          <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
-              <span id="notification_count"></span>
-          </a></li> -->
+                  <!-- <li><a href="#" id="notificationLink" onclick = "return getNotification()">Notification <i class="fa fa-bell-slash-o" aria-hidden="true"></i>
+                      <span id="notification_count"></span>
+                  </a></li> -->
                                     <!-- general notification start -->
-                                   <!--  <li id="notification_li">
-                                        <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+                                    <!--  <li id="notification_li">
+                                         <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="img-noti"></i>
+
+                                             <span id="notification_count"></span>
+
+                                         </a><div id="notificationContainer">
+                                             <div id="notificationTitle">Notifssications</div>
+
+                                             <div id="notificationsBody" class="notifications">
+
+
+                                             </div>
+                                     </li> -->
+
+                                    <li id="notification_li">
+                                        <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="header-icon-notification "></i>
 
                                             <span id="notification_count"></span>
 
                                         </a><div id="notificationContainer">
-                                            <div id="notificationTitle">Notifssications</div>
 
-                                            <div id="notificationsBody" class="notifications">
+                                            <div id="InboxBody" class="Inbox">
+                                                <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
 
+
+                                                <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+
+                                                    <div>
+                                                        <ul class="notification_data_in">
+
+                                                        </ul></div>
+
+                                                </div>       
 
                                             </div>
-                                    </li> -->
-
-                                     <li id="notification_li">
-                                    <a class="action-button shadow animate" href="javascript:void(0)" id="notificationLink" onclick = "return Notificationheader();"><em class="hidden-xs"></em> <i class="header-icon-notification "></i>
-
-                                        <span id="notification_count"></span>
-
-                                    </a><div id="notificationContainer">
-
-                                      <div id="InboxBody" class="Inbox">
-                                        <div id="notificationTitle">Notifications <span class="see_link" id="seenot"></span></div>
-
-
-                                             <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
-                                            
-<div>
-    <ul class="notification_data_in">
-        
-    </ul></div>
-
-                            </div>       
-
-                                        </div>
-                                </li>
+                                    </li>
 
                                     <!-- general notification end -->
                                     <?php
                                     $userid = $this->session->userdata('aileenuser');
                                     ?>
 
-                                    <!-- <li><a href="<?php //echo base_url('message/message_chat/')      ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
+                                            <!-- <li><a href="<?php //echo base_url('message/message_chat/')       ?>">Message <i class="fa fa-commenting" aria-hidden="true"></i></a></li> -->
                                     <!--                                <li id="Inbox_link">
-        <?php if ($message_count) { ?>
-        <?php } ?>
+                                    <?php if ($message_count) { ?>
+                                    <?php } ?>
                                                                         <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="img-msg"></span>
                                                                             <span id="message_count"></span>
                                                                         </a>
@@ -1014,7 +1021,7 @@ $(window).load(function(){
                                                                             </div>
                                                                     </li>-->
 
-                                   <!--  <li><a href="<?php //echo base_url('friendrequest')       ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
+                                           <!--  <li><a href="<?php //echo base_url('friendrequest')        ?>">Friend Request <i class="fa fa-user" aria-hidden="true"></i></a></li> -->
 
                                     <!-- BEGIN USER LOGIN DROPDOWN -->
                                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -1024,7 +1031,7 @@ $(window).load(function(){
                                             <!-- <div id="hi" class="notifications"> -->
                                             <?php if ($userdata[0]['user_image'] != '') { ?>
                                                 <img alt="" class="img-circle" src="<?php echo base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']); ?>" height="50" width="50" alt="Smiley face" />
-                                            <?php
+                                                <?php
                                             } else {
 
 
@@ -1032,12 +1039,12 @@ $(window).load(function(){
                                                 $acr = substr($a, 0, 1);
                                                 ?>
                                                 <div class="custom-user">
-            <?php echo ucfirst(strtolower($acr)); ?>
+                                                    <?php echo ucfirst(strtolower($acr)); ?>
 
                                                 </div>
 
-                                                       <!--  <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE);  ?>" height="50" width="50" alt="Smiley face" /> -->
-                                                <?php } ?>
+                                                                   <!--  <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE);   ?>" height="50" width="50" alt="Smiley face" /> -->
+                                            <?php } ?>
 
                                             <span class="u2 username username-hide-on-mobile hidden-xs"> <?php
                                                 if (isset($userdata[0]['first_name'])) {
@@ -1052,29 +1059,29 @@ $(window).load(function(){
                                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" id="myDropdown">
 
                                             <!-- <li>
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                        
-                                       <a  onclick="return leave_page(6)">
-                                                        <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
-                                        
-        <?php } else { ?>
+                                            <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                            
+                                           <a  onclick="return leave_page(6)">
+                                                            <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
+                                            
+                                            <?php } else { ?>
 
-                                       <a href="<?php echo base_url() . 'profile' ?>">
-                                                        <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
-        <?php } ?>
+                                           <a href="<?php echo base_url() . 'profile' ?>">
+                                                            <i class="fa fa-user" aria-hidden="true"></i> Edit Profile </a>
+                                            <?php } ?>
                                                 
                                             </li>
                                             <li>
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
-                                        
-                                       <a  onclick="return leave_page(7)">
-                                                        <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
-                                        
-        <?php } else { ?>
+                                            <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                            
+                                           <a  onclick="return leave_page(7)">
+                                                            <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
+                                            
+                                            <?php } else { ?>
 
-                                      <a href="<?php echo base_url('registration/changepassword') ?>">
-                                                        <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
-        <?php } ?>
+                                          <a href="<?php echo base_url('registration/changepassword') ?>">
+                                                            <i class="fa fa-exchange" aria-hidden="true"></i> Change password </a>
+                                            <?php } ?>
                                                 
                                             </li> -->
                                             <li class="my_account">
@@ -1086,16 +1093,16 @@ $(window).load(function(){
                                                     <i class="fa fa-cog" aria-hidden="true"></i> Setting</a> 
                                             </li>
                                             <li class="logout">
-        <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
+                                                <?php if (($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'add_post') || ($this->uri->segment(1) == 'recruiter' && $this->uri->segment(2) == 'edit_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_add_post') || ($this->uri->segment(1) == 'freelancer' && $this->uri->segment(2) == 'freelancer_edit_post')) { ?>
 
                                                     <a  onclick="return leave_page(8)" >
                                                         <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
 
-        <?php } else { ?>
+                                                <?php } else { ?>
 
                                                     <a href="<?php echo base_url('dashboard/logout') ?>">
                                                         <i class="fa fa-power-off" aria-hidden="true"></i> Logout</a> 
-        <?php } ?>
+                                                    <?php } ?>
 
 
                                                 <!--                                            Logout-->
@@ -1116,7 +1123,7 @@ $(window).load(function(){
                         </div>
 
 
-    <?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -1170,7 +1177,7 @@ $(window).load(function(){
                 //    alert(data);
                 $('.' + 'notification_data_in').html(data.notification);
                 $('#seenot').html(data.seeall);
-               
+
             }
 
 
@@ -1184,7 +1191,7 @@ $(window).load(function(){
 <script>
     jQuery(document).ready(function ($) {
         if (screen.width <= 767) {
-		
+
             $("ul.left-form-each").on("click", ".init", function () {
                 $(this).closest("ul").children('li:not(.init)').toggle();
             });
@@ -1242,7 +1249,7 @@ for (i = 0; i < dropdowns.length; i++) {
 -->
 
 <!-- Extra js if not work then add Start-->
-<!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');       ?>"></script> -->
+<!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.min-notification.js');        ?>"></script> -->
 <!-- Extra js if not work then add End-->
 
 <script type="text/javascript" >
@@ -1252,7 +1259,7 @@ for (i = 0; i < dropdowns.length; i++) {
         $("#alink").click(function ()
         {
 
-            
+
 //$("#notificationLink").hide();
             $("#acon").fadeToggle(300);
             $("#acont").fadeOut("slow");
@@ -1263,7 +1270,7 @@ for (i = 0; i < dropdowns.length; i++) {
             $("#dropdown-content_hover").hide();
             $("#addcontactContainer").hide();
             $("#notificationContainer").hide();
-         //   $("#notification_count").hide();
+            //   $("#notification_count").hide();
 
 
             $("#Frnd_reqContainer").hide();
@@ -1313,4 +1320,4 @@ for (i = 0; i < dropdowns.length; i++) {
 </script>
 
  <!-- <script src="../z2/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> -->
- <script type="text/javascript" src="<?php echo base_url('z2/scrollbar/jquery.mCustomScrollbar.concat.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('z2/scrollbar/jquery.mCustomScrollbar.concat.min.js'); ?>"></script>
