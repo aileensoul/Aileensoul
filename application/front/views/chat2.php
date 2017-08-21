@@ -771,7 +771,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //alert(img.src); 
                         var img = img.src;
                         $('#message').append("<img  src=" + img + " height='21' width='21' >");
-                        getElementById('#message').contentEditable = true;
+                        
                     }
                 </script>
                 <!-- script for selact smily for message end-->
