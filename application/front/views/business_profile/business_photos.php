@@ -11,7 +11,7 @@
 <!-- END HEAD -->
 <!-- start header -->
 <style type="text/css">
-    .paddingtop_fixed_aert{padding-top: 63px!important;}
+    #paddingtop_fixed_aert{padding-top: 84px!important;}
 </style>
 <?php echo $header; ?>
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
