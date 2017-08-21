@@ -155,7 +155,14 @@ font-size: 22px;}
 .header2 ul li{border-right: 1px solid #1985b3;}
 .header2 ul#dropdownclass li{border-right: none!important;}
 #InboxContainer{right: -7px;}
-
+   #audio_bg {
+       height: 80px;
+    width: 98px;
+    background-image: url(../images/music-icon_play.png);
+    background-size: 100%;
+    display: contents;
+    /* visibility: hidden; */
+}
 /*extra css end*/
 
 /*--------------------------------------------------@media-profile-css-start-------------------------------------------------*/

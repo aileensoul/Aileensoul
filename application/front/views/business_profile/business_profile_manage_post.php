@@ -8,14 +8,7 @@
 <style type="text/css">
     #popup-form img{display: none;}
    audio:not([controls]){display:block!important;}
-   #audio_bg {
-       height: 80px;
-    width: 98px;
-    background-image: url(../images/music-icon_play.png);
-    background-size: 100%;
-    display: contents;
-    /* visibility: hidden; */
-}
+
 </style>
 
 <!--post save success pop up style strat -->

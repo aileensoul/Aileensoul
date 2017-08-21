@@ -5,14 +5,6 @@
 <style type="text/css">
     #popup-form img{display: none;}
 	audio:not([controls]){display:block;}
-       #audio_bg {
-       height: 80px;
-    width: 98px;
-    background-image: url(../images/music-icon_play.png);
-    background-size: 100%;
-    display: contents;
-    /* visibility: hidden; */
-}
 </style>
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
