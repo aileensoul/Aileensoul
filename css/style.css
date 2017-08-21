@@ -5860,6 +5860,7 @@ label.cameraButton input[accept*="camera"] {
     left: 50%;
     margin-top: 13%;
     transform: scale(0.3);
+      transform: scale(1);
 }
 .cameraButton .fa.fa-camera{
     width:30px;
@@ -5913,11 +5914,6 @@ word-break:break-word;
 /*End*/
 
 
-@media screen and (min-width: 800px) {
-    #floatBarsG {
-        transform: scale(1);
-    }
-}
 .floatBarsG {
     position: absolute;
     top: 0;
