@@ -63,7 +63,8 @@ class Search extends CI_Controller {
             'user_location' => $city[0]['art_city'],
             'user_id' => $userid,
             'created_date' => date('Y-m-d h:i:s', time()),
-            'status' => 1
+            'status' => 1,
+            'module'=>'6'
         );
 
         // echo"<pre>"; print_r($data); die();
@@ -458,7 +459,8 @@ public function business_search() {
             'user_location' => $city[0]['city'],
             'user_id' => $userid,
             'created_date' => date('Y-m-d h:i:s', time()),
-            'status' => 1
+            'status' => 1,
+            'module'=>'5'
         );
 
         $insert_id = $this->common->insert_data_getid($data, 'search_info');
@@ -739,7 +741,8 @@ if ($searchkeyword == "" && $searchplace == "") {
             'user_location' => $city[0]['re_comp_city'],
             'user_id' => $userid,
             'created_date' => date('Y-m-d h:i:s', time()),
-            'status' => 1
+            'status' => 1,
+            'module'=>'2'
         );
 
         //echo"<pre>"; print_r($data); die();
@@ -1672,7 +1675,8 @@ foreach ($resul as $key => $value) {
             'user_location' => $city[0]['city'],
             'user_id' => $userid,
             'created_date' => date('Y-m-d h:i:s', time()),
-            'status' => 1
+            'status' => 1,
+            'module'=>'3'
         );
 
         // echo"<pre>"; print_r($data); die();
@@ -2040,7 +2044,8 @@ foreach ($resul as $key => $value) {
             'user_location' => $city[0]['freelancer_post_city'],
             'user_id' => $userid,
             'created_date' => date('Y-m-d h:i:s', time()),
-            'status' => 1
+            'status' => 1,
+            'module'=>'4'
         );
 
         //   echo"<pre>"; print_r($data); die();
@@ -2359,7 +2364,8 @@ foreach ($resul as $key => $value) {
             'user_location' => $city[0]['city_id'],
             'user_id' => $userid,
             'created_date' => date('Y-m-d h:i:s', time()),
-            'status' => 1
+            'status' => 1,
+            'module'=>'1'
         );
 
         //  echo"<pre>"; print_r($data); die();

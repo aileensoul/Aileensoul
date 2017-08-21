@@ -6620,7 +6620,7 @@ public function delete_workexp()
 
         $userid = $this->session->userdata('aileenuser');
 
-         $contition_array = array('user_id' => $userid, 'status' => '1', 'is_delete' => '0');
+         $contition_array = array('user_id' => $userid, 'is_delete' => '0');
          $apply_step  = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
      

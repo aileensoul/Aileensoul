@@ -332,7 +332,7 @@ if ($this->session->flashdata('success')) {
                   return regexpr.test(value);
             }
      // return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+}, "only space, only number and only special characters are not allow");
 // validation js
 
 $.validator.addMethod("regx1", function(value, element, regexpr) {          
@@ -346,7 +346,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                   return regexpr.test(value);
             }
      // return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+}, "only space, only number and only special characters are not allow");
 
  $("#jobseeker_regform").validate({
 
@@ -387,25 +387,25 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
 
                 industry: {
 
-                    required: "Industry Is Required.",
+                    required: "industry Is Required.",
 
                 },
 
                 job_title: {
 
-                    required: "Job Title Is Required.",
+                    required: "job title Is Required.",
 
                 },
 
                 skills: {
 
-                    required: "Skill Is Required.",
+                    required: "skill Is Required.",
                    
                 },
                
                 cities: {
 
-                    required: "City Is Required.",
+                    required: "city Is Required.",
 
                 },
                 

@@ -134,25 +134,48 @@ height: inherit;
 line-height: 14px;
 margin: -37px -35px 1px -20px;
 font-size: 22px;}
-.image_profile audio{height: 90%;}
+.image_profile audio{height: 88%;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
 .notifications li .notification-data-inside div{font-size: 13px!important; line-height: 15px; padding-top: 0px!important}
+.module_Ssearch{padding-top: 6px;}
+.buisness-profile-pic img{position: absolute;
+left: 50%;
+top: 50%;
+height: 100%;
+width: auto;
+
+-webkit-transform: translate(-50%,-50%);
+-ms-transform: translate(-50%,-50%);
+transform: translate(-50%,-50%);
+max-width: inherit;}
+.bui_res_i{overflow: hidden;}
+.buisness-profile-pic .bui_popup_img img{width: 100%; height: 100%; position: relative; }
+.buisness-profile-pic .slider_img img{ width: auto;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Artisitc profile start*/
 .profile-head-text_dg textarea{padding: 6px 15px;}
+
 /*Artisitc profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*extra css start*/
 #inboxcontainer::before{right: 17px;}
-.header2 ul li{border-right: 1px solid #1985b3;}
-.header2 ul#dropdownclass li{border-right: none!important;}
-#InboxContainer{right: -7px;}
+
+.header2 ul li{border-right: 1px solid #1985b3!important;}
+#InboxContainer{right: -5px;}
+   #audio_bg {
+    height: 97px;
+    width: 122px;
+    background-image: url(../images/music-icon_play.png);
+    background-size: 100%;
+overflow: hidden;
+}
+.chat .chat-history .my-message{word-break: break-all;}
 /*extra css end*/
 
 /*--------------------------------------------------@media-profile-css-start-------------------------------------------------*/
@@ -551,11 +574,11 @@ right: 10px;}
 
 	
 }
-@media screen and (max-width: 800px) {
-
-    .cover-pic {
-    right: 5%;
-}
+@media screen and (max-width: 800px){
+  .cover-pic {
+    right: -4%;
+                }
+  
 
 }
 
@@ -563,7 +586,8 @@ right: 10px;}
 
 @media screen and (max-width: 767px) {
 /*header start*/
-
+.cover .fancybox-slide > *{width: 90%;}
+.por_content ul li .pro-text{width: 100%;}
 
 /*header end*/
 
@@ -640,7 +664,9 @@ right: 10px;}
 }
 @media screen and (max-width: 640px) {
 /*header start*/
-
+  .cover-pic {
+    right: -4%;
+}
 
 /*header end*/
 
@@ -724,7 +750,7 @@ right: 10px;}
 
 label.cameraButton{opacity: 0.8;}
 
-
+.cover-pic .btn{padding: 3px 8px;}
 
 
 
@@ -758,7 +784,10 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*all module-common start*/
-
+  .cover-pic {
+    right: -6%;
+    bottom: 61%;
+}
 
 /*all module-common end*/
 
@@ -813,6 +842,7 @@ label.cameraButton{opacity: 0.8;}
 /*extra css end*/
 
 }
+
 @media screen and (max-width: 360px) {
 /*header start*/
 
