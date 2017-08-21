@@ -175,6 +175,7 @@ max-width: inherit;}
     background-size: 100%;
 overflow: hidden;
 }
+.chat .chat-history .my-message{word-break: break-all;}
 /*extra css end*/
 
 /*--------------------------------------------------@media-profile-css-start-------------------------------------------------*/
