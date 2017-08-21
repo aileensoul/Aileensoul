@@ -551,11 +551,11 @@ right: 10px;}
 
 	
 }
-@media screen and (max-width: 800px) {
-
-    .cover-pic {
-    right: 5%;
-}
+@media screen and (max-width: 800px){
+  .cover-pic {
+    right: -4%;
+                }
+  
 
 }
 
@@ -640,7 +640,9 @@ right: 10px;}
 }
 @media screen and (max-width: 640px) {
 /*header start*/
-
+  .cover-pic {
+    right: -4%;
+}
 
 /*header end*/
 
@@ -724,7 +726,7 @@ right: 10px;}
 
 label.cameraButton{opacity: 0.8;}
 
-
+.cover-pic .btn{padding: 3px 8px;}
 
 
 
@@ -758,7 +760,10 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*all module-common start*/
-
+  .cover-pic {
+    right: -6%;
+    bottom: 61%;
+}
 
 /*all module-common end*/
 
@@ -813,6 +818,7 @@ label.cameraButton{opacity: 0.8;}
 /*extra css end*/
 
 }
+
 @media screen and (max-width: 360px) {
 /*header start*/
 
