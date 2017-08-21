@@ -10742,9 +10742,9 @@ a.mesg_link:hover, a.mesg_link:focus{color: white;}
     padding-left: 0px!important;
     padding-right: 0px!important;
     padding:0px;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     height: 492px;
-    overflow: auto;
+    overflow-x: hidden;
 }
 .people-list ul li {
     padding: 15px;
