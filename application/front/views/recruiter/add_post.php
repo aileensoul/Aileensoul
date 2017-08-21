@@ -74,7 +74,7 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" /> 
 <!-- This Css is used for call popup -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<!-- <script src="<?php //echo base_url('js/fb_login.js');  ?>"></script> -->
+<!-- <script src="<?php //echo base_url('js/fb_login.js');      ?>"></script> -->
 <?php echo $header; ?>
 <!-- END HEADER -->
 <?php echo $recruiter_header2_border; ?>
@@ -265,7 +265,7 @@
                                    <!--  <input name="post_name" tabindex="1" autofocus type="text" id="post_name" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" /> -->
                                     <input type="search" tabindex="1" autofocus id="post_name" name="post_name" value="" placeholder="Position [Ex:- Sr. Engineer, Jr. Engineer]" style="text-transform: capitalize;" onfocus="var temp_value = this.value; this.value = ''; this.value = temp_value" maxlength="255">
                                     <span id="fullname-error"></span>
-<?php echo form_error('post_name'); ?>
+                                    <?php echo form_error('post_name'); ?>
                                 </fieldset>
 
 
@@ -278,26 +278,26 @@
 
                                       <option></option>
 
-<?php //foreach ($skill as $ski) {  ?>
-                                  <option value="<?php //echo $ski['skill_id'];  ?>"><?php // echo $ski['skill'];  ?></option>
+                                    <?php //foreach ($skill as $ski) {  ?>
+                                  <option value="<?php //echo $ski['skill_id'];      ?>"><?php // echo $ski['skill'];      ?></option>
                                     <?php //} ?>
                                     </select>  -->
                                     <?php echo form_error('skills'); ?>
                                 </fieldset>
 
 
-<!--   <fieldset class="full-width" <?php //if ($other_skill) {  ?> class="error-msg" <?php //}  ?> >
+<!--   <fieldset class="full-width" <?php //if ($other_skill) {      ?> class="error-msg" <?php //}      ?> >
     <label class="control-label">Other Skill: --><!-- <span style="color:red">*</span> --><!-- </label>
     <input name="other_skill" type="text" class="skill_other" tabindex="3" id="other_skill" placeholder="Enter Your Skill" />
     <span id="fullname-error"></span>
-<?php //echo form_error('other_skill');  ?> -->
+                                <?php //echo form_error('other_skill');  ?> -->
                                 </fieldset>
                                 <!--  </div> -->
                                 <fieldset class="full-width" <?php if ($position) { ?> class="error-msg" <?php } ?>>
                                     <label class="control-label">No of Position:<span style="color:red">*</span> </label>
                                     <input name="position_no" type="text"  id="position" value="1" tabindex="4" placeholder="Enter No of Candidate"/>
                                     <span id="fullname-error"></span>
-<?php echo form_error('position'); ?>        
+                                    <?php echo form_error('position'); ?>        
                                 </fieldset>
 
 
@@ -336,7 +336,7 @@
                                     </select>
 
                                     <span id="fullname-error"></span>
-<?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
+                                    <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
 
                                 </fieldset>
 
@@ -374,7 +374,7 @@
                                     </select>
 
                                     <span id="fullname-error"></span>
-<?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
+                                    <?php echo form_error('month'); ?> &nbsp;&nbsp; <?php echo form_error('year'); ?>
                                 </fieldset>
 
                                 <fieldset class="rec_check form-group full-width">
@@ -387,7 +387,7 @@
 
                                         <option value="" selected option disabled>Select Industry</option>
 
-<?php foreach ($industry as $indu) { ?>
+                                        <?php foreach ($industry as $indu) { ?>
                                             <option value="<?php echo $indu['industry_id']; ?>"><?php echo $indu['industry_name']; ?></option>
                                         <?php } ?>
 
@@ -395,7 +395,7 @@
                                     </select>
 
 
-<?php echo form_error('industry'); ?>
+                                    <?php echo form_error('industry'); ?>
                                 </fieldset>
 
 
@@ -413,7 +413,7 @@
 
 
                                     <span id="fullname-error"></span>
-<?php echo form_error('emp_type'); ?> &nbsp;&nbsp; <?php echo form_error('emp_type'); ?>
+                                    <?php echo form_error('emp_type'); ?> &nbsp;&nbsp; <?php echo form_error('emp_type'); ?>
 
                                 </fieldset>
 
@@ -424,11 +424,11 @@
                                     <select name="education[]" id ="education" multiple="multiple" style="width: 100%"  tabindex="8">
                                         <option></option>
 
-<?php foreach ($degree as $deg) { ?>
+                                        <?php foreach ($degree as $deg) { ?>
                                             <option value="<?php echo $deg['degree_id']; ?>"><?php echo $deg['degree_name']; ?></option>
                                         <?php } ?>
                                     </select>
-                                        <?php echo form_error('education'); ?>
+                                    <?php echo form_error('education'); ?>
 
                                 </fieldset>
 
@@ -436,7 +436,7 @@
                                 <fieldset>
                                     <label class="control-label">Other Education:</label>
                                     <input name="other_education" type="text" id="other_education"  placeholder="Enter Other Education" /><span id="fullname-error"></span>
-<?php echo form_error('other_education'); ?>
+                                    <?php echo form_error('other_education'); ?>
                                 </fieldset>
 
 
@@ -449,7 +449,7 @@
 
                                     <textarea name="post_desc" id="post_desc" tabindex="10" rows="4" cols="50"  placeholder="Enter Job Description" style="resize: none;"></textarea>
 
-<?php echo form_error('post_desc'); ?>
+                                    <?php echo form_error('post_desc'); ?>
                                 </fieldset>
 
                                 <fieldset class="form-group full-width">
@@ -459,19 +459,19 @@
 
                                     <textarea name="interview" id="interview" rows="4" tabindex="11" cols="50"  placeholder="Enter Interview Process" style="resize: none;"></textarea>
 
-<?php echo form_error('interview'); ?> 
+                                    <?php echo form_error('interview'); ?> 
                                 </fieldset>
 
                                 <fieldset <?php if ($country) { ?> class="error-msg" <?php } ?>>
                                     <label >Country:<span style="color:red">*</span></label>
                                     <select style="cursor:pointer;" name="country" id="country" tabindex="12">
                                         <option value="" selected option disabled>Select Country</option>
-<?php
-if (count($countries) > 0) {
-    foreach ($countries as $cnt) {
-        ?>
+                                        <?php
+                                        if (count($countries) > 0) {
+                                            foreach ($countries as $cnt) {
+                                                ?>
                                                 <option value="<?php echo $cnt['country_id']; ?>"><?php echo $cnt['country_name']; ?></option>
-                                            <?php
+                                                <?php
                                             }
                                         }
                                         ?>
@@ -616,7 +616,7 @@ if (count($countries) > 0) {
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-<!--  <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js');  ?>"></script> 
+<!--  <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js');      ?>"></script> 
 -->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
@@ -1287,18 +1287,23 @@ if (count($countries) > 0) {
             return false;
         }
     }
+    //Leave Page on add and edit post page start
 
-
-//Leave Page on add and edit post page start
-    
     function home(clicked_id, searchkeyword, searchplace) {
-
-
         $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id=" + clicked_id + " onClick='home_profile(" + clicked_id + ',' + '"' + searchkeyword + '"' + ',' + '"' + searchplace + '"' + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
         $('#bidmodal').modal('show');
-
+        document.getElementById('acon').style.display = 'block !important';
     }
-
+    
+    function home1(link) {
+//        $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'><a class='okbtn' id='' onClick='window.location=" + link + "' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('.biderror .mes').html("<div class='pop_content'> Do you want to leave this page?<div class='model_ok_cancel'>Yes<a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+        $('#bidmodal').modal('show');
+        
+        document.getElementById('acon').style.display = 'block !important';
+        return false;
+    }
+    
     function home_profile(clicked_id, searchkeyword, searchplace) {
 
         var url, data;
@@ -1347,7 +1352,7 @@ if (count($countries) > 0) {
 
                 } else if (clicked_id == 5)
                 {
-                alert(1);
+                    alert(1);
                     document.getElementById('acon').style.display = 'block';
 
                 } else if (clicked_id == 6)
@@ -1608,7 +1613,7 @@ if (count($countries) > 0) {
         }
 
     });
-    
+
     function leave_page(clicked_id)
     {
 //alert(clicked_id);
@@ -1679,7 +1684,13 @@ if (count($countries) > 0) {
             }
             if (clicked_id == 5)
             {
-                document.getElementById('acon').style.display = 'block';
+                alert(2);
+
+
+
+
+                document.getElementById('acon').style.display = 'block !important';
+
 
             }
             if (clicked_id == 6)
@@ -1708,5 +1719,43 @@ if (count($countries) > 0) {
         }
 
     }
+
+    $('.header ul li #abody ul li a').click(function () {
+        var post_name = document.getElementById('post_name').value;
+        var skills = document.getElementById('skills2').value;
+        var position = document.getElementById('position').value;
+        var minyear = document.getElementById('minyear').value;
+        var maxyear = document.getElementById('maxyear').value;
+        var industry = document.getElementById('industry').value;
+        var emp_type = document.getElementById('emp_type').value;
+        var education = document.getElementById('education').value;
+        var other_education = document.getElementById('other_education').value;
+        var post_desc = document.getElementById('post_desc').value;
+        var interview = document.getElementById('interview').value;
+        var country = document.getElementById('country').value;
+        var state = document.getElementById('state').value;
+        var city = document.getElementById('city').value;
+        var salary_type = document.getElementById('salary_type').value;
+        var datepicker = document.getElementById('example2').value;
+        var minsal = document.getElementById('minsal').value;
+        var maxsal = document.getElementById('maxsal').value;
+        var currency = document.getElementById('currency').value;
+
+        var searchkeyword = $.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
+        //   alert(datepicker);
+        var all_clicked_href = $(this).attr('href');
+        
+        if (post_name == "" && skills == "" && minyear == "" && maxyear == "" && industry == "" && emp_type == "" && education == "" && other_education == "" && post_desc == "" && interview == "" && country == "" && state == "" && salary_type == "" && datepicker == "" && minsal == "" && maxsal == "" && currency == "" && searchkeyword == "" && searchplace == "")
+        {
+            
+            location.href = all_clicked_href;
+        }
+        else
+        {
+            home1(all_clicked_href);
+        
+        }
+    });
 </script>
 
