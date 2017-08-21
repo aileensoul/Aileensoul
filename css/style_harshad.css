@@ -563,7 +563,7 @@ right: 10px;}
 
 @media screen and (max-width: 767px) {
 /*header start*/
-
+.cover .fancybox-slide > *{width: 90%;}
 
 /*header end*/
 
