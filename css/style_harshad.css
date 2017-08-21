@@ -8,6 +8,7 @@
 /*cover*/
 /*header start*/
 
+.notification-data-inside h6{font-size: 15px;}
 /*.header ul li a{margin-top: 6px; margin-bottom: 6px; padding-top: 5px!important;}
 */
 .header .mCSB_container ul li a{margin: 0; padding: 0; border: none; padding-top: 0px!important;}
@@ -136,7 +137,7 @@ font-size: 22px;}
 .image_profile audio{height: 90%;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
-.notifications li .notification-data-inside div{font-size: 12px;}
+.notifications li .notification-data-inside div{font-size: 13px!important; line-height: 15px; padding-top: 0px!important}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
