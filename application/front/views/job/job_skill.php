@@ -335,6 +335,19 @@ if ($this->session->flashdata('success')) {
 }, "Only space, only number and only special characters are not allow");
 // validation js
 
+$.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
  $("#jobseeker_regform").validate({
 
         
@@ -349,6 +362,7 @@ if ($this->session->flashdata('success')) {
                 job_title: {
 
                     required: true,
+                     regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                  
                 },
                 
@@ -356,12 +370,14 @@ if ($this->session->flashdata('success')) {
                 skills: {
 
                     required: true,
+                     regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
 
                 },
                 
                  cities: {
 
                     required: true,
+                     regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                   
                  },
                  

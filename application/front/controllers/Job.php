@@ -4468,7 +4468,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
                    // echo "<pre>";print_r($post['post_skill']);
                     // $contition_array = array('FIND_IN_SET("'.$job_skill.'",post_skill)!='=>'0');
                     
-                    $contition_array = array('post_id' => $post['post_id'],'post_last_date >=' => $date);
+                    $contition_array = array('post_id' => $post['post_id'],'post_last_date >=' => $date,'is_delete' => 0, 'status' => 1);
                     $data = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                   
                     if($data[0]['user_id'] != $userid ){
@@ -4482,17 +4482,17 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         }
        
         
-     //  echo "<pre>";print_r($skill_data);die();
+       
    //for getting data from skill table for other skill
        foreach ($skill_data as $skill) {  
 
-          $contition_array = array('FIND_IN_SET("'.$skill['skill'].'",other_skill)!='=>'0','post_last_date >=' => $date); 
+          $contition_array = array('FIND_IN_SET("'.$skill['skill'].'",other_skill)!='=>'0','post_last_date >=' => $date,'is_delete' => 0, 'status' => 1); 
          //$contition_array = array('other_skill' => $skill['skill']);
                     $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     $recommendata1[] = $data1;
 
                }
-
+//echo "<pre>";print_r($recommendata1);die();
  // Retrieve data according to city match start   
 $work_job_city=$jobdata[0]['work_job_city'];
 
@@ -4501,7 +4501,7 @@ $work_job_city=$jobdata[0]['work_job_city'];
                 foreach ($work_city as $city)
                 {
                     $data='*';
-                    $contition_array = array('FIND_IN_SET("'.$city.'",city)!='=>'0','post_last_date >=' => $date); 
+                    $contition_array = array('FIND_IN_SET("'.$city.'",city)!='=>'0','post_last_date >=' => $date,'is_delete' => 0, 'status' => 1); 
                     $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     $recommendata_city[] = $data1;
                 }       
@@ -4512,7 +4512,7 @@ $work_job_industry=$jobdata[0]['work_job_industry'];
   foreach ($postdata as $post) {
 
                     $data='*';
-                    $contition_array = array('industry_type'=>$work_job_industry,'post_last_date >=' => $date); 
+                    $contition_array = array('industry_type'=>$work_job_industry,'post_last_date >=' => $date,'is_delete' => 0, 'status' => 1); 
                     $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     $recommendata_industry[] = $data1;
 
@@ -4526,7 +4526,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
                 foreach ($postdata as $post)
                 {
                      $data='*';
-                    $contition_array = array('post_name'=>$work_job_title,'post_last_date >=' => $date); 
+                    $contition_array = array('post_name'=>$work_job_title,'post_last_date >=' => $date,'is_delete' => 0, 'status' => 1); 
                     $data1 = $this->data['data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data , $sortby = 'post_id', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                     $recommendata_title[] = $data1;
 
@@ -4567,7 +4567,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
 //array_unique is used for remove duplicate values
                $qbc = array_unique($unique, SORT_REGULAR);
                  $qbc  = array_filter($qbc);
-               //echo "<pre>";print_r($qbc);die();
+             //  echo "<pre>";print_r($qbc);die();
                  $this->data['postdetail'] = $qbc;
                  
               

@@ -819,13 +819,25 @@ if(mm<10) {
 
     var one = new Date(value).getTime();
     var second = new Date(todaydate).getTime();
-   
-    $('.day').addClass('error'); 
-      $('.month').addClass('error'); 
-      $('.year').addClass('error'); 
 
-    return one <= second;
-}, "Last date should be Less than Or equal to today date");
+      if(one <= second)
+      {
+          $('.day').removeClass('error'); 
+         $('.month').removeClass('error'); 
+         $('.year').removeClass('error');
+          return true;
+      }
+      else
+      {
+        
+         $('.day').addClass('error'); 
+         $('.month').addClass('error'); 
+         $('.year').addClass('error');
+          return false;
+      }
+
+  
+}, "Date Of Birth should be Less than Or equal to today date");
 
 $.validator.addMethod("required1", function(value, element, regexpr) {   
     //return value == '' || value.trim().length != 0; 

@@ -8,6 +8,7 @@
 /*cover*/
 /*header start*/
 
+.notification-data-inside h6{font-size: 15px;}
 /*.header ul li a{margin-top: 6px; margin-bottom: 6px; padding-top: 5px!important;}
 */
 .header .mCSB_container ul li a{margin: 0; padding: 0; border: none; padding-top: 0px!important;}
@@ -136,7 +137,7 @@ font-size: 22px;}
 .image_profile audio{height: 90%;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
-.notifications li .notification-data-inside div{font-size: 12px;}
+.notifications li .notification-data-inside div{font-size: 13px!important; line-height: 15px; padding-top: 0px!important}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -550,12 +551,8 @@ right: 10px;}
 
 	
 }
-
-
 @media screen and (max-width: 800px) {
 
-    #floatBarsG{margin-top: 0%; margin-left: -83px;}
-    .floatBarsG{width: 20px; height: 20px;}
     .cover-pic {
     right: 5%;
 }
@@ -566,9 +563,8 @@ right: 10px;}
 
 @media screen and (max-width: 767px) {
 /*header start*/
-#floatBarsG {margin-top: 0%; margin-left: -98px;}
 
-.floatBarsG{width: 20px; height: 20px;}
+
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -745,7 +741,7 @@ label.cameraButton{opacity: 0.8;}
 @media screen and (max-width: 479px) {
 /*header start*/
 
-#floatBarsG{margin-left: -188px; margin-top:-3%; }
+#floatBarsG{margin-left: -137px; margin-top:-3%; }
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -820,7 +816,10 @@ label.cameraButton{opacity: 0.8;}
 @media screen and (max-width: 360px) {
 /*header start*/
 
-
+#floatBarsG {
+    margin-left: -109px;
+    margin-top: -8%;
+}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
