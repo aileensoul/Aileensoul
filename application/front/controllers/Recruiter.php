@@ -1118,8 +1118,6 @@ class Recruiter extends MY_Controller {
         foreach ($uni as $key => $value) {
             foreach ($value as $ke => $val) {
                 if ($val != "") {
-
-
                     $result[] = $val;
                 }
             }
