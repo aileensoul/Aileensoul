@@ -76,7 +76,11 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*job profile start*/
+a.mesg_link:hover{
+    color: white;
+    background: #156f95;
 
+}
 .img_work_exp{margin-top: -46px;}
 .img_work_exp .fa-file-pdf-o{font-size: 3em;}
 #jobseeker_regform input#submit:focus {
@@ -96,6 +100,7 @@ border-radius: 100%;}
     margin-left: -10px;
     margin-top: -48px;
 }
+.dele_highrt .fa-file-pdf-o{font-size: 3em;}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -340,6 +345,7 @@ span.fu-time{font-size: 13px;}
 @media screen and (max-width: 1199px) {
 /*header start*/
 
+.header2 .job-search-box1 fieldset.sec_h2{width: 175px;}
 
 /*header end*/
 
@@ -400,7 +406,11 @@ span.fu-time{font-size: 13px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-
+.follow_left_box_main_btn button {
+    width: 72px;
+    padding: 5px 7px;
+    margin-left: 0px;
+}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -476,7 +486,12 @@ span.fu-time{font-size: 13px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-
+.post-design-name_follow{width: 36%;}
+.follow_left_box_main{padding:3px 0 3px 0;}
+.profile-boxProfileCard_follow{max-height: 198px;}
+.post-design-pro-img_follow{width: 60px;height: 60px;}  
+.post-design-pro-img_follow{padding: 5px 5px 3px 5px;}
+.follow_left_box_main_btn{margin-top: 0px!important;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
