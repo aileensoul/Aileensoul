@@ -1878,23 +1878,27 @@ class Chat extends MY_Controller {
   
             
             $userlist = array_merge($return_arrayto, $return_arrayfrom);
+            
+            
             // uniq array of fromlist  
             foreach ($userlist as $k => $v) {
-                foreach ($userlist as $key => $value) {
+                foreach ($userlist as $key => $value) { 
+                    if($v['user_id'] != $userid){ 
                     if ($k != $key && $v['user_id'] == $value['user_id']) {
                         unset($userlist[$k]);
+                    
+                    }
+                    }else{
+                        $userlist = array();
                     }
                 }
             }
-            
             
             if ($userlist) {
 
                 foreach ($userlist as $user) {
                     $usrsrch .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $user['user_id'] . '">';
                     $usrsrch .= '<li class="clearfix">';
-
-                   
 
                         if ($message_from_profile == 2) {
                             $image_path = FCPATH . 'uploads/job_profile/thumbs/' . $user['user_image'];

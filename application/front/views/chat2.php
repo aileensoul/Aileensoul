@@ -153,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             ?></div>
                                     </div>
                                 </a>
-
+                              
                                 <div class="chat_drop">
                                     <a onclick="myFunction()" class="chatdropbtn fr"><img src="<?php echo base_url('img/t_dot.png') ?>"></a>
                                     <div id="mychat_dropdown" class="chatdropdown-content">
@@ -720,10 +720,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     $('#userlist').html(data.leftbar);
                                     $('.notification_data_in_h2').html(data.headertwo);
                                     $('#seemsg').html(data.seeall);
-//                                    setTimeout(
-//                                            chatmsg,
-//                                            500
-//                                            );
+                                    setTimeout(
+                                            chatmsg,
+                                            500
+                                            );
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                                 }
@@ -771,8 +771,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //alert(img.src); 
                         var img = img.src;
                         $('#message').append("<img  src=" + img + " height='21' width='21' >");
-                        //$('#message').append(data);
-
+                        getElementById('#message').contentEditable = true;
                     }
                 </script>
                 <!-- script for selact smily for message end-->
@@ -935,4 +934,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }
                         }
                     }
+                    
+                   
                 </script>
