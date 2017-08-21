@@ -296,22 +296,42 @@
 
 $.validator.addMethod("lowercase", function(value, element, regexpr) {          
     return regexpr.test(value);
-}, "Email Should be in Small Character");
+}, "email Should be in Small Character");
 
 
-  $.validator.addMethod("regx2", function(value, element, regexpr) {          
+ $.validator.addMethod("regx2", function(value, element, regexpr) {          
     //return value == '' || value.trim().length != 0; 
+    //alert(value);
      if(!value) 
             {
                 return true;
             }
             else
             {
-                  return regexpr.test(value);
+                //alert(value);
+                return regexpr.test(value);
+
+                //return false;
             }
      // return regexpr.test(value);
-},"character & letters are not allow & space are not allow in the begining");
-// validation js
+},"special character and space not allow in the beginning");
+
+$.validator.addMethod("regx_digit", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+    //alert(value);
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                //alert(value);
+                return regexpr.test(value);
+
+                //return false;
+            }
+     // return regexpr.test(value);
+},"digit is not allow");
 
 $.validator.addMethod("regx1", function(value, element, regexpr) {          
     //return value == '' || value.trim().length != 0; 
@@ -324,7 +344,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                   return regexpr.test(value);
             }
      // return regexpr.test(value);
-}, "Only space, only number and only special characters are not allow");
+}, "only space, only number and only special characters are not allow");
 
 
  $("#jobseeker_regform").validate({
@@ -336,7 +356,8 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                 first_name: {
 
                     required: true,
-                   regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                    regx2:/^[a-zA-Z0-9-.,']*[0-9a-zA-Z][a-zA-Z]*/,
+                     regx_digit:/^([^0-9]*)$/,
                     //noSpace: true
 
                 },
@@ -344,7 +365,8 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                 last_name: {
 
                     required: true,
-                    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
+                    regx2:/^[a-zA-Z0-9-.,']*[0-9a-zA-Z][a-zA-Z]*/,
+                     regx_digit:/^([^0-9]*)$/,
                     //noSpace: true
 
                 },
