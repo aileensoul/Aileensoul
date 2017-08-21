@@ -222,7 +222,7 @@
                                     <fieldset <?php if ($subindustrial) { ?> class="error-msg" <?php } ?> class="half-width" id="other-business" style="display:none;">
                                         <?php if ($business_type1 == 0) { ?>        <!-- <label id="bustype">Add Here Your Other Business type:<span style="color:red;" >*</span></label> --> <?php } ?>
                                         <label> Other Business Type: <span style="color:red;" >*</span></label>
-                                        <input type="text" name="bustype"  tabindex="3"  id="bustype" value="<?php echo $other_business; ?>" style="<?php
+                                        <input type="text" name="bustype"    id="bustype" value="<?php echo $other_business; ?>" style="<?php
                                         if ($business_type1 != 0) {
                                             echo 'display: none';
                                         }
@@ -236,7 +236,7 @@
                                     <fieldset <?php if ($subindustrial) { ?> class="error-msg" <?php } ?> class="half-width" id="other-category" style="display:none;">
 <?php if ($industriyal1 == 0) { ?>    <!--  <label id="indtype">Add Here Your Other Category type:<span style="color:red">*</span></label> --> <?php } ?>
                                         <label> Other Category:<span style="color:red;" >*</span></label>
-                                        <input type="text" name="indtype" id="indtype" tabindex="4"  value="<?php echo $other_industry; ?>" 
+                                        <input type="text" name="indtype" id="indtype" value="<?php echo $other_industry; ?>" 
                                                style="<?php
                                                if ($industriyal1 != 0) {
                                                    echo 'display: none';
@@ -254,7 +254,7 @@
                                     <label>Details of your business:<span style="color:red">*</span></label>
 
 
-                                    <textarea name="business_details" id="business_details" rows="4" tabindex="5"  cols="50" placeholder="Enter Business Detail" style="resize: none;"><?php
+                                    <textarea name="business_details" id="business_details" rows="4" tabindex="3"  cols="50" placeholder="Enter Business Detail" style="resize: none;"><?php
                                         if ($business_details1) {
                                             echo $business_details1;
                                         }
@@ -268,7 +268,7 @@
                                 <fieldset class="hs-submit full-width">
 
 
-                                    <input type="submit"  id="next" name="next" value="Next" tabindex="6" >
+                                    <input type="submit"  id="next" name="next" value="Next" tabindex="4" >
 
 
                                 </fieldset>
