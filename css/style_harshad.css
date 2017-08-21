@@ -138,6 +138,7 @@ font-size: 22px;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
 .notifications li .notification-data-inside div{font-size: 13px!important; line-height: 15px; padding-top: 0px!important}
+.module_Ssearch{padding-top: 6px;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -153,6 +154,7 @@ font-size: 22px;}
 .header2 ul li{border-right: 1px solid #1985b3;}
 .header2 ul#dropdownclass li{border-right: none!important;}
 #InboxContainer{right: -7px;}
+
 /*extra css end*/
 
 /*--------------------------------------------------@media-profile-css-start-------------------------------------------------*/
@@ -564,6 +566,7 @@ right: 10px;}
 @media screen and (max-width: 767px) {
 /*header start*/
 .cover .fancybox-slide > *{width: 90%;}
+.por_content ul li .pro-text{width: 100%;}
 
 /*header end*/
 
