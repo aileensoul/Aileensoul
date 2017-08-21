@@ -313,6 +313,20 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
 },"character & letters are not allow & space are not allow in the begining");
 // validation js
 
+$.validator.addMethod("regx1", function(value, element, regexpr) {          
+    //return value == '' || value.trim().length != 0; 
+     if(!value) 
+            {
+                return true;
+            }
+            else
+            {
+                  return regexpr.test(value);
+            }
+     // return regexpr.test(value);
+}, "Only space, only number and only special characters are not allow");
+
+
  $("#jobseeker_regform").validate({
 
            ignore: '*:not([name])',
@@ -372,6 +386,7 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                  job_title: {
 
                     required: "#test2:checked",
+                     regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                 //    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                  //   noSpace: true
                  },
@@ -386,6 +401,7 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                  cities: {
 
                     required: true,
+                     regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                 //    regx2:/^[^-\s][a-zA-Z_\s-]+$/,
                   //  noSpace: true
                  },
@@ -393,6 +409,7 @@ $.validator.addMethod("lowercase", function(value, element, regexpr) {
                  skills: {
 
                     required: true,
+                     regx1:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/,
                             //required:true 
                 },
                
