@@ -234,7 +234,7 @@ if ($returnpage == 'freelancer_post') {
                                     $userid = $this->session->userdata('aileenuser');
                                     if ($userid != $freelancr_user_data[0]['user_id']) {
                                         ?>
-                                        <li> <a href="<?php echo base_url('chat/abc/3/4' . $this->uri->segment(3)); ?>">Message</a> </li>
+                                        <li> <a href="<?php echo base_url('chat/abc/3/4/' . $this->uri->segment(3)); ?>">Message</a> </li>
 <?php } ?>
                                 </ul>
                             </div>

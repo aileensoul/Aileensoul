@@ -81,6 +81,23 @@
                 </ul>
             </li>
             <!--End Freelancer Hire Management-->
+            
+             <!--Start search keyword  Management-->
+            <li <?php if ($this->uri->segment(1) == 'search_keyword' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-briefcase margin-r-5"></i> <span>Search Keyword Display</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url('search_keyword/job/?module=1'); ?>"><i class="fa fa-users"></i>Job Module keyword</a></li>
+                    <li><a href="<?php echo base_url('search_keyword/job/?module=2'); ?>"><i class="fa fa-users"></i>Recruiter  keyword</a></li>
+                    <li><a href="<?php echo base_url('search_keyword/job/?module=3'); ?>"><i class="fa fa-users"></i>Freelancer Hire keyword</a></li>
+                    <li><a href="<?php echo base_url('search_keyword/job/?module=4'); ?>"><i class="fa fa-users"></i>Freelancer Apply keyword</a></li>
+                    <li><a href="<?php echo base_url('search_keyword/job/?module=5'); ?>"><i class="fa fa-users"></i>Business keyword</a></li>
+                    <li><a href="<?php echo base_url('search_keyword/job/?module=6'); ?>"><i class="fa fa-users"></i>Artistic keyword</a></li>
+                </ul>
+            </li>
+            <!--End search keyword Management-->
 
 
             <!--Start Blog-->

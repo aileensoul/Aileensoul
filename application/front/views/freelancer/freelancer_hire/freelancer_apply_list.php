@@ -237,7 +237,7 @@
                                                        <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id']); ?>">Saved</a>-->
 
                                                                 <?php if ($userid != $row['user_id']) { ?>
-                                                                    <a class="msg_btn" href="<?php echo base_url('chat/abc/' . $row['user_id'] . '/3/4'); ?>">Message</a>
+                                                                    <a class="msg_btn" href="<?php echo base_url('chat/abc/3/4/' . $row['user_id'] ); ?>">Message</a>
 
                                                                     <?php
                                                                     $contition_array = array('invite_user_id' => $row['user_id'], 'post_id' => $postid, 'profile' => 'freelancer');
