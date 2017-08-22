@@ -737,136 +737,7 @@
 
                         <!-- Trigger/Open The Modal -->
                         <!-- <div id="myBtn">Open Modal</div>-->
-                        <!-- The Modal -->
-                        <div id="myModal" class="modal-post">
-                            <!-- Modal content -->
-                            <div class="modal-content-post">
-                                <span class="close1">&times;
-                                </span>
-                                <div class="post-editor col-md-12 post-edit-popup" id="close">
-                                    <?php // echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
-                                    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
-                                    <div class="main-text-area col-md-12" >
-                                        <div class="popup-img-in popup-img-bui"> 
-                                            <?php
-                                            if ($businessdata[0]['business_user_image'] != '') {
-                                                ?>
-
-                                                <?php
-                                                if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
-
-                                                    $a = $businessdata[0]['company_name'];
-                                                    $acr = substr($a, 0, 1);
-                                                    ?>
-                                                    <div class="post-img-div">
-                                                        <?php echo ucfirst(strtolower($acr)) ?>
-                                                    </div>
-                                                    <?php
-                                                } else {
-                                                    ?>
-
-
-
-
-                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
-
-
-
-                                                <?php } ?>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <?php
-                                                $a = $businessdata[0]['company_name'];
-                                                $acr = substr($a, 0, 1);
-                                                ?>
-                                                <div class="post-img-div">
-                                                    <?php echo ucfirst(strtolower($acr)) ?>
-                                                </div>
-                                                <?php
-                                            }
-                                            ?>
-                                        </div>
-                                        <div id="myBtn1"  class="editor-content col-md-10 popup-text bui_pop_rd" >
-                                            <textarea id="test-upload-product" placeholder="<?php echo $this->lang->line("post_your_product"); ?>"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
-                                            <div class="fifty_val">                       
-                                                <input size=1 value=50 name=text_num tabindex="-600" class="text_num mian_box_num"  readonly> 
-                                            </div>
-                                            <div class="camera_in padding-left padding_les_left camer_h">
-                                                <i class=" fa fa-camera" >
-                                                </i> 
-                                            </div>
-                                        </div>
-                                        <!--   <span class="fr">
-                            <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
-
-                                    </div>
-                                    <div class="row"></div>
-                                    <div  id="text"  class="editor-content col-md-12 popup-textarea" >
-                                        <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description" tabindex="2"></textarea>
-                                        <!-- <output id="list">
-                                        </output> -->
-                                    </div>
-                                    <div class="print_privew_post">
-                                    </div>
-                                    <div class="preview">
-                                    </div>
-                                    <div id="data-vid" class="large-8 columns">
-                                        <!--video will be inserted here.-->
-                                    </div>
-                                    <h2 id="name-vid">
-                                    </h2>
-                                    <p id="size-vid">
-                                    </p>
-                                    <p id="type-vid">
-                                    </p>
-                                    <div class="popup-social-icon">
-                                        <ul class="editor-header">
-                                            <li>
-
-
-                                                <div class="col-md-12"> <div class="form-group">
-                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
-                                                    </div>
-                                                </div>
-
-
-                                                <label for="file-1">
-                                                    <i class=" fa fa-camera upload_icon" > Photo</i>
-                                                    <i class=" fa fa-video-camera upload_icon" > Video </i> 
-                                                    <i class="fa fa-music upload_icon" > Audio </i>
-                                                    <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
-                                                </label>
-                                                <!---  safari upload  >
-                                                        <label class="fileContainer">
-                                                                <i class=" fa fa-camera upload_icon" > Photo</i>
-                                                                <input type="file"  / >
-                                                        </label>
-                                                        <label class="fileContainer">
-                                                                <i class=" fa fa-video-camera upload_icon" > Video </i>
-                                                                <input type="file"  / >
-                                                        </label>
-                                                        <label class="fileContainer">
-                                                                <i class="fa fa-music upload_icon" > Audio </i>
-                                                                <input type="file"  / >
-                                                        </label>
-                                                        <label class="fileContainer">
-                                                                <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
-                                                                <input type="file"  / >
-                                                        </label -->
-
-
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr margin_btm">
-                                        <button type="submit"  value="Submit">Post
-                                        </button>    
-                                    </div>
-                                    <?php echo form_close(); ?>
-                                </div>
-                            </div>
-                        </div>
+           
                         <!-- popup end -->  
                         <?php
                         if ($this->session->flashdata('error')) {
@@ -1916,6 +1787,140 @@
             </div>
         </div>
         <!-- Model Popup Close -->
+
+
+
+             <!-- The Modal -->
+                        <div id="myModal" class="modal-post">
+                            <!-- Modal content -->
+                            <div class="modal-content-post">
+                                <span class="close1">&times;
+                                </span>
+                                <div class="post-editor col-md-12 post-edit-popup" id="close">
+                                    <?php // echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix', 'onsubmit' => "return imgval(event)")); ?>
+                                    <?php echo form_open_multipart(base_url('business_profile/business_profile_addpost_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
+                                    <div class="main-text-area col-md-12" >
+                                        <div class="popup-img-in popup-img-bui"> 
+                                            <?php
+                                            if ($businessdata[0]['business_user_image'] != '') {
+                                                ?>
+
+                                                <?php
+                                                if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image'])) {
+
+                                                    $a = $businessdata[0]['company_name'];
+                                                    $acr = substr($a, 0, 1);
+                                                    ?>
+                                                    <div class="post-img-div">
+                                                        <?php echo ucfirst(strtolower($acr)) ?>
+                                                    </div>
+                                                    <?php
+                                                } else {
+                                                    ?>
+
+
+
+
+                                                    <img src="<?php echo base_url($this->config->item('bus_profile_thumb_upload_path') . $businessdata[0]['business_user_image']); ?>"  alt="">
+
+
+
+                                                <?php } ?>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <?php
+                                                $a = $businessdata[0]['company_name'];
+                                                $acr = substr($a, 0, 1);
+                                                ?>
+                                                <div class="post-img-div">
+                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                </div>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                        <div id="myBtn1"  class="editor-content col-md-10 popup-text bui_pop_rd" >
+                                            <textarea id="test-upload-product" placeholder="<?php echo $this->lang->line("post_your_product"); ?>"  onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); onKeyup=check_length(this.form); onblur=check_length(this.form);  name=my_text rows=4 cols=30 class="post_product_name" style=" position: relative;" tabindex="1"></textarea>
+                                            <div class="fifty_val">                       
+                                                <input size=1 value=50 name=text_num tabindex="-600" class="text_num mian_box_num"  readonly> 
+                                            </div>
+                                            <div class="camera_in padding-left padding_les_left camer_h">
+                                                <i class=" fa fa-camera" >
+                                                </i> 
+                                            </div>
+                                        </div>
+                                        <!--   <span class="fr">
+                            <input type="file" id="files" name="postattach[]" multiple style="display:block;">  </span> -->
+
+                                    </div>
+                                    <div class="row"></div>
+                                    <div  id="text"  class="editor-content col-md-12 popup-textarea" >
+                                        <textarea id="test-upload-des" name="product_desc" class="description" placeholder="Enter Description" tabindex="2"></textarea>
+                                        <!-- <output id="list">
+                                        </output> -->
+                                    </div>
+                                    <div class="print_privew_post">
+                                    </div>
+                                    <div class="preview">
+                                    </div>
+                                    <div id="data-vid" class="large-8 columns">
+                                        <!--video will be inserted here.-->
+                                    </div>
+                                    <h2 id="name-vid">
+                                    </h2>
+                                    <p id="size-vid">
+                                    </p>
+                                    <p id="type-vid">
+                                    </p>
+                                    <div class="popup-social-icon">
+                                        <ul class="editor-header">
+                                            <li>
+
+
+                                                <div class="col-md-12"> <div class="form-group">
+                                                        <input id="file-1" type="file" class="file" name="postattach[]"  multiple class="file" data-overwrite-initial="false" data-min-file-count="2" style="display: none;">
+                                                    </div>
+                                                </div>
+
+
+                                                <label for="file-1">
+                                                    <i class=" fa fa-camera upload_icon" > Photo</i>
+                                                    <i class=" fa fa-video-camera upload_icon" > Video </i> 
+                                                    <i class="fa fa-music upload_icon" > Audio </i>
+                                                    <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
+                                                </label>
+                                                <!---  safari upload  >
+                                                        <label class="fileContainer">
+                                                                <i class=" fa fa-camera upload_icon" > Photo</i>
+                                                                <input type="file"  / >
+                                                        </label>
+                                                        <label class="fileContainer">
+                                                                <i class=" fa fa-video-camera upload_icon" > Video </i>
+                                                                <input type="file"  / >
+                                                        </label>
+                                                        <label class="fileContainer">
+                                                                <i class="fa fa-music upload_icon" > Audio </i>
+                                                                <input type="file"  / >
+                                                        </label>
+                                                        <label class="fileContainer">
+                                                                <i class=" fa fa-file-pdf-o upload_icon"   > PDF </i>
+                                                                <input type="file"  / >
+                                                        </label -->
+
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="fr margin_btm">
+                                        <button type="submit"  value="Submit">Post
+                                        </button>    
+                                    </div>
+                                    <?php echo form_close(); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- < post close -->
 
         <!-- Bid-modal-2  -->
         <div class="modal fade message-box" id="likeusermodal" role="dialog">
