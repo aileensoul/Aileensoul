@@ -69,27 +69,32 @@ class Email_model extends CI_Model {
                     <table width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="'.base_url() .'img/m1.png">
+                                <img src="'.base_url() .'img/m1.png" style="margin: 0 auto;
+    display: block;">
                                 <h3 style="font-size:13px;">Job Profile</h3>
                                 <p style="font-size:9px;">Find best job options and connect with recruiters.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="'.base_url() .'img/m2.png">
+                                <img src="'.base_url() .'img/m2.png" style="margin: 0 auto;
+    display: block;">
                                 <h3 style="font-size:13px;">Recruiter Profile</h3>
                                 <p style="font-size:9px;">Hire quality employees here.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="'.base_url() .'img/m3.png">
+                                <img src="'.base_url() .'img/m3.png" style="margin: 0 auto;
+    display: block;">
                                 <h3 style="font-size:13px; ">Freelance Profile</h3>
                                 <p style="font-size:9px;">Hire freelancers and also find freelance work.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="'.base_url() .'img/m4.png">
+                                <img src="'.base_url() .'img/m4.png" style="margin: 0 auto;
+    display: block;">
                                 <h3 style="font-size:13px;">Business Profile</h3>
                                 <p style="font-size:9px;">Grow your business network.</p>
                             </td>
                             <td style="text-align:center; padding:0 10px;" width="20%">
-                                <img src="'.base_url() .'img/m5.png">
+                                <img src="'.base_url() .'img/m5.png" style="margin: 0 auto;
+    display: block;">
                                 <h3 style="font-size:13px;">Artistic Profile</h3>
                                 <p style="font-size:9px;">Show your art & talent to the world.</p>
                             </td>
