@@ -237,9 +237,23 @@ if ($returnpage == 'job') {
                  <div class="flw_msg_btn fr">
                    <ul>
                     <?php
-                    if($this->uri->segment(3) != ""){ ?>
-                       <li> <a href="<?php echo base_url('chat/abc/' . $this->uri->segment(3).'/2/1'); ?>">Message</a> </li>
-                        <?php } ?>
+                    if($this->uri->segment(3) != "" && $this->uri->segment(3) != $userid){ ?>
+                       <li>
+                           <?php
+                           $returnpage= $_GET['page'];
+                           
+                           if($returnpage == "job"){ ?>
+                               
+                           <a href="<?php echo base_url('chat/abc/1/2/'  . $this->uri->segment(3)); ?>">Message</a>
+                      <?php     }else{ ?>
+                           <a href="<?php echo base_url('chat/abc/2/1/'  . $this->uri->segment(3)); ?>">Message</a>
+                               
+                     <?php      }?>
+                     
+
+                     
+                        
+                       </li>  <?php } ?>
                     </ul>
                 </div>
             </div>
