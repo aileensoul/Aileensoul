@@ -437,7 +437,7 @@
 
     $(document).ready(function () {
         $('.dropdown_hover').click(function (event) {
-            event.stopPropagation();
+           event.stopPropagation();
             $(".dropdown-content_hover").fadeToggle("fast");
         });
         $(".dropdown-content_hover").on("dropdown_hover", function (event) {
@@ -450,9 +450,14 @@
     });
 
     $(document).ready(function () {
-        $("body").click(function (event) {
+        $("body").click(function (e) {
             $(".dropdown-content_hover").hide();
-            event.stopPropagation();
+
+            var classNames = $(e.target).attr("class").toString().split(' ').pop();
+                if (classNames != 'fa-ellipsis-v') {
+                $('div[id^=myDropdown]').hide().removeClass('show');
+                }
+            //e.stopPropagation();
         });
 
     });
