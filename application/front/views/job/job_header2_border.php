@@ -18,12 +18,16 @@
 
 </style>
 
- <?php if(($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post')){?>
+ 
    
 <header>
 
     <div class="bg-search">
+    <?php if(($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post')){?>
         <div class="header2 headerborder animated fadeInDownBig">
+        <?php  } else {?>
+        <div class="header2 headerborder">
+        <?php }?>
             <div class="container">
                 <div class="row">
                  
@@ -116,111 +120,8 @@
         </div>
        </div> 
     </header>
-    <?php }
-    else
-    {?>
-
-      <header>
-
-    <div class="bg-search">
-        <div class="header2">
-            <div class="container">
-                <div class="row">
-                 
-                    <div class="col-sm-7 col-md-7 col-xs-7 hidden-mob ">
-                        <div class="job-search-box1 clearfix">
-                        <?php echo $job_search; ?>
-                        </div>
-                    </div>
-                  <div class="col-sm-5 col-md-5 col-xs-5 mob-width">
-                       <div class="search-mob-block">
-                                 <div class="">
-                                     <a href="#search">
-                                     <label><i class="fa fa-search" aria-hidden="true"></i></label>
-                                     </a>
-                                 </div>
-                                 <div id="search">
-                                    <button type="button" class="close">×</button>
-                                    <form>
-                                        <div class="new-search-input">
-                                            <input type="search" id="tags" name="skills" value="" placeholder="Find Your Job" />
-                                            <input type="search" id="searchplace" name="searchplace" value="" placeholder="Find Your Location" />
-                                            <button type="submit" onclick="return checkvalue();"  id="search_btn" class="btn btn-primary">Search</button>
-                                        </div>
-                                    </form>
-                                </div>
-                             </div>
-                       <div class="">
-                            <ul class="" id="dropdownclass">
-                                <li id="art_profile" <?php if($this->uri->segment(1) == 'job' && $this->uri->segment(2) == 'job_all_post'){?> class="active" <?php } ?>><a href="<?php echo base_url('job/job_all_post'); ?>" title="Home"><span class="home-22x22-h"></a>
-                                    </li>
-                                <!-- Friend Request Start-->
-<!-- <h3>hello</h3> -->                     
-                        
-                                   <li id="Inbox_link " class="job_con">
-                                        <?php if ($message_count) { ?>
-                                                           <!--  <span class="badge bg-theme"><?php //echo $message_count;  ?></span> -->
-                                        <?php } ?>
-                                        <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="message3-24x24-h"></span>
-
-                                            <span id="message_count"></span>
-                                        </a>
-
-                                        <div id="InboxContainer">
-                                            <div id="InboxBody" class="Inbox">
-                                                <div id="notificationTitle">Messages<span class="see_link" id="seemsg">
-                                                
-                                                </span></div>
-<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
-
-<div>
-    <ul class="notification_data_in_h2">
-        
-    </ul></div>
-
-                                                </div>
-                                            </div>
-                                    </li> 
-                                     <li>
-                                <!-- Friend Request End-->
-
-<div class="dropdown_hover">
-  <span id="art_profile" class="profiletitle" >Job Profile <i class="fa fa-caret-down" aria-hidden="true"></i></span>
-  <div class="dropdown-content_hover" id="dropdown-content_hover">
-      <span class="my_account">
-                                        <div class="my_S">Account</div>
-                                            
-      </span>
-      <a href="<?php echo base_url('job/job_printpreview'); ?>" title="View Profile"><span class="icon-view-profile edit_data"></span>
-      <span> View Profile </span></a>
-      <a href="<?php echo base_url('job/job_basicinfo_update'); ?>" title="Edit Profile"><span class="icon-edit-profile edit_data"></span>  
-      <span>Edit Profile </span></a>
-
-      <?php
-      $userid = $this->session->userdata('aileenuser');
-      ?>
-      <a onClick="deactivate(<?php echo $userid; ?>)" title="Deactive Profile"><span class="icon-delete edit_data"></span>  <span>Deactive Profile</span></a>
-  </div>
-</div>
-</li>
-                
-
-                                     <!-- Friend Request End-->
-
-                                <!-- END USER LOGIN DROPDOWN -->
-                            </ul>
-                        </div> 
-                    </div>
-                  
-                    
-                </div>
-            </div>
-        </div>
-       </div> 
-    </header>
-    <?php }
-
-    ?>
+    
+    
 
     
 
