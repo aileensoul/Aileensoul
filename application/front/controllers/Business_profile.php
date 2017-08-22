@@ -895,18 +895,24 @@ class Business_profile extends MY_Controller {
 
                     $image_width = $response['result'][$i]['image_width'];
                     $image_height = $response['result'][$i]['image_height'];
-
+                    
+                    $thumb_image_width = $this->config->item('bus_detail_thumb_width');
+                    $thumb_image_height = $this->config->item('bus_detail_thumb_height');
+                    
                     if ($image_width > $image_height) {
-                        $n_h = 165;
+                        $n_h = $thumb_image_height;
                         $image_ratio = $image_height / $n_h;
                         $n_w = round($image_width / $image_ratio);
                     } else if ($image_width < $image_height) {
-                        $n_w = 235;
+                        $n_w = $thumb_image_width;
                         $image_ratio = $image_width / $n_w;
                         $n_h = round($image_height / $image_ratio);
                         
+                    }else{
+                        $n_w = $image_width;
+                        $n_h = $image_height;
                     }
-                    
+
                     $business_profile_post_thumb[$i]['image_library'] = 'gd2';
                     $business_profile_post_thumb[$i]['source_image'] = $this->config->item('bus_profile_main_upload_path') . $response['result'][$i]['file_name'];
                     $business_profile_post_thumb[$i]['new_image'] = $this->config->item('bus_profile_thumb_upload_path') . $response['result'][$i]['file_name'];
@@ -931,14 +937,14 @@ class Business_profile extends MY_Controller {
                         'source_image' => $business_profile_post_thumb[$i]['new_image'],
                         'create_thumb' => FALSE,
                         'maintain_ratio' => FALSE,
-                        'width' => 215,
-                        'height' => 165
+                        'width' => $thumb_image_width,
+                        'height' => $thumb_image_height
                     );
 
                     $conf_new[$i]['new_image'] = $this->config->item('bus_profile_thumb_upload_path') . $response['result'][$i]['file_name'];
 
-                    $left = ($n_w / 2) - (215 / 2);
-                    $top = ($n_h / 2) - (165 / 2);
+                    $left = ($n_w / 2) - ($thumb_image_width / 2);
+                    $top = ($n_h / 2) - ($thumb_image_height / 2);
 
                     $conf_new[$i]['x_axis'] = $left;
                     $conf_new[$i]['y_axis'] = $top;
@@ -1914,7 +1920,7 @@ class Business_profile extends MY_Controller {
                         //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
                         $business_profile_post_thumb[$i]['height'] = 2;
                         $business_profile_post_thumb[$i]['master_dim'] = 'width';
-                        $business_profile_post_thumb[$i]['quality'] = "100%";
+                        $business_profile_post_thumb[$i]['quality'] = "60%";
                         $business_profile_post_thumb[$i]['x_axis'] = '0';
                         $business_profile_post_thumb[$i]['y_axis'] = '0';
                         $instanse = "image_$i";
