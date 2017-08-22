@@ -37,7 +37,8 @@
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-
+#acon::before{right: 21px;}
+.header2 ul.notification_data_in_h2 li{ border-right: none!important;}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -69,6 +70,13 @@ border-radius: 100%;}
 #InboxBody{overflow: hidden!important; border-radius: 3px; }
 .people-list ul li{padding-top: 10px;}
 #addcontactBody{overflow: hidden!important; border-radius: 3px; }
+.chatdropbtn{background: url('../img/t_dot.png'); width: 7px;
+height: 29px;
+padding: 3px;
+right: -8px;
+background-size: 100%;
+top: 9px;}
+
 /*chat module end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -183,6 +191,8 @@ overflow: hidden;
 }
 .chat .chat-history .my-message{word-break: break-all;}
 /*extra css end*/
+
+
 
 /*--------------------------------------------------@media-profile-css-start-------------------------------------------------*/
   
@@ -436,7 +446,9 @@ span.fu-time{font-size: 13px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-
+.header2 {
+    top: 49px;
+}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -511,16 +523,18 @@ span.fu-time{font-size: 13px;}
 }
 @media screen and (max-width: 991px) {
 /*header start*/
-.header2 {
-    top: 43px;
-}
+
 #floatBarsG{margin-top: 0%;}
+.header2 ul.notification_data_in_h2{padding-right: 0px; width: 100%;}
+.header2 ul.notification_data_in_h2 li{width: 100%; border-right: none!important;}
+
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
 .header2 .job-search-box1 fieldset.sec_h2{width: 144px;}
+.header2 ul.notification_data_in_h2 li a{width: 100%;}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -605,13 +619,19 @@ right: 10px;}
 /*header start*/
 .cover .fancybox-slide > *{width: 90%;}
 .por_content ul li .pro-text{width: 100%;}
+#acon::before {
+    right: 24px;
+}
+
 
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-
+#InboxContainer::before {
+    right: 179px;
+}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -787,11 +807,22 @@ label.cameraButton{opacity: 0.8;}
 /*header start*/
 
 #floatBarsG{margin-left: -137px; margin-top:-3%; }
+#acon::before {
+    right: 145px !important;
+}
+#add_contact #addcontactContainer{right: 0;}
+#add_contact #addcontactContainer::before {
+    right: 225px;
+}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
+#notificationLink span {
+    margin-top: 0.2px;
+padding: 4px 5px!important;
+}
 
 /*header2 end*/
 
@@ -869,12 +900,19 @@ label.cameraButton{opacity: 0.8;}
     margin-left: -109px;
     margin-top: -8%;
 }
+
+#add_contact #addcontactContainer::before {
+    right: 207px;
+}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
 
+.header2 ul li a#addcontactLink {
+    padding: 7px 6px !important;
+}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -954,7 +992,9 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*header2 start*/
-
+.header2 ul li.active a {
+    padding: 9px 9px 3px 0px;
+}
 /*header2 end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/

@@ -477,7 +477,7 @@
                                           <?php
                                                 }
                                           ?> -->
-                                             <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>
+                                             <!-- <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div> -->
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden" name="image_hidden_secondary" value="<?php
                                              if ($edu_certificate_secondary1) {
@@ -629,8 +629,8 @@
                                        </fieldset>
 
                                      <!--  -->
-                                          <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>
-
+                                        <!--   <div> <span class="" >( <span class="red">*</span> ) Indicates required field</span></div>
+ -->
                                        <div class="fr job_education_submitbox">
                                           <input type="hidden"  tabindex="8" name="image_hidden_higher_secondary" value="<?php
                                              if ($edu_certificate_higher_secondary1) {

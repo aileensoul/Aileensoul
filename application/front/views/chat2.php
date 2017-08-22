@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </a>
                               
                                 <div class="chat_drop">
-                                    <a onclick="myFunction()" class="chatdropbtn fr"><img src="<?php echo base_url('img/t_dot.png') ?>"></a>
+                                    <a onclick="myFunction()" class="chatdropbtn fr"><!-- <img src="<?php echo base_url('img/t_dot.png') ?>"> --></a>
                                     <div id="mychat_dropdown" class="chatdropdown-content">
                                         <a href="javascript:void(0);" onClick="delete_history()">
                                             <span class="h4-img h2-srrt"></span>  Delete All
