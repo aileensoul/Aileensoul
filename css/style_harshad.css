@@ -58,7 +58,7 @@ border-radius: 100%;}
 .tabs-left > li.active > a .fa-file-pdf-o{font-size: inherit;}
 .fa-file-pdf-o{font-size: inherit;}
 .popup-text textarea{font-size: 15px!important;}
-.post-design-commnet-box .editable_text{line-height: 100%;}
+.post-design-commnet-box .editable_text{line-height: 1.6;}
 .job-saved-box h3{border-bottom: none;}
 /*all module-common end*/
 
@@ -214,7 +214,18 @@ overflow: hidden;
 
 /*all module-common start*/
 
-
+ .modal-content{padding: 5px;}
+#likeusermodal.message-box span.mes{padding:0px 15px 0;}
+#likeusermodal .modal-close1 {
+    padding: 4px 6px;
+    float: right;
+    border-radius: 100%;
+    margin-right: -15px;
+    margin-top: -21px;
+    font-size: 27px;
+    background: #1b8ab9;
+    color: white;
+}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
