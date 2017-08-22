@@ -153,17 +153,7 @@ font-size: 22px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
 .notifications li .notification-data-inside div{ font-size: 15px!important; max-height: 17px; line-height: 15px; padding-top: 0px!important}
 .module_Ssearch{padding-top: 6px;}
-.buisness-profile-pic img{
-/*    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 100%;
-    width: auto;
-*/
--webkit-transform: translate(-50%,-50%);
--ms-transform: translate(-50%,-50%);
-transform: translate(-50%,-50%);
-max-width: inherit;}
+
 .bui_res_i{overflow: hidden;}
 .buisness-profile-pic .bui_popup_img img{width: 100%; height: 100%; position: relative; }
 .buisness-profile-pic .slider_img img{ width: auto;}
