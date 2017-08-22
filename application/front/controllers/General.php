@@ -95,6 +95,27 @@ class General extends MY_Controller {
 
     }
     
+
+    public function get_jobtitle($id="") {
+      
+     
+      //get search term
+   $searchTerm = $_GET['term']; 
+      if (!empty($searchTerm)) {
+
+    $contition_array = array('status' => 'publish');
+      $search_condition = "(name LIKE '" . trim($searchTerm) . "%')";
+     $jobtitlelist = $this->common->select_data_by_search('job_title', $search_condition,$contition_array, $data = 'title_id as id,name as text', $sortby = 'name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'name');
+     }
+      foreach($jobtitlelist as $key => $value){
+        //   $citydata[$key]['id'] = $value['id'];
+           $jobtitledata[$key]['value'] = $value['text'];
+      }
+      
+      $cdata = array_values($jobtitledata);
+     echo json_encode($cdata);
+
+    }
     public function get_alldata($id="") {
   
     //get search term

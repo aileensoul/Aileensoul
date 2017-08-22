@@ -290,34 +290,43 @@ if ($this->session->flashdata('success')) {
   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
  
 <script>
-    // job title script start
-   var jobdata = <?php echo json_encode($jobtitle); ?>;
-  // alert(jobdata);
-   $(function () {
-    
-       $("#job_title").autocomplete({
-           source: function (request, response) {
-               var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-               response($.grep(jobdata, function (item) {
-                   return matcher.test(item.label);
-               }));
-           },
-           minLength: 1,
-           select: function (event, ui) {
-               event.preventDefault();
-               $("#job_title").val(ui.item.label);
-               $("#selected-tag").val(ui.item.label);
-               // window.location.href = ui.item.value;
-           }
-           ,
-           focus: function (event, ui) {
-               event.preventDefault();
-               $("#job_title").val(ui.item.label);
-           }
-       });
-   });
-   
+ // job title script start
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#job_title" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_jobtitle", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#job_title").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
 </script>
+
 
 <script>
 
