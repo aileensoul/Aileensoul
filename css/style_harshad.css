@@ -142,7 +142,7 @@ font-size: 22px;}
 .image_profile audio{height: 88%;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
-.notifications li .notification-data-inside div{font-size: 13px!important; line-height: 15px; padding-top: 0px!important}
+.notifications li .notification-data-inside div{ font-size: 15px!important; max-height: 17px; line-height: 15px; padding-top: 0px!important}
 .module_Ssearch{padding-top: 6px;}
 .buisness-profile-pic img{position: absolute;
 left: 50%;
@@ -492,6 +492,7 @@ span.fu-time{font-size: 13px;}
 .post-design-pro-img_follow{width: 60px;height: 60px;}  
 .post-design-pro-img_follow{padding: 5px 5px 3px 5px;}
 .follow_left_box_main_btn{margin-top: 0px!important;}
+.post-design-name ul li .post-design-product a{word-break:break-all;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -637,7 +638,9 @@ right: 10px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*job profile start*/
-
+.job_con #InboxContainer::before {
+    right: 141px;
+}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -898,7 +901,9 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*job profile start*/
-
+.job_con #InboxContainer::before {
+    right: 136px;
+}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -922,6 +927,7 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
+.post-design-name{width: 78%;}
 
 /*Business profile End*/
 
