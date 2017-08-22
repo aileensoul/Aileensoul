@@ -81,7 +81,7 @@
                 </fieldset>
                 <fieldset class="hs-submit full-width">
 
-                    <input type="reset"  value="Reset" name="Reset" class="reset">
+                    <!--<input type="reset"  value="Reset" name="Reset" class="reset">-->
                     <input type="submit"  value="Save" name="submit">
                     
                 </fieldset>

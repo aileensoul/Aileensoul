@@ -1,4 +1,4 @@
-  <!-- start head -->
+<!-- start head -->
 <?php  echo $head; ?>
     <!-- END HEAD -->
     <!-- start header -->
@@ -226,8 +226,8 @@
 }
 
   </style>
+  
     <body class="page-container-bg-solid page-boxed">
-
       <section>
         
         <div class="user-midd-section" id="paddingtop_fixed">
@@ -287,26 +287,8 @@
                         
                            <input id="skills2" value="<?php echo $work_skill; ?>" name="skills"  class="full-width " tabindex="2">
 
-                        <!-- <select  name="skills[]" id ="skils" multiple="multiple" tabindex="2"  style="width: 100%;" class="skill_other full-width ">
-                        <option></option>
-                      <?php 
-
-                      //foreach ($skill as $ski) { ?>
-                         <option value="<?php //echo $ski['skill_id']; ?>"><?php //echo $ski['skill']; ?></option>
-                        <?php//} ?>
-                      </select> -->
-                              
-
                         <?php echo form_error('skills'); ?>
                    </fieldset>
-
-                 
-                   <fieldset class="full-width">
-                        <label class="control-label">Other skills:<!-- <span style="color:red">*</span> --></label>
-                        <input name="other_skill" type="text" id="other_skill" tabindex="3" placeholder=" Enter Skill Name" class="skill_other" value="<?php echo $postdata[0]['other_skill']; ?>"/>
-                        <span id="fullname-error"></span>
-                        <?php echo form_error('other_skill'); ?>
-                    </fieldset>
 
                      <fieldset class="full-width">
                         <label>No of position:<span style="color:red">*</span></label>
@@ -366,12 +348,12 @@
 
                                         <option value="" selected option disabled>Year</option>
                                     
-                                       <option value="0" <?php if($postdata[0]['max_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
-                                        <option value="0.5" <?php if($postdata[0]['max_year']=="0.5") echo 'selected="selected"'; ?>>0.5 Year</option>
+                                    <option value="0" <?php if($postdata[0]['max_year']=="0") echo 'selected="selected"'; ?>>0 Year</option>
+                                    <option value="0.5" <?php if($postdata[0]['max_year']=="0.5") echo 'selected="selected"'; ?>>0.5 Year</option>
                                     <option value="1" <?php if($postdata[0]['max_year']=="1") echo 'selected="selected"'; ?>>1 Year</option>
-                                     <option value="1.5" <?php if($postdata[0]['max_year']=="1.5") echo 'selected="selected"'; ?>>1.5 Year</option>
+                                    <option value="1.5" <?php if($postdata[0]['max_year']=="1.5") echo 'selected="selected"'; ?>>1.5 Year</option>
                                     <option value="2" <?php if($postdata[0]['max_year']=="2") echo 'selected="selected"'; ?>>2 Year</option>
-                                     <option value="2.5" <?php if($postdata[0]['max_year']=="2.5") echo 'selected="selected"'; ?>>2.5 Year</option>
+                                    <option value="2.5" <?php if($postdata[0]['max_year']=="2.5") echo 'selected="selected"'; ?>>2.5 Year</option>
                                     <option value="3" <?php if($postdata[0]['max_year']=="3") echo 'selected="selected"'; ?>>3 Year</option>
                                     <option value="4" <?php if($postdata[0]['max_year']=="4") echo 'selected="selected"'; ?>>4 Year</option>
                                     <option value="5" <?php if($postdata[0]['max_year']=="5") echo 'selected="selected"'; ?>>5 Year</option>

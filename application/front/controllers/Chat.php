@@ -1956,7 +1956,17 @@ class Chat extends MY_Controller {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-">' . $user['message'] . '</div></div></li></a>';
+">'; 
+            $message = str_replace('\\r', '', $user['message']);
+            $message = preg_replace('[^(<br( \/)?>)*|(<br( \/)?>)*$]', '', $message);
+            $message = str_replace('\\t', '', $message); 
+            $message = str_replace('\\', '', $message);
+            $message = str_replace('%26amp;', '&', $message);
+            $message = str_replace('%26gt;', '>', $message);
+            $message = str_replace('%26lt;', '<', $message);
+        
+            $usrsrch .= '' . $message . '';
+       $usrsrch .= '</div></div></li></a>';
                 }
             } else {
 
