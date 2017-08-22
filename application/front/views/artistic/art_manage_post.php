@@ -979,7 +979,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "return imgval(event);")); ?>
 
                         <div class="main-text-area col-md-12" >
-                            <div class="popup-img-in "> 
+                            <div class="popup-img-in_art"> 
 
                             <?php if($artisticdata[0]['art_user_image']){?>
 
@@ -1025,7 +1025,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
                             
 
-                      <div class="camera_in padding-left padding_les_left camer_h">
+                      <div class=" padding-left padding_les_left camer_h">
                                 <i class=" fa fa-camera" >
                                 </i> 
                             </div>
@@ -1051,8 +1051,12 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         </div></div>
 
 
-                                    <label for="file-1"><i class=" fa fa-camera "  style=" margin: 8px; cursor:pointer"> Photo</i><i class=" fa fa-video-camera"  style=" margin: 8px; cursor:pointer"> Video </i> <i class="fa fa-music "  style=" margin: 8px; cursor:pointer"> Audio </i><i class=" fa fa-file-pdf-o "  style=" margin: 8px; cursor:pointer"> PDF </i> </label>
-
+                                       <label for="file-1">
+                                                <i class=" fa fa-camera upload_icon"  > Photo</i>
+                                                <i class=" fa fa-video-camera upload_icon"  > Video </i>
+                                                <i class="fa fa-music upload_icon "  > Audio </i>
+                                                <i class=" fa fa-file-pdf-o upload_icon"  > PDF </i>
+                                            </label>
 
                                 </li>
                             </ul>
@@ -1060,7 +1064,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
                         </div>
                         <div class="fr">
-                            <button type="submit"  value="Submit" style="margin: 0px;">Post</button>    </div>
+                            <button type="submit"  value="Submit">Post</button>    </div>
                         <?php echo form_close(); ?>
                     </div>
                 </div>

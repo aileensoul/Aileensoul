@@ -1725,7 +1725,7 @@
                             <div class="post-editor col-md-12 post-edit-popup" id="close">
 <?php echo form_open_multipart(base_url('artistic/art_post_insert/'), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "imgval(event)")); ?>
                                 <div class="main-text-area " >
-                                    <div class="popup-img-in "> 
+                                    <div class="popup-img-in_art "> 
 
                                         <?php if ($artisticdata[0]['art_user_image']) { ?>
 
