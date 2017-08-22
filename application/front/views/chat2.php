@@ -934,6 +934,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }
                         }
                     }
+					document.getElementById("notificationContainer1").onclick = function(evt) {
+						if (!this.isContentEditable) {
+							this.contentEditable = "true";
+							this.focus();
+						}
+					};
                     
                    
                 </script>

@@ -708,7 +708,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                                         //} 
                                       }elseif($recruiterdata == NULL) {
                                             ?>
-                                            <div class="text-center rio">
+                                            <div class="text-center rio" style="border: none;">
                         <div class="no-post-title">
                                                 <h4 class="page-heading  product-listing" style="border:0px;">Let's create your job post.</h4>
                         <h4 class="page-heading  product-listing" style="border:0px;"> It will takes only few minutes.</h4>
