@@ -63,7 +63,7 @@ border-radius: 100%;}
 
 /*chat module start*/
 
-#msg_block .input-group .comment{line-height: 1.2;}
+#msg_block .input-group .comment{line-height: 1.2; cursor:text;}
 #InboxBody{overflow: hidden!important; border-radius: 3px; }
 .people-list ul li{padding-top: 10px;}
 #addcontactBody{overflow: hidden!important; border-radius: 3px; }
@@ -76,7 +76,11 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*job profile start*/
+a.mesg_link:hover{
+    color: white;
+    background: #156f95;
 
+}
 .img_work_exp{margin-top: -46px;}
 .img_work_exp .fa-file-pdf-o{font-size: 3em;}
 #jobseeker_regform input#submit:focus {
@@ -96,6 +100,7 @@ border-radius: 100%;}
     margin-left: -10px;
     margin-top: -48px;
 }
+.dele_highrt .fa-file-pdf-o{font-size: 3em;}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -122,7 +127,7 @@ border-radius: 100%;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-/*.profile-head-text{font-family: arial;}*/
+.profile-head-text{font-family: arial;}
 .else_post_d{padding-left: 7px;}
 .post-design-name ul li .post_dot{font-size: 15px;}
 .follow_left_box_main_btn .bg_following{margin-top: 0px;}
@@ -137,7 +142,7 @@ font-size: 22px;}
 .image_profile audio{height: 88%;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
-.notifications li .notification-data-inside div{font-size: 13px!important; line-height: 15px; padding-top: 0px!important}
+.notifications li .notification-data-inside div{ font-size: 15px!important; max-height: 17px; line-height: 15px; padding-top: 0px!important}
 .module_Ssearch{padding-top: 6px;}
 .buisness-profile-pic img{position: absolute;
 left: 50%;
@@ -340,6 +345,7 @@ span.fu-time{font-size: 13px;}
 @media screen and (max-width: 1199px) {
 /*header start*/
 
+.header2 .job-search-box1 fieldset.sec_h2{width: 175px;}
 
 /*header end*/
 
@@ -400,7 +406,11 @@ span.fu-time{font-size: 13px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-
+.follow_left_box_main_btn button {
+    width: 72px;
+    padding: 5px 7px;
+    margin-left: 0px;
+}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -476,7 +486,13 @@ span.fu-time{font-size: 13px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-
+.post-design-name_follow{width: 36%;}
+.follow_left_box_main{padding:3px 0 3px 0;}
+.profile-boxProfileCard_follow{max-height: 198px;}
+.post-design-pro-img_follow{width: 60px;height: 60px;}  
+.post-design-pro-img_follow{padding: 5px 5px 3px 5px;}
+.follow_left_box_main_btn{margin-top: 0px!important;}
+.post-design-name ul li .post-design-product a{word-break:break-all;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -622,7 +638,9 @@ right: 10px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*job profile start*/
-
+.job_con #InboxContainer::before {
+    right: 141px;
+}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -883,7 +901,9 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*job profile start*/
-
+.job_con #InboxContainer::before {
+    right: 136px;
+}
 /*job profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -907,6 +927,7 @@ label.cameraButton{opacity: 0.8;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
+.post-design-name{width: 78%;}
 
 /*Business profile End*/
 

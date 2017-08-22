@@ -456,7 +456,7 @@ a:focus {
 .header2 ul li a#InboxLink{padding:12px 13px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
-    border-right: none;
+    border-right: none!important;
 }
 .header2 ul li a i {
     font-size: 15px;
@@ -4148,7 +4148,7 @@ display: inline-block;
         font-family:arial;
     }
     .addcontact-text span{color:#404040; font-size:13px;}
-    #addcontactBody li:hover{background-color:e9f4f8; }
+    #addcontactBody li:hover{background-color:#e9f4f8; }
         #addcontactBody li:hover .addcontact-text{}
     .addcontact-text span{
         display: block;
@@ -10742,9 +10742,9 @@ a.mesg_link:hover, a.mesg_link:focus{color: white;}
     padding-left: 0px!important;
     padding-right: 0px!important;
     padding:0px;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     height: 492px;
-    overflow: auto;
+    overflow-x: hidden;
 }
 .people-list ul li {
     padding: 15px;

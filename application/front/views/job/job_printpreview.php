@@ -719,7 +719,9 @@ if ($returnpage == 'recruiter') {
 																	$ext = explode('.', $job_edu[0]['edu_certificate_primary']);
 																	if ($ext[1] == 'pdf') {
 																	?>
-                                                                        <a href="<?php echo base_url('job/creat_pdf_primary/' . $job_edu[0]['edu_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                                     <!--  <a href="<?php //echo base_url('job/creat_pdf_primary/' . $job_edu[0]['edu_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a> -->
+
+                                                              <a title="open pdf" href="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $job_edu[0]['edu_certificate_primary']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                                        <?php
                                                                            } else {
                                                                         ?>
@@ -769,7 +771,9 @@ if ($returnpage == 'recruiter') {
 															$ext = explode('.', $job_edu[0]['edu_certificate_secondary']);
 															if ($ext[1] == 'pdf') {
 													?>
-                                                        <a href="<?php echo base_url('job/creat_pdf_secondary/' . $job_edu[0]['edu_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                        <!-- <a href="<?php //echo base_url('job/creat_pdf_secondary/' . $job_edu[0]['edu_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a> -->
+
+                                                         <a title="open pdf" href="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $job_edu[0]['edu_certificate_secondary']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                     <?php
                                                         } else {
                                                     ?>
@@ -823,7 +827,9 @@ if ($returnpage == 'recruiter') {
                                                             $ext = explode('.', $job_edu[0]['edu_certificate_higher_secondary']);
                                                             if ($ext[1] == 'pdf') {
                                                     ?>
-                                                            <a href="<?php echo base_url('job/creat_pdf_higher_secondary/' . $job_edu[0]['edu_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                            <!-- <a href="<?php //echo base_url('job/creat_pdf_higher_secondary/' . $job_edu[0]['edu_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+ -->
+                                                              <a title="open pdf" href="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $job_edu[0]['edu_certificate_higher_secondary']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                     <?php
                                                         } else {
                                                     ?>
@@ -946,7 +952,9 @@ if ($returnpage == 'recruiter') {
 														$ext = explode('.', $graduation['edu_certificate']);
                                                         if ($ext[1] == 'pdf') {
                                                     ?>
-                                                        <a href="<?php echo base_url('job/creat_pdf_graduation/' . $graduation['job_graduation_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                       <!--  <a href="<?php //echo base_url('job/creat_pdf_graduation/' . $graduation['job_graduation_id'] . '/print') ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a> -->
+
+                                                         <a title="open pdf" href="<?php echo base_url($this->config->item('job_edu_main_upload_path') . $graduation['edu_certificate']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                 <?php
                                                         } else {
                                                 ?>
@@ -1611,7 +1619,9 @@ if ($returnpage == 'recruiter') {
                                                                                         $ext = explode('.', $work['work_certificate']);
                                                                                         if ($ext[1] == 'pdf') {
                                                                                             ?>
-                                                                                                    <a href="<?php echo base_url('job/creat_pdf_workexp/' . $work['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
+                                                                                                    <!-- <a href="<?php //echo base_url('job/creat_pdf_workexp/' . $work['work_id']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a> -->
+
+                                                                                                     <a title="open pdf" href="<?php echo base_url($this->config->item('job_work_main_upload_path') . $work['work_certificate']) ?>"><i class="fa fa-file-pdf-o fa-2x" style="color: red; padding-left: 8px; padding-top: 10px; padding-bottom: 10px; position: relative;" aria-hidden="true"></i></a>
                                                                                             <?php
                                                                                         } else {
                                                                                             ?>
