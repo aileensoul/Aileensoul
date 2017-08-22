@@ -356,7 +356,7 @@
                                                                    <!--  <span class="badge bg-theme"><?php //echo $message_count;    ?></span> -->
                                         <?php } ?>
                                         <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="message3-24x24-h"></span>
-                                            <span id="message_count "></span>
+                                            <span id="message_count"></span>
                                         </a>
 
                                         <div id="InboxContainer">

@@ -63,7 +63,7 @@ border-radius: 100%;}
 
 /*chat module start*/
 
-#msg_block .input-group .comment{line-height: 1.2;}
+#msg_block .input-group .comment{line-height: 1.2; cursor:text;}
 #InboxBody{overflow: hidden!important; border-radius: 3px; }
 .people-list ul li{padding-top: 10px;}
 #addcontactBody{overflow: hidden!important; border-radius: 3px; }

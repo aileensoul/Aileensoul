@@ -6220,6 +6220,8 @@ public function creat_pdf_primary($id,$seg) {
             }
            
             echo '<embed src="' .base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_primary'].'"width="100%" height="100%">';
+
+             // echo '<iframe src="'.base_url().$this->config->item('job_edu_main_upload_path').$pdf[0]['edu_certificate_primary'].'" style="overflow:hidden;  overflow-x:hidden; overflow-y:auto;" width="100%" height="100%"  scrolling="no"></iframe>';
         }
 }
 

@@ -239,10 +239,10 @@ if ($returnpage == 'freelancer_hire') {
                                                 $returnpage = $_GET['page'];
                                                 if ($returnpage == 'freelancer_hire') {
                                                     ?>
-                                                    <a href="<?php echo base_url('chat/abc/3/4' . $this->uri->segment(3) ); ?>">Message</a>
+                                                    <a href="<?php echo base_url('chat/abc/3/4/' . $this->uri->segment(3) ); ?>">Message</a>
                                                 <?php } else {
                                                     ?>
-                                                    <a href="<?php echo base_url('chat/abc/4/3' . $this->uri->segment(3) ); ?>">Message</a>
+                                                    <a href="<?php echo base_url('chat/abc/4/3/' . $this->uri->segment(3) ); ?>">Message</a>
                                             <?php } ?>
                                             </li>
 
