@@ -978,7 +978,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                     <div class="post-editor col-md-12 post-edit-popup" id="close">
                         <?php echo form_open_multipart(base_url('artistic/art_post_insert/' . 'manage/' . $artisticdata[0]['user_id']), array('id' => 'artpostform', 'name' => 'artpostform', 'class' => 'clearfix upload-image-form', 'onsubmit' => "return imgval(event);")); ?>
 
-                        <div class="main-text-area col-md-12" >
+                        <div class="main-text-area" >
                             <div class="popup-img-in_art"> 
 
                             <?php if($artisticdata[0]['art_user_image']){?>
