@@ -871,6 +871,8 @@ class Business_profile extends MY_Controller {
             $files = $_FILES;
             $count = count($_FILES['image1']['name']);
 
+            // echo "<pre>"; print_r($count); die();
+
             for ($i = 0; $i < $count; $i++) {
 
                 $_FILES['image1']['name'] = $files['image1']['name'][$i];
@@ -892,29 +894,16 @@ class Business_profile extends MY_Controller {
                     // $fileData = $this->upload->data();
                     // $uploadData[$i]['file_name'] = $fileData['file_name'];
                     $response['result'][] = $this->upload->data();
-
-                    $image_width = $response['result'][$i]['image_width'];
-                    $image_height = $response['result'][$i]['image_height'];
-
-                    if ($image_width > $image_height) {
-                        $n_h = 165;
-                        $image_ratio = $image_height / $n_h;
-                        $n_w = round($image_width / $image_ratio);
-                    } else if ($image_width < $image_height) {
-                        $n_w = 235;
-                        $image_ratio = $image_width / $n_w;
-                        $n_h = round($image_height / $image_ratio);
-                        
-                    }
-                    
                     $business_profile_post_thumb[$i]['image_library'] = 'gd2';
                     $business_profile_post_thumb[$i]['source_image'] = $this->config->item('bus_profile_main_upload_path') . $response['result'][$i]['file_name'];
                     $business_profile_post_thumb[$i]['new_image'] = $this->config->item('bus_profile_thumb_upload_path') . $response['result'][$i]['file_name'];
                     $business_profile_post_thumb[$i]['create_thumb'] = TRUE;
-                    $business_profile_post_thumb[$i]['maintain_ratio'] = FALSE;
+                    $business_profile_post_thumb[$i]['maintain_ratio'] = TRUE;
                     $business_profile_post_thumb[$i]['thumb_marker'] = '';
-                    $business_profile_post_thumb[$i]['width'] = $n_w;
-                    $business_profile_post_thumb[$i]['height'] = $n_h;
+                    $business_profile_post_thumb[$i]['width'] = $this->config->item('bus_profile_thumb_width');
+                    //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
+                    $business_profile_post_thumb[$i]['height'] = 2;
+                    $business_profile_post_thumb[$i]['master_dim'] = 'width';
                     $business_profile_post_thumb[$i]['quality'] = "100%";
                     $business_profile_post_thumb[$i]['x_axis'] = '0';
                     $business_profile_post_thumb[$i]['y_axis'] = '0';
@@ -924,35 +913,6 @@ class Business_profile extends MY_Controller {
                     $dataimage = $response['result'][$i]['file_name'];
                     //Creating Thumbnail
                     $this->$instanse->resize();
-                    /* CROP */
-                    // reconfigure the image lib for cropping
-                    $conf_new[$i] = array(
-                        'image_library' => 'gd2',
-                        'source_image' => $business_profile_post_thumb[$i]['new_image'],
-                        'create_thumb' => FALSE,
-                        'maintain_ratio' => FALSE,
-                        'width' => 215,
-                        'height' => 165
-                    );
-
-                    $conf_new[$i]['new_image'] = $this->config->item('bus_profile_thumb_upload_path') . $response['result'][$i]['file_name'];
-
-                    $left = ($n_w / 2) - (215 / 2);
-                    $top = ($n_h / 2) - (165 / 2);
-
-                    $conf_new[$i]['x_axis'] = $left;
-                    $conf_new[$i]['y_axis'] = $top;
-
-                    $instanse1 = "image1_$i";
-                    //Loading Image Library
-                    $this->load->library('image_lib', $conf_new[$i], $instanse1);
-                    $dataimage = $response['result'][$i]['file_name'];
-                    //Creating Thumbnail
-                    $this->$instanse1->crop();
-
-                    /* CROP */
-
-
                     $response['error'][] = $thumberror = $this->$instanse->display_errors();
 
                     $return['data'][] = $imgdata;
@@ -1434,9 +1394,9 @@ class Business_profile extends MY_Controller {
 
             //echo "<pre>"; print_r($this->data['business_profile_data']); die();
         } else {
-
-            $this->bus_avail_check($id);
-
+             
+             $this->bus_avail_check($id);
+             
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -3275,7 +3235,7 @@ class Business_profile extends MY_Controller {
             $contition_array = array('user_id' => $userid, 'is_delete' => '0');
             $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-
+            
             $this->bus_avail_check($id);
 
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
@@ -4096,7 +4056,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else { //echo "hii"; die();
-            $this->bus_avail_check($id);
+             $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4);
 
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -4219,7 +4179,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
-            $this->bus_avail_check($id);
+               $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4888,7 +4848,7 @@ class Business_profile extends MY_Controller {
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
-                $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+                $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
 
                 if ($business_userimage != '') {
 
@@ -4918,7 +4878,7 @@ class Business_profile extends MY_Controller {
 
                     $cmtinsert .= '</div>';
                 }
-                $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $companyname . '</a></b>';
+                $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $companyname . '</a></b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
                 $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -5065,11 +5025,11 @@ class Business_profile extends MY_Controller {
 
                 $companyname = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id']))->row()->company_name;
                 $companyslug = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id']))->row()->business_slug;
-
+                
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
-                $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+                $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
                 if ($business_userimage != '') {
 
 
@@ -5094,7 +5054,7 @@ class Business_profile extends MY_Controller {
                     $cmtinsert .= '</div>';
                     $cmtinsert .= '</div>';
                 }
-                $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $companyname . '</a></b>';
+                $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $companyname . '</a></b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id="showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '">';
                 $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -5582,7 +5542,7 @@ class Business_profile extends MY_Controller {
             // $cmtinsert = '<div class="all-comment-comment-box">';
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
             if ($business_userimage != '') {
 
 
@@ -5608,7 +5568,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -5784,7 +5744,7 @@ class Business_profile extends MY_Controller {
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
             if ($business_userimage) {
 
 
@@ -5809,7 +5769,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -6391,8 +6351,8 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
-            $this->bus_avail_check($id);
-
+              $this->bus_avail_check($id);
+              
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6510,8 +6470,8 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-            $this->bus_avail_check($id);
-
+             $this->bus_avail_check($id);
+             
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6619,8 +6579,8 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-            $this->bus_avail_check($id);
-
+             $this->bus_avail_check($id);
+             
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -6734,7 +6694,7 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         } else {
-            $this->bus_avail_check($id);
+             $this->bus_avail_check($id);
             $contition_array = array('business_slug' => $id, 'status' => '1', 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -7208,11 +7168,11 @@ class Business_profile extends MY_Controller {
 
             $company_name = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->company_name;
             $companyslug = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->business_slug;
-
+            
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
             if ($business_userimage != '') {
 
                 if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
@@ -7238,7 +7198,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $company_name . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $company_name . '</a></b>';
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $bus_comment['post_image_comment_id'] . '"" >';
@@ -7420,7 +7380,7 @@ class Business_profile extends MY_Controller {
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
             //$cmtinsert = '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
             if ($business_userimage != '') {
 
 
@@ -7445,7 +7405,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $company_name . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $company_name . '</a></b>';
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "showcomment' . $bus_comment['post_image_comment_id'] . '"" >';
@@ -7621,11 +7581,11 @@ class Business_profile extends MY_Controller {
 
             $company_name = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->company_name;
             $companyslug = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->business_slug;
-
+            
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
             if ($business_userimage != '') {
 
 
@@ -7650,7 +7610,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $company_name . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $company_name . '</a></b>';
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '"" >';
@@ -7830,11 +7790,11 @@ class Business_profile extends MY_Controller {
 
             $company_name = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->company_name;
             $companyslug = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->business_slug;
-
+            
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+            $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
             if ($business_userimage != '') {
 
 
@@ -7860,7 +7820,7 @@ class Business_profile extends MY_Controller {
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $company_name . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $company_name . '</a></b>';
             $cmtinsert .= '</div>';
 
             $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
@@ -8450,7 +8410,7 @@ class Business_profile extends MY_Controller {
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
-                $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+                $cmtinsert .= '<div class="post-design-pro-comment-img"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
                 if ($business_userimage != '') {
 
                     if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
@@ -8475,7 +8435,7 @@ class Business_profile extends MY_Controller {
                     $cmtinsert .= '</div>';
                     $cmtinsert .= '</div>';
                 }
-                $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $company_name . '</a></b>';
+                $cmtinsert .= '</a><div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $company_name . '</a></b>';
                 $cmtinsert .= '</div>';
 
                 $cmtinsert .= '<div class="comment-details" id= "imgshowcomment' . $bus_comment['post_image_comment_id'] . '"" >';
@@ -8621,11 +8581,11 @@ class Business_profile extends MY_Controller {
             foreach ($businesscomment as $bus_comment) {
                 $company_name = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->company_name;
                 $companyslug = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id']))->row()->business_slug;
-
+                
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $bus_comment['user_id'], 'status' => 1))->row()->business_user_image;
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
-                $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+                $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
                 if ($business_userimage != '') {
 
                     if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
@@ -8646,12 +8606,12 @@ class Business_profile extends MY_Controller {
                     $a = $company_name;
                     $acr = substr($a, 0, 1);
 
-                    $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
+                    $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-img-div">';
                     $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
-                $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $company_name . '</a></b>';
+                $cmtinsert .= '<div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $company_name . '</a></b>';
                 $cmtinsert .= '</div>';
 
                 $cmtinsert .= '<div class="comment-details" id= "imgshowcommenttwo' . $bus_comment['post_image_comment_id'] . '">';
@@ -8803,7 +8763,7 @@ class Business_profile extends MY_Controller {
                 $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
                 $companyslug = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->business_slug;
                 $fourdata .= '<div class="all-comment-comment-box">';
-                $fourdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+                $fourdata .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
 
                 $busienss_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
 
@@ -8829,7 +8789,7 @@ class Business_profile extends MY_Controller {
                     $fourdata .= '</div>';
                 }
                 $fourdata .= '</div></a><div class="comment-name"><b>';
-                $fourdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
+                $fourdata .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
 
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['business_profile_post_comment_id'] . '">';
                 $fourdata .= '<div id= "lessmore' . $rowdata['business_profile_post_comment_id'] . '"  style="display:block;">';
@@ -8955,7 +8915,7 @@ class Business_profile extends MY_Controller {
 
                 $fourdata .= '<div class="all-comment-comment-box">';
 
-                $fourdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+                $fourdata .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
 
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
 
@@ -8978,13 +8938,13 @@ class Business_profile extends MY_Controller {
                     $a = $companyname;
                     $acr = substr($a, 0, 1);
 
-                    $fourdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
+                    $fourdata .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-img-div">';
                     $fourdata .= ucfirst(strtolower($acr));
                     $fourdata .= '</div></a>';
                     $fourdata .= '</div>';
                 }
                 $fourdata .= '<div class="comment-name"><b>';
-                $fourdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($companyname)) . '</br>';
+                $fourdata .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($companyname)) . '</br>';
                 $fourdata .= '</a></b></div>';
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: block;">';
                 $fourdata .= '' . $this->common->make_links($rowdata['comment']) . '</br> </div>';
@@ -9095,7 +9055,7 @@ class Business_profile extends MY_Controller {
                 $companyname = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id']))->row()->company_name;
                 $companyslug = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id']))->row()->business_slug;
                 $fourdata .= '<div class="all-comment-comment-box">';
-                $fourdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+                $fourdata .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
 
                 $busienss_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
 
@@ -9120,7 +9080,7 @@ class Business_profile extends MY_Controller {
                     $fourdata .= '</div>';
                 }
                 $fourdata .= '</div></a><div class="comment-name"><b>';
-                $fourdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
+                $fourdata .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
                 $fourdata .= '<div class="comment-details" id= "showcommenttwo' . $rowdata['business_profile_post_comment_id'] . '">';
                 $fourdata .= '' . $this->common->make_links($rowdata['comments']) . '</div>';
                 $fourdata .= '<div class="edit-comment-box"><div class="inputtype-edit-comment">';
@@ -9356,7 +9316,7 @@ class Business_profile extends MY_Controller {
             // $cmtinsert = '<div class="all-comment-comment-box">';
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+            $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
             if ($business_userimage != '') {
 
 
@@ -9377,12 +9337,12 @@ class Business_profile extends MY_Controller {
                 $a = $company_name;
                 $acr = substr($a, 0, 1);
 
-                $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
+                $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-img-div">';
                 $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div></a>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '<div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -9564,7 +9524,7 @@ class Business_profile extends MY_Controller {
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
-            $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+            $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
             if ($business_userimage != '') {
 
                 if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
@@ -9585,12 +9545,12 @@ class Business_profile extends MY_Controller {
                 $a = $company_name;
                 $acr = substr($a, 0, 1);
 
-                $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
+                $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-img-div">';
                 $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div></a>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '<div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -9741,11 +9701,11 @@ class Business_profile extends MY_Controller {
 
                 $companyname = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id']))->row()->company_name;
                 $companyslug = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id']))->row()->business_slug;
-
+                
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
-                $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+                $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
 
                 if ($business_userimage != '') {
 
@@ -9765,12 +9725,12 @@ class Business_profile extends MY_Controller {
                     $a = $companyname;
                     $acr = substr($a, 0, 1);
 
-                    $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
+                    $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-img-div">';
                     $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
-                $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $companyname . '</a></b>';
+                $cmtinsert .= '<div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $companyname . '</a></b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id= "showcomment' . $business_profile['business_profile_post_comment_id'] . '"" >';
                 $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -10041,7 +10001,7 @@ class Business_profile extends MY_Controller {
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $business_profile['user_id'], 'status' => 1))->row()->business_user_image;
 
                 $cmtinsert .= '<div class="all-comment-comment-box">';
-                $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+                $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
                 if ($business_userimage != '') {
 
                     if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $business_userimage)) {
@@ -10060,12 +10020,12 @@ class Business_profile extends MY_Controller {
                     $a = $companyname;
                     $acr = substr($a, 0, 1);
 
-                    $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
+                    $cmtinsert .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-img-div">';
                     $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
-                $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . $companyname . '</a></b>';
+                $cmtinsert .= '<div class="comment-name"><b><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . $companyname . '</a></b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '<div class="comment-details" id="showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '">';
                 $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -10194,7 +10154,7 @@ class Business_profile extends MY_Controller {
 
                 $mulimgfour .= '<div class="all-comment-comment-box">';
 
-                $mulimgfour .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-design-pro-comment-img">';
+                $mulimgfour .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'"><div class="post-design-pro-comment-img">';
 
                 $business_userimage = $this->db->get_where('business_profile', array('user_id' => $rowdata['user_id'], 'status' => 1))->row()->business_user_image;
                 if ($business_userimage != '') {
@@ -10216,13 +10176,13 @@ class Business_profile extends MY_Controller {
                     $a = $companyname;
                     $acr = substr($a, 0, 1);
 
-                    $mulimgfour .= '<div class="post-img-div"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
+                    $mulimgfour .= '<div class="post-img-div"><a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">';
                     $mulimgfour .= ucfirst(strtolower($acr));
                     $mulimgfour .= '</a></div>';
                     $mulimgfour .= '</div>';
                 }
                 $mulimgfour .= '<div class="comment-name"><b>';
-                $mulimgfour .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
+                $mulimgfour .= '<a href="'.base_url('business_profile/business_profile_manage_post/'.$companyslug).'">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
                 $mulimgfour .= '<div class="comment-details" id="imgshowcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: block;">';
 
 
@@ -10747,71 +10707,235 @@ class Business_profile extends MY_Controller {
 //echo "<pre>"; print_r($contactperson); die();
 
 
+      
+            foreach ($contactperson as $contact) {
 
-        foreach ($contactperson as $contact) {
 
+                //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
+                //$contactdata .= '<ul id="' . $contact['contact_id'] . '">';
 
-            //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
-            //$contactdata .= '<ul id="' . $contact['contact_id'] . '">';
+                if ($contact['contact_to_id'] == $userid) {
 
-            if ($contact['contact_to_id'] == $userid) {
+                    $contition_array = array('user_id' => $contact['contact_from_id'], 'status' => '1');
+                    $contactperson_from = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-                $contition_array = array('user_id' => $contact['contact_from_id'], 'status' => '1');
-                $contactperson_from = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                    if ($contactperson_from) {
 
-                if ($contactperson_from) {
+                        $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
+                        $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
 
-                    $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
-                    $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
+                        $contactdata .= '<li>';
+                        $contactdata .= '<div class="addcontact-left">';
+                        $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
+                        $contactdata .= '<div class="addcontact-pic">';
 
-                    $contactdata .= '<li>';
-                    $contactdata .= '<div class="addcontact-left">';
-                    $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
-                    $contactdata .= '<div class="addcontact-pic">';
+                        if ($busdata[0]['business_user_image']) {
 
-                    if ($busdata[0]['business_user_image']) {
+                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
+                                $a = $busdata[0]['company_name'];
+                                $acr = substr($a, 0, 1);
 
-                        if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
+                                $contactdata .= '<div class="post-img-div">';
+                                $contactdata .= ucfirst(strtolower($acr));
+                                $contactdata .= '</div>';
+                            } else {
+
+                                $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
+                            }
+                        } else {
                             $a = $busdata[0]['company_name'];
                             $acr = substr($a, 0, 1);
 
                             $contactdata .= '<div class="post-img-div">';
                             $contactdata .= ucfirst(strtolower($acr));
                             $contactdata .= '</div>';
-                        } else {
-
-                            $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
                         }
-                    } else {
-                        $a = $busdata[0]['company_name'];
-                        $acr = substr($a, 0, 1);
-
-                        $contactdata .= '<div class="post-img-div">';
-                        $contactdata .= ucfirst(strtolower($acr));
                         $contactdata .= '</div>';
+                        $contactdata .= '<div class="addcontact-text">';
+                        $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b></span>';
+                        $contactdata .= '' . $inddata[0]['industry_name'] . '';
+                        $contactdata .= '</div>';
+                        $contactdata .= '</a>';
+                        $contactdata .= '</div>';
+                        $contactdata .= '<div class="addcontact-right">';
+                        $contactdata .= '<a href="#" class="add-left-true" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
+                        $contactdata .= '<a href="#" class="add-right-true"  onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
+                        $contactdata .= '</div>';
+                        $contactdata .= '</li>';
+                    }
+                } else {
+
+
+
+                    $contition_array = array('user_id' => $contact['contact_to_id'], 'status' => '1');
+                    $contactperson_to = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+                    if ($contactperson_to) {
+
+
+                        $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_to_id'], $data = '*', $join_str = array());
+
+
+                        $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
+
+                        $contactdata .= '<li>';
+                        $contactdata .= '<div class="addcontact-left custome-approved-contact">';
+                        $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
+                        $contactdata .= '<div class="addcontact-pic">';
+
+                        if ($busdata[0]['business_user_image']) {
+
+                            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
+                                $a = $busdata[0]['company_name'];
+                                $acr = substr($a, 0, 1);
+
+                                $contactdata .= '<div class="post-img-div">';
+                                $contactdata .= ucfirst(strtolower($acr));
+                                $contactdata .= '</div>';
+                            } else {
+
+                                $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
+                            }
+                        } else {
+                            $a = $busdata[0]['company_name'];
+                            $acr = substr($a, 0, 1);
+
+                            $contactdata .= '<div class="post-img-div">';
+                            $contactdata .= ucfirst(strtolower($acr));
+                            $contactdata .= '</div>';
+                        }
+                        $contactdata .= '</div>';
+                        $contactdata .= '<div class="addcontact-text">';
+                        $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b> confirmed your contact request</span>';
+                        //$contactdata .= '' . $inddata[0]['industry_name'] . '';
+                        $contactdata .= '</div>';
+                        $contactdata .= '</a>';
+                        $contactdata .= '</div>';
+                        $contactdata .= '</li>';
+                    }
+                }
+                //$contactdata .= '</ul>';
+            }
+        
+         if($contactperson){
+      $seeall = '<a class="fr" href="' . base_url() . 'business_profile/contact_list">See All</a>';
+    
+        }else{
+         $seeall = '<div class="fw"><div class="art-img-nn">
+                                                <div class="art_no_post_img">
+                                                    <img src="'.base_url().'img/No_Contact_Request.png">
+                                                </div>
+                                                <div class="art_no_post_text_c">
+                                                    No Contact Request Available.
+                                                </div>
+                             </div></div>';      
+        }
+      echo json_encode(
+                        array(
+                            "contactdata" => $contactdata,
+                            "seeall" => $seeall,
+                ));
+    }
+
+    /*public function contact_approve() {
+
+        $toid = $_POST['toid'];
+        $status = $_POST['status'];
+        $userid = $this->session->userdata('aileenuser');
+
+        //if user deactive profile then redirect to business_profile/index untill active profile start
+        $contition_array = array('user_id' => $userid, 'status' => '0', 'is_deleted' => '0');
+
+        $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+        if ($business_deactive) {
+            redirect('business_profile/');
+        }
+        //if user deactive profile then redirect to business_profile/index untill active profile End
+
+        $contition_array = array('contact_from_id' => $toid, 'contact_to_id' => $userid, 'status' => 'pending');
+        $person = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+        $contactid = $person[0]['contact_id'];
+        if ($status == 1) {
+            $data = array(
+                'modify_date' => date('Y-m-d', time()),
+                'status' => 'confirm',
+                'not_read' => 2
+            );
+
+            $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contactid);
+        } else {
+
+            $data = array(
+                'modify_date' => date('Y-m-d', time()),
+                'status' => 'reject'
+            );
+
+            $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contactid);
+        }
+
+        $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
+        $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+        $contition_array = array('contact_from_id' => $userid, 'status' => 'confirm');
+        $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        $unique_user = array_merge($contactperson_req, $contactperson_con);
+
+        $new = array();
+        foreach ($unique_user as $value) {
+            $new[$value['contact_id']] = $value;
+        }
+
+        $post = array();
+
+        foreach ($new as $key => $row) {
+
+            $post[$key] = $row['contact_id'];
+        }
+        array_multisort($post, SORT_DESC, $new);
+
+        $contactperson = $new;
+
+
+        if ($contactperson) {
+            foreach ($contactperson as $contact) {
+
+
+                //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
+                $contactdata .= '<ul id="' . $contact['contact_id'] . '">';
+
+                if ($contact['contact_to_id'] == $userid) {
+
+
+                    $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
+                    $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
+
+
+                    $contactdata .= '<li>';
+                    $contactdata .= '<div class="addcontact-left">';
+                    $contactdata .= '<a href="#">';
+                    $contactdata .= '<div class="addcontact-pic">';
+
+                    if ($busdata[0]['business_user_image']) {
+                        $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
+                    } else {
+                        $contactdata .= '<img src="' . base_url(WHITEIMAGE) . '">';
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text">';
-                    $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b></span>';
+                    $contactdata .= '<span><b>' . $busdata[0]['company_name'] . '</b></span>';
                     $contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
                     $contactdata .= '</a>';
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-right">';
-                    $contactdata .= '<a href="#" class="add-left-true" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
-                    $contactdata .= '<a href="#" class="add-right-true"  onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
+                    $contactdata .= '<a href="javascript:void(0);" class="add-left-true" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
+                    $contactdata .= '<a href="javascript:void(0);"  class="add-right-true" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
                     $contactdata .= '</div>';
                     $contactdata .= '</li>';
-                }
-            } else {
-
-
-
-                $contition_array = array('user_id' => $contact['contact_to_id'], 'status' => '1');
-                $contactperson_to = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                if ($contactperson_to) {
-
+                } else {
 
                     $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_to_id'], $data = '*', $join_str = array());
 
@@ -10853,297 +10977,134 @@ class Business_profile extends MY_Controller {
                     $contactdata .= '</div>';
                     $contactdata .= '</li>';
                 }
+                $contactdata .= '</ul>';
             }
-            //$contactdata .= '</ul>';
-        }
-
-        if ($contactperson) {
-            $seeall = '<a class="fr" href="' . base_url() . 'business_profile/contact_list">See All</a>';
         } else {
-            $seeall = '<div class="fw"><div class="art-img-nn">
+
+            $contactdata = '<div class="art-img-nn">
                                                 <div class="art_no_post_img">
-                                                    <img src="' . base_url() . 'img/No_Contact_Request.png">
+                                                    <img src="http://localhost/aileensoul/img/No_Contact_Request.png">
                                                 </div>
                                                 <div class="art_no_post_text_c">
-                                                    No Contact Request Available.
+                                                    No Contact request Available.
                                                 </div>
-                             </div></div>';
+                             </div>';
         }
+
+        $contition_array = array('contact_type' => 2, 'status' => 'confirm');
+        $search_condition = "(contact_from_id = '$userid' OR contact_to_id = '$userid')";
+        $contactpersonc = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
+        $countdata = count($contactpersonc);
+        $contactpersonc = $countdata;
+
+
+        $contition_array = array('user_id' => $contactpersonc[0]['contact_from_id'], 'is_delete' => '0');
+        $uservalid = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+        $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $contactpersonc[0]['contact_from_id'], $data = '*', $join_str = array());
+
+        $contition_array = array('contact_to_id' => $login, 'contact_from_id' => $contactpersonc[0]['contact_from_id'], 'contact_type' => 2);
+
+        $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+
+
+        $contactdataview = ' <div class="job-contact-frnd">
+
+                                <div class="profile-job-post-detail clearfix" id="' . "removecontact" . $cdata[0]['user_id'] . '"><div class="profile-job-post-title-inside clearfix">
+                                                <div class="profile-job-post-location-name">
+                                                    <div class="user_lst"><ul>
+
+                                                            <li class="fl">
+                                                                <div class="follow-img">';
+
+        if ($cdata[0]['business_user_image'] != '') {
+
+            $contactdataview .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">';
+
+            if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image'])) {
+                $a = $cdata[0]['company_name'];
+                $acr = substr($a, 0, 1);
+
+                $contactdataview .= '<div class="post-img-userlist">';
+                $contactdataview .= ucfirst(strtolower($acr));
+                $contactdataview .= '</div>';
+            } else {
+
+                $contactdataview .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image']) . '" height="50px" width="50px" alt="" >';
+            }
+
+            $contactdataview .= '</a>';
+        } else {
+
+
+            $contactdataview .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">';
+
+            $a = $cdata[0]['company_name'];
+            $acr = substr($a, 0, 1);
+            $contactdataview .= '<div class="post-img-userlist">';
+            $contactdataview .= ucfirst(strtolower($acr));
+            $contactdataview .= '</div>';
+
+            $contactdataview .= '</a>';
+        }
+        $contactdataview .= '</div></li>';
+
+        $contactdataview .= '  <li style="width: 67%">
+                                                                
+                                                                    <div class="follow-li-text " style="padding: 0;">';
+
+        $contactdataview .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">' . ucfirst(strtolower($cdata[0]['company_name'])) . '</a>';
+
+        $contactdataview .= '</div>';
+
+
+        $contactdataview .= '<div>';
+
+        $category = $this->db->get_where('industry_type', array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name;
+
+
+        $contactdataview .= '<a>';
+
+        if ($category) {
+
+            $contactdataview .= $category;
+        } else {
+            $contactdataview .= $cdata[0]['other_industrial'];
+        }
+        $contactdataview .= '</a></div>';
+
+        $contactdataview .= '</li>';
+
+        $contactdataview .= '<li class="fr">';
+
+        $contactdataview .= '<div class="user_btn cont_req" id="' . "statuschange" . $cdata[0]['user_id'] . '">
+                    <button onclick="contact_person_cancle(' . $cdata[0]['user_id'] . ', "confirm")">
+                            In contacts
+                            </button> 
+                             </div>';
+
+
+        $contactdataview .= '</li>';
+
+        $contactdataview .= '<ul></div></div></div></div></div>';
+
+
+
+
         echo json_encode(
                 array(
                     "contactdata" => $contactdata,
-                    "seeall" => $seeall,
+                    "contactcount" => $contactpersonc,
+                    "contactdataview" => $contactdataview,
         ));
+
+
+        //echo $contactdata;
     }
-
-    /* public function contact_approve() {
-
-      $toid = $_POST['toid'];
-      $status = $_POST['status'];
-      $userid = $this->session->userdata('aileenuser');
-
-      //if user deactive profile then redirect to business_profile/index untill active profile start
-      $contition_array = array('user_id' => $userid, 'status' => '0', 'is_deleted' => '0');
-
-      $business_deactive = $this->data['business_deactive'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-      if ($business_deactive) {
-      redirect('business_profile/');
-      }
-      //if user deactive profile then redirect to business_profile/index untill active profile End
-
-      $contition_array = array('contact_from_id' => $toid, 'contact_to_id' => $userid, 'status' => 'pending');
-      $person = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-      $contactid = $person[0]['contact_id'];
-      if ($status == 1) {
-      $data = array(
-      'modify_date' => date('Y-m-d', time()),
-      'status' => 'confirm',
-      'not_read' => 2
-      );
-
-      $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contactid);
-      } else {
-
-      $data = array(
-      'modify_date' => date('Y-m-d', time()),
-      'status' => 'reject'
-      );
-
-      $updatdata = $this->common->update_data($data, 'contact_person', 'contact_id', $contactid);
-      }
-
-      $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
-      $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-      $contition_array = array('contact_from_id' => $userid, 'status' => 'confirm');
-      $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-      $unique_user = array_merge($contactperson_req, $contactperson_con);
-
-      $new = array();
-      foreach ($unique_user as $value) {
-      $new[$value['contact_id']] = $value;
-      }
-
-      $post = array();
-
-      foreach ($new as $key => $row) {
-
-      $post[$key] = $row['contact_id'];
-      }
-      array_multisort($post, SORT_DESC, $new);
-
-      $contactperson = $new;
-
-
-      if ($contactperson) {
-      foreach ($contactperson as $contact) {
-
-
-      //echo $busdata[0]['industriyal'];  echo '<pre>'; print_r($inddata); die();
-      $contactdata .= '<ul id="' . $contact['contact_id'] . '">';
-
-      if ($contact['contact_to_id'] == $userid) {
-
-
-      $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_from_id'], $data = '*', $join_str = array());
-      $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
-
-
-      $contactdata .= '<li>';
-      $contactdata .= '<div class="addcontact-left">';
-      $contactdata .= '<a href="#">';
-      $contactdata .= '<div class="addcontact-pic">';
-
-      if ($busdata[0]['business_user_image']) {
-      $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
-      } else {
-      $contactdata .= '<img src="' . base_url(WHITEIMAGE) . '">';
-      }
-      $contactdata .= '</div>';
-      $contactdata .= '<div class="addcontact-text">';
-      $contactdata .= '<span><b>' . $busdata[0]['company_name'] . '</b></span>';
-      $contactdata .= '' . $inddata[0]['industry_name'] . '';
-      $contactdata .= '</div>';
-      $contactdata .= '</a>';
-      $contactdata .= '</div>';
-      $contactdata .= '<div class="addcontact-right">';
-      $contactdata .= '<a href="javascript:void(0);" class="add-left-true" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',1);"><i class="fa fa-check" aria-hidden="true"></i></a>';
-      $contactdata .= '<a href="javascript:void(0);"  class="add-right-true" onclick = "return contactapprove(' . $contact['contact_from_id'] . ',0);"><i class="fa fa-times" aria-hidden="true"></i></a>';
-      $contactdata .= '</div>';
-      $contactdata .= '</li>';
-      } else {
-
-      $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_to_id'], $data = '*', $join_str = array());
-
-
-      $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
-
-      $contactdata .= '<li>';
-      $contactdata .= '<div class="addcontact-left custome-approved-contact">';
-      $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
-      $contactdata .= '<div class="addcontact-pic">';
-
-      if ($busdata[0]['business_user_image']) {
-
-      if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
-      $a = $busdata[0]['company_name'];
-      $acr = substr($a, 0, 1);
-
-      $contactdata .= '<div class="post-img-div">';
-      $contactdata .= ucfirst(strtolower($acr));
-      $contactdata .= '</div>';
-      } else {
-
-      $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
-      }
-      } else {
-      $a = $busdata[0]['company_name'];
-      $acr = substr($a, 0, 1);
-
-      $contactdata .= '<div class="post-img-div">';
-      $contactdata .= ucfirst(strtolower($acr));
-      $contactdata .= '</div>';
-      }
-      $contactdata .= '</div>';
-      $contactdata .= '<div class="addcontact-text">';
-      $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b> confirmed your contact request</span>';
-      //$contactdata .= '' . $inddata[0]['industry_name'] . '';
-      $contactdata .= '</div>';
-      $contactdata .= '</a>';
-      $contactdata .= '</div>';
-      $contactdata .= '</li>';
-      }
-      $contactdata .= '</ul>';
-      }
-      } else {
-
-      $contactdata = '<div class="art-img-nn">
-      <div class="art_no_post_img">
-      <img src="http://localhost/aileensoul/img/No_Contact_Request.png">
-      </div>
-      <div class="art_no_post_text_c">
-      No Contact request Available.
-      </div>
-      </div>';
-      }
-
-      $contition_array = array('contact_type' => 2, 'status' => 'confirm');
-      $search_condition = "(contact_from_id = '$userid' OR contact_to_id = '$userid')";
-      $contactpersonc = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
-      $countdata = count($contactpersonc);
-      $contactpersonc = $countdata;
-
-
-      $contition_array = array('user_id' => $contactpersonc[0]['contact_from_id'], 'is_delete' => '0');
-      $uservalid = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-      $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $contactpersonc[0]['contact_from_id'], $data = '*', $join_str = array());
-
-      $contition_array = array('contact_to_id' => $login, 'contact_from_id' => $contactpersonc[0]['contact_from_id'], 'contact_type' => 2);
-
-      $clistuser = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'status,contact_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-
-      $contactdataview = ' <div class="job-contact-frnd">
-
-      <div class="profile-job-post-detail clearfix" id="' . "removecontact" . $cdata[0]['user_id'] . '"><div class="profile-job-post-title-inside clearfix">
-      <div class="profile-job-post-location-name">
-      <div class="user_lst"><ul>
-
-      <li class="fl">
-      <div class="follow-img">';
-
-      if ($cdata[0]['business_user_image'] != '') {
-
-      $contactdataview .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">';
-
-      if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image'])) {
-      $a = $cdata[0]['company_name'];
-      $acr = substr($a, 0, 1);
-
-      $contactdataview .= '<div class="post-img-userlist">';
-      $contactdataview .= ucfirst(strtolower($acr));
-      $contactdataview .= '</div>';
-      } else {
-
-      $contactdataview .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $cdata[0]['business_user_image']) . '" height="50px" width="50px" alt="" >';
-      }
-
-      $contactdataview .= '</a>';
-      } else {
-
-
-      $contactdataview .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">';
-
-      $a = $cdata[0]['company_name'];
-      $acr = substr($a, 0, 1);
-      $contactdataview .= '<div class="post-img-userlist">';
-      $contactdataview .= ucfirst(strtolower($acr));
-      $contactdataview .= '</div>';
-
-      $contactdataview .= '</a>';
-      }
-      $contactdataview .= '</div></li>';
-
-      $contactdataview .= '  <li style="width: 67%">
-
-      <div class="follow-li-text " style="padding: 0;">';
-
-      $contactdataview .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">' . ucfirst(strtolower($cdata[0]['company_name'])) . '</a>';
-
-      $contactdataview .= '</div>';
-
-
-      $contactdataview .= '<div>';
-
-      $category = $this->db->get_where('industry_type', array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name;
-
-
-      $contactdataview .= '<a>';
-
-      if ($category) {
-
-      $contactdataview .= $category;
-      } else {
-      $contactdataview .= $cdata[0]['other_industrial'];
-      }
-      $contactdataview .= '</a></div>';
-
-      $contactdataview .= '</li>';
-
-      $contactdataview .= '<li class="fr">';
-
-      $contactdataview .= '<div class="user_btn cont_req" id="' . "statuschange" . $cdata[0]['user_id'] . '">
-      <button onclick="contact_person_cancle(' . $cdata[0]['user_id'] . ', "confirm")">
-      In contacts
-      </button>
-      </div>';
-
-
-      $contactdataview .= '</li>';
-
-      $contactdataview .= '<ul></div></div></div></div></div>';
-
-
-
-
-      echo json_encode(
-      array(
-      "contactdata" => $contactdata,
-      "contactcount" => $contactpersonc,
-      "contactdataview" => $contactdataview,
-      ));
-
-
-      //echo $contactdata;
-      }
-     */
-
+*/
+    
     public function contact_approve() {
 
         $toid = $_POST['toid'];
@@ -11297,7 +11258,7 @@ class Business_profile extends MY_Controller {
 
             $contactdata = '<div class="art-img-nn">
                                                 <div class="art_no_post_img">
-                                                    <img src="' . base_url() . 'img/No_Contact_Request.png">
+                                                    <img src="'.base_url().'img/No_Contact_Request.png">
                                                 </div>
                                                 <div class="art_no_post_text_c">
                                                     No Contact request Available.
@@ -11459,13 +11420,14 @@ class Business_profile extends MY_Controller {
             $contactdata = '<li><div class="art-img-nn" id= "art-blank">
                                     <div class="art_no_post_img">
 
-                                        <img src="' . base_url('img/No_Contact_Request.png') . '" width="100">
+                                        <img src="'.base_url('img/No_Contact_Request.png') .'" width="100">
 
                                     </div>
         <div class="art_no_post_text" style="font-size: 20px;">
                                         No Notifiaction Available.
                                     </div>
                                     </div></li>';
+            
         }
         echo $contactdata;
     }
@@ -11641,12 +11603,12 @@ class Business_profile extends MY_Controller {
         $this->data['city_data'] = array_values($loc);
 
         $this->data['demo'] = array_values($result1);
-
+        
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
         $slug_id = $this->data['slug_data'][0]['business_slug'];
-
+        
         if ($id == $this->data['slug_data'][0]['business_slug'] || $id == '') {
             $contition_array = array('business_slug' => $slug_id, 'status' => '1', 'business_step' => 4);
             $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -11659,7 +11621,7 @@ class Business_profile extends MY_Controller {
             $contition_array = array('user_id' => $businessdata1[0]['user_id'], 'is_delete' => '0');
             $this->data['busimagedata'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
-
+        
         $this->data['business_common'] = $this->load->view('business_profile/business_common', $this->data, TRUE);
         $this->load->view('business_profile/bus_contact', $this->data);
     }
@@ -11700,7 +11662,7 @@ class Business_profile extends MY_Controller {
             $unique_user2 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str = '', $groupby = '');
             $unique_user1 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
         } else {
-
+            
             $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $busuid = $this->data['busuid'] = $businessdata1[0]['user_id'];
@@ -12001,18 +11963,18 @@ class Business_profile extends MY_Controller {
 
     public function contact_count() {
 
-        $userid = $this->session->userdata('aileenuser');
+      $userid = $this->session->userdata('aileenuser');
 
         $contition_array = array('contact_to_id' => $userid, 'status' => 'pending', 'not_read' => '2');
         $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'count(*) as total', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+     
         $contition_array = array('contact_from_id' => $userid, 'status' => 'confirm', 'not_read' => '2');
         $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = 'count(*) as total1', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+      
         //$unique_user = array_merge($contactperson_req, $contactperson_con);
-
+        
         $main_total = $contactperson_req[0]['total'] + $contactperson_con[0]['total1'];
-
+        
         echo $main_total;
     }
 
@@ -13348,21 +13310,22 @@ class Business_profile extends MY_Controller {
     }
 
 //chat changes 15-7 end 
+    
     // recruiter available chek
-    public function bus_avail_check($userid = " ") {
-        $contition_array = array('business_slug' => $userid, 'is_deleted' => '1');
-        $availuser = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        if (count($availuser) > 0) {
-            redirect('business_profile/noavailable');
-        }
+public function bus_avail_check($userid = " ") 
+ {
+   $contition_array = array('business_slug' => $userid, 'is_deleted' => '1');
+   $availuser = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+    
+        if (count($availuser) > 0) 
+        {
+       redirect('business_profile/noavailable');
+         } 
     }
-
 // recruiter available chek
-
-    public function noavailable() {
-
-        $this->load->view('business_profile/notavalible', $this->data);
-    }
-
+   
+     public function noavailable() {
+         
+        $this->load->view('business_profile/notavalible', $this->data);  
+     }
 }
