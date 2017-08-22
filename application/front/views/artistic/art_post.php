@@ -161,6 +161,7 @@
                                                         $a = $artisticdata[0]['art_name'];
                                                         $acr = substr($a, 0, 1);
                                                         $b = $artisticdata[0]['art_lastname'];
+
                                                         $bcr = substr($b, 0, 1);
                                                         ?>
                                                         <div>
@@ -177,22 +178,15 @@
                                                 <div class="data_img_2">
 
                                                     <?php
-                                                    $a = $artisticdata[0]['art_name'];
-                                                    $words = explode(" ", $a);
-                                                    foreach ($words as $w) {
-                                                        $acronym .= $w[0];
-                                                    }
-                                                    ?>
-                                                    <?php
-                                                    $b = $artisticdata[0]['art_lastname'];
-                                                    $words = explode(" ", $b);
-                                                    foreach ($words as $w) {
-                                                        $acronym1 .= $w[0];
-                                                    }
+                                                        $a = $artisticdata[0]['art_name'];
+                                                        $acr = substr($a, 0, 1);
+                                                        $b = $artisticdata[0]['art_lastname'];
+                                                        
+                                                        $bcr = substr($b, 0, 1);
                                                     ?>
 
                                                     <div>
-                                                        <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                                                        <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                     </div>
                                                 </div>
                                             <?php } ?>
@@ -291,21 +285,13 @@
 
                                                                                 <?php
                                                                                 $a = $userlist['art_name'];
-                                                                                $words = explode(" ", $a);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr = $w[0];
-                                                                                }
-                                                                                ?>
-                                                                                <?php
-                                                                                $b = $userlist['art_lastname'];
-                                                                                $words = explode(" ", $b);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr1 = $w[0];
-                                                                                }
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    $b = $userlist['art_lastname'];
+                                                                                    $bcr = substr($b, 0, 1);
                                                                                 ?>
 
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
 
                                                                             <?php } ?>
@@ -406,22 +392,14 @@
                                                                             <?php } else { ?> 
 
                                                                                 <?php
-                                                                                $a = $userlist['art_name'];
-                                                                                $words = explode(" ", $a);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr = $w[0];
-                                                                                }
-                                                                                ?>
-                                                                                <?php
-                                                                                $b = $userlist['art_lastname'];
-                                                                                $words = explode(" ", $b);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr1 = $w[0];
-                                                                                }
+                                                                                 $a = $userlist['art_name'];
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    $b = $userlist['art_lastname'];
+                                                                                    $bcr = substr($b, 0, 1);
                                                                                 ?>
 
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
                                                                                         <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
                                                                                 echo ucwords($userlist['art_name']);
@@ -530,21 +508,13 @@
 
                                                                                 <?php
                                                                                 $a = $userlist['art_name'];
-                                                                                $words = explode(" ", $a);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr = $w[0];
-                                                                                }
-                                                                                ?>
-                                                                                <?php
-                                                                                $b = $userlist['art_lastname'];
-                                                                                $words = explode(" ", $b);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr1 = $w[0];
-                                                                                }
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    $b = $userlist['art_lastname'];
+                                                                                    $bcr = substr($b, 0, 1);
                                                                                 ?>
 
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
                                                                             <?php } ?></a>
                                                                     </div>
@@ -644,22 +614,14 @@
 
 
                                                                                 <?php
-                                                                                $a = $userlist['art_name'];
-                                                                                $words = explode(" ", $a);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr = $w[0];
-                                                                                }
-                                                                                ?>
-                                                                                <?php
-                                                                                $b = $userlist['art_lastname'];
-                                                                                $words = explode(" ", $b);
-                                                                                foreach ($words as $w) {
-                                                                                    $acr1 = $w[0];
-                                                                                }
+                                                                               $a = $userlist['art_name'];
+                                                                                    $acr = substr($a, 0, 1);
+                                                                                    $b = $userlist['art_lastname'];
+                                                                                    $bcr = substr($b, 0, 1);
                                                                                 ?>
 
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($acr1)); ?>
+                                                                                    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
                                                                             <?php } ?></a>
                                                                     </div>
@@ -748,11 +710,18 @@
                                             <img  src="<?php echo base_url($this->config->item('art_profile_thumb_upload_path') . $artisticdata[0]['art_user_image']); ?>"  alt="">
                                         <?php } ?>
 
-                                    <?php } else { ?>
+                                    <?php } else { 
+
+                                        $a = $artisticdata[0]['art_name'];
+                                            $acr = substr($a, 0, 1);
+                                            $b = $artisticdata[0]['art_lastname'];
+                                            $bcr = substr($b, 0, 1);
+
+                                        ?>
 
 
                                         <div class= "post-img-div">
-                                            <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                                            <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                         </div>
 
 
@@ -841,21 +810,13 @@
 
                                                                         <?php
                                                                         $a = $userimagefn;
-                                                                        $words = explode(" ", $a);
-                                                                        foreach ($words as $w) {
-                                                                            $acrony = $w[0];
-                                                                        }
-                                                                        ?>
-                                                                        <?php
-                                                                        $b = $userimageln;
-                                                                        $words = explode(" ", $b);
-                                                                        foreach ($words as $w) {
-                                                                            $acrony1 = $w[0];
-                                                                        }
+                                                                            $acr = substr($a, 0, 1);
+                                                                            $b = $userimageln;
+                                                                            $bcr = substr($b, 0, 1);
                                                                         ?>
 
                                                                         <div class="post-img-div">
-                                                                            <?php echo ucfirst(strtolower($acrony)) . ucfirst(strtolower($acrony1)); ?>
+                                                                            <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                         </div>
 
 
@@ -886,23 +847,14 @@
                                                                     <?php } else { ?>
 
                                                                         <?php
-                                                                        //echo $userfn; echo $userln; 
-                                                                        $a = $userfn;
-                                                                        $word = explode(" ", $a);
-                                                                        foreach ($word as $w) {
-                                                                            $userf = $w[0];
-                                                                        }
-                                                                        ?>
-                                                                        <?php
-                                                                        $b = $userln;
-                                                                        $word = explode(" ", $b);
-                                                                        foreach ($word as $w) {
-                                                                            $userl = $w[0];
-                                                                        }
+                                                                         $a = $userfn;
+                                                                            $acr = substr($a, 0, 1);
+                                                                            $b = $userln;
+                                                                            $bcr = substr($b, 0, 1);
                                                                         ?>
 
                                                                         <div class="post-img-div">
-                                                                            <?php echo ucfirst(strtolower($userf)) . ucfirst(strtolower($userl)); ?>
+                                                                            <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                         </div>
 
 
@@ -1301,6 +1253,7 @@
                                                             $countlike = $commnetcount[0]['art_likes_count'] - 1;
 
                                                             $likelistarray = explode(',', $likeuser);
+                                                            //echo'<pre>'; print_r($likelistarray); 
                                                             $likelistarray = array_reverse($likelistarray);
                                                             $art_fname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_name;
                                                             $art_lname = $this->db->get_where('art_reg', array('user_id' => $likelistarray[0], 'status' => 1))->row()->art_lastname;
@@ -1310,7 +1263,7 @@
                                                                     <?php
                                                                     $userid = $this->session->userdata('aileenuser');
 
-                                                                    if ($userid == $likelistarray[0]) {
+                                                                    if (in_array($userid, $likeuserarray)) {
 
                                                                         echo "You";
                                                                     } else {
@@ -1431,22 +1384,14 @@
 
 
                                                                                             <?php
-                                                                                            $a = $artname;
-                                                                                            $words = explode(" ", $a);
-                                                                                            foreach ($words as $w) {
-                                                                                                $acronym = $w[0];
-                                                                                            }
-                                                                                            ?>
-                                                                                            <?php
+                                                                                              $a = $artname;
+                                                                                            $acr = substr($a, 0, 1);
                                                                                             $b = $artlastname;
-                                                                                            $words = explode(" ", $b);
-                                                                                            foreach ($words as $w) {
-                                                                                                $acronym1 = $w[0];
-                                                                                            }
+                                                                                            $bcr = substr($b, 0, 1);
                                                                                             ?>
 
                                                                                             <div class="post-img-div">
-                                                                                                <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                                                                                                <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                             </div>
                                                                                        
                                                                                         <?php
@@ -1610,21 +1555,13 @@
 
                                                                 <?php
                                                                 $a = $art_fn;
-                                                                $words = explode(" ", $a);
-                                                                foreach ($words as $w) {
-                                                                    $acronym = $w[0];
-                                                                }
-                                                                ?>
-                                                                <?php
-                                                                $b = $art_ln;
-                                                                $words = explode(" ", $b);
-                                                                foreach ($words as $w) {
-                                                                    $acronym1 = $w[0];
-                                                                }
+                                                                    $acr = substr($a, 0, 1);
+                                                                    $b = $art_ln;
+                                                                    $bcr = substr($b, 0, 1);
                                                                 ?>
 
                                                                 <div class="post-img-div">
-                <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                 </div>
 
                                                                 <?php
@@ -1708,7 +1645,7 @@
 
 
                     </div>
-                    </section>
+                    </div>
                     <footer>
 <?php echo $footer; ?>
                     </footer>
@@ -1813,22 +1750,14 @@
                                         <?php } else { ?>
 
                                             <?php
-                                            $a = $artisticdata[0]['art_name'];
-                                            $words = explode(" ", $a);
-                                            foreach ($words as $w) {
-                                                $acronym = $w[0];
-                                            }
-                                            ?>
-                                            <?php
-                                            $b = $artisticdata[0]['art_lastname'];
-                                            $words = explode(" ", $b);
-                                            foreach ($words as $w) {
-                                                $acronym1 = $w[0];
-                                            }
+                                             $a = $artisticdata[0]['art_name'];
+                                                $acr = substr($a, 0, 1);
+                                                $b = $artisticdata[0]['art_lastname'];
+                                                $bcr = substr($b, 0, 1);
                                             ?>
 
                                             <div class="post-img-div">
-    <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+    <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                             </div>
 
 

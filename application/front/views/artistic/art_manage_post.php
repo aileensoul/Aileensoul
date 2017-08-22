@@ -193,20 +193,13 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                 <?php } else { ?>
 
                     <?php 
-                          $a = $artisticdata[0]['art_name'];
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
-                          <?php 
-                          $b = $artisticdata[0]['art_lastname'];
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                         $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);?>
 
                             <div class="post-img-user">
-                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                             </div>
                        
 
@@ -743,7 +736,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                 <tr>
 
                                     <?php if ($singlearray2[0]['image_name']) { ?>
-                                       <td class="image_profile" id="audio_bg">
+                                        <td class="image_profile"> 
                                             <audio>
 
 
@@ -755,7 +748,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                     <?php } ?>
 
                                     <?php if ($singlearray2[1]['image_name']) { ?>
-                                          <td class="image_profile" id="audio_bg">
+                                        <td class="image_profile">
                                             <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
@@ -764,7 +757,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[2]['image_name']) { ?>
-                                          <td class="image_profile" id="audio_bg">
+                                        <td class="image_profile">
                                             <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[2]['image_name']) ?> type="audio/mp3"">
                                                         <source src="movie.ogg" type="audio/mp3">
@@ -776,7 +769,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                 <tr>
 
                                     <?php if ($singlearray2[3]['image_name']) { ?>
-                                         <td class="image_profile" id="audio_bg">
+                                        <td class="image_profile"> 
                                             <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="audio/mp3">
@@ -785,7 +778,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[4]['image_name']) { ?>
-                                        <td class="image_profile" id="audio_bg">
+                                        <td class="image_profile">
                                             <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
@@ -794,7 +787,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[5]['image_name']) { ?>
-                                          <td class="image_profile" id="audio_bg">
+                                        <td class="image_profile">
                                             <audio  controls>
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
@@ -948,20 +941,14 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                     
 
                     <?php 
-                          $a = $artisticdata[0]['art_name'];
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
-                          <?php 
-                          $b = $artisticdata[0]['art_lastname'];
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                           $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);
+                                                                ?>
 
                             <div class="post-img-div">
-                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                             </div>
                        
 
@@ -1017,20 +1004,13 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                             <?php }else{?>
 
                             <?php 
-                          $a = $artisticdata[0]['art_name'];
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
-                          <?php 
-                          $b = $artisticdata[0]['art_lastname'];
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                         $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);?>
 
                             <div class="post-img-div">
-                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                             </div>
                        
 
@@ -1154,19 +1134,12 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
 
                                                         <?php 
                           $a = $firstnameposted;
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
-                          <?php 
-                          $b = $lastnameposted;
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $lastnameposted;
+                                                                $bcr = substr($b, 0, 1);?>
 
                             <div class="post-img-div">
-                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                             </div>
                        
 
@@ -1202,20 +1175,13 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                                   <?php } else { ?>
 
                                <?php 
-                          $a = $firstname;
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
-                          <?php 
-                          $b = $lastname;
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                         $a = $firstname;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $lastname;
+                                                                $bcr = substr($b, 0, 1);?>
 
                             <div class="post-img-div">
-                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                             </div>
                        
 
@@ -1687,7 +1653,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                                                         <div class="like_one_other">
                                                          <a href="javascript:void(0);"  onclick="likeuserlist(<?php echo $row['art_post_id']; ?>);">
                                                             <?php
-                                                            if ($userid == $likelistarray[0]) {
+                                                            if (in_array($userid, $likelistarray)) {
                                                                 echo "You";
                                                             } else {
                                                                 echo ucfirst(strtolower($art_fname));
@@ -1768,20 +1734,13 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
       
 
                                          <?php 
-                          $a = $artname;
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
-                          <?php 
-                          $b = $artlastname;
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                           $a = $artname;
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artlastname;
+                                                                $bcr = substr($b, 0, 1);?>
 
                             <div class="post-img-div">
-                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                             </div>
                        
 
@@ -1958,20 +1917,13 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
 
                                                     <?php 
-                          $a = $artisticdata[0]['art_name'];
-                          $words = explode(" ", $a);
-                          foreach ($words as $w) {
-                            $acronym = $w[0];
-                            }?>
-                          <?php 
-                          $b = $artisticdata[0]['art_lastname'];
-                          $words = explode(" ", $b);
-                          foreach ($words as $w) {
-                            $acronym1 = $w[0];
-                            }?>
+                         $a = $artisticdata[0]['art_name'];
+                                                                $acr = substr($a, 0, 1);
+                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $bcr = substr($b, 0, 1);?>
 
                             <div class="post-img-div">
-                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
+                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                             </div>
                        
 
