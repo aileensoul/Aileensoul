@@ -432,66 +432,161 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <!--new script for cities start-->
 <!-- script for skill textbox automatic end -->
-<script>
-
-                                        var data = <?php echo json_encode($demo); ?>;
-
-                                        $(function () {
-                                            // alert('hi');
-                                            $("#tags").autocomplete({
-                                                source: function (request, response) {
-                                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                    response($.grep(data, function (item) {
-                                                        return matcher.test(item.label);
-                                                    }));
-                                                },
-                                                minLength: 1,
-                                                select: function (event, ui) {
-                                                    event.preventDefault();
-                                                    $("#tags").val(ui.item.label);
-                                                    $("#selected-tag").val(ui.item.label);
-                                                    // window.location.href = ui.item.value;
-                                                }
-                                                ,
-                                                focus: function (event, ui) {
-                                                    event.preventDefault();
-                                                    $("#tags").val(ui.item.label);
-                                                }
-                                            });
-                                        });
-
-</script>
-                <script>
-
-var data1= <?php echo json_encode($city_data); ?>;
-//alert(data);
-
+ <!--new script for jobtitle,company and skill start-->
+ <script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
         
-$(function() {
-    // alert('hi');
-$( "#searchplace" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data1, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace").val(ui.item.label);
-    }
-});
-});
-  
+        $( "#tags" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_alldata", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#tags").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
 </script>
+<!--new script for jobtitle,company and skill  end-->
+
+<!--new script for jobtitle,company and skill start for mobile view-->
+ <script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#tags1" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_alldata", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#tags1").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+</script>
+<!--new script for jobtitle,company and skill for mobile view end-->
+
+<!--new script for cities start-->
+ <script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#searchplace" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#searchplace").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+</script>
+<!--new script for cities end-->
+
+<!--new script for cities start mobile view-->
+  <script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#searchplace1" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#searchplace1").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+</script>
+<!--new script for cities end mobile view-->
 <!-- for search validation -->
 <script type="text/javascript">
    function checkvalue() {
