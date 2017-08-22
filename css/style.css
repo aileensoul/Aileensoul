@@ -456,7 +456,7 @@ a:focus {
 .header2 ul li a#InboxLink{padding:12px 13px 4px;}
 .header2 ul li{border-right: 0.2px solid #1985b3;}
 .header2 ul li:last-child {
-    border-right: none;
+    border-right: none!important;
 }
 .header2 ul li a i {
     font-size: 15px;
