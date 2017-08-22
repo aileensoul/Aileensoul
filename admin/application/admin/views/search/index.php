@@ -49,29 +49,27 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Job User</h3>      
+                        <?php if($module == 1){ ?>
+                        <h3 class="box-title">Job User</h3>
+                        <?php }elseif($module == 2){?>
+                        <h3 class="box-title">Recruiter User</h3>
+                        <?php }elseif($module == 3){ ?>
+                        <h3 class="box-title">Freelancer Hire User</h3>
+                        <?php }elseif($module == 4){ ?>
+                        <h3 class="box-title">Freelancer Apply User</h3>
+                        <?php }elseif($module == 5){?>
+                        <h3 class="box-title">Business User</h3>
+                        <?php }elseif($module == 6){?>
+                        <h3 class="box-title">Artistic User</h3>
+                        <?php }?>
                     
                     <div class="box-tools">
-                       <?php echo form_open('search_keyword/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
+                       
                            <div class="input-group input-group-sm" >
 
-
-                        <input type="text" class="form-control input-sm" value="<?php echo $search_keyword; ?>" placeholder="Search" name="search_keyword" id="search_keyword">
-
                         <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default" id="search_btn"><i class="fa fa-search"></i></button>          
+                                        
                         </div><!--input-group-btn-->
-                <?php echo form_close(); ?>
-                     
-                     <?php if ($this->session->userdata('user_search_keyword')) 
-                            { 
-                    ?>
-
-                            <a href="<?php echo base_url('job/clear_search') ?>">Clear Search</a>
-
-                        <?php 
-                                } 
-                        ?>
 
                     </div><!--input-group input-group-sm-->
                 </div><!--box-tools-->
@@ -81,28 +79,13 @@ echo $leftmenu;
               <table class="table table-hover table-bordered">
                 <tbody>
                 <tr>
-                 <?php
-
-                        if ($this->uri->segment(2) == '' || $this->uri->segment(2) == 'user') 
-                        {
-
-                                $segment2 = 'user';
-
-                        } 
-                        else 
-                        {
-
-                                $segment2 = 'search';
-
-                        }
-
-                ?>
+                 
 
                     <th><i class="fa fa-bullhorn"></i> 
                     <a href="javascript:void(0);">ID.</a></th>
 
                     <th><i class="fa fa-user"></i>
-                    <a href="<?php echo ( $this->uri->segment(3) == 'fname' && $this->uri->segment(4) == 'ASC') ? site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/DESC/' . $offset) : site_url($this->uri->segment(1) . '/' . $segment2 . '/fname/ASC/' . $offset); ?>"> 
+                    <a href="javascript:void(0);"> 
                      Name
                      </a>
 
@@ -126,25 +109,6 @@ echo $leftmenu;
                      <a href="javascript:void(0);">User Location</a>
                      </th>
 
-<!--                    <th><i class="fa fa-fw fa-image"></i> 
-                     <a href="javascript:void(0);">Profile Image</a>
-                     </th>-->
-
-<!--                    <th><i class="fa fa-fw fa-pencil-square"></i> 
-                     <a href="javascript:void(0);">Status</a>
-                     </th>-->
-
-                    <th><i class="fa fa-fw fa-pencil"></i> 
-                    <a href="javascript:void(0);">Search Date</a>
-                    </th>
-
-<!--                    <th><i class="fa fa-fw fa-pencil"></i> 
-                    <a href="javascript:void(0);">Modify Date</a>
-                    </th>-->
-
-<!--                    <th><i class=" fa fa-edit"></i> 
-                     <a href="javascript:void(0);">Action</a>
-                     </th>-->
                 </tr>
                
                  <?php
@@ -173,74 +137,11 @@ echo $leftmenu;
                               }
                             ?>
                       </td>
-
-                    <td><?php echo $user['user_location']; ?>
+ <?php $cityname = $this->db->get_where('cities', array('city_id' => $user['user_location']))->row()->city_name; ?>
+                    <td><?php  echo $cityname; ?>
                        
                     </td>
 
-
-<!--                    <td> 
-                        <?php 
-
-//                            $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
-//
-//                            echo $cityname; if( $cityname){echo ",<br>";}
-//
-//                            $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
-//
-//                            echo $statename;if( $statename){echo ",<br>";}
-//
-//                            $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
-//                                            
-//                            echo $countryname;
-                        ?>
-                    </td>-->
-
-<!--                    <td> 
-                        <?php  if($user['job_user_image']) 
-                                {
-                        ?>
-                                <img src="<?php //echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user['job_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
-                        <?php }else{
-                        ?>
-                                <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
-                        <?php } ?>
-                    </td>-->
-
-<!--                    <td id="active<?php echo $user['job_id']?>">
-                        <?php if ($user['status'] == 1) 
-                              {
-                        ?>
-                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['job_id']; ?>);">Active</button>
-                        <?php 
-                            }else{ ?>
-
-                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['job_id']; ?>);">Deactive</button>
-
-                         <?php }?></button>
-                    </td>-->
-
-                    <td><?php echo $user['created_date']; ?></td>
-
-<!--                    <td><?php //echo $user['modified_date']; ?></td>-->
-
-<!--                    <td>-->
-
-                        <!-- <button class="btn btn-primary btn-xs">
-                         <i class="fa fa-pencil"></i>
-                        </button> -->
-
-<!--                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['job_id']; ?>);">
-                        <i class="fa fa-trash-o"></i>
-                        </button>-->
-
-<!--                        <a class="btn btn-success btn-xs" href="<?php echo base_url('job/profile/'.$user['job_id'] ); ?>">
-                         <i class="fa fa-fw fa-eye"></i>
-                        </a>-->
-                      <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
-                        <i class="fa fa-fw fa-eye"></i>
-                        </button> -->
-<!--                    </td>-->
 
                 </tr>
                  <?php

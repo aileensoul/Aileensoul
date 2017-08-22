@@ -27,7 +27,7 @@ class Search_keyword extends CI_Controller {
         include('include.php');
     }
 
-    public function job() {
+    public function index() {
         // This is userd for pagination offset and limoi start
           $limit = $this->paging['per_page'];
         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
@@ -57,21 +57,27 @@ class Search_keyword extends CI_Controller {
             $join_str[0]['join_type'] = '';
 
       
-       $data='search_info.keyword_id,search_info.search_keyword,search_info.search_location,search_info.user_id as search_userid,search_info.user_location,search_info.created_date,module,user.first_name,user.last_name,user.user_email';
+       $data='search_info.keyword_id,search_info.search_keyword,search_info.search_location,search_info.user_id as search_userid,search_info.user_location,search_info.created_date,user.first_name,user.last_name,user.user_email';
        if($module==1){
            $contition_array = array('search_info.status' => '1','search_info.module'=>'1');
+           $this->data['module']=1;
        }elseif ($module==2) {
             $contition_array = array('search_info.status' => '1','search_info.module'=>'2');
+            $this->data['module']=2;
         }elseif ($module==3) {
             $contition_array = array('search_info.status' => '1','search_info.module'=>'3');
+            $this->data['module']=3;
         }elseif ($module==4) {
             $contition_array = array('search_info.status' => '1','search_info.module'=>'4');
+            $this->data['module']=4;
         }elseif($module==5){
             $contition_array = array('search_info.status' => '1','search_info.module'=>'5');
+            $this->data['module']=5;
         }else{
             $contition_array = array('search_info.status' => '1','search_info.module'=>'6');
+            $this->data['module']=6;
         }
-     //  $contition_array = array('search_info.status' => '1','search_info.module'=>'1');
+    
         $this->data['users'] = $this->common->select_data_by_condition('search_info', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby = '');
 // This is userd for pagination offset and limoi End
 
