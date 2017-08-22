@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="people-list" id="people-list">
                         <div class="search border_btm">
                             <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
-                            <i class="fa fa-search"></i>
+                            <i class="fa fa-search" id="add_search"></i>
                         </div>
                         <ul class="list">
 

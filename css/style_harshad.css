@@ -60,6 +60,8 @@ border-radius: 100%;}
 .popup-text textarea{font-size: 15px!important;}
 .post-design-commnet-box .editable_text{line-height: 1.6;}
 .job-saved-box h3{border-bottom: none;}
+.border_btm .fsearch{color: #1b8ab9;}
+.profile-head-text a:hover{color: inherit;  }
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -76,7 +78,7 @@ padding: 3px;
 right: -8px;
 background-size: 100%;
 top: 9px;}
-
+#user_search:focus + #add_search{color: #1b8ab9;}
 /*chat module end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
