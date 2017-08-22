@@ -7,7 +7,9 @@
 .btn-success:active{background-color: white; color: #1b8ab9; }
 /*cover*/
 /*header start*/
-
+.dropdown-menu {
+    right:-1px;
+}
 .notification-data-inside h6{font-size: 15px;}
 /*.header ul li a{margin-top: 6px; margin-bottom: 6px; padding-top: 5px!important;}
 */
@@ -107,7 +109,6 @@ a.mesg_link:hover{
 
 /*recruiter profile start*/
 .contact-frnd-post{border-top: 1px solid #d9d9d9; }
-.rio{border: none;}
 .job-saved-box form .select2-selection__rendered li{margin: 0;}
 .rec_check{margin-top: -15px;}
 /*recruiter profile End*/
@@ -170,7 +171,7 @@ max-width: inherit;}
 
 /*extra css start*/
 #inboxcontainer::before{right: 17px;}
-
+.header ul li.dropdown-user ul li.logout{padding-bottom: 10px;}
 .header2 ul li{border-right: 1px solid #1985b3!important;}
 #InboxContainer{right: -5px;}
    #audio_bg {
