@@ -41,7 +41,7 @@ class Dashboard extends MY_Controller {
         //For count User Data
         $condition_array = array('is_delete' => '0');
         $data="user_id";
-        $this->data['user_list'] = $get_users = $this->common->select_data_by_condition('ailee_user', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
+        $this->data['user_list'] = $get_users = $this->common->select_data_by_condition('user', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
         
         //For Count Freelancer hire Register User Data
         $condition_array = array('is_delete' => 0);
@@ -53,6 +53,20 @@ class Dashboard extends MY_Controller {
         $data="page_id";
         $this->data['pages_list'] = $get_users = $this->common->select_data_by_condition('ailee_pages', $condition_array=array(), $data, $short_by, $order_by, $limit, $offset, $join_str = array());
        
+        //For Count Freelancer apply Register User Data
+        $condition_array = array('is_delete' => 0);
+        $data="freelancer_post_reg_id";
+        $this->data['freelancer_apply_list'] = $get_users = $this->common->select_data_by_condition('freelancer_post_reg', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
+
+        //For Count Business Register User Data
+        $condition_array = array('is_deleted' => 0);
+        $data="business_profile_id";
+        $this->data['business_list'] = $get_users = $this->common->select_data_by_condition('business_profile', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
+        
+        //For Count Artistic Register User Data
+        $condition_array = array('is_delete' => 0);
+        $data="art_id";
+        $this->data['artistic_list'] = $get_users = $this->common->select_data_by_condition('art_reg', $condition_array, $data, $short_by, $order_by, $limit, $offset, $join_str = array());
         
         $this->load->view('dashboard/index',$this->data);
 

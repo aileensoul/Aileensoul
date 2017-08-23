@@ -87,7 +87,7 @@ echo $leftmenu;
             </div>
              <!-- end Job User List box -->
             
-            <!-- start Job User List box -->
+            <!-- start Recruiter User List box -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-green">
@@ -101,7 +101,7 @@ echo $leftmenu;
                     <a href="<?php echo base_url('recruiter/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-             <!-- end Job User List box -->
+             <!-- end Recruiter User List box -->
              
              
               <!-- start Freelancer hire User List box -->
@@ -118,7 +118,56 @@ echo $leftmenu;
                     <a href="<?php echo base_url('freelancer_hire/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-             <!-- end Job User List box -->
+             <!-- end Freelancer hire User List box -->
+             
+              <!-- start Freelancer Apply User List box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo count($freelancer_apply_list)?></h3>
+                        <p>Freelancer Apply User</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php //echo base_url('job/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+             <!-- end Freelancer Apply User List box -->
+             
+              <!-- start Freelancer hire User List box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo count($business_list)?></h3>
+                        <p>Business User</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php //echo base_url('freelancer_hire/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+             <!-- end Freelancer hire User List box -->
+             
+             
+              <!-- start Freelancer Apply User List box -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3><?php echo count($artistic_list)?></h3>
+                        <p>Artistic User</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="<?php //echo base_url('job/user')?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+             <!-- end Freelancer Apply User List box -->
            
         </div><!-- /.row -->
         <!-- Main row -->
