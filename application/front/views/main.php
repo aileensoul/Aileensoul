@@ -101,6 +101,9 @@
                     <div class="mid-trns">
                         <div class="">
                             <div class="col-md-7 col-sm-6">
+                                <div class="pt15">
+                                    <marquee><h3 style="color: red;">Our site is under construction</h3></marquee>
+                                </div>
                                 <div class="top-middle">
                                     <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>every person in the world to make their career.</p></h3>
 
@@ -112,7 +115,9 @@
                                         <div class="carousel-inner" role="listbox">
                                             <div class="item active">  
                                                 <div class="carousel-caption">
+                                                    <div>
                                                     <img src="img/job1.png">
+                                                    </div>
                                                     <div class="carousel-text">
                                                         <h1>Job Profile</h1>
                                                         <p>Find best job options and connect with recruiters.</p>
@@ -121,7 +126,9 @@
                                             </div>
                                             <div class="item"> 
                                                 <div class="carousel-caption">
+                                                    <div>
                                                     <img src="img/rec.png">
+                                                    </div>
                                                     <div class="carousel-text">
                                                         <h1>Recruiter Profile</h1>
                                                         <p>Hire quality employees here.</p>
@@ -130,7 +137,9 @@
                                             </div>
                                             <div class="item"> 
                                                 <div class="carousel-caption">
+                                                    <div>
                                                     <img src="img/freelancer.png">
+                                                    </div>
                                                     <div class="carousel-text">
                                                         <h1>Freelance Profile</h1>
                                                         <p>Hire freelancers and also find freelance work.</p>
@@ -139,7 +148,9 @@
                                             </div>
                                             <div class="item"> 
                                                 <div class="carousel-caption">
+                                                    <div>
                                                     <img src="img/business.png">
+                                                    </div>
                                                     <div class="carousel-text">
                                                         <h1>Business Profile</h1>
                                                         <p>Grow your business network.</p>
@@ -148,7 +159,9 @@
                                             </div>
                                             <div class="item"> 
                                                 <div class="carousel-caption">
+                                                    <div>
                                                     <img src="img/art.png">
+                                                    </div>
                                                     <div class="carousel-text">
                                                         <h1>Artistic Profile</h1>
                                                         <p> Show your art & talent to the world.</p>

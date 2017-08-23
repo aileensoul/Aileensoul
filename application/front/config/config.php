@@ -775,8 +775,13 @@ $config['bus_post_main_max_height'] = '3000';
 
 // BUSINESS POST THUMBS
 $config['bus_post_thumb_upload_path'] = 'uploads/business_post/thumbs/';
-$config['bus_post_thumb_width'] = '350';
-$config['bus_post_thumb_height'] = '200';
+$config['bus_post_thumb_width'] = '335';
+$config['bus_post_thumb_height'] = '250';
+
+// BUSINESS POST RESIZED
+$config['bus_post_resized_upload_path'] = 'uploads/business_post/resized/';
+$config['bus_post_resized_width'] = '210';
+$config['bus_post_resized_height'] = '220';
 
 
 // ARTISTIC PROFILE IMAGE

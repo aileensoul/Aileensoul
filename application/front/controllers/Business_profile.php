@@ -895,10 +895,10 @@ class Business_profile extends MY_Controller {
 
                     $image_width = $response['result'][$i]['image_width'];
                     $image_height = $response['result'][$i]['image_height'];
-                    
+
                     $thumb_image_width = $this->config->item('bus_detail_thumb_width');
                     $thumb_image_height = $this->config->item('bus_detail_thumb_height');
-                    
+
                     if ($image_width > $image_height) {
                         $n_h = $thumb_image_height;
                         $image_ratio = $image_height / $n_h;
@@ -907,10 +907,9 @@ class Business_profile extends MY_Controller {
                         $n_w = $thumb_image_width;
                         $image_ratio = $image_width / $n_w;
                         $n_h = round($image_height / $image_ratio);
-                        
-                    }else{
-                        $n_w = $image_width;
-                        $n_h = $image_height;
+                    } else {
+                        $n_w = $thumb_image_width;
+                        $n_h = $thumb_image_height;
                     }
 
                     $business_profile_post_thumb[$i]['image_library'] = 'gd2';
@@ -1910,16 +1909,37 @@ class Business_profile extends MY_Controller {
                     if ($this->upload->do_upload('postattach')) {
 
                         $response['result'][] = $this->upload->data();
+
+                        $image_width = $response['result'][$i]['image_width'];
+                        $image_height = $response['result'][$i]['image_height'];
+
+                        $thumb_image_width = $this->config->item('bus_post_thumb_width');
+                        $thumb_image_height = $this->config->item('bus_post_thumb_height');
+                        $resized_image_width = $this->config->item('bus_post_resized_width');
+                        $resized_image_height = $this->config->item('bus_post_resized_height');
+
+                        if ($image_width > $image_height) {
+                            $n_h = $thumb_image_height;
+                            $image_ratio = $image_height / $n_h;
+                            $n_w = round($image_width / $image_ratio);
+                        } else if ($image_width < $image_height) {
+                            $n_w = $thumb_image_width;
+                            $image_ratio = $image_width / $n_w;
+                            $n_h = round($image_height / $image_ratio);
+                        } else {
+                            $n_w = $thumb_image_width;
+                            $n_h = $thumb_image_height;
+                        }
+
                         $business_profile_post_thumb[$i]['image_library'] = 'gd2';
                         $business_profile_post_thumb[$i]['source_image'] = $this->config->item('bus_post_main_upload_path') . $response['result'][$i]['file_name'];
                         $business_profile_post_thumb[$i]['new_image'] = $this->config->item('bus_post_thumb_upload_path') . $response['result'][$i]['file_name'];
                         $business_profile_post_thumb[$i]['create_thumb'] = TRUE;
-                        $business_profile_post_thumb[$i]['maintain_ratio'] = TRUE;
+                        $business_profile_post_thumb[$i]['maintain_ratio'] = FALSE;
                         $business_profile_post_thumb[$i]['thumb_marker'] = '';
-                        $business_profile_post_thumb[$i]['width'] = $this->config->item('bus_post_thumb_width');
-                        //$product_thumb[$i]['height'] = $this->config->item('product_thumb_height');
-                        $business_profile_post_thumb[$i]['height'] = 2;
-                        $business_profile_post_thumb[$i]['master_dim'] = 'width';
+                        $business_profile_post_thumb[$i]['width'] = $n_w;
+                        $business_profile_post_thumb[$i]['height'] = $n_h;
+//                        $business_profile_post_thumb[$i]['master_dim'] = 'width';
                         $business_profile_post_thumb[$i]['quality'] = "60%";
                         $business_profile_post_thumb[$i]['x_axis'] = '0';
                         $business_profile_post_thumb[$i]['y_axis'] = '0';
@@ -1929,6 +1949,36 @@ class Business_profile extends MY_Controller {
                         $dataimage = $response['result'][$i]['file_name'];
                         //Creating Thumbnail
                         $this->$instanse->resize();
+
+                        /* CROP */
+                        // reconfigure the image lib for cropping
+                        $conf_new[$i] = array(
+                            'image_library' => 'gd2',
+                            'source_image' => $business_profile_post_thumb[$i]['new_image'],
+                            'create_thumb' => FALSE,
+                            'maintain_ratio' => FALSE,
+                            'width' => $resized_image_width,
+                            'height' => $resized_image_height
+                        );
+
+                        $conf_new[$i]['new_image'] = $this->config->item('bus_post_resized_upload_path') . $response['result'][$i]['file_name'];
+
+                        $left = ($n_w / 2) - ($resized_image_width / 2);
+                        $top = ($n_h / 2) - ($resized_image_height / 2);
+
+                        $conf_new[$i]['x_axis'] = $left;
+                        $conf_new[$i]['y_axis'] = $top;
+
+                        $instanse1 = "image1_$i";
+                        //Loading Image Library
+                        $this->load->library('image_lib', $conf_new[$i], $instanse1);
+                        $dataimage = $response['result'][$i]['file_name'];
+                        //Creating Thumbnail
+                        $this->$instanse1->crop();
+
+                        /* CROP */
+                        
+
                         $response['error'][] = $thumberror = $this->$instanse->display_errors();
 
                         $return['data'][] = $imgdata;
