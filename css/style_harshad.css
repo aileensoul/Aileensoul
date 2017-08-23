@@ -151,7 +151,7 @@ a.mesg_link:hover{
 .profile-head-text{font-family: arial;}
 .else_post_d{padding-left: 7px;}
 .post-design-name ul li .post_dot{font-size: 15px;}
-.follow_left_box_main_btn .bg_following{margin-top: 0px;}
+.follow_left_box_main_btn .bg_following{margin-top: 6px;}
 
 .addcontact-text{width: 60%;}
 .posterror-modal-close{float: right; border-radius: 100%;
@@ -174,6 +174,8 @@ font-size: 22px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Artisitc profile start*/
+
+.post-design-name ul li .else_post_d a.post_dot{padding-left: 1px;}
 .profile-head-text_dg textarea{padding: 6px 15px;}
 .popup-img-in_art {
     padding-left: 2px !important;
@@ -652,6 +654,10 @@ right: 10px;}
 
 @media screen and (max-width: 767px) {
 /*header start*/
+.padd_img {
+    padding-left: 3px !important;
+    padding-top: 3px !important;
+}
 .dropdown-menu {
     left: inherit !important;
     right: -11px !important;
