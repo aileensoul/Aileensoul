@@ -736,7 +736,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                 <tr>
 
                                     <?php if ($singlearray2[0]['image_name']) { ?>
-                                        <td class="image_profile"> 
+                                       <td class="image_profile" id="audio_bg"> 
                                             <audio>
 
 
@@ -748,8 +748,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                     <?php } ?>
 
                                     <?php if ($singlearray2[1]['image_name']) { ?>
-                                        <td class="image_profile">
-                                            <audio  controls>
+                                       <td class="image_profile" id="audio_bg"> 
+                                            <audio  >
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[1]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
@@ -757,8 +757,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[2]['image_name']) { ?>
-                                        <td class="image_profile">
-                                            <audio  controls>
+                                        <td class="image_profile" id="audio_bg"> 
+                                            <audio  >
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[2]['image_name']) ?> type="audio/mp3"">
                                                         <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
@@ -769,8 +769,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                 <tr>
 
                                     <?php if ($singlearray2[3]['image_name']) { ?>
-                                        <td class="image_profile"> 
-                                            <audio  controls>
+                                       <td class="image_profile" id="audio_bg">  
+                                            <audio  >
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[3]['image_name']) ?>" type="video/mp4">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
@@ -778,8 +778,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[4]['image_name']) { ?>
-                                        <td class="image_profile">
-                                            <audio  controls>
+                                      <td class="image_profile" id="audio_bg"> 
+                                            <audio  >
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[4]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.
@@ -787,8 +787,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                                         </td>
                                     <?php } ?>
                                     <?php if ($singlearray2[5]['image_name']) { ?>
-                                        <td class="image_profile">
-                                            <audio  controls>
+                                      <td class="image_profile" id="audio_bg"> 
+                                            <audio  >
                                                 <source src="<?php echo base_url($this->config->item('art_post_main_upload_path') . $singlearray2[5]['image_name']) ?>" type="audio/mp3"">
                                                 <source src="movie.ogg" type="audio/mp3">
                                                 Your browser does not support the audio tag.

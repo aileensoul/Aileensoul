@@ -266,7 +266,7 @@
                                                                                     $b = $userlist['art_lastname'];
                                                                                     $bcr = substr($b, 0, 1);
                                                                                     ?>
-                                                                                    <div class="post-img-div">
+                                                                                    <div class="post-img-profile">
                                                                                         <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
                                                                                     </div> 
                                                                                 <?php } else {
@@ -290,7 +290,7 @@
                                                                                     $bcr = substr($b, 0, 1);
                                                                                 ?>
 
-                                                                                <div class="post-img-div">
+                                                                                <div class="post-img-profile">
                                                                                     <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
 
@@ -398,7 +398,7 @@
                                                                                     $bcr = substr($b, 0, 1);
                                                                                 ?>
 
-                                                                                <div class="post-img-div">
+                                                                                <div class="post-img-profile">
                                                                                     <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
                                                                                         <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php
@@ -489,7 +489,7 @@
                                                                                     $b = $userlist['art_lastname'];
                                                                                     $bcr = substr($b, 0, 1);
                                                                                     ?>
-                                                                                    <div class="post-img-div">
+                                                                                    <div class="post-img-profile">
                                                                                         <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
                                                                                     </div> 
                                                                                 <?php } else {
@@ -513,7 +513,7 @@
                                                                                     $bcr = substr($b, 0, 1);
                                                                                 ?>
 
-                                                                                <div class="post-img-div">
+                                                                                <div class="post-img-profile">
                                                                                     <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
                                                                             <?php } ?></a>
@@ -597,7 +597,7 @@
                                                                                     $b = $userlist['art_lastname'];
                                                                                     $bcr = substr($b, 0, 1);
                                                                                     ?>
-                                                                                    <div class="post-img-div">
+                                                                                    <div class="post-img-profile">
                                                                                         <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)) ?>
                                                                                     </div> 
                                                                                 <?php } else {
@@ -620,7 +620,7 @@
                                                                                     $bcr = substr($b, 0, 1);
                                                                                 ?>
 
-                                                                                <div class="post-img-div">
+                                                                                <div class="post-img-profile">
                                                                                     <?php echo ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
                                                                                 </div>
                                                                             <?php } ?></a>
