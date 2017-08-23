@@ -101,9 +101,9 @@
                     <div class="mid-trns">
                         <div class="">
                             <div class="col-md-7 col-sm-6">
-                                <div class="pt15">
+<!--                                <div class="pt15">
                                     <marquee><h3 style="color: red;">Our site is under construction</h3></marquee>
-                                </div>
+                                </div>-->
                                 <div class="top-middle">
                                     <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>every person in the world to make their career.</p></h3>
 
