@@ -2500,17 +2500,18 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                             <div contenteditable="true" class="edt_2 editable_text" name="' . $row['art_post_id'] . '"  id="post_comment' . $row['art_post_id'] . '" placeholder="Add a Comment ..." onClick="entercomment(' . $row['art_post_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);"></div>
-                        </div>
+                        
                       ' . form_error('post_comment') . ' 
                         <div class="mob-comment">       
                             <button id="' . $row['art_post_id'] . '" onClick="insert_comment(this.id)"><img src="../img/send.png">
                             </button>
                         </div>
+                        </div>
                         <div class=" comment-edit-butn hidden-mob" >   
                            <button  id="'.$row['art_post_id'].'" onClick="insert_comment(this.id)">Comment</button> 
                         </div>
-
-                    </div>
+</div>
+                    
                     </div>
                     </div></div>';
                 

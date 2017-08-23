@@ -5,6 +5,7 @@
 
 .cancel-result:hover{background-color:#fff; color: #1b8ab9; border: 1px solid #1b8ab9;}
 .btn-success:active{background-color: white; color: #1b8ab9; }
+.profile-text1 .alert.alert-warning{margin-bottom: 0px;}
 /*cover*/
 /*header start*/
 .dropdown-menu {
@@ -62,6 +63,7 @@ border-radius: 100%;}
 .job-saved-box h3{border-bottom: none;}
 .border_btm .fsearch{color: #1b8ab9;}
 .profile-head-text a:hover{color: inherit;  }
+.post-design-box .post-design-desc input.my_text{padding-right: 45px;}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -83,6 +85,14 @@ top: 9px;}
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 /*popup start*/
+.modal-content-post{
+transform: translate(-50%, -50%);
+left: 50%;
+right: 50%;
+position: absolute;
+top: 50%;
+width: 100%;
+}
 /*popup end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -171,6 +181,7 @@ font-size: 22px;}
     padding-top: 9px;
     float: left;
 }
+.post-design-proo-img .post-img-profile{line-height: 0;}
 /*Artisitc profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -448,7 +459,7 @@ span.fu-time{font-size: 13px;}
 }
 @media screen and (max-width: 1024px) {
 /*header start*/
-
+.post-img-user{height: 100%; width: 100%;}
 
 /*header end*/
 
@@ -532,7 +543,9 @@ span.fu-time{font-size: 13px;}
 }
 @media screen and (max-width: 991px) {
 /*header start*/
-
+.dropdown-menu {
+    right: -10px;
+}
 #floatBarsG{margin-top: -3%;}
 .header2 ul.notification_data_in_h2{padding-right: 0px; width: 100%;}
 .header2 ul.notification_data_in_h2 li{width: 100%; border-right: none!important;}
@@ -555,7 +568,11 @@ span.fu-time{font-size: 13px;}
 
 /*all module-common start*/
 
-
+.profile-main-box-buis-menu li a {
+    font-size: 12px;
+    padding: 12px 22px 12px;
+    width: 100%;
+}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -626,13 +643,23 @@ right: 10px;}
 
 @media screen and (max-width: 767px) {
 /*header start*/
+.dropdown-menu {
+    left: inherit !important;
+    right: -11px !important;
+    top: 35px;
+}
 .cover .fancybox-slide > *{width: 90%;}
 .por_content ul li .pro-text{width: 100%;}
 #acon::before {
     right: 24px;
 }
-
+#notificationContainer::before {
+    right: 97px;
+}
 #floatBarsG{margin-top: -3%;}
+.post-img-user{line-height: 0;}
+.bg-search .header2{padding: 0px 9px;}
+#notificationContainer{right:2px; width: 98%;}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -651,8 +678,18 @@ right: 10px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*all module-common start*/
-
-
+.profile-main-box-buis-menu ul li a{width: 100%;}
+.bpro-fw6 li {
+    width: 19.66% !important;
+}
+.pro-fw li {
+    width: 25% !important;
+}
+/*.bpro-fw6 li {
+    width: 19.66% !important;
+}*/
+#row2 img{height: 250px;}
+#row1{height: 250px;}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -663,6 +700,8 @@ right: 10px;}
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 /*popup start*/
+.modal-post{padding-top: 40px;}
+.popup-textarea textarea{padding-right: 18px;}
 /*popup end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -701,7 +740,7 @@ right: 10px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Artisitc profile start*/
-
+.mian_box_num{right: 8px;}
 /*Artisitc profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -720,6 +759,9 @@ right: 10px;}
 #floatBarsG {
     margin-top: 2%;
 }
+.post-img-user {
+    line-height: 2;
+}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -737,7 +779,14 @@ right: 10px;}
 
 /*all module-common start*/
 .post-img-user{width: 100%; height: 100%;}
-
+.audio_source audio {
+    width: 229px;
+}
+.audio_img {
+    height: 230px !important;
+    width: 230px !important;
+    position: relative !important;
+}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -818,12 +867,21 @@ label.cameraButton{opacity: 0.8;}
 
 @media screen and (max-width: 479px) {
 /*header start*/
-
+.header ul li a{padding-top: 7px!important;}
+.header ul li.dropdown-user a{padding-top: 10px!important;}
+#notificationContainer::before {
+    right: 90px;
+}
+.dropdown-menu {
+    left: inherit !important;
+    right: -10px !important;
+    top: 35px;
+}
 #floatBarsG {
     margin-left: -167px;
     margin-top: -1%;
 }#acon::before {
-    right: 145px !important;
+    right: 140px !important;
 }
 #add_contact #addcontactContainer{right: 0;}
 #add_contact #addcontactContainer::before {
@@ -849,11 +907,27 @@ padding: 4px 5px!important;
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*all module-common start*/
+.post-edit-popup .popup-text textarea{padding-right: 15px;}
+.mian_box_num {
+    right: -9px;
+}
   .cover-pic {
     right: -6%;
     bottom: 61%;
 }
-
+.post-img-user {
+    line-height: 0;
+}
+#row2 img{height: 200px;}
+#row1{height: 200px;}
+.audio_source audio {
+    width: 200px;
+}
+.audio_img {
+    height: 200px !important;
+    width: 200px !important;
+    position: relative !important;
+}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -910,7 +984,14 @@ padding: 4px 5px!important;
 
 @media screen and (max-width: 360px) {
 /*header start*/
-
+.dropdown-menu {
+    left: inherit !important;
+    right: -6px !important;
+    top: 35px;
+}
+#notificationContainer::before {
+    right: 78px;
+}
 #floatBarsG {
     margin-left: -145px;
     margin-top: -3%;
@@ -918,6 +999,10 @@ padding: 4px 5px!important;
 
 #add_contact #addcontactContainer::before {
     right: 207px;
+}
+
+#acon::before {
+    right: 127px !important;
 }
 /*header end*/
 
@@ -939,6 +1024,14 @@ padding: 4px 5px!important;
 
 /*all module-common start*/
 
+.audio_source audio {
+    width: 150px;
+}
+.audio_img {
+    height: 150px !important;
+    width: 150px !important;
+    position: relative !important;
+}
 
 /*all module-common end*/
 
@@ -981,7 +1074,7 @@ padding: 4px 5px!important;
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-.post-design-name{width: 78%;}
+.post-design-name{width: 66%;}
 
 /*Business profile End*/
 
@@ -1020,8 +1113,14 @@ padding: 4px 5px!important;
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*all module-common start*/
-
-
+.post-design-name {
+    width: 70%;
+}
+.dropdown2 a{padding: 8px;}
+.editor-content {
+    width: 70%;
+    padding-left: 0;
+}
 /*all module-common end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
