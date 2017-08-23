@@ -2030,7 +2030,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
                         $allowed = array('gif', 'PNG', 'jpg', 'jpeg','png');
                         $allowespdf = array('pdf');
-                        $allowesvideo = array('mp4', 'webm');
+                        $allowesvideo = array('mp4', 'webm', 'MP4');
                         $allowesaudio = array('mp3');
                         $filename = $artmultiimage[0]['image_name'];
                         $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -8312,7 +8312,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                        $cmtlikeuser .= '<div class="like_one_other">';
 
                  
-                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist1" onclick="likeuserlistimg(' . $post_image . ')">';
+                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist" onclick="likeuserlistimg(' . $post_image . ')">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -8401,7 +8401,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                        $cmtlikeuser .= '<div class="like_one_other">';
 
                  
-                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist1"  onclick="likeuserlistimg(' . $post_image . ')">';
+                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist"  onclick="likeuserlistimg(' . $post_image . ')">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -8530,7 +8530,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                     }
       $cmtlikeuser .= '<div class="like_one_other">';
 
-                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist1" onclick="likeuserlistimg(' . $post_image . ')">';
+                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist" onclick="likeuserlistimg(' . $post_image . ')">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
