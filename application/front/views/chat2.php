@@ -722,7 +722,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     $('#seemsg').html(data.seeall);
                                     setTimeout(
                                             chatmsg,
-                                            500
+                                            1000
                                             );
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {

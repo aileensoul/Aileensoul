@@ -278,7 +278,7 @@ $(document).ready(function() {
                     $('#seemsg').html(data.seeall);
                  setTimeout(
                         chatmsg,
-                       500
+                       1000
                         );
                 },
              error: function (XMLHttpRequest, textStatus, errorThrown) {
