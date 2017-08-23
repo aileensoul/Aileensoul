@@ -610,7 +610,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                             }
                             ?>
                             <?php
-                            $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm');
+                            $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm', 'MP4');
 
                             foreach ($multiplevideo as $mke => $mval) {
 
@@ -1373,7 +1373,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                                                         <?php
                                                         $allowed = array('gif', 'png', 'PNG', 'jpg','PNG');
                                                         $allowespdf = array('pdf');
-                                                        $allowesvideo = array('mp4', 'webm');
+                                                        $allowesvideo = array('mp4', 'webm', 'MP4');
                                                         $allowesaudio = array('mp3');
                                                         $filename = $artmultiimage[0]['image_name'];
                                                         $ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -1416,7 +1416,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userima
                 <?php } elseif (in_array($ext, $allowesaudio)) { ?>
 
                                                             <!-- one audio start -->
-                                                            <div>
+                                                            <!-- <div> -->
                                                                 <div class="audio_main_div">
                                                                     <div class="audio_img">
                                                                         <img src="<?php echo base_url('images/music-icon.png') ?> ">  
@@ -4055,7 +4055,7 @@ if (size > 10485760)
                     success: function (data) { //alert('#' + 'removepost' + abc);
 
                         $('#' + 'removepost' + abc).remove();
-                        if(data.notcount == 0){ 
+                        if(data.notcount == 0){//alert("hii"); 
                             $('.' + 'nofoundpost').html(data.notfound);
                             $('.' + 'not_available').remove();
                             $('.' + 'image_profile').remove();
@@ -4433,7 +4433,7 @@ function imgval(event) {
                var ext = vfirstname.split('.').pop();
                var ext1 = vname.split('.').pop();
                var allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'PNG'];
-               var allowesvideo = ['mp4', 'webm'];
+               var allowesvideo = ['mp4', 'webm', 'MP4'];
                var allowesaudio = ['mp3'];
                var allowespdf = ['pdf'];
    

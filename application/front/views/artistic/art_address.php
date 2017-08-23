@@ -606,13 +606,13 @@ $(document).ready(function(){
                           
                         },
                       
-                        // address: {
+                        pincode: {
 
-                        //     required: true,
-                        //        regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
-                        //     //noSpace: true
+                            //required: true,
+                               //regx:/^[-@./#&+,\w\s]*[a-zA-Z][a-zA-Z0-9]*/
+                            number: true,
                             
-                        // },
+                        },
                         
                       
 
