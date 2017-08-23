@@ -318,10 +318,10 @@
                                                             if($cityname || $countryname)
                                                             { 
                                                             ?>
-              <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
+              <p title="Location"><i class="fa fa-map-marker" aria-hidden="true"></i>
 
                                                             <?php  echo $cityname .', '. $countryname; ?> 
-                                                            </i></p>
+                                                            </p>
                                                             
                                                             <?php
                                                              }
@@ -640,10 +640,10 @@
                                               <div class="fr lction">
                                                     
                         
-         <p title="Address"><i class="fa fa-map-marker" aria-hidden="true">
+         <p title="Address"><i class="fa fa-map-marker" aria-hidden="true"> </i>
 
         <?php if($cityname){echo $cityname .', ';} echo $countryname; ?> 
-                                                            </i></p>
+                                                           </p>
                                                             
                                                             
                                                     </div>
