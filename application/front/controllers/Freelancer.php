@@ -3378,7 +3378,7 @@ public function free_hire_avail_check($userid = " ")
           //code for search
         $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7);
 
-        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation,freelancer_post_otherskill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='designation,freelancer_post_otherskill');
+        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='designation,freelancer_post_otherskill');
         // echo "<pre>"; print_r($freelancer_postdata);die();
 
         $contition_array = array('status' => '1', 'type' => '1');
