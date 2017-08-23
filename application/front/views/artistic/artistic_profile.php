@@ -502,33 +502,14 @@ echo $listFinal;
 ?>     
                                                 </span>
                                             </li>
-
-                                            <!-- <li> <b> Other Art </b> 
-
-                                                    <?php if ($artisticdata[0]['other_skill']) { ?>
-
-                                                    <span>
-    <?php
-    echo $artisticdata[0]['other_skill'];
-    ?>     
-                                                    </span>
-
-                                                    <?php } else { ?>
-
-                                                    <span>
-                                                        <?php echo PROFILENA;
-                                                        ?>  </span>
-<?php } ?>
-                                            </li> -->
-
                                             <li> <b> Speciality in Art </b> <span> <?php echo $artisticdata[0]['art_yourart']; ?> </span>
                                             </li>
 
 
-                                <?php if($artisticdata[0]['art_desc_art']){ ?>
+                                <?php if($artisticdata[0]['art_desc_art']){   ?>
 
                                             <li><b> Description of your art</b> <span><?php echo $this->common->make_links($artisticdata[0]['art_desc_art']); ?></span> </li>
-                                            <?php } else {
+                                            <?php } else { 
            if($artisticdata[0]['user_id'] == $userid){ 
                   ?>  
       <li><b>Description of your art</b> <span>
@@ -540,7 +521,7 @@ echo $listFinal;
                                          <?php } else {
            if($artisticdata[0]['user_id'] == $userid){ 
                   ?>  
-      <li><b>Description of your art</b> <span>
+      <li><b>How You are Inspire</b> <span>
              <?php echo PROFILENA;?></span></li><?php  }else{}?>               
           <?php }?>  
 
