@@ -533,7 +533,7 @@ span.fu-time{font-size: 13px;}
 @media screen and (max-width: 991px) {
 /*header start*/
 
-#floatBarsG{margin-top: 0%;}
+#floatBarsG{margin-top: -3%;}
 .header2 ul.notification_data_in_h2{padding-right: 0px; width: 100%;}
 .header2 ul.notification_data_in_h2 li{width: 100%; border-right: none!important;}
 
@@ -632,7 +632,7 @@ right: 10px;}
     right: 24px;
 }
 
-
+#floatBarsG{margin-top: -3%;}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -693,7 +693,9 @@ right: 10px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*Business profile start*/
-
+.croppie-container .cr-viewport{width: 100%!important;}
+.cr-overlay{width: 100%!important;}
+.cr-boundary{width: 100%!important;}
 /*Business profile End*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -715,7 +717,9 @@ right: 10px;}
   .cover-pic {
     right: -4%;
 }
-
+#floatBarsG {
+    margin-top: 2%;
+}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -815,8 +819,10 @@ label.cameraButton{opacity: 0.8;}
 @media screen and (max-width: 479px) {
 /*header start*/
 
-#floatBarsG{margin-left: -137px; margin-top:-3%; }
-#acon::before {
+#floatBarsG {
+    margin-left: -167px;
+    margin-top: -1%;
+}#acon::before {
     right: 145px !important;
 }
 #add_contact #addcontactContainer{right: 0;}
@@ -906,8 +912,8 @@ padding: 4px 5px!important;
 /*header start*/
 
 #floatBarsG {
-    margin-left: -109px;
-    margin-top: -8%;
+    margin-left: -145px;
+    margin-top: -3%;
 }
 
 #add_contact #addcontactContainer::before {
