@@ -898,7 +898,7 @@
                                                                                 </div>
                                                                                 <div class="comment-name">
                                                                                     <b>  <?php
-                                                                                        echo ucfirst(strtolower($companyname));
+                                                                                        echo ucfirst(strtolower($companyname)).' '.ucfirst(strtolower($lastname));
                                                                                         echo '</br>';
                                                                                         ?>
                                                                                     </b>
@@ -3510,7 +3510,7 @@ $( "#searchplace1" ).autocomplete({
                                     } else {
                                         document.getElementById('likeusernameimg' + clicked_id).style.display = "block";
                                     }
-                                    $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg1');
+                                   // $('#likeusernameimg' + clicked_id).addClass('likeduserlistimg');
                                 }
                             });
                         }

@@ -1893,6 +1893,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                                                 <?php
                                                 $userid = $this->session->userdata('aileenuser');
                                                 $art_userimage = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_user_image;
+                                                $art_username = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_name;
+                                                $art_userlastname = $this->db->get_where('art_reg', array('user_id' => $userid, 'status' => 1))->row()->art_lastname;
                                                 ?>
                                                 <?php
                                                 if ($art_userimage) {
@@ -1901,9 +1903,9 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                                                      <?php 
 
 if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_userimage)) {
-                                                                $a = $artisticdata[0]['art_name'];
+                                                                $a = $art_username;
                                                                 $acr = substr($a, 0, 1);
-                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $b = $art_userlastname;
                                                                 $bcr = substr($b, 0, 1);
                                                                 ?>
                                                                 <div class="post-img-div">
@@ -1921,9 +1923,9 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
 
                                                     <?php 
-                         $a = $artisticdata[0]['art_name'];
+                         $a = $art_username;
                                                                 $acr = substr($a, 0, 1);
-                                                                $b = $artisticdata[0]['art_lastname'];
+                                                                $b = $art_userlastname;
                                                                 $bcr = substr($b, 0, 1);?>
 
                             <div class="post-img-div">

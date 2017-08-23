@@ -8312,7 +8312,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                        $cmtlikeuser .= '<div class="like_one_other">';
 
                  
-                    $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
+                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist1" onclick="likeuserlistimg(' . $post_image . ')">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -8401,7 +8401,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                        $cmtlikeuser .= '<div class="like_one_other">';
 
                  
-                    $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
+                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist1"  onclick="likeuserlistimg(' . $post_image . ')">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -8530,7 +8530,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                     }
       $cmtlikeuser .= '<div class="like_one_other">';
 
-                    $cmtlikeuser .= '<a href="javascript:void(0);"  onclick="likeuserlistimg(' . $post_image . ')">';
+                    $cmtlikeuser .= '<a href="javascript:void(0);"  class="likeuserlist1" onclick="likeuserlistimg(' . $post_image . ')">';
 
                     $contition_array = array('post_image_id' => $post_image, 'is_unlike' => '0');
                     $commnetcount = $this->common->select_data_by_condition('art_post_image_like', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -8707,7 +8707,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                     $cmtinsert .= '</div>';
              }
 
-            $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . $art_name .' '. $art_lastname. '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
 
@@ -8889,13 +8889,15 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
             $art_name = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_name;
 
+             $art_lastname = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id']))->row()->art_lastname;
+
             $art_userimage = $this->db->get_where('art_reg', array('user_id' => $art_comment['user_id'], 'status' => 1))->row()->art_user_image;
 
             $cmtinsert .= '<div class="all-comment-comment-box">';
             $cmtinsert .= '<a href="' . base_url('artistic/art_manage_post/' . $art_comment['user_id'] . '') . '">';
             $cmtinsert .= '<div class="post-design-pro-comment-img">';
             $cmtinsert .= '<img  src="' . base_url($this->config->item('art_profile_thumb_upload_path') . $art_userimage) . '" alt="">  </div>';
-            $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . $art_name .' '.$art_lastname. '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
 
@@ -9516,7 +9518,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                     $cmtinsert .= '</div>';
 
            }
-            $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
+            $cmtinsert .= '<div class="comment-name"><b>' . $art_name .' '. $art_lname. '</b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '</a>';
 
@@ -9721,7 +9723,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
                     $cmtinsert .= '</div>';
                }
 
-                $cmtinsert .= '<div class="comment-name"><b>' . $art_name . '</b>';
+                $cmtinsert .= '<div class="comment-name"><b>' . $art_name .' '. $art_lastname. '</b>';
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</a>';
 
