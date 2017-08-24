@@ -11,7 +11,7 @@
 .dropdown-menu {
     right:-1px;
 }
-.notification-data-inside h6{font-size: 15px;}
+.notification-data-inside h6{font-size: 14px;}
 /*.header ul li a{margin-top: 6px; margin-bottom: 6px; padding-top: 5px!important;}
 */
 .header .mCSB_container ul li a{margin: 0; padding: 0; border: none; padding-top: 0px!important;}
@@ -22,7 +22,7 @@
     margin-top: 5px;
   
 }
-
+.header .mCSB_container .day-text{font-size: 11px!important}
 .header ul li{height:inherit; border-right:none!important;} 
 .header ul li a{ padding-top:5px!important; border-right: 1px solid #1985b3;}
 .header ul li.dropdown-user a{padding-top: 8px!important;}
