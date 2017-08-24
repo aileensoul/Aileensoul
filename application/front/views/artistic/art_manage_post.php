@@ -4797,14 +4797,14 @@ $(document).ready(function(){
         </script>-->
 
         <!-- This  script use for close dropdown in every post -->
-        <script type="text/javascript">
+      <!--   <script type="text/javascript">
             $('body').on("click", "*", function (e) {
                 var classNames = $(e.target).attr("class").toString().split(' ').pop();
                 if (classNames != 'fa-ellipsis-v') {
                     $('div[id^=myDropdown]').hide().removeClass('show');
                 }
             });
-        </script>
+        </script> -->
 
         <!-- This  script use for close dropdown in every post -->
 
