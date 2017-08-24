@@ -669,10 +669,10 @@
                     $('#userlist').html(data.leftbar);
                     $('.notification_data_in_h2').html(data.headertwo);
                    $('#seemsg').html(data.seeall);
-                // setTimeout(
-                //         chatmsg,
-                //        1000
-                //         );
+                setTimeout(
+                        chatmsg,
+                       1000
+                        );
                 },
              error: function (XMLHttpRequest, textStatus, errorThrown) {
             }           
