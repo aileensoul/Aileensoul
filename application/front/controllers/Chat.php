@@ -511,6 +511,10 @@ class Chat extends MY_Controller {
         $this->data['id'] = $id;
         $this->chat_search($id, $message_from_profile, $message_to_profile);
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+        
+        if($id == $userid){
+       redirect('chat/noavailable');
+        }
         // update notification read code start
         if($not_id){
           $data = array(
@@ -3785,5 +3789,10 @@ class Chat extends MY_Controller {
                             "seeall" => $seeall,
                 ));
     }
+    
+      public function noavailable() {
+         
+        $this->load->view('notavalible', $this->data);  
+     }
 
 }

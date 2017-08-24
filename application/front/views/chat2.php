@@ -534,7 +534,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             txt = txt.replace(/<div><br><\/div>/gi, " ");
                             txt = txt.replace(/<br>/, '');
 
-                //            txt = txt.replace(/&nbsp;/gi, " ");
+                           txt = txt.replace(/&nbsp;/gi, " ");
                 //            txt = txt.replace(/<div><br><\/div>/gi, " ");
                 //            txt = txt.replace(/&gt;/gi, ">");
                 //            txt = txt.replace(/div/gi, "p");
@@ -934,12 +934,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }
                         }
                     }
-					document.getElementById("notificationContainer1").onclick = function(evt) {
-						if (!this.isContentEditable) {
-							this.contentEditable = "true";
-							this.focus();
-						}
-					};
+//					document.getElementById("notificationContainer1").onclick = function(evt) {
+//						if (!this.isContentEditable) {
+//							this.contentEditable = "true";
+//							this.focus();
+//						}
+//					};
                     
-                   
+                   //Disable part of page
+    $("#notificationContainer1").on("contextmenu",function(e){
+        return false;
+    });
+    //Disable part of page
+    $('#notificationContainer1').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
                 </script>
