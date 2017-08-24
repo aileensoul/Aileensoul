@@ -493,7 +493,7 @@ span.fu-time{font-size: 13px;}
 
 /*header2 start*/
 .header2 {
-    top: 49px;
+    top: 44px;
 }
 /*header2 end*/
 
@@ -669,6 +669,9 @@ right: 10px;}
 
 @media screen and (max-width: 767px) {
 /*header start*/
+.header2 {
+    top: 42px;
+}
 .padd_img {
     padding-left: 3px !important;
     padding-top: 3px !important;
