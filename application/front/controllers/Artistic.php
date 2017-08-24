@@ -679,6 +679,8 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
           if(count($skills) > 0){ 
           
           foreach($skills as $ski){
+           // echo '<pre>'; print_r($skills);
+          if($ski != " "){ //echo $ski;
      $contition_array = array('skill' => $ski,'type' => 6);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
@@ -693,7 +695,8 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                  );
       $skill[] = $this->common->insert_data_getid($data, 'skill');
            }
-          }
+         }
+          } //die();
           
           $skills = implode(',',$skill); 
       }
