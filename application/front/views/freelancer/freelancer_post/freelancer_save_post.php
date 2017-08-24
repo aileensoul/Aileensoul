@@ -838,14 +838,12 @@
  <!-- remove save post start -->
     function remove_post(abc)
     {
-        alert(abc);
-
        var  savepara = 'save';
         $.ajax({
              type:'POST',
             url:'<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
             data:'app_id=' + abc + '&para=' + savepara,
-            success: function (data) { alert("hii");
+            success: function (data) { 
                 $('#' + 'postdata' + abc).html(data);
                 $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
