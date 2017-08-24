@@ -11,7 +11,7 @@
 .dropdown-menu {
     right:-1px;
 }
-.notification-data-inside h6{font-size: 15px;}
+.notification-data-inside h6{font-size: 14px;}
 /*.header ul li a{margin-top: 6px; margin-bottom: 6px; padding-top: 5px!important;}
 */
 .header .mCSB_container ul li a{margin: 0; padding: 0; border: none; padding-top: 0px!important;}
@@ -22,7 +22,9 @@
     margin-top: 5px;
   
 }
-
+.addcontact-text_full{width: 100%; text-align: left;}
+.main-menu-right ul.notification_data_in {margin-top: 0px;}
+.header .mCSB_container .day-text{font-size: 11px!important}
 .header ul li{height:inherit; border-right:none!important;} 
 .header ul li a{ padding-top:5px!important; border-right: 1px solid #1985b3;}
 .header ul li.dropdown-user a{padding-top: 8px!important;}
@@ -33,6 +35,7 @@
 .header ul li #abody ul li a{border: none;}
 #atittle a{border: none;}
 #notificationTitle .see_link a{border: none;}
+#addcontactBody li{padding: 9px 10px;}
 /*header end*/
 
 /*---------------------------------------------------profile-css--------------------------------------------------*/
@@ -163,9 +166,9 @@ font-size: 22px;}
 .image_profile audio{height: 88%;}
 .search_button{margin-top: 8px;}
 #addcontactContainer{margin-top: 0px; right: 8px;}
-.notifications li .notification-data-inside div{ font-size: 15px!important; max-height: 17px; line-height: 15px; padding-top: 0px!important}
+.notifications li .notification-data-inside div{ font-size: 13px!important; max-height: 20px; line-height: 15px; padding-top: 0px!important}
 .module_Ssearch{padding-top: 6px;}
-
+.day-text2{font-size: 11px!important;}
 .bui_res_i{overflow: hidden;}
 .buisness-profile-pic .bui_popup_img img{width: 100%; height: 100%; position: relative; }
 .buisness-profile-pic .slider_img img{ width: auto;}

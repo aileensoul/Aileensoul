@@ -43,24 +43,39 @@
         <link rel="stylesheet" href="css/style_harshad.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="application/ld+json">
-            {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "Aileensoul",
-            "url": "https://www.aileensoul.com/",
-            "sameAs": [
-            "https://www.facebook.com/aileensouldotcom/",
-            "https://twitter.com/aileen_soul",
-            "https://instagram.com/aileensoul_com",
-            "https://in.linkedin.com/in/aileensouldotcom",
-            "https://plus.google.com/+Aileensoul"
-            ]
-            }
-        </script>
     </head>
 
     <body>
+<!--        <div style="font-size: 13px;" itemscope itemtype="http://schema.org/Organization">
+            <link itemprop="url" href="https://www.aileensoul.com">
+            <span style="font-size:14px; font-weight: bold; padding:5px 0 0;color:#0c93cf">
+                Find us on:
+            </span><br/>
+            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
+                <a href="https://www.facebook.com/aileensouldotcom" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
+                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Facebook"  style="object-fit: none; object-position: -32px -46px; width: 36px; height: 36px;" /><br/>
+                    Facebook
+                </a>
+            </div>
+            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
+                <a href="https://plus.google.com/+Aileensoul" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
+                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Google+"  style="object-fit: none; object-position: -160px -46px; width: 36px; height: 36px;" /><br/>
+                    Google+
+                </a>
+            </div>
+            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
+                <a href="https://www.linkedin.com/in/aileensouldotcom/" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
+                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Linkedin"  style="object-fit: none; object-position: -224px -46px; width: 36px; height: 36px;" /><br/>
+                    Linkedin
+                </a>
+            </div>
+            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
+                <a href="https://twitter.com/aileen_soul" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
+                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Twitter"  style="object-fit: none; object-position: -96px -46px; width: 36px; height: 36px;" /><br/>
+                    Twitter
+                </a>
+            </div>
+        </div>-->
         <div class="main-login">
             <header>
                 <div class="container">
@@ -101,9 +116,9 @@
                     <div class="mid-trns">
                         <div class="">
                             <div class="col-md-7 col-sm-6">
-<!--                                <div class="pt15">
-                                    <marquee><h3 style="color: red;">Our site is under construction</h3></marquee>
-                                </div>-->
+                                <!--                                <div class="pt15">
+                                                                    <marquee><h3 style="color: red;">Our site is under construction</h3></marquee>
+                                                                </div>-->
                                 <div class="top-middle">
                                     <h3 class="text-effect"><p>We provide platform & opportunities to</p><p>every person in the world to make their career.</p></h3>
 
@@ -116,7 +131,7 @@
                                             <div class="item active">  
                                                 <div class="carousel-caption">
                                                     <div>
-                                                    <img src="img/job1.png">
+                                                        <img src="img/job1.png">
                                                     </div>
                                                     <div class="carousel-text">
                                                         <h1>Job Profile</h1>
@@ -127,7 +142,7 @@
                                             <div class="item"> 
                                                 <div class="carousel-caption">
                                                     <div>
-                                                    <img src="img/rec.png">
+                                                        <img src="img/rec.png">
                                                     </div>
                                                     <div class="carousel-text">
                                                         <h1>Recruiter Profile</h1>
@@ -138,7 +153,7 @@
                                             <div class="item"> 
                                                 <div class="carousel-caption">
                                                     <div>
-                                                    <img src="img/freelancer.png">
+                                                        <img src="img/freelancer.png">
                                                     </div>
                                                     <div class="carousel-text">
                                                         <h1>Freelance Profile</h1>
@@ -149,7 +164,7 @@
                                             <div class="item"> 
                                                 <div class="carousel-caption">
                                                     <div>
-                                                    <img src="img/business.png">
+                                                        <img src="img/business.png">
                                                     </div>
                                                     <div class="carousel-text">
                                                         <h1>Business Profile</h1>
@@ -160,7 +175,7 @@
                                             <div class="item"> 
                                                 <div class="carousel-caption">
                                                     <div>
-                                                    <img src="img/art.png">
+                                                        <img src="img/art.png">
                                                     </div>
                                                     <div class="carousel-text">
                                                         <h1>Artistic Profile</h1>
@@ -432,8 +447,8 @@
                 {
 //                                            var essssmail = $('#email_login').val();
 //                                            alert(essssmail);
-//                                            <?php // $this->session->set_userdata('email',essssmail);         ?>
-//                                            var sessionValue = "<?php // echo $this->session->userdata('email');        ?>";
+//                                            <?php // $this->session->set_userdata('email',essssmail);          ?>
+//                                            var sessionValue = "<?php // echo $this->session->userdata('email');         ?>";
 //                                           
                     if (response.data == "ok") {
                         $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
@@ -470,7 +485,7 @@
 <!-- login validtaion and submit end -->
 
 <script type="text/javascript">
-    $(window).load(function(){
+    $(window).load(function () {
         $("#register_form").trigger('reset');
         $("#register_form").reset();
         $("#email_reg").val('');
@@ -491,7 +506,7 @@
 
     $(document).ready(function () {
 
-    //$("#register_form").submit(function () {
+        //$("#register_form").submit(function () {
         $.validator.addMethod("lowercase", function (value, element, regexpr) {
             return regexpr.test(value);
         }, "Email Should be in Small Character");
@@ -699,7 +714,7 @@
                         $("#btn-register").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Sign Up ...');
 
                         window.location = "<?php echo base_url() ?>dashboard";
-                        // setTimeout(' window.location.href = "<?php //echo base_url()         ?>dashboard"; ', 4000);
+                        // setTimeout(' window.location.href = "<?php //echo base_url()          ?>dashboard"; ', 4000);
                     } else {
                         $("#register_error").fadeIn(1000, function () {
                             $("#register_error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');

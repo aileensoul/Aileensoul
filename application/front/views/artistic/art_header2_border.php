@@ -220,8 +220,12 @@ $(document).on("dropdown_hover", function () {
 });
 
 $(document).ready(function() {
-     $("body").click(function(event) {
+     $("body").click(function(e) {
         $(".dropdown-content_hover").hide();
+          var classNames = $(e.target).attr("class").toString().split(' ').pop();
+                if (classNames != 'fa-ellipsis-v') {
+                    $('div[id^=myDropdown]').hide().removeClass('show');
+                }
         //event.stopPropagation();
     });
  

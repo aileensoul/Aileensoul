@@ -1,6 +1,4 @@
-
 <?php echo $head; ?>
-
 <style type="text/css">
     #popup-form img{display: none;}
 </style>
@@ -109,7 +107,8 @@
                     <div class="user-pic padd_img">
                         <?php if ($jobdata[0]['freelancer_post_user_image'] != '') { ?>
                             <img src="<?php echo base_url($this->config->item('free_post_profile_thumb_upload_path') . $jobdata[0]['freelancer_post_user_image']); ?>" alt="" >
-                        <?php } else { 
+                        <?php
+                        } else {
                             $fname = $freepostdata[0]['freelancer_post_fullname'];
                             $lname = $freepostdata[0]['freelancer_post_username'];
                             $sub_fname = substr($fname, 0, 1);
@@ -118,7 +117,7 @@
                             <div class="post-img-user"> 
                             <?php echo ucfirst(strtolower($sub_fname)) . ucfirst(strtolower($sub_lname)); ?>
                             </div>
-                        <?php } ?>
+<?php } ?>
                         <a href="javascript:void(0);" onclick="updateprofilepopup();"><i class="fa fa-camera" aria-hidden="true"></i> Update Profile Picture</a>
                     </div>
                 </div>      
@@ -134,7 +133,7 @@
                         } else {
                             ?> 
                             <a id="designation" class="designation" title="<?php echo ucwords($freepostdata[0]['designation']); ?>"><?php echo ucwords($freepostdata[0]['designation']); ?></a>
-                        <?php } ?>
+<?php } ?>
                     </div>
                 </div>
                 <div class="profile-main-rec-box-menu profile-box-art col-md-12 padding_les">
@@ -144,17 +143,17 @@
                         if ($freepostdata[0]['user_id'] == $userid) {
                             ?>     
                             <ul class="current-user pro-fw">
-                            <?php } else { ?>
+                                <?php } else { ?>
                                 <ul class="pro-fw4">
-                                <?php } ?>  
+<?php } ?>  
                                 <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile')) { ?> class="active" <?php } ?>><a title="Freelancer Details" href="<?php echo base_url('freelancer/freelancer_post_profile'); ?>">Details</a>
                                 </li>
-                                <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile' || $this->uri->segment(2) == 'freelancer_apply_post' || $this->uri->segment(2) == 'freelancer_save_post' || $this->uri->segment(2) == 'freelancer_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
+<?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_post_profile' || $this->uri->segment(2) == 'freelancer_apply_post' || $this->uri->segment(2) == 'freelancer_save_post' || $this->uri->segment(2) == 'freelancer_applied_post') && ($this->uri->segment(3) == $this->session->userdata('aileenuser') || $this->uri->segment(3) == '')) { ?>
                                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_save_post')) { ?> class="active" <?php } ?>><a title="Saved" href="<?php echo base_url('freelancer/freelancer_save_post'); ?>">Saved Post</a>
                                     </li>
                                     <li <?php if (($this->uri->segment(1) == 'freelancer') && ($this->uri->segment(2) == 'freelancer_applied_post')) { ?> class="active" <?php } ?>><a title="Applied Post" href="<?php echo base_url('freelancer/freelancer_applied_post'); ?>">Applied Post</a>
                                     </li>
-                                <?php } ?>
+<?php } ?>
                             </ul>
 
                     </div>
@@ -173,7 +172,7 @@
                         } else {
                             ?> 
                             <a id="designation" class="designation" title="<?php echo ucwords($freepostdata[0]['designation']); ?>"><?php echo ucwords($freepostdata[0]['designation']); ?></a>
-                        <?php } ?>
+<?php } ?>
 
                     </div>
 
@@ -230,7 +229,7 @@
                                                                         </li>
                                                                         <li>
                                                                             <a href="#" title="<?php echo ucwords(text2link($post['post_name'])); ?>" class="post_title">
-                                                                                <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
+            <?php echo ucwords(text2link($post['post_name'])); ?> </a>   </li>
 
 
                                                                         <?php
@@ -243,22 +242,22 @@
 
                                                                             <?php $cityname = $this->db->get_where('cities', array('city_id' => $post['city']))->row()->city_name; ?>
                                                                             <?php $countryname = $this->db->get_where('countries', array('country_id' => $post['country']))->row()->country_name; ?>
-                                                                            <?php if ($cityname || $countryname) { ?>
+            <?php if ($cityname || $countryname) { ?>
 
                                                                                 <div class="fr lction">
 
                                                                                     <p title="Location">
                                                                                         <i class="fa fa-map-marker" aria-hidden="true"> </i> <?php
-                                                                                            if ($cityname) {
-                                                                                                echo $cityname . ",";
-                                                                                            }
-                                                                                            ?><?php
-                                                                                            if ($countryname) {
-                                                                                                echo $countryname;
-                                                                                            }
-                                                                                            ?></p>
+                                                                                        if ($cityname) {
+                                                                                            echo $cityname . ",";
+                                                                                        }
+                                                                                        ?><?php
+                                                                                        if ($countryname) {
+                                                                                            echo $countryname;
+                                                                                        }
+                                                                                        ?></p>
                                                                                 </div>
-                                                                            <?php } ?>
+            <?php } ?>
                                                                         </li>
                                                                         <!-- vishang 14-4 end -->    
                                                                     </ul>
@@ -309,10 +308,10 @@
 
 
                                                                     <!-- <?php if ($post['post_other_skill']) { ?>
-                                                                                            <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
-                                                                                            </li>
-                                                                    <?php } else { ?>
-                                                                                            <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
+                                                                                                <li><b>Other Skill</b><span><?php echo $post['post_other_skill']; ?></span>
+                                                                                                </li>
+            <?php } else { ?>
+                                                                                                <li><b>Other Skill</b><span><?php echo "-"; ?></span></li><?php } ?> -->
 
                                                                     <li><b>Post Description</b><span><p>
                                                                                 <?php
@@ -408,7 +407,7 @@
                                                                                 <a href="javascript:void(0);" class="button" onclick="applypopup(<?php echo $post['post_id'] ?>,<?php echo $post['app_id'] ?>)">Apply</a>
                                                                             </li> 
 
-                                                                        <?php } ?>
+            <?php } ?>
 
 
                                                                         </li>                        
@@ -453,7 +452,7 @@
 
 
     <footer>
-        <?php echo $footer; ?>
+<?php echo $footer; ?>
     </footer>
 
     <!-- Bid-modal  -->
@@ -478,7 +477,7 @@
                 <div class="modal-body">
                     <span class="mes">
                         <div id="popup-form">
-                            <?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
+<?php echo form_open_multipart(base_url('freelancer/user_image_add'), array('id' => 'userimage', 'name' => 'userimage', 'class' => 'clearfix')); ?>
                             <input type="file" name="profilepic" accept="image/gif, image/jpeg, image/png" id="profilepic">
                             <div class="popup_previred">
                                 <img id="preview" src="#" alt="your image" />
@@ -486,7 +485,7 @@
                             <input type="hidden" name="hitext" id="hitext" value="2">
                             <!--<input type="submit" name="cancel3" id="cancel3" value="Cancel">-->
                             <input type="submit" name="profilepicsubmit" id="profilepicsubmit" value="Save"  >
-                            <?php echo form_close(); ?>
+<?php echo form_close(); ?>
                         </div>
                     </span>
                 </div>
@@ -514,33 +513,33 @@
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
 
-                                                                    var data = <?php echo json_encode($demo); ?>;
+                                                                                    var data = <?php echo json_encode($demo); ?>;
 //alert(data);
 
 
-                                                                    $(function () {
-                                                                        // alert('hi');
-                                                                        $("#tags").autocomplete({
-                                                                            source: function (request, response) {
-                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                                response($.grep(data, function (item) {
-                                                                                    return matcher.test(item.label);
-                                                                                }));
-                                                                            },
-                                                                            minLength: 1,
-                                                                            select: function (event, ui) {
-                                                                                event.preventDefault();
-                                                                                $("#tags").val(ui.item.label);
-                                                                                $("#selected-tag").val(ui.item.label);
-                                                                                // window.location.href = ui.item.value;
-                                                                            }
-                                                                            ,
-                                                                            focus: function (event, ui) {
-                                                                                event.preventDefault();
-                                                                                $("#tags").val(ui.item.label);
-                                                                            }
-                                                                        });
-                                                                    });
+                                                                                    $(function () {
+                                                                                        // alert('hi');
+                                                                                        $("#tags").autocomplete({
+                                                                                            source: function (request, response) {
+                                                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                                response($.grep(data, function (item) {
+                                                                                                    return matcher.test(item.label);
+                                                                                                }));
+                                                                                            },
+                                                                                            minLength: 1,
+                                                                                            select: function (event, ui) {
+                                                                                                event.preventDefault();
+                                                                                                $("#tags").val(ui.item.label);
+                                                                                                $("#selected-tag").val(ui.item.label);
+                                                                                                // window.location.href = ui.item.value;
+                                                                                            }
+                                                                                            ,
+                                                                                            focus: function (event, ui) {
+                                                                                                event.preventDefault();
+                                                                                                $("#tags").val(ui.item.label);
+                                                                                            }
+                                                                                        });
+                                                                                    });
 
 </script>
 
@@ -576,65 +575,65 @@
 
 </script>
 <script>
-                                                                                var data = <?php echo json_encode($demo); ?>;
-                                                                                //alert(data);
+    var data = <?php echo json_encode($demo); ?>;
+    //alert(data);
 
-                                                                                $(function () {
-                                                                                    // alert('hi');
-                                                                                    $("#tags1").autocomplete({
-                                                                                        source: function (request, response) {
-                                                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                                            response($.grep(data, function (item) {
-                                                                                                return matcher.test(item.label);
-                                                                                            }));
-                                                                                        },
-                                                                                        minLength: 1,
-                                                                                        select: function (event, ui) {
-                                                                                            event.preventDefault();
-                                                                                            $("#tags1").val(ui.item.label);
-                                                                                            $("#selected-tag").val(ui.item.label);
-                                                                                            // window.location.href = ui.item.value;
-                                                                                        }
-                                                                                        ,
-                                                                                        focus: function (event, ui) {
-                                                                                            event.preventDefault();
-                                                                                            $("#tags1").val(ui.item.label);
-                                                                                        }
-                                                                                    });
-                                                                                });
+    $(function () {
+        // alert('hi');
+        $("#tags1").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data, function (item) {
+                    return matcher.test(item.label);
+                }));
+            },
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#tags1").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#tags1").val(ui.item.label);
+            }
+        });
+    });
 
-                    </script>
-                    <script>
+</script>
+<script>
 
-                        var data1 = <?php echo json_encode($city_data); ?>;
-                        //alert(data);
+    var data1 = <?php echo json_encode($city_data); ?>;
+    //alert(data);
 
 
-                        $(function () {
-                            // alert('hi');
-                            $("#searchplace1").autocomplete({
-                                source: function (request, response) {
-                                    var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                    response($.grep(data1, function (item) {
-                                        return matcher.test(item.label);
-                                    }));
-                                },
-                                minLength: 1,
-                                select: function (event, ui) {
-                                    event.preventDefault();
-                                    $("#searchplace1").val(ui.item.label);
-                                    $("#selected-tag").val(ui.item.label);
-                                    // window.location.href = ui.item.value;
-                                }
-                                ,
-                                focus: function (event, ui) {
-                                    event.preventDefault();
-                                    $("#searchplace1").val(ui.item.label);
-                                }
-                            });
-                        });
+    $(function () {
+        // alert('hi');
+        $("#searchplace1").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data1, function (item) {
+                    return matcher.test(item.label);
+                }));
+            },
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#searchplace1").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#searchplace1").val(ui.item.label);
+            }
+        });
+    });
 
-                    </script>
+</script>
 
 <!-- <script>
 //select2 autocomplete start for skill
@@ -810,7 +809,7 @@
 </script>
 <!-- cover image end -->
 
-<script>
+<!--<script>
 // Get the modal
     var modal = document.getElementById('myModal');
 // Get the button that opens the modal
@@ -833,28 +832,25 @@
             modal.style.display = "none";
         }
     }
-</script>
+</script>-->
 
 <script type="text/javascript">
-
-// <!-- remove save post start -->
-
+ <!-- remove save post start -->
     function remove_post(abc)
     {
-        //alert(abc);     
+        alert(abc);
 
-
-        var      savepara      =      'save';
+       var  savepara = 'save';
         $.ajax({
-            type:      'POST',
-            url:      '<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
-            data: 'app_id=' + abc + '&para=' + savepara,
-            success: function (data) {
+             type:'POST',
+            url:'<?php echo base_url() . "freelancer/freelancer_delete_apply" ?>',
+            data:'app_id=' + abc + '&para=' + savepara,
+            success: function (data) { alert("hii");
                 $('#' + 'postdata' + abc).html(data);
                 $('#' + 'postdata' + abc).parent().removeClass();
                 var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                 if (numItems == '0') {
-                var nodataHtml = "   <div class="art - img - nn"><div class="art_no_post_img" <img src="<?php echo base_url('img/free-no.png') ?>"> </div> <div class="art_no_post_text">No Saved Post Available.</div></div>";
+                var nodataHtml = "<div class='art-img-nn'><div class='art_no_post_img'><img src='<?php echo base_url().'img/free-no.png' ?>'> </div> <div class='art_no_post_text'>No Saved Post Available.</div></div>";
                 $('.contact-frnd-post').html(nodataHtml);
             }
             }
@@ -863,8 +859,6 @@
 
     function apply_post(abc, xyz)
     {
-
-
     var alldata = 'all';
             //var user = document.getElementById("userid" + abc);
             var user = <?php echo $aileenuser_id; ?>;
@@ -879,7 +873,7 @@
                             $('#' + 'postdata' + appid).parent().removeClass();
                             var numItems = $('.contact-frnd-post .job-contact-frnd').length;
                             if (numItems == '0') {
-                    var nodataHtml = "<div class='text-center rio'><h4 class='page-heading  product-listing' style='border:0px;margin-bottom: 11px;'>No Saved Job Found.</h4></div>";
+                    var nodataHtml = "<div class='art-img-nn'><div class='art_no_post_img'><img src='<?php echo base_url().'img/free-no.png' ?>'> </div> <div class='art_no_post_text'>No Saved Post Available.</div></div>";
                             $('.contact-frnd-post').html(nodataHtml);
                     }
 
@@ -906,33 +900,32 @@
                     function checkvalue() {
 
                     var searchkeyword = $.trim(document.getElementById('tags').value);
-                     var searchplace = $.trim(document.getElementById('searchplace').value);
+                            var searchplace = $.trim(document.getElementById('searchplace').value);
                             if (searchkeyword == "" && searchplace == "") {
-                                return  false;
-                          }
+                    return  false;
+                    }
                     }
 </script> 
 
- <script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
+<script type="text/javascript">
+                    function check() {
+                    var keyword = $.trim(document.getElementById('tags1').value);
                             var place = $.trim(document.getElementById('searchplace1').value);
                             if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script> 
+                    return false;
+                    }
+                    }
+</script> 
 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
-                            function removepopup(id) {
-                            //alert(id); return false;
-                            $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this post?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                                    $('#bidmodal').modal('show');
-                            }
-                    function applypopup(postid, appid) {
-                    $('.biderror .mes').html("<div class='pop_content'>Do you want to apply for this work?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + appid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-                            $('#bidmodal').modal('show');
-                    }
+                             function removepopup(id) {
+                                     $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this post?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_post(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                                     $('#bidmodal').modal('show');
+                             }
+                     function applypopup(postid, appid) {
+                             $('.biderror .mes').html("<div class='pop_content'>Do you want to apply for this work?<div class='model_ok_cancel'><a class='okbtn' id=" + postid + " onClick='apply_post(" + postid + "," + appid + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
+                             $('#bidmodal').modal('show');
+                     }
 </script>
 
 <script>

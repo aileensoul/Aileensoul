@@ -496,7 +496,8 @@ foreach ($aud_res as $skill) {
     $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
     $skill1[] = $cache_time;
 }
-$listFinal = implode(', ', $skill1);
+$listFinal = implode(',', $skill1);
+//$listFinal = rtrim($listFinal, ',');
 echo $listFinal;  
 
 ?>     
