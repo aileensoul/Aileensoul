@@ -9,7 +9,7 @@
                             <fieldset class="col-md-3 col-sm-5 col-xs-5 sec_h2">
                              <!--    <label>Find Your Skills</label>
                               -->  
-                              <input type="text" id="tags" name="skills" placeholder="Find freelancer">
+                              <input type="text" id="tags" name="skills" placeholder="Post Title, Skills, Keywords">
                                 </select>
 
                             </fieldset>
@@ -17,7 +17,7 @@
                              <!--    <label>Find Your Location</label>
                               -->  
 
-                               <input type="text" id="searchplace" name="searchplace" placeholder="Find Your Location"> 
+                               <input type="text" id="searchplace" name="searchplace" placeholder="Find Location"> 
                              <!-- <select class="" name="searchplace[]" id="searchplace" multiple="multiple"></select> -->
                              
                             </fieldset><!-- 
