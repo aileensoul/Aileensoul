@@ -3,7 +3,7 @@
                          <form action=<?php echo base_url('search/recruiter_search')?> method="get">
                             <fieldset class="col-md-3 col-sm-5 col-xs-5 sec_h2">
 
-                              <input type="text" id="tags" name="skills" placeholder="job seeker,keywords,skills">
+                              <input type="text" id="tags" name="skills" placeholder="Job Title,Skills,Industries">
         
                               
                             </fieldset>
