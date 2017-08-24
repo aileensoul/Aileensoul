@@ -22,7 +22,7 @@
     margin-top: 5px;
   
 }
-.addcontact-text_full{width: 100%; text-align: left;}
+.addcontact-text_full{width: 100%; text-align: left; font-size: 13px;}
 .main-menu-right ul.notification_data_in {margin-top: 0px;}
 .header .mCSB_container .day-text{font-size: 11px!important}
 .header ul li{height:inherit; border-right:none!important;} 

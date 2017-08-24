@@ -784,7 +784,7 @@
 
                                                                     <?php ?>
 
-                                                                    <?php if (!$userimageposted) { ?>
+                                                                    <?php if ($userimageposted) { ?>
 
                                                                         <?php
                                                                         if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $userimageposted)) {
