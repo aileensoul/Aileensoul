@@ -13,6 +13,7 @@
 	<div class="midd-section freelancer-midd text-center">
 			<div class="container">
 				<div class="row">
+				  <div class="main_frlancer">
 					<div class="col-md-6 col-sm-6">
 						<h2 class="font-white">I want to hire Freelancer</h2>
 						<a href="<?php echo base_url('freelancer_hire/freelancer_hire/freelancer_hire_basic_info'); ?>" class="button">Hire</a>
@@ -20,6 +21,7 @@
 					<div class="col-md-6 col-sm-6">
 						<h2 class="font-white">Apply as Freelancer</h2>
 						<a href="<?php echo base_url('freelancer/freelancer_post/freelancer_post_basic_information'); ?>" class="button">Apply</a>
+					</div>
 					</div>
 				</div>
 			</div>
