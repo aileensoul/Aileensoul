@@ -8,7 +8,7 @@
                             </fieldset>
                             <fieldset class="col-md-4 col-sm-5 col-xs-5 sec_h2">
                             
-                              <input type="text" id="searchplace" name="searchplace" placeholder="Find location" maxlength="255">
+                              <input type="text" id="searchplace" name="searchplace" placeholder="Find Location" maxlength="255">
                               <!-- <select class="" name="searchplace[]" id="searchplace" multiple="multiple"  placeholder="Find Your location"> -->
                                <!--  </select>
  -->
