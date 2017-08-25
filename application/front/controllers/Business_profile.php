@@ -1900,16 +1900,12 @@ class Business_profile extends MY_Controller {
                     $config['file_name'] = $fileName;
 
                     $this->upload->initialize($config);
-                    $this->upload->do_upload();
+//                    $this->upload->do_upload();
 
                     $imgdata = $this->upload->data();
                     
-                    if ($this->upload->do_upload('postattach',TRUE)) {
+                    if ($this->upload->do_upload('postattach')) {
                         $response['main_error'][] = $mainerror = $this->upload->display_errors();
-                        
-//                        echo '<pre>';
-//                        print_r($mainerror);
-//                        exit;
                         
                         $response['result'][] = $this->upload->data();
 
@@ -1941,7 +1937,7 @@ class Business_profile extends MY_Controller {
                         $business_profile_post_thumb[$i]['width'] = $n_w;
                         $business_profile_post_thumb[$i]['height'] = $n_h;
 //                        $business_profile_post_thumb[$i]['master_dim'] = 'width';
-                        $business_profile_post_thumb[$i]['quality'] = "100%";
+                        $business_profile_post_thumb[$i]['quality'] = "75%";
                         $business_profile_post_thumb[$i]['x_axis'] = '0';
                         $business_profile_post_thumb[$i]['y_axis'] = '0';
                         $instanse = "image_$i";
@@ -2543,7 +2539,7 @@ class Business_profile extends MY_Controller {
 
                     $return_html .= '<div  class="two-images">
                                                 <a href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
-                                                    <img class="two-columns" src="' . base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) . '" > 
+                                                    <img class="two-columns" src="' . base_url($this->config->item('bus_post_350_320_upload_path') . $multiimage['image_name']) . '"> 
                                                 </a>
                                             </div>';
                 }
@@ -2556,12 +2552,12 @@ class Business_profile extends MY_Controller {
                                         <div class="three-image" >
 
                                             <a href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
-                                                <img class="three-columns" src="' . base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[1]['image_name']) . '"> 
+                                                <img class="three-columns" src="' . base_url($this->config->item('bus_post_350_320_upload_path') . $businessmultiimage[1]['image_name']) . '"> 
                                             </a>
                                         </div>
                                         <div class="three-image" >
                                             <a href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
-                                                <img class="three-columns" src="' . base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[2]['image_name']) . '"> 
+                                                <img class="three-columns" src="' . base_url($this->config->item('bus_post_350_320_upload_path') . $businessmultiimage[2]['image_name']) . '"> 
                                             </a>
                                         </div>';
             } elseif (count($businessmultiimage) == 4) {
@@ -2570,7 +2566,7 @@ class Business_profile extends MY_Controller {
 
                     $return_html .= '<div class="four-image">
                                                 <a href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
-                                                    <img class="breakpoint" src="' . base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) . '" > 
+                                                    <img class="breakpoint" src="' . base_url($this->config->item('bus_post_335_245_upload_path') . $multiimage['image_name']) . '" > 
                                                 </a>
                                             </div>';
                 }
@@ -2581,7 +2577,7 @@ class Business_profile extends MY_Controller {
 
                     $return_html .= '<div class="four-image">
                                                 <a href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
-                                                    <img src="' . base_url($this->config->item('bus_post_thumb_upload_path') . $multiimage['image_name']) . '" > 
+                                                    <img src="' . base_url($this->config->item('bus_post_335_245_upload_path') . $multiimage['image_name']) . '" > 
                                                 </a>
                                             </div>';
 
@@ -2592,9 +2588,9 @@ class Business_profile extends MY_Controller {
 
                 $return_html .= '<div class="four-image">
                                             <a href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
-                                                <img src="' . base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) . '" > 
+                                                <img src="' . base_url($this->config->item('bus_post_335_245_upload_path') . $businessmultiimage[3]['image_name']) . '"> 
                                             </a>
-                                            <a class="text-center" href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '" >
+                                            <a class="text-center" href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
                                                 <div class="more-image" >
                                                     <span>View All (+
                      ' . (count($businessmultiimage) - 4) . ')</span>
@@ -10957,11 +10953,7 @@ class Business_profile extends MY_Controller {
                 $contactperson_to = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                 if ($contactperson_to) {
-
-
                     $busdata = $this->common->select_data_by_id('business_profile', 'user_id', $contact['contact_to_id'], $data = '*', $join_str = array());
-
-
                     $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
 
                     $contactdata .= '<li>';

@@ -493,7 +493,7 @@ span.fu-time{font-size: 13px;}
 
 /*header2 start*/
 .header2 {
-    top: 49px;
+    top: 44px;
 }
 /*header2 end*/
 
@@ -669,6 +669,9 @@ right: 10px;}
 
 @media screen and (max-width: 767px) {
 /*header start*/
+.header2 {
+    top: 42px;
+}
 .padd_img {
     padding-left: 3px !important;
     padding-top: 3px !important;
@@ -703,7 +706,8 @@ right: 10px;}
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*left side box start*/
-
+.chat .chat-header .chat-with{font-size: 18px;}
+.chat .chat-history{width: 100%;}
 /*left side box end*/
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
@@ -1048,7 +1052,7 @@ padding: 4px 5px!important;
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
 /*left side box start*/
-
+.chat .chat-header .chat-with{font-size: 14px;}
 /*left side box end*/
 /*---------------------------------------------------profile-css--------------------------------------------------*/
 
