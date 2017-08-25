@@ -1,5 +1,4 @@
 <?php
-$width = " <script>document.write(screen.width); </script>"; 
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
@@ -68,28 +67,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container">
             <div class="" id="paddingtop_fixed">
                 <div class="backdiv-mob">
-                    <a href="#" class="pull-left"><img src="<?php echo base_url(); ?>img/back-arrow.png"></a>
+                    <a href="<?php echo base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $id; ?>" class="pull-left"><img src="<?php echo base_url(); ?>img/back-arrow.png"></a>
                     <a href="#" class="pull-right"><img src="<?php echo base_url(); ?>img/chat-frd.png"></a>
                 </div>
                 <div class="chat_nobcx">
 
-                    <div class="people-list" id="people-list">
+<!--                    <div class="people-list" id="people-list">
                         <div class="search border_btm">
                             <input type="text" name=""  id="user_search" placeholder="search" value= ""  />
                             <i class="fa fa-search" id="add_search"></i>
                         </div>
                         <ul class="list">
 
-                            <!-- loop start -->
+                             loop start 
                             <div id="userlist">
 
 
 
                             </div>
-                            <!-- loop end -->
+                             loop end 
                         </ul>
                     </div>
-                    <!-- chat start -->
+                     chat start -->
                     <?php
                     $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 

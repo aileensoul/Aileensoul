@@ -1,5 +1,4 @@
 <?php
-$width = " <script>document.write(screen.width); </script>"; 
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
@@ -30,23 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             .msg_left_data .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
         </style>
         
-<!--         <script>
-                    $(document).ready(function ($) {
-                        if (screen.width <= 767) { alert("hi");
-                            document.getElementById('chat').style.display = 'block';
-                        }
-                    });
-                </script>
-                 <script>
-                    $(document).ready(function ($) {
-                        if (screen.width <= 767) { 
-                            $("#userlist").click(function ()
-        { alert("hi000");
-          document.getElementById('chat').style.display = 'block';  
-        });
-                        }
-                    });
-                </script>-->
+
     <body>
         <?php
         echo $header;
@@ -96,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
                     if ($lstusrdata) {
                         ?>
-                        <div class="chat" id="chat"  style="display:block;">
+<!--                        <div class="chat" id="chat"  style="display:block;">
                       
                             <div class="chat-header clearfix border_btm">
 
@@ -157,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </a>
                               
                                 <div class="chat_drop">
-                                    <a onclick="myFunction()" class="chatdropbtn fr"><!-- <img src="<?php echo base_url('img/t_dot.png') ?>"> --></a>
+                                    <a onclick="myFunction()" class="chatdropbtn fr"> <img src="<?php echo base_url('img/t_dot.png') ?>"> </a>
                                     <div id="mychat_dropdown" class="chatdropdown-content">
                                         <a href="javascript:void(0);" onClick="delete_history()">
                                             <span class="h4-img h2-srrt"></span>  Delete All
@@ -170,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <ul  id="received" class="padding_less_right">
 
                                 </ul>
-                                <!--div for="smily"  class="smily_b" >
+                                div for="smily"  class="smily_b" >
                         <div id="notification_li1" >
                             <a class="smil" href="#" id="notificationLink1" ">
                                 <i class="em em-blush"></i></a>
@@ -188,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                         </div>
-                    </div-->
+                    </div
                             </div>
 
                             <div class="panel-footer">
@@ -230,9 +213,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     <?php } else { ?>
-
+<!--
                         <div class="chat" id="chat" style="display:block;">
                             <div class="chat-header clearfix ">
                                 <div class="chat-about">
@@ -268,7 +251,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     <?php } ?>
                     <!-- chat start -->
                 </div>
@@ -474,25 +457,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $('#received').animate({scrollTop: $('#received').height()}, 1000);
                     }
 
-                    var update_chats = function () {
-                        if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
-                            var offset = 52560000; // 100 years min
-                            request_timestamp = parseInt(Date.now() / 1000 - offset);
-                        }
-                        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $message_from_profile_id . '/' . $message_to_profile_id ?>?timestamp=' + request_timestamp, function (data) {
-                            //alert(data.id);
-                            append_chat_data(data);
-
-                            var newIndex = data.length - 1;
-                            if (typeof (data[newIndex]) != 'undefined') {
-                                request_timestamp = data[newIndex].timestamp;
-                            }
-                        });
-                    }
+//                    var update_chats = function () {
+//                        if (typeof (request_timestamp) == 'undefined' || request_timestamp == 0) {
+//                            var offset = 52560000; // 100 years min
+//                            request_timestamp = parseInt(Date.now() / 1000 - offset);
+//                        }
+//                        $.getJSON('<?php echo base_url() . 'api/get_messages/' . $toid . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $message_from_profile_id . '/' . $message_to_profile_id ?>?timestamp=' + request_timestamp, function (data) {
+//                            //alert(data.id);
+//                            append_chat_data(data);
+//
+//                            var newIndex = data.length - 1;
+//                            if (typeof (data[newIndex]) != 'undefined') {
+//                                request_timestamp = data[newIndex].timestamp;
+//                            }
+//                        });
+//                    }
 
                     $('#submit').click(function (e) {
-                //        alert(12121);
-                //        return false;
+                
                         e.preventDefault();
 
                         var $field = $('#message');
