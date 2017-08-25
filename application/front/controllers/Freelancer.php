@@ -1672,10 +1672,11 @@ $this->freelancer_hire_search();
             redirect('freelancer/freelancer_post/freelancer_post_basic_information');
         }
         //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
-        
+        $date=date('Y-m-d', time());
 // code for display page start
         $this->freelancer_apply_check();
         // code for display page end
+        
 
 //        if ($id == $userid || $id == "") {
             $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
@@ -1684,7 +1685,7 @@ $this->freelancer_hire_search();
             $post_reg_skill = explode(',', $freelancer_post_area);
 
             foreach ($post_reg_skill as $key => $value) {
-                $contition_array = array('is_delete' => 0, 'status' => '1', 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",post_skill)!=' => '0');
+                $contition_array = array('is_delete' => 0,'post_last_date >='=>$date, 'status' => '1', 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",post_skill)!=' => '0');
                 $freelancer_post_data = $this->data['freelancer_post_data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                 if ($freelancer_post_data) {
                     $freedata[] = $freelancer_post_data;
