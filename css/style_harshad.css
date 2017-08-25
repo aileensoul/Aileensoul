@@ -6,6 +6,8 @@
 .cancel-result:hover{background-color:#fff; color: #1b8ab9; border: 1px solid #1b8ab9;}
 .btn-success:active{background-color: white; color: #1b8ab9; }
 .profile-text1 .alert.alert-warning{margin-bottom: 0px;}
+.form_addedit{border-top: 1px solid #d9d9d9!important; }
+.form_addedit{border:1px solid #d9d9d9;}
 /*cover*/
 /*header start*/
 .dropdown-menu {
