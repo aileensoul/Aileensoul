@@ -688,7 +688,7 @@
 
                                                             <?php } else { ?>
 
-                                                                <li class="fr">
+                                                                <li class="fr<?php echo $user['follow_to']; ?>">
 
                                                                     <?php
                                                                     $contition_array = array('user_id' => $userid, 'status' => '1');

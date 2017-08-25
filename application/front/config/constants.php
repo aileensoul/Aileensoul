@@ -78,6 +78,14 @@ define('FREELANCERPORTFOLIOIMG', 'uploads/freelancer_portfolio_attachment/');
 
 
 
+// S3BUCKET
+
+// Bucket Name
+define('bucket', 'aileensoulimages');
+
+//AWS access info
+define('awsAccessKey', 'AKIAI2ZIGZWVAZWQJOPA');
+define('awsSecretKey', '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');
 
 
 
