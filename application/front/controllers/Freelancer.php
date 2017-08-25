@@ -3100,7 +3100,6 @@ $this->freelancer_hire_search();
             $image = '';
         }
 
-
         $data = array(
             'profile_background_main' => $image,
             'modify_date ' => date('Y-m-d h:i:s', time())
