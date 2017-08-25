@@ -753,7 +753,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
 
 <?php echo $footer; ?>
                     </footer>
-                    <!-- Bid-modal  -->
+                    <!-- Bid-modal start -->
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
                         <div class="modal-dialog modal-lm">
                             <div class="modal-content">
@@ -765,7 +765,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                             </div>
                         </div>
                     </div>
-                    <!-- Model Popup Close -->
+                    <!-- Bid-modal  end-->
                     </body>
                     </html>
 
