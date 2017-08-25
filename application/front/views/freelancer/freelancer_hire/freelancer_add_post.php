@@ -397,7 +397,7 @@
                 </fieldset>
 
              
-                 <div class="fr">           
+                 <div class="fr fw">           
 
                     <fieldset class="hs-submit full-width">
                         <input type="hidden" value="<?php echo $pages;?>" name="page" id="page">
