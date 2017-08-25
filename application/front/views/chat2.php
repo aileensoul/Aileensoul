@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta charset="utf-8">
         <title>Chat | Aileensoul</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
