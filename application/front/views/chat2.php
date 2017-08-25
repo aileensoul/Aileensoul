@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         echo $header;
 
         if ($message_from_profile == 1) {
-            echo $job_header2_border;update_chat
+            echo $job_header2_border;
         } else if ($message_from_profile == 2) {
             echo $recruiter_header2_border;
         } else if ($message_from_profile == 3) {
