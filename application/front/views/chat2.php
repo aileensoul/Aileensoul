@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         echo $header;
 
         if ($message_from_profile == 1) {
-            echo $job_header2_border;
+            echo $job_header2_border;update_chat
         } else if ($message_from_profile == 2) {
             echo $recruiter_header2_border;
         } else if ($message_from_profile == 3) {
@@ -67,10 +67,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         ?>
         <div class="container">
             <div class="" id="paddingtop_fixed">
-                <div class="backdiv-mob">
+<!--                <div class="backdiv-mob">
                     <a href="#" class="pull-left"><img src="<?php echo base_url(); ?>img/back-arrow.png"></a>
                     <a href="#" class="pull-right"><img src="<?php echo base_url(); ?>img/chat-frd.png"></a>
-                </div>
+                </div>-->
                 <div class="chat_nobcx">
 
                     <div class="people-list" id="people-list">
