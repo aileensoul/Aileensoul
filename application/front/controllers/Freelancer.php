@@ -1457,12 +1457,8 @@ $this->freelancer_hire_search();
 
     public function recommen_candidate() {
         $userid = $this->session->userdata('aileenuser');
-
-
         //if user deactive profile then redirect to freelancer_hire/freelancer_hire/freelancer_hire_basic_info  start
-
         $contition_array = array('user_id' => $userid, 'status' => '0', 'is_delete' => '0');
-
         $freelancerhire_deactive = $this->data['freelancerhire_deactive'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
         if ($freelancerhire_deactive) {
@@ -1475,8 +1471,6 @@ $this->freelancer_hire_search();
 
         $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
         $freelancerhiredata = $this->data['freelancerhiredata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
 
         //echo "<pre>"; print_r($post_other_skill); die();
         $contition_array = array('is_delete' => 0, 'status' => 1, 'free_post_step' => 7);
@@ -1492,12 +1486,8 @@ $this->freelancer_hire_search();
 
             foreach ($postuserarray as $key => $value) {
                 //  echo "<pre>"; print_r($value);
-
-
                 $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7, 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",freelancer_post_area)!=' => '0');
                 // echo "<pre>"; print_r($contition_array1); 
-
-
                 $candidate = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
                 $all_candidate[] = $candidate;
             }
@@ -1511,7 +1501,6 @@ $this->freelancer_hire_search();
         $this->data['candidatefreelancer'] = $final_candidate;
       //  echo count($this->data['candidatefreelancer']);die();
 
-        //  echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
         //echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
         $this->freelancer_hire_search();
         $this->load->view('freelancer/freelancer_hire/recommen_candidate', $this->data);
@@ -1676,81 +1665,55 @@ $this->freelancer_hire_search();
     //Freelancer Job All Post Start
     public function freelancer_apply_post($id = "") {
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
-
-
 //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  start
         $contition_array = array('user_id' => $userid, 'status' => '0', 'is_delete' => '0');
-
         $freelancerpost_deactive = $this->data['freelancerpost_deactive'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
         if ($freelancerpost_deactive) {
             redirect('freelancer/freelancer_post/freelancer_post_basic_information');
         }
         //if user deactive profile then redirect to freelancer/freelancer_post/freelancer_post_basic_information  End
+        
 // code for display page start
         $this->freelancer_apply_check();
         // code for display page end
 
-
-        if ($id == $userid || $id == "") {
-
-            // echo "hi"; die();
-
+//        if ($id == $userid || $id == "") {
             $contition_array = array('user_id' => $userid, 'is_delete' => 0, 'status' => 1);
             $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-           // echo "<pre>"; print_r($freelancerdata); die();
             $freelancer_post_area = $this->data['freelancerdata'][0]['freelancer_post_area'];
-
-
             $post_reg_skill = explode(',', $freelancer_post_area);
 
             foreach ($post_reg_skill as $key => $value) {
-
-
                 $contition_array = array('is_delete' => 0, 'status' => '1', 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",post_skill)!=' => '0');
-
-                // echo "<pre>"; print_r($contition_array1); 
-
-
                 $freelancer_post_data = $this->data['freelancer_post_data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
                 if ($freelancer_post_data) {
-
                     $freedata[] = $freelancer_post_data;
                 }
             }
-
-            // echo "<pre>"; print_r($freedata);
-        } else {
-            //  echo "heloo"; die();
-            $contition_array = array('user_id' => $id, 'is_delete' => 0, 'status' => 1, 'free_post_step' => 7);
-            $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-            $freelancer_post_area = $this->data['freelancerdata'][0]['freelancer_post_area'];
-
-            $post_reg_skill = explode(',', $freelancer_post_area);
-
-            foreach ($post_reg_skill as $key => $value) {
-
-
-                $contition_array = array('is_delete' => 0, 'status' => '1', 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",post_skill)!=' => '0');
-
-
-                $freelancer_post_data = $this->data['freelancer_post_data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-
-                if ($freelancer_post_data) {
-                    $freedata[] = $freelancer_post_data;
-                }
+            foreach ($freedata as $key1 => $value) {
+            foreach ($value as $ke => $val) {
+                $free_post[] = $val;
             }
         }
 
-        $this->data['postdetail'] = $freedata;
+        $unique = array_unique($free_post, SORT_ASC);
+        $unique = $this->aasort($unique, "post_id");
+//        } else {
+//            $contition_array = array('user_id' => $id, 'is_delete' => 0, 'status' => 1, 'free_post_step' => 7);
+//            $freelancerdata = $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//            $freelancer_post_area = $this->data['freelancerdata'][0]['freelancer_post_area'];
+//            $post_reg_skill = explode(',', $freelancer_post_area);
+//            foreach ($post_reg_skill as $key => $value) {
+//                $contition_array = array('is_delete' => 0, 'status' => '1', 'user_id !=' => $userid, 'FIND_IN_SET("' . $value . '",post_skill)!=' => '0');
+//                $freelancer_post_data = $this->data['freelancer_post_data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+//                if ($freelancer_post_data) {
+//                    $freedata[] = $freelancer_post_data;
+//                }
+//            }
+//        }
 
-        // echo "<pre>"; print_r($freedata);die();
-        //  echo "<pre>"; print_r($this->data['postdetail']); die();
+        $this->data['postdetail'] = $unique;
+
 $this->freelancer_apply_search();
 
         $this->load->view('freelancer/freelancer_post/post_apply', $this->data);

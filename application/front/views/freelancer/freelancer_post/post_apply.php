@@ -197,8 +197,8 @@
 
                                         <?php
                                         if ($postdetail) {
-                                            foreach ($postdetail as $post_key => $post_value) {
-                                                foreach ($post_value as $post) {
+                                            foreach ($postdetail as $post) {
+//                                                foreach ($post_value as $post) {
                                                     ?>
                                                     <div class="job-post-detail clearfix">
                                                         <!-- pop up box start-->
@@ -441,7 +441,7 @@
 
                                                     <?php
                                                 }
-                                            }
+//                                            }
                                         } else {
                                             ?>
                                             <div class="art-img-nn">
