@@ -2,9 +2,11 @@
 <html lang="en">
     <head>
         <title>Find the Best Jobs, Hiring, Freelance for Free | Grow Business Network - Aileensoul.com</title>
-        <meta name="description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Business and find or search jobs of your preference in your required field.">
+        <!--<meta name="description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Business and find or search jobs of your preference in your required field.">-->
         <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
-
+        <meta property="og:title" content="Find the Best Jobs, Hiring, Freelance for Free | Grow Business Network - Aileensoul.com" />
+        <meta property="og:description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Business and find or search jobs of your preference in your required field."/>
+        <meta property="og:image" content="<?php echo base_url('images/meta-icon.png'); ?>" />
         <script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -46,36 +48,6 @@
     </head>
 
     <body>
-<!--        <div style="font-size: 13px;" itemscope itemtype="http://schema.org/Organization">
-            <link itemprop="url" href="https://www.aileensoul.com">
-            <span style="font-size:14px; font-weight: bold; padding:5px 0 0;color:#0c93cf">
-                Find us on:
-            </span><br/>
-            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
-                <a href="https://www.facebook.com/aileensouldotcom" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
-                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Facebook"  style="object-fit: none; object-position: -32px -46px; width: 36px; height: 36px;" /><br/>
-                    Facebook
-                </a>
-            </div>
-            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
-                <a href="https://plus.google.com/+Aileensoul" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
-                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Google+"  style="object-fit: none; object-position: -160px -46px; width: 36px; height: 36px;" /><br/>
-                    Google+
-                </a>
-            </div>
-            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
-                <a href="https://www.linkedin.com/in/aileensouldotcom/" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
-                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Linkedin"  style="object-fit: none; object-position: -224px -46px; width: 36px; height: 36px;" /><br/>
-                    Linkedin
-                </a>
-            </div>
-            <div style="text-align:center;margin:12px;display:inline-block;width:64px">
-                <a href="https://twitter.com/aileen_soul" target="_blank" itemprop="sameAs" style="text-decoration:none;color:#0c93cf">
-                    <img src="https://admin.cylex.in/cylex_icon_0_10985506.png" alt="Twitter"  style="object-fit: none; object-position: -96px -46px; width: 36px; height: 36px;" /><br/>
-                    Twitter
-                </a>
-            </div>
-        </div>-->
         <div class="main-login">
             <header>
                 <div class="container">
@@ -447,8 +419,8 @@
                 {
 //                                            var essssmail = $('#email_login').val();
 //                                            alert(essssmail);
-//                                            <?php // $this->session->set_userdata('email',essssmail);          ?>
-//                                            var sessionValue = "<?php // echo $this->session->userdata('email');         ?>";
+//                                            <?php // $this->session->set_userdata('email',essssmail);           ?>
+//                                            var sessionValue = "<?php // echo $this->session->userdata('email');          ?>";
 //                                           
                     if (response.data == "ok") {
                         $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
@@ -714,7 +686,7 @@
                         $("#btn-register").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Sign Up ...');
 
                         window.location = "<?php echo base_url() ?>dashboard";
-                        // setTimeout(' window.location.href = "<?php //echo base_url()          ?>dashboard"; ', 4000);
+                        // setTimeout(' window.location.href = "<?php //echo base_url()           ?>dashboard"; ', 4000);
                     } else {
                         $("#register_error").fadeIn(1000, function () {
                             $("#register_error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');

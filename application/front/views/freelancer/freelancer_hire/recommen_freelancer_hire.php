@@ -421,10 +421,16 @@
                                                                                 echo $totalyear . " year";
                                                                             } elseif ($row['freelancer_post_exp_year'] != '' && $row['freelancer_post_exp_month'] == '') {
                                                                                 echo $row['freelancer_post_exp_year'];
-                                                                            } elseif ($row['freelancer_post_exp_year'] != '' && $row['freelancer_post_exp_month'] == '0 month') {
+                                                                            }elseif($row['freelancer_post_exp_year'] == '0 year' && $row['freelancer_post_exp_month'] == '0 month'){
+                                                                              echo "Fresher";  
+                                                                            }
+                                                                            elseif ($row['freelancer_post_exp_year'] != '' && $row['freelancer_post_exp_month'] == '0 month') {
 
                                                                                 echo $row['freelancer_post_exp_year'];
-                                                                            } else {
+                                                                            }elseif ($row['freelancer_post_exp_year'] == '0 year' && $row['freelancer_post_exp_month'] != ''){
+                                                                                echo $row['freelancer_post_exp_month'];
+                                                                            }
+                                                                            else {
 
                                                                                 echo $row['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];
                                                                             }

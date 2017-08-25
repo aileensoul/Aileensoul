@@ -144,9 +144,9 @@
                                                     $sub_lname = substr($lname, 0, 1);
                                                     ?>
                                                     <div class="post-img-profile">
-                                                        <?php echo ucfirst(strtolower($sub_fname)) .  ucfirst(strtolower($sub_lname)); ?>
+                                                        <?php echo ucfirst(strtolower($sub_fname)) . ucfirst(strtolower($sub_lname)); ?>
                                                     </div>
-                                                    <!--<img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">-->
+                                                    <!--<img src="<?php //echo base_url(NOIMAGE);   ?>" alt="<?php echo $freehiredata[0]['fullname'] . " " . $freehiredata[0]['username']; ?>">-->
                                                     <?php
                                                 }
                                                 ?>
@@ -231,15 +231,16 @@
                                                                         } else {
                                                                             ?>
                                                                             <a href="<?php echo base_url('freelancer/freelancer_post_profile/' . $row['user_id'] . '?page=freelancer_hire'); ?>" title="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>">
-                                                                                <?php 
-                                                                                 $post_fname = $row['freelancer_post_fullname'];
-                                                                                    $post_lname = $row['freelancer_post_username'];
-                                                                                    $sub_post_fname = substr($post_fname, 0, 1);
-                                                                                    $sub_post_lname = substr($post_lname, 0, 1); ?>
+                                                                                <?php
+                                                                                $post_fname = $row['freelancer_post_fullname'];
+                                                                                $post_lname = $row['freelancer_post_username'];
+                                                                                $sub_post_fname = substr($post_fname, 0, 1);
+                                                                                $sub_post_lname = substr($post_lname, 0, 1);
+                                                                                ?>
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($sub_post_fname)). ucfirst(strtolower($sub_post_lname)); ?>
+                                                                                    <?php echo ucfirst(strtolower($sub_post_fname)) . ucfirst(strtolower($sub_post_lname)); ?>
                                                                                 </div>
-<!--                                                                                <img src="<?php //echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"> -->
+            <!--                                                                                <img src="<?php //echo base_url(NOIMAGE);   ?>" alt="<?php echo ucwords($row['freelancer_post_fullname']) . ' ' . ucwords($row['freelancer_post_username']); ?>"> -->
                                                                             </a>
                                                                             <?php
                                                                         }
@@ -304,50 +305,50 @@
                                                                         ?>   </span>    
                                                                 </li>
                                                                  <!--  <li><b>Other Skill</b><span>
-                                                                        <?php
-                                                                        if ($row['freelancer_post_otherskill']) {
-                                                                            echo $row['freelancer_post_otherskill'];
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?></span>
-                                                                   </li> -->
-                                                                <?php $cityname = $this->db->get_where('cities', array('city_id' => $row['freelancer_post_city']))->row()->city_name; ?>
-                                                                <li><b>Location</b><span> <?php
-                                                                if ($cityname) {
-                                                                    echo $cityname;
-                                                                } else {
-                                                                    echo PROFILENA;
-                                                                }
-                                                                ?></span></li>
-                                                                <li><b>Skill Description</b> <span> <p>
-                                                                        <?php
-                                                                        if ($row['freelancer_post_skill_description']) {
-                                                                            echo $row['freelancer_post_skill_description'];
-                                                                        } else {
-                                                                            echo PROFILENA;
-                                                                        }
-                                                                        ?></p></span>
-                                                                </li>
-
-                                                                <!-- <li><b>Designation</b>
-                                                                 <span><?php
-                                                                    if ($row['designation']) {
-                                                                        echo $row['designation'];
-                                                                    } else {
-                                                                        echo PROFILENA;
-                                                                    }
-                                                                        ?></span>
-                                                                </li>
-                                                                -->
-                                                                <li><b>Avaiability</b><span>
                                                                 <?php
-                                                                if ($row['freelancer_post_work_hour']) {
-                                                                    echo $row['freelancer_post_work_hour'] . "  " . "Hours per week ";
+                                                                if ($row['freelancer_post_otherskill']) {
+                                                                    echo $row['freelancer_post_otherskill'];
                                                                 } else {
                                                                     echo PROFILENA;
                                                                 }
                                                                 ?></span>
+                                                                   </li> -->
+                                                                <?php $cityname = $this->db->get_where('cities', array('city_id' => $row['freelancer_post_city']))->row()->city_name; ?>
+                                                                <li><b>Location</b><span> <?php
+                                                                        if ($cityname) {
+                                                                            echo $cityname;
+                                                                        } else {
+                                                                            echo PROFILENA;
+                                                                        }
+                                                                        ?></span></li>
+                                                                <li><b>Skill Description</b> <span> <p>
+                                                                            <?php
+                                                                            if ($row['freelancer_post_skill_description']) {
+                                                                                echo $row['freelancer_post_skill_description'];
+                                                                            } else {
+                                                                                echo PROFILENA;
+                                                                            }
+                                                                            ?></p></span>
+                                                                </li>
+
+                                                                <!-- <li><b>Designation</b>
+                                                                 <span><?php
+                                                                if ($row['designation']) {
+                                                                    echo $row['designation'];
+                                                                } else {
+                                                                    echo PROFILENA;
+                                                                }
+                                                                ?></span>
+                                                                </li>
+                                                                -->
+                                                                <li><b>Avaiability</b><span>
+                                                                        <?php
+                                                                        if ($row['freelancer_post_work_hour']) {
+                                                                            echo $row['freelancer_post_work_hour'] . "  " . "Hours per week ";
+                                                                        } else {
+                                                                            echo PROFILENA;
+                                                                        }
+                                                                        ?></span>
                                                                 </li>
                                                                 <li><b>Rate Hourly</b> <span>
                                                                         <?php
@@ -377,9 +378,14 @@
                                                                                 echo $totalyear . " year";
                                                                             } elseif ($row['freelancer_post_exp_year'] != '' && $row['freelancer_post_exp_month'] == '') {
                                                                                 echo $row['freelancer_post_exp_year'];
+                                                                            } elseif ($row['freelancer_post_exp_year'] == '0 year' && $row['freelancer_post_exp_month'] == '0 month') {
+
+                                                                                echo "Fresher";
                                                                             } elseif ($row['freelancer_post_exp_year'] != '' && $row['freelancer_post_exp_month'] == '0 month') {
 
                                                                                 echo $row['freelancer_post_exp_year'];
+                                                                            } elseif ($rec['freelancer_post_exp_year'] == '0 year' && $rec['freelancer_post_exp_month'] != '') {
+                                                                                echo $rec['freelancer_post_exp_month'];
                                                                             } else {
 
                                                                                 echo $row['freelancer_post_exp_year'] . ' ' . $row['freelancer_post_exp_month'];
@@ -394,12 +400,12 @@
 
                                                         <div class="profile-job-profile-button clearfix">
                                                             <div class="apply-btn fr">
-                                                                        <?php
-                                                                        $userid = $this->session->userdata('aileenuser');
-                                                                        $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 2, 'status' => '0');
-                                                                        $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-                                                                        // khayti changes start 6-4
-                                                                        ?>
+                                                                <?php
+                                                                $userid = $this->session->userdata('aileenuser');
+                                                                $contition_array = array('from_id' => $userid, 'to_id' => $row['user_id'], 'save_type' => 2, 'status' => '0');
+                                                                $data = $this->common->select_data_by_condition('save', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                                // khayti changes start 6-4
+                                                                ?>
                                                        <!--<a href="<?php echo base_url('chat/abc/' . $row['user_id'] . '/3/4'); ?>">Saved</a>-->
                                                                 <?php if ($userid != $row['user_id']) { ?>
                                                                     <a href="<?php echo base_url('chat/abc/3/4/' . $row['user_id']); ?>">Message</a>
@@ -412,9 +418,9 @@
                                                                         <a id="<?php echo $row['user_id']; ?>" onClick="savepopup(<?php echo $row['user_id']; ?>)" href="javascript:void(0);" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save</a>
                                                                         <!-- pallavi changes end 15-4 -->
                                                                        <!--  <a id="<?php echo $row['user_id']; ?>" onClick="save_user(this.id)" href="#popup1" class="<?php echo 'saveduser' . $row['user_id']; ?>">Save User</a> -->
-                <?php
-            } else {
-                ?>
+                                                                        <?php
+                                                                    } else {
+                                                                        ?>
 
 
 
@@ -430,10 +436,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                                <?php
-                                                            }
-                                                        } else {
-                                                            ?>
+                                                <?php
+                                            }
+                                        } else {
+                                            ?>
                                             <div class="art-img-nn">
                                                 <div class="art_no_post_img">
 
@@ -444,9 +450,9 @@
                                                     No Recommended Freelancer Available.
                                                 </div>
                                             </div>
-    <?php
-}
-?>
+                                            <?php
+                                        }
+                                        ?>
                                         <!-- body tag inner data end -->
                                         <div class="col-md-1">
                                         </div>
@@ -461,7 +467,7 @@
         </div>
     </section>
     <footer>
-<?php echo $footer; ?>
+        <?php echo $footer; ?>
     </footer>
     <!-- pallavi changes 15-4 -->
     <!-- Model Popup Open -->
@@ -488,32 +494,32 @@
 <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
 <!-- script for skill textbox automatic end (option 2)-->
 <script>
-                                                            var data = <?php echo json_encode($demo); ?>;
-                                                            //alert(data);
+                                                                            var data = <?php echo json_encode($demo); ?>;
+                                                                            //alert(data);
 
-                                                            $(function () {
-                                                                // alert('hi');
-                                                                $("#tags").autocomplete({
-                                                                    source: function (request, response) {
-                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                        response($.grep(data, function (item) {
-                                                                            return matcher.test(item.label);
-                                                                        }));
-                                                                    },
-                                                                    minLength: 1,
-                                                                    select: function (event, ui) {
-                                                                        event.preventDefault();
-                                                                        $("#tags").val(ui.item.label);
-                                                                        $("#selected-tag").val(ui.item.label);
-                                                                        // window.location.href = ui.item.value;
-                                                                    }
-                                                                    ,
-                                                                    focus: function (event, ui) {
-                                                                        event.preventDefault();
-                                                                        $("#tags").val(ui.item.label);
-                                                                    }
-                                                                });
-                                                            });
+                                                                            $(function () {
+                                                                                // alert('hi');
+                                                                                $("#tags").autocomplete({
+                                                                                    source: function (request, response) {
+                                                                                        var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                                                                                        response($.grep(data, function (item) {
+                                                                                            return matcher.test(item.label);
+                                                                                        }));
+                                                                                    },
+                                                                                    minLength: 1,
+                                                                                    select: function (event, ui) {
+                                                                                        event.preventDefault();
+                                                                                        $("#tags").val(ui.item.label);
+                                                                                        $("#selected-tag").val(ui.item.label);
+                                                                                        // window.location.href = ui.item.value;
+                                                                                    }
+                                                                                    ,
+                                                                                    focus: function (event, ui) {
+                                                                                        event.preventDefault();
+                                                                                        $("#tags").val(ui.item.label);
+                                                                                    }
+                                                                                });
+                                                                            });
 
 </script>
 <script>

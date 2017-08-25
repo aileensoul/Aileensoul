@@ -252,7 +252,7 @@ if ($returnpage == 'freelancer_post') {
 
         <div class="middle-part container">
             <div class="job-menu-profile mob-none pt20">
-                <a href="javascript:void(0);">  <h5> <?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancerpostdata[0]['username']); ?></h5></a>
+                <a href="javascript:void(0);">  <h5> <?php echo ucwords($freelancr_user_data[0]['fullname']) . ' ' . ucwords($freelancr_user_data[0]['username']); ?></h5></a>
 
 
                 <div class="profile-text">
