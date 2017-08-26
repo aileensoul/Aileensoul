@@ -1067,7 +1067,7 @@ h3.text-effect span {
 }
 
 /***  validation  ***/
-.error{color: #ff0000 !important; font-weight:normal;}
+.error{font-weight:normal;}
 label.error{font-size: 12px; color: #ff0000 !important; font-weight:normal;}
 #forgot_password .modal-body label.error{color: #ff0000 !important;}
 .login .form-group select{top: 0;}

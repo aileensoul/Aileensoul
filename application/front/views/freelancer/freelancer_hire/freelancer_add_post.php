@@ -1231,7 +1231,7 @@ var today = yyyy;
 
                 $("#example2").dateDropdowns({
                     submitFieldName: 'last_date',
-                    submitFormat: "dd/mm/yyyy",
+                    submitFormat: "yyyy-mm-dd",
                     minYear: today,
                     maxYear: today + 1,
                     daySuffixes: false,

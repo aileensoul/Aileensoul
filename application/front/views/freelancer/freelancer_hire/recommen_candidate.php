@@ -178,7 +178,28 @@
                                     </div>
                                 </div>                             
                             </div>
-                            <div  class="add-post-button">
+                                <div class="custom_footer_left fw">
+          <div class="fl">
+            <ul>
+              <li><a href=""> About Us </a></li>
+              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
+              <li><a href="">Contact Us</a></li>
+              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
+              <li><a href="">Blogs</a></li>
+              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
+              <li><a href="">Terms &amp; Condition </a></li>
+              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
+              <li><a href="">Privacy Policy</a></li>
+              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
+              <li><a href="">Send Us Feedback</a></li>
+            </ul>
+          </div>
+        <div>
+          
+        </div>
+
+        </div>
+                            <div  class="add-post-button fl">
                                 <a class="btn btn-3 btn-3b" href="<?php echo base_url('freelancer/freelancer_add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i> Post Project</a>
                             </div>
                         </div>

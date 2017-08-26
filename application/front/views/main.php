@@ -32,7 +32,24 @@
             enable_page_level_ads: true
           });
         </script>-->
-
+        <script type="application/ld+json">
+            {
+            "@context":"http://schema.org",
+            "@type":"Organization",
+            "name":"Aileensoul",
+            "alternateName":"Aileensoul Technologies",
+            "url":"https://www.aileensoul.com",
+            "logo":"https://www.aileensoul.com/images/meta-icon.png"
+            },
+            "contactPoint":
+            {"@type":"ContactPoint","telephone":"+91 9879907399","contactType":"customer service"},
+            "sameAs":
+            ["https://www.facebook.com/aileensouldotcom",
+            "https://plus.google.com/+aileensoul",
+            "https://www.linkedin.com/company/aileensoul-technologies-pvt-ltd",
+            "https://twitter.com/aileen_soul"]
+            }
+        </script>
 
         <meta name="p:domain_verify" content="d0a13cf7576745459dc0ca6027df5513"/>
         <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
@@ -419,8 +436,8 @@
                 {
 //                                            var essssmail = $('#email_login').val();
 //                                            alert(essssmail);
-//                                            <?php // $this->session->set_userdata('email',essssmail);           ?>
-//                                            var sessionValue = "<?php // echo $this->session->userdata('email');          ?>";
+//                                            <?php // $this->session->set_userdata('email',essssmail);            ?>
+//                                            var sessionValue = "<?php // echo $this->session->userdata('email');           ?>";
 //                                           
                     if (response.data == "ok") {
                         $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
@@ -686,7 +703,7 @@
                         $("#btn-register").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Sign Up ...');
 
                         window.location = "<?php echo base_url() ?>dashboard";
-                        // setTimeout(' window.location.href = "<?php //echo base_url()           ?>dashboard"; ', 4000);
+                        // setTimeout(' window.location.href = "<?php //echo base_url()            ?>dashboard"; ', 4000);
                     } else {
                         $("#register_error").fadeIn(1000, function () {
                             $("#register_error").html('<div class="alert alert-danger main"> <i class="fa fa-info-circle" aria-hidden="true"></i> &nbsp; ' + response + ' !</div>');

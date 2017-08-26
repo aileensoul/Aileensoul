@@ -824,7 +824,7 @@
                                         $businessdelete = $this->data['businessdelete'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                                         $contition_array = array('user_id' => $row['user_id'], 'status' => '1');
-                                        $businessdata = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                        $businessdata1 = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
                                         $likeuserarray = explode(',', $businessdelete[0]['delete_post']);
                                         if (!in_array($userid, $likeuserarray)) {
@@ -955,7 +955,7 @@
                                                                                     </span> </div></div>
                                                                         </li>
 
-                                                                        <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                                        <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
 
 
                                                                         <!--                                                            <li>
@@ -966,7 +966,7 @@
 
                                                                             echo ucwords($category);
                                                                         } else {
-                                                                            echo ucwords($businessdata[0]['other_industrial']);
+                                                                            echo ucwords($businessdata1[0]['other_industrial']);
                                                                         }
                                                                         ?>
                                                                                                                                             </a>
@@ -990,7 +990,7 @@
                                                                         </li>
 
                                                                     <?php } ?>
-                                                                    <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
+                                                                    <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata1[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
 
 
                                                                     <li>
@@ -1001,7 +1001,7 @@
 
                                                                                     echo ucfirst(strtolower($category));
                                                                                 } else {
-                                                                                    echo ucfirst(strtolower($businessdata[0]['other_industrial']));
+                                                                                    echo ucfirst(strtolower($businessdata1[0]['other_industrial']));
                                                                                 }
                                                                                 ?>
                                                                             </a>
