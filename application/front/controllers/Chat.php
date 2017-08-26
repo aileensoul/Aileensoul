@@ -1188,9 +1188,9 @@ class Chat extends MY_Controller {
      
          $width = " <script>document.write(screen.width); </script>";
         
-          if ($width <= 767) {
+          if ($width <= 767) { 
          $this->load->view('mobile/mobile_chat_one', $this->data);       
-          }else{
+          }else{ 
         $this->load->view('chat2', $this->data);
           }
     }
@@ -3623,7 +3623,7 @@ class Chat extends MY_Controller {
              $function = "mobile_chat_two"; 
           }else{
              $function = "abc"; 
-          }
+        }
 
       $userlist =  $this->data['userlist'] = array_merge($return_arraysel, $userlist);
       $userlist = $this->aasort($userlist, "id");
@@ -3745,7 +3745,7 @@ class Chat extends MY_Controller {
                 $notmsg .= 'active2';
             }
             $notmsg .= '">';
-            $notmsg .= '<a href="' . base_url() . 'chat/' . $function . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $msg['user_id'] . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
+            $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $msg['user_id'] . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
 //            $notmsg .= '<a href="' . base_url() . 'chat/abc/' . $msg['user_id'] . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $not[0]['not_id'] . '" class="clearfix msg_dot" style="padding:0px!important;">';
             $notmsg .= '<div class="notification-database"><div class="notification-pic">';
 
@@ -3785,7 +3785,7 @@ class Chat extends MY_Controller {
         $notmsg .= '</div>';
        
         if($userlist){
-      $seeall = '<a href="' . base_url() . 'chat/' . $function . '/' . $message_from_profile . '/' . $message_to_profile . '/' . $userlist[0]['user_id'] . '" >See All</a>';
+      $seeall = '<a href="' . base_url() . 'chat/abc/' . $message_from_profile . '/' . $message_to_profile . '/' . $userlist[0]['user_id'] . '" >See All</a>';
         }else{
          $seeall = '<div class="fw">
   <div class="art-img-nn">
