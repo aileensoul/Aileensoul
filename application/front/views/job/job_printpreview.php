@@ -235,14 +235,14 @@ if ($returnpage == 'recruiter') {
                         <?php } else { ?>
 
                             <?php
-                            $a = $job[0]['fname'];
+                            $a = trim($job[0]['fname']);
                             $words = explode(" ", $a);
                             foreach ($words as $w) {
                                 $acronym = $w[0];
                             }
                             ?>
                             <?php
-                            $b = $job[0]['lname'];
+                            $b = trim($job[0]['lname']);
                             $words = explode(" ", $b);
                             foreach ($words as $w) {
                                 $acronym1 = $w[0];

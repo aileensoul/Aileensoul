@@ -2011,6 +2011,7 @@ foreach ($resul as $key => $value) {
 
     public function freelancer_post_search() {
         //echo "123";die();
+         $date=date('Y-m-d', time());
         $userid = $this->session->userdata('aileenuser');
 
         if ($this->input->get('searchplace') == "" && $this->input->get('skills') == "") { 
@@ -2064,7 +2065,7 @@ foreach ($resul as $key => $value) {
             $join_str[0]['from_table_id'] = 'freelancer_hire_reg.user_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('freelancer_post.city' => $cache_time,'freelancer_hire_reg.status' => '1', 'freelancer_hire_reg.user_id !=' =>$userid ,'freelancer_hire_reg.free_hire_step' => 3);
+            $contition_array = array('freelancer_post.city' => $cache_time,'freelancer_hire_reg.status' => '1', 'freelancer_hire_reg.user_id !=' =>$userid ,'freelancer_hire_reg.free_hire_step' => 3,'freelancer_post.post_last_date >='=>$date);
 
     
         $new = $this->data['results'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
@@ -2083,7 +2084,7 @@ foreach ($resul as $key => $value) {
 
             $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($artdata['data']); 
-            $contition_array = array('status' => '1','freelancer_post.user_id !=' =>$userid);
+            $contition_array = array('status' => '1','freelancer_post.user_id !=' =>$userid,'post_last_date >='=>$date);
             $recdata = $userdata['data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($recdata); 
             
@@ -2110,10 +2111,10 @@ foreach ($resul as $key => $value) {
 
 
             $search_condition = "(post_name LIKE '%$search_skill%' or post_other_skill LIKE '%$search_skill%' or post_est_time LIKE '%$search_skill%' or post_rate LIKE '%$search_skill%' or  post_exp_year LIKE '%$search_skill%' or  post_exp_month LIKE '%$search_skill%')";
-             $contion_array = array('freelancer_post.user_id !=' =>$userid);
+             $contion_array = array('freelancer_post.user_id !=' =>$userid,'post_last_date >='=>$date);
             //  echo  $search_condition; die();
 
-            $freeldata = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $freeldata = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             //echo "<pre>"; print_r($freeldata); die();
             // $p3=str_split($search_skill,6);
@@ -2161,9 +2162,9 @@ foreach ($resul as $key => $value) {
 
             $search_condition = "(skill LIKE '%$search_skill%')";
 
-            $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $skilldata = $artdata['data'] = $this->common->select_data_by_search('skill', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($artdata['data']); 
-            $contition_array = array('status' => '1', 'city' => $cache_time,'freelancer_post.user_id !=' =>$userid);
+            $contition_array = array('status' => '1', 'city' => $cache_time,'freelancer_post.user_id !=' =>$userid,'post_last_date >='=>$date);
             $recdata = $userdata['data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             // echo "<pre>"; print_r($recdata); 
 
@@ -2189,9 +2190,9 @@ foreach ($resul as $key => $value) {
 
 
             $search_condition = "(post_name LIKE '%$search_skill%' or post_other_skill LIKE '%$search_skill%' or post_est_time LIKE '%$search_skill%' or post_rate LIKE '%$search_skill%' or  post_exp_year LIKE '%$search_skill%' or  post_exp_month LIKE '%$search_skill%')";
-            $contion_array = array('post_name=' => $search_job, 'city' => $cache_time,'freelancer_post.user_id !=' =>$userid);
+            $contion_array = array('post_name=' => $search_job, 'city' => $cache_time,'freelancer_post.user_id !=' =>$userid,'post_last_date >='=>$date);
 
-            $freeldata = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array = array(), $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+            $freeldata = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             // echo "<pre>"; print_r($freeldata);
             // $p3=str_split($search_skill,6);

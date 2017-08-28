@@ -35,19 +35,19 @@
       <div class="form-pd row">
 
 
-<!--<div id="error1" style="display:block;">
+<div id="error1" style="display:block;">
 
                         <?php  
-//                                        if ($this->session->flashdata('error')) {
-//                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
-//                                        }
-//                                        if ($this->session->flashdata('success')) {
-//                                            echo '<div class="alert alert-danger">' . $this->session->flashdata('success') . '</div>';
-//                                        }
-//                                        
+                                       if ($this->session->flashdata('error')) {
+                                           echo '<div class="alert alert-danger">' . $this->session->flashdata('error') . '</div>';
+                                       }
+                                       if ($this->session->flashdata('success')) {
+                                           echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+                                       }
+                                       
                                 ?>
 
-                      </div>-->
+                      </div>
 
                  
 
@@ -366,12 +366,26 @@ $(document).ready(function () { //aletr("hii");
                   forgot_email: {
                       required: true,
                       email: true,
+                      remote: {
+                                      url: "<?php echo site_url() . 'profile/check_emailforget' ?>",
+                                      type: "post",
+                                      data: {
+                                     email_reg: function () {
+                                     // alert("hi");
+                                        return $("#forgot_email").val();
+                                    },
+                                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                },
+                              },
+
                         }
                   
                         },
             messages:  {
                     forgot_email: {
                     required: "Email Address Is Required.",
+                    remote: "Email address not exists",
+
                       }
 
                     

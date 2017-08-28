@@ -147,51 +147,45 @@ class Profile extends CI_Controller {
 
 //User email already exist checking controller End
     
-
-     public function forgot_password() { 
-      $forgot_email = $this->input->post('forgot_email'); 
-
+public function forgot_password() {
+        $forgot_email = $this->input->post('forgot_email');
 
         if ($forgot_email != '') {
 
             $forgot_email_check = $this->common->select_data_by_id('user', 'user_email', $forgot_email, '*', '');
-
-          //echo '<pre>'; print_r($forgot_email_check); die();
             if (count($forgot_email_check) > 0) {
-                
-           $rand_password = rand(100000, 999999);
-           
-         $email= $forgot_email_check[0]['user_email'];
-         $username= $forgot_email_check[0]['user_name'];
-         $firstname= $forgot_email_check[0]['first_name'];
-         $lastname= $forgot_email_check[0]['last_name'];
-            
-            $toemail= $forgot_email; 
-            
-           $msg = "Hey !" . $username ."<br/>"; 
-           $msg .=  " " . $firstname . " " . $lastname . ",";
-           $msg .= "this is your new password..";
-           $msg .= "<br>"; 
-           $msg .= " " . $rand_password . " "; 
-           
-          // echo $msg; die();
-            $subject = "Forgot password";
+                $rand_password = rand(100000, 999999);
+                $email = $forgot_email_check[0]['user_email'];
+                $username = $forgot_email_check[0]['user_name'];
+                $firstname = $forgot_email_check[0]['first_name'];
+                $lastname = $forgot_email_check[0]['last_name'];
+
+                $toemail = $forgot_email;
+
+                $msg = "Hey !" . $username . "<br/>";
+                $msg .= " " . $firstname . " " . $lastname . ",";
+                $msg .= "this is your new password..";
+                $msg .= "<br>";
+                $msg .= " " . $rand_password . " ";
+
+                // echo $msg; die();
+                $subject = "Forgot password";
 
 
-   $mail = $this->email_model->do_email($msg, $subject,$toemail,'');
+                $mail = $this->email_model->do_email($msg, $subject, $toemail, '');
 //die();
-   $data = array(
-                'user_password' => md5($rand_password)
-                 );
+                $data = array(
+                    'user_password' => md5($rand_password)
+                );
 
-     
-    $updatdata =   $this->common->update_data($data,'user','user_id',$forgot_email_check[0]['user_id']);
-             
-   
+
+                $updatdata = $this->common->update_data($data, 'user', 'user_id', $forgot_email_check[0]['user_id']);
+
+
                 $this->session->set_flashdata('success', '<div class="alert alert-success">Password successfully send in your email id.</div>');
                 redirect('login', 'refresh');
             } else {
-             //  echo "2222"; die();
+                //  echo "2222"; die();
                 $this->session->set_flashdata('error', '<div class="alert alert-danger">Please enter register email id.</div>');
                 redirect('login', 'refresh');
             }
@@ -200,8 +194,134 @@ class Profile extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
+     public function forgot_passwordnew() { 
+      $forgot_email = $this->input->post('forgot_email'); 
 
 
+        if ($forgot_email != '') {
+
+            $forgot_email_check = $this->common->select_data_by_id('user', 'user_email', $forgot_email, '*', '');
+
+          //echo '<pre>'; print_r($forgot_email_check); die();
+              
+            if (count($forgot_email_check) > 0) {
+                
+           // $rand_password = rand(100000, 999999);
+           
+           $rand_password = $this->random_string(6);
+
+
+         $email= $forgot_email_check[0]['user_email'];
+         $username= $forgot_email_check[0]['user_name'];
+         $firstname= $forgot_email_check[0]['first_name'];
+         $lastname= $forgot_email_check[0]['last_name'];
+            
+            $toemail= $forgot_email; 
+
+            
+            
+           // $msg .= "Hey !" . $username ."<br/>"; 
+           // $msg .=  " " . $firstname . " " . $lastname . ",";
+           // $msg .= "This is your code.";
+           // $msg .= "<br>"; 
+           // $msg .= " " . $rand_password . " "; 
+           // $msg .= "<a href=" .  base_url('profile/change_password/' . $forgot_email_check[0]['user_id']) . ">Change password</a>"; 
+
+
+                 
+        $msg .= '<tr>
+              <td style="text-align:center; padding:10px 0 30px; font-size:15px;">';
+        $msg .= '<p style="margin:0; font-family:arial;">Hi,' . ucwords($firstname) .' '.ucwords($lastname) . '</p>
+                <p style="padding:25px 0 ; font-family:arial; margin:0;">This is your code: '.$rand_password .'</p>
+                <p><a class="btn" href="' . base_url() . 'profile/change_password/' . $forgot_email_check[0]['user_id'] . '">Reset password</a></p>
+              </td>
+            </tr>';
+
+
+          
+           echo $msg; die();
+            $subject = "Forgot password";
+
+
+   //$mail = $this->email_model->do_email($msg, $subject,$toemail,'');
+   $mail = $this->email_model->sendEmail($app_name = '', $app_email = '', $toemail , $subject, $msg);
+//die();
+   $data = array(
+                'code' => $rand_password
+                 );
+
+     
+    $updatdata =   $this->common->update_data($data,'user','user_id',$forgot_email_check[0]['user_id']);
+             
+   
+            $this->session->set_flashdata('success', '<div class="alert alert-success">Code for new password successfully send in your email id.</div>');
+                redirect('login', 'refresh');
+            } else {
+             //  echo "2222"; die();
+                $this->session->set_flashdata('error', '<div class="alert alert-danger">Code for new password successfully not send in your email id.</div>');
+                redirect('login', 'refresh');
+            }
+        } else {
+            $this->session->set_flashdata('error', '<div class="alert alert-danger">Please enter email id.</div>');
+            redirect('login', 'refresh');
+        }
+    }
+
+ public function change_password($abc){ 
+
+      $this->data['user_changeid'] = $abc;
+            $this->data['emailid'] = $this->common->select_data_by_id('user', 'user_id', $abc, '*', '');
+
+        $this->data['forgetpassword_header'] = $this->load->view('forgetpassword_header', $this->data,TRUE);
+      
+
+      $this->load->view('profile/change_password', $this->data);
+
+  }
+  public function code_check(){
+
+     $code = $this->input->post('code');
+     $this->data['userid'] = $userid = $this->input->post('userid');
+
+
+        $this->data['forgetpassword_header'] = $this->load->view('forgetpassword_header', $this->data,TRUE);
+
+      $checkdata = $this->common->select_data_by_id('user', 'user_id', $userid, '*', '');
+
+
+      if ($checkdata[0]['code'] == $code) {
+        echo 'true';
+        die();
+        } else {
+        echo 'false';
+        die();
+        }
+
+
+    //   if($checkdata[0]['code'] == $code){ 
+
+    // $this->load->view('profile/change_password_view', $this->data);
+    //  }else{
+    //   $this->session->set_flashdata('error', "<div class='alert alert-danger'>You enter some text doesn't match your code.Please try right code.</div>");
+    //             redirect('profile/change_password', 'refresh');
+    //  }
+
+  }
+  public function new_forgetpassword(){
+
+    $code_userid = $this->input->post('usercon');
+    $new_password = $this->input->post('new_password');
+
+     $data = array(
+                'user_password' => md5($new_password),
+                'code' => ''
+                 );
+
+     
+    $updatdata =   $this->common->update_data($data,'user','user_id',$code_userid);
+    $this->session->set_userdata('aileenuser', $code_userid);
+    redirect('dashboard', refresh); 
+  }
 
      public function sendEmail($app_name = '', $app_email = '', $to_email = '', $subject = '', $mail_body = '') {
 //echo $to_email; die(); 
@@ -267,9 +387,48 @@ class Profile extends CI_Controller {
         $this->load->view('profile/rec_forgott_password', $this->data);
     }
 
+ 
 
 
+public function random_string($length = 5, $allowed_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890') {
+        $allowed_chars_len = strlen($allowed_chars);
+
+        if ($allowed_chars_len == 1) {
+            return str_pad('', $length, $allowed_chars);
+        } else {
+            $result = '';
+
+            while (strlen($result) < $length) {
+                $result .= substr($allowed_chars, rand(0, $allowed_chars_len), 1);
+            } // while
+
+            return $result;
+        }
+    }
 
 
+public function check_emailforget() { //echo "hello"; die();
+        // if ($this->input->is_ajax_request() && $this->input->post('email')) {
+
+        $email_reg = $this->input->post('email_reg');
+
+        // $userid = $this->session->userdata('aileenuser');
+
+            $contition_array = array( 'is_delete' => '0' , 'status' => '1');
+           $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+  
+          $condition_array = array('is_delete' => '0' , 'status' => '1');
+        
+        $check_result = $this->common->check_unique_avalibility('user', 'user_email', $email_reg, '', '', $condition_array);
+
+        if ($check_result) {
+        echo 'false';
+        die();
+        } else {
+        echo 'true';
+        die();
+        }
+        }
 
 }

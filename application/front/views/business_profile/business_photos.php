@@ -1291,6 +1291,7 @@
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("demo");
+        
         var captionText = document.getElementById("caption");
         if (n > slides.length) {
             slideIndex = 1

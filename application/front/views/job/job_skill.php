@@ -636,7 +636,18 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
             },
             select: function( event, ui ) {
              
+                var text =this.value;
                 var terms = split( this.value );
+                 
+                text = text == null || text == undefined ? "" : text;
+                var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+               if (checked == 'checked') {
+      
+                    terms.push( ui.item.value );
+                    this.value = terms.split( ", " );
+               }//if end
+
+              else {
                 if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
@@ -653,6 +664,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                     $(this).attr("style","border: solid 1px red;");
                     return false;
                 }
+              }//else end
             }
 
   
@@ -689,7 +701,18 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
             },
             select: function( event, ui ) {
                
+                var text =this.value;
                 var terms = split( this.value );
+                 
+                text = text == null || text == undefined ? "" : text;
+                var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+               if (checked == 'checked') {
+      
+                    terms.push( ui.item.value );
+                    this.value = terms.split( ", " );
+               }//if end
+
+              else {
                 if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
@@ -706,6 +729,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                     $(this).attr("style","border: solid 1px red;");
                     return false;
                 }
+              }//else end
             }
 
   

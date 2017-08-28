@@ -966,21 +966,10 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-   var todaydate = dd+'/'+mm+'/'+yyyy;
-
-   var lastDate = $("input[name=last_date]").val();
-    //alert(lastDate); alert(todaydate);
-
-     lastDate=lastDate.split("/");
-     var lastdata_new=lastDate[1]+"/"+lastDate[0]+"/"+lastDate[2];
-     var lastdata_new_one = new Date(lastdata_new).getTime();
-
-     todaydate=todaydate.split("/");
-     var todaydate_new=todaydate[1]+"/"+todaydate[0]+"/"+todaydate[2];
-     var todaydate_new_one = new Date(todaydate_new).getTime();
-     
-
-    return lastdata_new_one >= todaydate_new_one;
+  var todaydate = yyyy + '-' + mm + '-' + dd;
+    var one = new Date(value).getTime();
+    var second = new Date(todaydate).getTime();
+    return one >= second;
 }, "Last date should be grater than and equal to today date");
 
 //date validation end
