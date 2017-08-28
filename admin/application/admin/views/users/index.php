@@ -361,7 +361,7 @@ echo $leftmenu;
 //Delete user Start
    function delete_user(user_id) 
    {
-   alert(123);
+
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
 
         $('.message #delete').on('click', function () 
