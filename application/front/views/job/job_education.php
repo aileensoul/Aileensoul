@@ -1695,14 +1695,11 @@
                   
                if($('#input1 #university1').hasClass('error') )
                {
-                     
-             
                      $("#input1 .university").removeClass("error");
                      $('label.error').remove();
                     return true;     
                 }
 
-          
          }
 
          return false;
