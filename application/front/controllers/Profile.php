@@ -147,8 +147,54 @@ class Profile extends CI_Controller {
 
 //User email already exist checking controller End
     
+public function forgot_password() {
+        $forgot_email = $this->input->post('forgot_email');
 
-     public function forgot_password() { 
+        if ($forgot_email != '') {
+
+            $forgot_email_check = $this->common->select_data_by_id('user', 'user_email', $forgot_email, '*', '');
+            if (count($forgot_email_check) > 0) {
+                $rand_password = rand(100000, 999999);
+                $email = $forgot_email_check[0]['user_email'];
+                $username = $forgot_email_check[0]['user_name'];
+                $firstname = $forgot_email_check[0]['first_name'];
+                $lastname = $forgot_email_check[0]['last_name'];
+
+                $toemail = $forgot_email;
+
+                $msg = "Hey !" . $username . "<br/>";
+                $msg .= " " . $firstname . " " . $lastname . ",";
+                $msg .= "this is your new password..";
+                $msg .= "<br>";
+                $msg .= " " . $rand_password . " ";
+
+                // echo $msg; die();
+                $subject = "Forgot password";
+
+
+                $mail = $this->email_model->do_email($msg, $subject, $toemail, '');
+//die();
+                $data = array(
+                    'user_password' => md5($rand_password)
+                );
+
+
+                $updatdata = $this->common->update_data($data, 'user', 'user_id', $forgot_email_check[0]['user_id']);
+
+
+                $this->session->set_flashdata('success', '<div class="alert alert-success">Password successfully send in your email id.</div>');
+                redirect('login', 'refresh');
+            } else {
+                //  echo "2222"; die();
+                $this->session->set_flashdata('error', '<div class="alert alert-danger">Please enter register email id.</div>');
+                redirect('login', 'refresh');
+            }
+        } else {
+            $this->session->set_flashdata('error', '<div class="alert alert-danger">Please enter email id.</div>');
+            redirect('login', 'refresh');
+        }
+    }
+     public function forgot_passwordnew() { 
       $forgot_email = $this->input->post('forgot_email'); 
 
 
