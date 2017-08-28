@@ -2,7 +2,7 @@
 <?php echo $head; ?>
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 
-
+  <title>Saved Job - Aileensoul.com</title>
 <!--post save success pop up style end -->
 
 

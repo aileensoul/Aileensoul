@@ -3,6 +3,8 @@
 <?php echo $head; ?>
 <!-- END HEAD -->
 
+ <title>Work Area - Aileensoul.com</title>
+ 
 <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" />--> 
 <!--<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />-->
 

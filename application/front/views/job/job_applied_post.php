@@ -1,7 +1,8 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!--post save success pop up style strat -->
-
+ <title>Applied Job - Aileensoul.com</title>
+ 
 <style type="text/css">
     #popup-form img{display: none;}
 </style>

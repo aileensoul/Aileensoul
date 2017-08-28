@@ -1,5 +1,8 @@
 <!-- start head -->
 <?php echo $head; ?>
+
+ <title>Recommended Job - Aileensoul.com</title>
+ 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!--post save success pop up style strat -->
 <!-- END HEAD -->
