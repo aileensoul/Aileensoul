@@ -2,7 +2,7 @@
     <meta charset="utf-8" />
     <!-- SEO CHANGES START -->
     <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
-    
+        <meta name="msvalidate.01" content="41CAD663DA32C530223EE3B5338EC79E" />
     <!-- SEO CHANGES END -->
     <!-- NEED TO ADD FOLLOWING TAG IN HEADER -->
     <link rel="canonical" href="http://www.aileensoul.com" />
