@@ -1106,10 +1106,6 @@
                                                                     echo $row['product_description'];
                                                                     ?>
                                                                 </div>
-                                                                <!-- <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
-                                                                    <div  contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>"  class="textbuis editable_text margin_btm" name="editpostdesc" placeholder="Description" ><?php echo $row['product_description']; ?></div>
-                                                                </div> -->
-                                                                <!-- khyati changes end 24-6 -->
                                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">
 
                                                                     <div contenteditable="true" id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" placeholder="Product Description" class="textbuis  editable_text"  name="editpostdesc" onpaste="OnPaste_StripFormatting(this, event);"><?php echo $row['product_description']; ?></div>                  
