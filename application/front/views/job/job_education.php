@@ -779,7 +779,7 @@
                                                    }
                                                    }
                                                    ?>
-                <option value="<?php echo $university_otherdata[0]['university_id']; ?> "><?php echo $university_otherdata[0]['university_name']; ?></option>  
+                <option value="<?php echo $university_otherdata[0]['university_id']; ?>"><?php echo $university_otherdata[0]['university_name']; ?></option>  
                                              </select>
                                              <?php echo form_error('univercity'); ?>
                                              <!-- </fieldset>      
@@ -1693,9 +1693,9 @@
     $.validator.addMethod("valueNotEquals", function(value, element, arg){ 
       if(arg == value)
       { 
-         if(($.fancybox.open()))
-         {
-                  
+         if ($('.message').length > 0) {
+     alert(121233);
+       
                if($('#input1 #university1').hasClass('error') )
                {
                      $("#input1 .university").removeClass("error");
