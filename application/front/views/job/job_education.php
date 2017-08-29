@@ -1696,12 +1696,12 @@
          if ($('.message').length > 0) {
      alert(121233);
        
-               if($('#input1 #university1').hasClass('error') )
-               {
-                     $("#input1 .university").removeClass("error");
-                     $('label.error').remove();
+               //if($('#input1 #university1').hasClass('error') )
+             //  {
+                  //   $(".university").removeClass("error");
+                    // $('label.error').remove();
                     return true;     
-                }
+              //  }
 
          }
 
