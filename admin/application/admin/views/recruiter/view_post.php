@@ -51,17 +51,12 @@ echo $leftmenu;
                     <div class="box-body">
                     <?php $job_name = $this->db->get_where('job_title', array('title_id' => $post_data[0]['post_name'], 'status' => 1))->row()->name; ?>
                         <!-- First Name START -->
-                        <div class="form-group col-sm-9">
+                        <div class="form-group col-sm-12">
                             <label for="firstname" name="firstname" id="blogtitle">Job Title</label>
                             <input type="text" class="form-control" name="first_name" id="first_name" value="<?php if($job_name){ echo $job_name;}else{echo $post_data[0]['post_name'];} ?>" readonly="readonly">
                         </div>
                         <!-- First Name END -->
-                        <!--Last date info start-->
-                        <div class="form-group col-sm-3">
-                            <label for="phone_no" name="phone_no" id="phone_no">Last Date of Apply</label>
-                            <input type="text" class="form-control" name="phoneno" id="phoneno" value="<?php echo $post_data[0]['post_last_date']; ?>" readonly="readonly">
-                        </div>
-                        <!--Last date info end-->
+                       
                         <?php $skill_post=$post_data[0]['post_skill'];
                         $skill_post1= explode(',', $skill_post);
                         foreach ($skill_post1 as $key){
@@ -78,12 +73,17 @@ echo $leftmenu;
                         <!-- Last Name END -->
                         
                         <!-- Email START -->
-                        <div class="form-group col-sm-6">
+                        <div class="form-group col-sm-3">
                             <label for="emailedit" name="emailedit" id="blogtitle">No of Position</label>
                             <input type="text" class="form-control" name="email_edit" id="email_edit" value="<?php echo $post_data[0]['post_position']; ?>" readonly="readonly">
                         </div>
                         <!-- Email END -->
-
+                         <!--Last date info start-->
+                        <div class="form-group col-sm-3">
+                            <label for="phone_no" name="phone_no" id="phone_no">Last Date of Apply</label>
+                            <input type="text" class="form-control" name="phoneno" id="phoneno" value="<?php echo date("d-m-Y", strtotime($post_data[0]['post_last_date']));  ?>" readonly="readonly">
+                        </div>
+                        <!--Last date info end-->
                          <!-- Phone number START -->
                         <div class="form-group col-sm-6">
                             <label for="phone_no" name="phone_no" id="phone_no">Minimum experience</label>
@@ -97,7 +97,7 @@ echo $leftmenu;
                             <input type="text" class="form-control" name="skype_id" id="skype_id" value="<?php echo $post_data[0]['max_year']." Year"; ?>" readonly="readonly" >
                         </div>
                         <!--Skype Id END -->
-                        <?php $industyname = $this->db->get_where('industry_type', array('industry_id' => $post_data[0]['industry_type'], 'status' => 1))->row()->industry_name;  ?>
+                        <?php $industyname = $this->db->get_where('job_industry', array('industry_id' => $post_data[0]['industry_type'], 'status' => 1))->row()->industry_name;  ?>
                          <!-- Country START -->
                         <div class="form-group col-sm-6">
                             <label for="country_edit" name="country_edit" id="country_edit">Industry</label>
@@ -198,7 +198,7 @@ echo $leftmenu;
                          <!--  Professional info START -->
                         <div class="form-group col-sm-10">
                             <label for="professionalinfo" name="professionalinfo" id="professionalinfo">Job description</label>
-                            <textarea id="professional_info" name="professional_info"  style="width: 100%; height: auto; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" style="border: none;" readonly="readonly"><?php echo $post_data[0]['post_description']; ?></textarea>
+                            <textarea id="professional_info" name="professional_info"  style="width: 100%; height: auto; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px; overflow:auto; " disabled><?php echo $post_data[0]['post_description']; ?></textarea>
                             <?php //echo form_textarea(array('name' => 'short_description', 'id' => 'short_description', 'class' => "textarea", 'style' => 'width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;', 'value' => '')); ?><br>
                         </div>
                         <!-- Professional Info END -->
@@ -206,10 +206,15 @@ echo $leftmenu;
                         <!--  Professional info START -->
                         <div class="form-group col-sm-10">
                             <label for="profile_pic" name="profile_pic" id="profile_pic">Interview process</label>
-                           <textarea id="professional_info" name="professional_info"  style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" readonly="readonly"><?php echo $post_data[0]['interview_process']; ?></textarea>
+                            <textarea id="professional_info" name="professional_info"  style="width: 100%; height: auto; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px; overflow:auto;" disabled><?php echo $post_data[0]['interview_process']; ?></textarea>
                              
                         </div>
                         <!-- Professional Info END -->
+                        <?php if($post_data[0]['fresher'] == '1'){ ?>
+                        <div class="form-group col-sm-10">
+                            <b>Note: Freshers can also apply</b>
+                        </div>
+                        <?php } ?>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                         <?php

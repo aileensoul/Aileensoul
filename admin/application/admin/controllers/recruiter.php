@@ -54,7 +54,7 @@ public function user()
 
             $sortby = 'rec_id';
 
-            $orderby = 'asc';
+            $orderby = 'desc';
 
         }
   
@@ -357,7 +357,7 @@ public function post()
 
             $sortby = 'post_id';
 
-            $orderby = 'asc';
+            $orderby = 'desc';
 
         }
   
