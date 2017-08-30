@@ -1658,7 +1658,7 @@ foreach ($resul as $key => $value) {
 
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
-
+        echo $cache_time;
         $this->data['keyword1'] = $search_place;
         // $searchplace[] = $search_place;
         //print_r($search_place)  ; die(); 
@@ -1688,7 +1688,7 @@ foreach ($resul as $key => $value) {
 
         $contition_array = array('freelancer_post_city' => $cache_time, 'status' => '1', 'freelancer_post_reg.user_id !=' => $userid , 'free_post_step' => 7);
             $unique = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+            echo "<pre>"; print_r($unique);die();
         }
         elseif ($searchplace == "" || $this->uri->segment(4) =="0") {
 
@@ -2078,7 +2078,7 @@ foreach ($resul as $key => $value) {
         } 
         elseif ($search_place == "") {
 
-            $contition_array = array('is_delete' => '0', 'status' => '1');
+            $contition_array = array('status' => '1','type'=>'1');
 
             $search_condition = "(skill LIKE '%$search_skill%')";
 
@@ -2158,7 +2158,7 @@ foreach ($resul as $key => $value) {
 // echo "<pre>";print_r($unique);die();
         } else {
         //echo "both"; die();
-            $contition_array = array('is_delete' => '0', 'status' => '1');
+            $contition_array = array('status' => '1','type'=>'1');
 
             $search_condition = "(skill LIKE '%$search_skill%')";
 
