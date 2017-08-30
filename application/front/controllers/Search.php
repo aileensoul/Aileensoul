@@ -1658,7 +1658,7 @@ foreach ($resul as $key => $value) {
 
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
-        echo $cache_time;
+       // echo $cache_time;
         $this->data['keyword1'] = $search_place;
         // $searchplace[] = $search_place;
         //print_r($search_place)  ; die(); 
@@ -1688,7 +1688,7 @@ foreach ($resul as $key => $value) {
 
         $contition_array = array('freelancer_post_city' => $cache_time, 'status' => '1', 'freelancer_post_reg.user_id !=' => $userid , 'free_post_step' => 7);
             $unique = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-            echo "<pre>"; print_r($unique);die();
+            //echo "<pre>"; print_r($unique);die();
         }
         elseif ($searchplace == "" || $this->uri->segment(4) =="0") {
 
@@ -1802,7 +1802,7 @@ foreach ($resul as $key => $value) {
             }
 
 
-            // echo "unique". count($unique);
+           //  echo "unique". count($unique);die();
             // echo "<pre>"; print_r($new1);die();
         } else {
             // echo "ehfkj";
@@ -1916,8 +1916,9 @@ foreach ($resul as $key => $value) {
 
 //echo "<pre>";print_r($unique);die();
         }
-
+        
         $this->data['freelancerpostdata'] = $unique;
+      //  echo count($unique);die();
         // echo "<pre>";print_r($this->data['freelancerpostdata']);die();
 // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
