@@ -4172,11 +4172,9 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
   //       $count_jobreg = $this->data['count_jobreg'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'count(*) as total', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby);
        
   //       echo "<pre>";print_r($count_jobreg);die();
-
+     
         $this->load->view('job/job_printpreview', $this->data);
-        //for getting other skill data
-        $contition_array = array('user_id' => $userid, 'type' => 3, 'status' => 1);
-        $this->data['other_skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+       
     }
 
     //job seeker PRINTDATA controller end

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-
+<!-- <!DOCTYPE html>
+ -->
 <html class="blog_cl">
  <head>
   <title>Official Blog - Aileensoul.com</title>
@@ -8,7 +8,6 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
         <meta name="msvalidate.01" content="41CAD663DA32C530223EE3B5338EC79E" />
-        
 <style type="text/css">
   footer > .container{border:1px solid transparent!important;}
   .footer{border:1px solid #d9d9d9;}
@@ -275,7 +274,7 @@ else
         <div class="blog_main_post_second_part">
         <div class="blog_class_main_name">
           <span>
-             <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"><?php echo $blog['title'];?></a>
+             <a href="<?php echo base_url('blog/'.$blog['blog_slug'])?>"> <h1> <?php echo $blog['title'];?> </h1></a>
           </span>
         </div>
         <div class="blog_class_main_by">
@@ -284,17 +283,31 @@ else
           </span>
           
         </div>
-        <div class="blog_class_main_desc">
-          <span>
-           <?php
-                     $small = substr($blog['description'], 0, 560);
-                     echo $small;
+        <div class="blog_class_main_desc ">
+          <span class="dot_span_desc">
 
-                     if (strlen($blog['description']) > 560) {
-                          echo '....';
-                        }
+           <?php
+           $num_words = 75;
+$words = array();
+$words = explode(" ",  $blog['description'], $num_words);
+$shown_string = "";
+
+if(count($words) == 75){
+   $words[74] = " ...... ";
+}
+
+$shown_string = implode(" ", $words);
+echo $shown_string;
+         //  limitWords("Hello here is a long sentence blah blah blah blah blah hahahaha haha haaaaaa", 5);
+          //echo $blog['description'];
+                    // $small = substr($blog['description'], 0, 560);
+                     //echo $small;
+
+                     // if (strlen($blog['description']) > 560) {
+                     //      echo '....';
+                     //    }
                         ?>
-           <?php //echo $blog['description'];?> 
+           
           </span>
         </div>
         <div class="blog_class_main_social">
@@ -381,7 +394,7 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
 </a></div> -->
 <?php echo form_close(); ?>
         </div>
-      </div>
+ </div>
       <div class="blog_latest_post">
         <h3>Latest Post</h3>
 
@@ -416,51 +429,9 @@ $image=urlencode(base_url($this->config->item('blog_main_upload_path')  . $blog[
           }//for loop end
     ?>
      
-      </div><!--blog_latest_post end -->
-
-<!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH START-->
-<!-- <?php //if($this->uri->segment(2) == 'tag')
-      {
-?>
-      <div class="popular_tag">
-      <h4>Popular Tag</h4>
-
-       <?php 
-            
-          //foreach($blog_all as $blog)
-          {
-
-                // $tag_all=explode(',', $blog['tag']);
-                  //foreach($tag_all as $tag )
-                  {
-               
-        ?>
-      <div class="tag_name">
-      <span class="span_tag">
-      <a href="<?php// echo base_url('blog/tag/'.$tag)?>">
-      <?php  
-               // echo $tag;
-
-        ?>
-        </a>
-        </span>
       </div>
 
-      <?php
-                  }//foreach($tag_all as $tag) loop end
-
-          }//foreach($blog_all as $blog) loop end
-
-      ?>
-
-       </div>
- <?php
-        }//If loop end
-
-  ?> -->
-<!-- THIS DIV SHOWS ONLY WHEN TAG SEARCH END-->
-
-     </div>
+    
 
      </div>
   </div>
@@ -527,6 +498,8 @@ function read_more(blog_id,slug) {
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery-1.11.1.min.js'); ?>"></script>
 <!-- THIS SCRIPT IS USED FOR SCRAP IMAGE FOR FACEBOOK POST TO GET REAL IMAGE START-->
+
+
 <script type="text/javascript">
  $(document).ready(function() {
 $(".fbk").on('click', function() {
@@ -561,6 +534,5 @@ $(".fbk").on('click', function() {
 <style type="text/css">
   #name-error{margin-top: 36px;margin-right: 12px;}
   #email-error{margin-top: 36px;margin-right: 12px;}
-  #message-error{margin-top: 73px;margin-right: 12px;
-}
+  #message-error{margin-top: 73px;margin-right: 12px;}
 </style>
