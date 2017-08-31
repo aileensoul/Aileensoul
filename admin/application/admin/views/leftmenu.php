@@ -78,6 +78,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url('freelancer_hire/user'); ?>"><i class="fa fa-users"></i>List Freelancer Hire User</a></li>
+                    <li><a href="<?php echo base_url('freelancer_hire/project'); ?>"><i class="fa fa-users"></i>List Projects</a></li>
                 </ul>
             </li>
             <!--End Freelancer Hire Management-->
