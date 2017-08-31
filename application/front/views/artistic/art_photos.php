@@ -8,11 +8,13 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
 <!-- script for cropiee immage End-->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
+
 <script type="text/javascript">
    //For Scroll page at perticular position js Start
    $(document).ready(function(){
@@ -24,7 +26,8 @@
    });
    //For Scroll page at perticular position js End
 </script>
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
+<script src="<?php //echo base_url('js/fb_login.js'); ?>"></script>
+
 <!-- END HEADER -->
 <?php echo $art_header2_border; ?>
 <body   class="page-container-bg-solid page-boxed">
@@ -883,16 +886,18 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
         
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script>
+<!-- <script src="<?php //echo base_url('js/jquery.jMosaic.js');    ?>"></script> -->
 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-<!--<script src="<?php //echo base_url('js/jquery.jMosaic.js');  ?>"></script>-->
 
-
-<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-
-
+<script>
+   function updateprofilepopup(id) {
+       $('#bidmodal-2').modal('show');
+   }
+</script>
 
 <!-- designation script start -->
 <script type="text/javascript">
@@ -938,44 +943,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
    });
 </script>
 <!-- designation script end -->
-<script type="text/javascript">
-   //validation for edit email formate form
-   
-   $(document).ready(function () {
-   
-       $("#userimage").validate({
-   
-           rules: {
-   
-               profilepic: {
-   
-                   required: true,
-   
-               },
-   
-           },
-   
-           messages: {
-   
-               profilepic: {
-   
-                   required: "Photo Required",
-   
-               },
-   
-           },
-   
-       });
-   });
-   
-   
-   
-   $(document).on('keydown', function (e) {
-       if (e.keyCode === 27) {
-           $("#myModal1").hide();
-       }
-   });
-</script>
+
 
 
 <script>
@@ -1155,6 +1123,49 @@ $( "#searchplace1" ).autocomplete({
    
    
    </script> -->
+
+
+   <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+<script type="text/javascript">
+   //validation for edit email formate form
+   
+   $(document).ready(function () {
+   
+       $("#userimage").validate({
+   
+           rules: {
+   
+               profilepic: {
+   
+                   required: true,
+   
+               },
+   
+           },
+   
+           messages: {
+   
+               profilepic: {
+   
+                   required: "Photo Required",
+   
+               },
+   
+           },
+   
+       });
+   });
+   
+   
+   
+   $(document).on('keydown', function (e) {
+       if (e.keyCode === 27) {
+           $("#myModal1").hide();
+       }
+   });
+</script>
+
 <script type="text/javascript">
    //For blocks or images of size, you can use $(document).ready
    $(document).ready(function () {
@@ -1755,11 +1766,7 @@ $( "#searchplace1" ).autocomplete({
 </script>
 <!-- commenmt delete end -->
 <!-- end search validation -->
-<script>
-   function updateprofilepopup(id) {
-       $('#bidmodal-2').modal('show');
-   }
-</script>
+
 <!-- cover image start -->
 <script>
    function myFunction() {
@@ -2513,7 +2520,7 @@ $( "#searchplace1" ).autocomplete({
    
 </script>
 <!-- all popup close close using esc end -->
-<script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script>
+
 </body>
 
 </html>
