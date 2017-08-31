@@ -50,6 +50,8 @@ define('USERBGTHUMBIMAGE', 'uploads/user_bg/thumb/');
 
 define('NOIMAGE', 'uploads/avatar.png');
 define('NOBUSIMAGE', 'uploads/nobusimage.jpg');
+define('FNOIMAGE', 'uploads/Email_Verification_female.png');
+define('MNOIMAGE', 'uploads/Email_Verification_male.png');
 
 //define name for uploads folder =>job_work_certificate
 define('JOBWORKCERTIFICATE', 'uploads/job_work_certificate/');
