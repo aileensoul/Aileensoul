@@ -100,7 +100,6 @@
 <!--post save success pop up style end -->
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -145,7 +144,6 @@
 <!-- script for cropiee immage End-->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
 <!-- END HEADER -->
 
@@ -1126,7 +1124,6 @@
 
                 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
                 <!-- script for cropiee immage start-->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
                 <!-- script for skill textbox automatic end-->
 
 
@@ -1171,35 +1168,7 @@
                     });
                 </script> 
                 <!-- end of business search auto fill -->
-                <script>
-
-                    //select2 autocomplete start for Location
-                    $('#searchplace').select2({
-
-                        placeholder: 'Find Your Location',
-                        maximumSelectionLength: 1,
-                        ajax: {
-
-                            url: "<?php echo base_url(); ?>business_profile/location",
-                            dataType: 'json',
-                            delay: 250,
-
-                            processResults: function (data) {
-
-                                return {
-
-                                    results: data
-
-
-                                };
-
-                            },
-                            cache: true
-                        }
-                    });
-                    //select2 autocomplete End for Location
-
-                </script>
+                
 
                 <!-- tabing script end -->
                 <!-- footer end -->

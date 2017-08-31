@@ -169,7 +169,6 @@
 <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 
 
@@ -333,39 +332,6 @@
     }
 </script>
 <!-- end of business search auto fill -->
-
-
-<!-- <script>
-
-//select2 autocomplete start for Location
-$('#searchplace').select2({
-        
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-        ajax:{
-
-          url: "<?php echo base_url(); ?>business_profile/location",
-          dataType: 'json',
-          delay: 250,
-          
-          processResults: function (data) {
-            
-            return {
-              
-
-              results: data
-
-
-            };
-            
-          },
-           cache: true
-        }
-      });
-//select2 autocomplete End for Location
-
-</script> -->
-
 
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>

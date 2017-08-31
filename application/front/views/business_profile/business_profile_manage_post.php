@@ -36,15 +36,13 @@
 <!-- script for cropiee immage End-->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
 
 <!-- END HEADER -->
 
 <?php echo $business_header2_border ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css');           ?>">
---><link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -2431,7 +2429,6 @@
             </script>
 
             <!-- tabing script start -->
-          <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
             <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
             <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
             <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
@@ -2650,35 +2647,7 @@
               } );
               </script>  -->
             <!-- end of business search auto fill -->
-            <script>
-
-                //select2 autocomplete start for Location
-                // $('#searchplace').select2({
-
-                //     placeholder: 'Find Your Location',
-                //     maximumSelectionLength: 1,
-                //     ajax: {
-
-                //         url: "<?php echo base_url(); ?>business_profile/location",
-                //         dataType: 'json',
-                //         delay: 250,
-
-                //         processResults: function (data) {
-
-                //             return {
-
-                //                 results: data
-
-
-                //             };
-
-                //         },
-                //         cache: true
-                //     }
-                // });
-                //select2 autocomplete End for Location
-
-            </script>
+            
 
             <!-- tabing script end -->
             <!-- footer end -->
