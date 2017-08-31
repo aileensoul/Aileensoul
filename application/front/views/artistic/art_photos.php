@@ -430,7 +430,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
          </div>
          <div class="clearfix"></div>
       </div>
-      </div><script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      </div>
       </div>
       </div>
       </div>
@@ -890,6 +890,8 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
 
 
 <!-- designation script start -->
@@ -1753,7 +1755,6 @@ $( "#searchplace1" ).autocomplete({
 </script>
 <!-- commenmt delete end -->
 <!-- end search validation -->
-<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 <script>
    function updateprofilepopup(id) {
        $('#bidmodal-2').modal('show');
@@ -2512,7 +2513,7 @@ $( "#searchplace1" ).autocomplete({
    
 </script>
 <!-- all popup close close using esc end -->
-
+<script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script>
 </body>
 
 </html>
