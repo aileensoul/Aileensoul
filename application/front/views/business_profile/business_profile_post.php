@@ -1095,7 +1095,7 @@
                                                                 <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
                                                                     <?php
                                                                     $small = substr($row['product_description'], 0, 180);
-                                                                    echo $this->common->make_links($small);
+                                                                    echo nl2br($this->common->make_links($small));
                                                                     if (strlen($row['product_description']) > 180) {
                                                                         echo '... <span id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">View More</span>';
                                                                     }
@@ -1103,7 +1103,7 @@
                                                                 </div>
                                                                 <div id="<?php echo "khyatii" . $row['business_profile_post_id']; ?>" style="display:none;">
                                                                     <?php
-                                                                    echo $row['product_description'];
+                                                                    echo nl2br($row['product_description']);
                                                                     ?>
                                                                 </div>
                                                                 <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">

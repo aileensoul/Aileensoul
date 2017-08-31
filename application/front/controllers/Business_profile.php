@@ -12210,7 +12210,7 @@ class Business_profile extends MY_Controller {
 
         if ($this->data['businessdata'][0]['product_description']) {
 
-            $editpostdes .= $this->common->make_links($this->data['businessdata'][0]['product_description']);
+            $editpostdes .= nl2br($this->common->make_links($this->data['businessdata'][0]['product_description']));
         }
         //echo $editpost;   echo $editpostdes;
         echo json_encode(
