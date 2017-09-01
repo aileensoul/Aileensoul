@@ -1239,7 +1239,7 @@ $this->freelancer_apply_search();
         // $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = '*', $sortby = 'post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         // echo "<pre>"; print_r($this->data['freelancerpostdata'] );die();
         // old end code
-$this->freelancer_hire_search();
+//$this->freelancer_hire_search();
 
         $this->load->view('freelancer/freelancer_hire/freelancer_hire_post', $this->data);
     }
@@ -1275,7 +1275,7 @@ $this->freelancer_hire_search();
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['freelancerdata'] = $this->common->select_data_by_condition('freelancer_hire_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $this->freelancer_hire_search();
+       // $this->freelancer_hire_search();
         $this->load->view('freelancer/freelancer_hire/freelancer_add_post', $this->data);
     }
 
@@ -1502,7 +1502,7 @@ $this->freelancer_hire_search();
       //  echo count($this->data['candidatefreelancer']);die();
 
         //echo "<pre>"; print_r($this->data['candidatefreelancer']); die();
-        $this->freelancer_hire_search();
+        //$this->freelancer_hire_search();
         $this->load->view('freelancer/freelancer_hire/recommen_candidate', $this->data);
     }
 
@@ -1595,7 +1595,7 @@ $this->freelancer_hire_search();
         $this->data['selectdata'] = $skildata;
 
 
-$this->freelancer_hire_search();
+//$this->freelancer_hire_search();
 
 
 
@@ -2103,7 +2103,7 @@ $this->freelancer_apply_search();
         $postdata = $this->data['postdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data, $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
         //echo '<pre>'; print_r($postdata); die();
-$this->freelancer_hire_search();
+//$this->freelancer_hire_search();
         $this->load->view('freelancer/freelancer_hire/freelancer_apply_list', $this->data);
     }
 
@@ -2196,7 +2196,7 @@ $this->freelancer_hire_search();
         // code end by pallavi 14-4-2017
         // echo "<pre>";print_r($postdata);die();
         //
-$this->freelancer_hire_search();
+//$this->freelancer_hire_search();
         $this->load->view('freelancer/freelancer_hire/freelancer_save', $this->data);
     }
 
@@ -2566,7 +2566,7 @@ $this->freelancer_apply_search();
         }
 
 
-$this->freelancer_hire_search();
+//$this->freelancer_hire_search();
         $this->load->view('freelancer/freelancer_hire/freelancer_hire_profile', $this->data);
     }
 
@@ -3282,122 +3282,218 @@ public function free_hire_avail_check($userid = " ")
          
         $this->load->view('freelancer/freelancer_post/notavalible', $this->data);  
      }
-     public function freelancer_hire_search() {
-        // code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby= 'category_name');
+//     public function freelancer_hire_search() {
+//        // code for search
+//        $contition_array = array('status' => '1', 'is_delete' => '0');
+//        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby= 'category_name');
+//
+//        $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7);
+//        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='designation');
+//        // echo "<pre>"; print_r($results_recruiter);die();
+//
+//        $contition_array = array('status' => '1', 'type' => '1');
+//        $skill = $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby="skill");
+//
+//        $unique = array_merge($field, $skill, $freelancer_postdata);
+//        // echo count($unique);
+//        // $this->data['demo']=$unique;
+//        foreach ($unique as $key => $value) {
+//            foreach ($value as $ke => $val) {
+//                if ($val != "") {
+//
+//
+//                    $result[] = $val;
+//                }
+//            }
+//        }
+//        $results = array_unique($result,SORT_REGULAR);
+//      //  $final_candidate = array_unique($final_candidate, SORT_REGULAR);
+//        //echo "<pre>";print_r($results);die();
+//        foreach ($results as $key => $value) {
+//            $result1[$key]['label'] = $value;
+//            $result1[$key]['value'] = $value;
+//        }
+//        // echo "<pre>"; print_r($result1);die();
+//        //echo "<pre>"; print_r($this->data['skill']);die();
+//        $contition_array = array('status' => '1');
+//        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
+//
+//
+//        foreach ($location_list as $key1 => $value1) {
+//            foreach ($value1 as $ke1 => $val1) {
+//                $location[] = $val1;
+//            }
+//        }
+//        //echo "<pre>"; print_r($location);die();
+//        foreach ($location as $key => $value) {
+//            $loc[$key]['label'] = $value;
+//            $loc[$key]['value'] = $value;
+//        }
+//
+//        //echo "<pre>"; print_r($loc);die();
+//
+//        $this->data['city_data'] = array_values($loc);
+//        // echo "<pre>"; print_r($location);die();
+//        $this->data['demo'] = array_values($result1);
+// 
+//     }
+//      public function freelancer_apply_search() {
+//          //code for search
+//        $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7);
+//
+//        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='designation,freelancer_post_otherskill');
+//        // echo "<pre>"; print_r($freelancer_postdata);die();
+//
+//        $contition_array = array('status' => '1', 'type' => '1');
+//
+//        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
+//
+//
+//        $contition_array = array('status' => '1');
+//
+//        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='post_name');
+//
+//        $contition_array = array('status' => '1', 'is_delete' => '0');
+//
+//        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
+//
+//        $uni = array_merge($skill, $freelancer_postdata, $field, $results_post);
+//        // echo count($unique);
+//        // $this->data['demo']=$uni;
+//
+//        foreach ($uni as $key => $value) {
+//            foreach ($value as $ke => $val) {
+//                if ($val != "") {
+//
+//
+//                    $result[] = $val;
+//                }
+//            }
+//        }
+//        $results = array_unique($result,SORT_REGULAR);
+//        foreach ($results as $key => $value) {
+//            $result1[$key]['label'] = $value;
+//            $result1[$key]['value'] = $value;
+//        }
+//
+//
+//        $contition_array = array('status' => '1');
+//        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
+//
+//
+//        foreach ($location_list as $key1 => $value1) {
+//            foreach ($value1 as $ke1 => $val1) {
+//                $location[] = $val1;
+//            }
+//        }
+//        //echo "<pre>"; print_r($location);die();
+//        foreach ($location as $key => $value) {
+//            $loc[$key]['label'] = $value;
+//            $loc[$key]['value'] = $value;
+//        }
+//
+//        //echo "<pre>"; print_r($loc);die();
+//
+//        $this->data['city_data'] = array_values($loc);
+//
+//
+//        $this->data['demo'] = array_values($result1);
+//
+//      }
+      
+       public function freelancer_hire_search_keyword($id = "") {
 
-        $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7);
-        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='designation');
-        // echo "<pre>"; print_r($results_recruiter);die();
+        $searchTerm = $_GET['term'];
+        if (!empty($searchTerm)) {
+            $contition_array = array('status' => 1, 'is_delete' => 0);
+            $search_condition = "(category_name LIKE '" . trim($searchTerm) . "%')";
+            $field = $this->common->select_data_by_search('category', $search_condition, $contition_array, $data = 'category_name', $sortby = 'category_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'category_name');
 
-        $contition_array = array('status' => '1', 'type' => '1');
-        $skill = $this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby="skill");
+            $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7);
+            $search_condition = "(designation LIKE '" . trim($searchTerm) . "%')";
+            $freelancer_postdata = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'designation', $sortby = 'designation', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'designation');
 
+            $contition_array = array('status' => '1', 'type' => '1');
+            $search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+            $skill = $this->common->select_data_by_search('skill', $search_condition, $contition_array, $data = 'skill', $sortby = 'skill', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'skill');
+        }
         $unique = array_merge($field, $skill, $freelancer_postdata);
-        // echo count($unique);
-        // $this->data['demo']=$unique;
         foreach ($unique as $key => $value) {
             foreach ($value as $ke => $val) {
                 if ($val != "") {
-
-
                     $result[] = $val;
                 }
             }
         }
-        $results = array_unique($result,SORT_REGULAR);
-      //  $final_candidate = array_unique($final_candidate, SORT_REGULAR);
-        //echo "<pre>";print_r($results);die();
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
+        foreach ($result as $key => $value) {
             $result1[$key]['value'] = $value;
         }
-        // echo "<pre>"; print_r($result1);die();
-        //echo "<pre>"; print_r($this->data['skill']);die();
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
+        $result1 = array_values($result);
+        echo json_encode($result1);
+    }
+    public function freelancer_apply_search_keyword($id = "") {
+        $searchTerm = $_GET['term'];
+        if (!empty($searchTerm)) {
+            $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7);
+            $search_condition = "(designation LIKE '" . trim($searchTerm) . "%')";
+            $freelancer_postdata = $this->common->select_data_by_search('freelancer_post_reg', $search_condition, $contition_array, $data = 'designation', $sortby = 'designation', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'designation');
 
+            $contition_array = array('status' => '1', 'type' => '1');
+            $search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+            $skill = $this->common->select_data_by_search('skill', $search_condition, $contition_array, $data = 'skill', $sortby = 'skill', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'skill');
 
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
+            $contition_array = array('status' => '1');
+            $search_condition = "(post_name LIKE '" . trim($searchTerm) . "%')";
+            $results_post = $this->common->select_data_by_search('freelancer_post', $search_condition, $contition_array, $data = 'post_name', $sortby = 'post_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'post_name');
+            //$this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+
+            $contition_array = array('status' => '1', 'is_delete' => '0');
+            $search_condition = "(category_name LIKE '" . trim($searchTerm) . "%')";
+            $field = $this->common->select_data_by_search('category', $search_condition, $contition_array, $data = 'category_name', $sortby = 'category_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'category_name');
         }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-
-        $this->data['city_data'] = array_values($loc);
-        // echo "<pre>"; print_r($location);die();
-        $this->data['demo'] = array_values($result1);
- 
-     }
-      public function freelancer_apply_search() {
-          //code for search
-        $contition_array = array('status' => '1', 'is_delete' => '0', 'free_post_step' => 7);
-
-        $freelancer_postdata = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = 'designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='designation,freelancer_post_otherskill');
-        // echo "<pre>"; print_r($freelancer_postdata);die();
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='skill');
-
-
-        $contition_array = array('status' => '1');
-
-        $results_post = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data = 'post_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='post_name');
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-        $field = $this->data['results'] = $this->common->select_data_by_condition('category', $contition_array, $data = 'category_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
         $uni = array_merge($skill, $freelancer_postdata, $field, $results_post);
-        // echo count($unique);
-        // $this->data['demo']=$uni;
-
         foreach ($uni as $key => $value) {
             foreach ($value as $ke => $val) {
                 if ($val != "") {
-
-
                     $result[] = $val;
                 }
             }
         }
-        $results = array_unique($result,SORT_REGULAR);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
+        foreach ($result as $key => $value) {
             $result1[$key]['value'] = $value;
         }
-
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
+        $result1 = array_values($result);
+        echo json_encode($result1);
+//        $contition_array = array('status' => '1');
+//        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
+//        foreach ($location_list as $key1 => $value1) {
+//            foreach ($value1 as $ke1 => $val1) {
+//                $location[] = $val1;
+//            }
+//        }
+//        foreach ($location as $key => $value) {
+//            $loc[$key]['label'] = $value;
+//            $loc[$key]['value'] = $value;
+//        }
+//        $this->data['city_data'] = array_values($loc);
+//        $this->data['demo'] = array_values($result1);
+    }
+     public function freelancer_search_city($id = "") {
+        $searchTerm = $_GET['term'];
+        if (!empty($searchTerm)) {
+            $contition_array = array('status' => '1');
+            $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
+            $location_list = $this->common->select_data_by_search('cities', $search_condition, $contition_array, $data = 'city_name', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
+            foreach ($location_list as $key1 => $value) {
+                foreach ($value as $ke1 => $val1) {
+                    $location[] = $val1;
+                }
             }
+            foreach ($location as $key => $value) {
+                $city_data[$key]['value'] = $value;
+            }
+            echo json_encode($city_data);
         }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
+    }
 
-        //echo "<pre>"; print_r($loc);die();
-
-        $this->data['city_data'] = array_values($loc);
-
-
-        $this->data['demo'] = array_values($result1);
-
-      }
 }

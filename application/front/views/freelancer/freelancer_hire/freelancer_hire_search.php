@@ -6,7 +6,7 @@
                       <form action=<?php echo base_url('search/freelancer_hire_search')?> method="get">
                              <!--    <label>Find Your Skills</label>
                               -->  
-                              <input type="text" id="tags" name="skills" placeholder="Designation, Skills, Field">
+                              <input type="text" class="skill_keyword" id="tags" name="skills" placeholder="Designation, Skills, Field">
                                 </select>
 
                             </fieldset>
@@ -14,7 +14,7 @@
                              <!--    <label>Find Your Location</label>
                               -->  
 
-                              <input type="text" id="searchplace" name="searchplace" placeholder="Find Location"> 
+                              <input type="text" class="skill_place" id="searchplace" name="searchplace" placeholder="Find Location"> 
                              <!-- <select class="" name="searchplace[]" id="searchplace" multiple="multiple"></select> -->
                              
                             </fieldset>
