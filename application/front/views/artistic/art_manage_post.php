@@ -2116,6 +2116,118 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 </footer>
 
 
+<!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
+
+                    <script type="text/javascript">
+                      var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#tags" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#searchplace" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
+
+        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+ <script>
+            function updateprofilepopup(id) {
+                $('#bidmodal-2').modal('show');
+            }
+        </script>
+
  <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
 
         <script type="text/javascript">
@@ -2287,150 +2399,6 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
         <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-
-
-
-
-
-        <script>
-                                                jQuery.noConflict();
-
-                                                (function ($) {
-
-                                                    var data = <?php echo json_encode($demo); ?>;
-                                                    // alert(data);
-
-
-                                                    $(function () {
-                                                        // alert('hi');
-                                                        $("#tags").autocomplete({
-                                                            source: function (request, response) {
-                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                response($.grep(data, function (item) {
-                                                                    return matcher.test(item.label);
-                                                                }));
-                                                            },
-                                                            minLength: 1,
-                                                            select: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                                $("#selected-tag").val(ui.item.label);
-                                                                // window.location.href = ui.item.value;
-                                                            }
-                                                            ,
-                                                            focus: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#tags").val(ui.item.label);
-                                                            }
-                                                        });
-                                                    });
-                                                })(jQuery);
-
-        </script>
-
-         <script>
-                                                jQuery.noConflict();
-
-                                                (function ($) {
-
-                                                    var data1 = <?php echo json_encode($de); ?>;
-                                                    // alert(data);
-
-
-                                                    $(function () {
-                                                        // alert('hi');
-                                                        $("#searchplace").autocomplete({
-                                                            source: function (request, response) {
-                                                                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                                response($.grep(data1, function (item) {
-                                                                    return matcher.test(item.label);
-                                                                }));
-                                                            },
-                                                            minLength: 1,
-                                                            select: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#searchplace").val(ui.item.label);
-                                                                $("#selected-tag").val(ui.item.label);
-                                                                // window.location.href = ui.item.value;
-                                                            }
-                                                            ,
-                                                            focus: function (event, ui) {
-                                                                event.preventDefault();
-                                                                $("#searchplace").val(ui.item.label);
-                                                            }
-                                                        });
-                                                    });
-                                                })(jQuery);
-
-        </script>
-
-<script>
-
-var data= <?php echo json_encode($demo); ?>;
-// alert(data);
-
-        
-$(function() {
-    // alert('hi');
-$( "#tags1" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#tags1").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#tags1").val(ui.item.label);
-    }
-});
-});
-  
-</script>
-<script>
-
-var data1 = <?php echo json_encode($city_data); ?>;
-// alert(data);
-
-        
-$(function() {
-    // alert('hi');
-$( "#searchplace1" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data1, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace1").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace1").val(ui.item.label);
-    }
-});
-});
-  
-</script>
-        <!-- script for skill textbox automatic end (option 2)-->
-
-
-
-
 
         <script type="text/javascript">
             jQuery.noConflict();
@@ -3408,7 +3376,6 @@ if (size > 10485760)
         <!--comment edit box end-->
 
         <!-- comment edit insert start -->
-        <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
         <script type="text/javascript">
             //    function edit_comment(abc)
             //    {
@@ -4377,11 +4344,7 @@ if (size > 10485760)
 
         <!-- end search validation -->
 
-        <script>
-            function updateprofilepopup(id) {
-                $('#bidmodal-2').modal('show');
-            }
-        </script>
+       
 
 
 
@@ -5159,6 +5122,9 @@ $('#postedit').on('click', function () {
 </script>
 
  <!-- post upload using javascript end -->
+
+
+
 
  </body>
 </html>

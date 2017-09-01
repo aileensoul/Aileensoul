@@ -1068,7 +1068,110 @@ if($artuserdata1){
                     <footer>
 <?php echo $footer; ?>
         </footer>
+<!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
+                    <script type="text/javascript">
+                      var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#tags" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#searchplace" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
 
 <script type="text/javascript">
                         function checkvalue() {
@@ -1122,127 +1225,7 @@ if($artuserdata1){
 
 
 
-<script>
 
-                                                var data = <?php echo json_encode($demo); ?>;
-                                             //  alert(data);
-
-
-                                                $(function () {
-                                                    // alert('hi');
-                                                    $("#tags").autocomplete({
-                                                        source: function (request, response) {
-                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                            response($.grep(data, function (item) {
-                                                                return matcher.test(item.label);
-                                                            }));
-                                                        },
-                                                        minLength: 1,
-                                                        select: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#tags").val(ui.item.label);
-                                                            $("#selected-tag").val(ui.item.label);
-                                                            // window.location.href = ui.item.value;
-                                                        }
-                                                        ,
-                                                        focus: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#tags").val(ui.item.label);
-                                                        }
-                                                    });
-                                                });
-
-                    </script>
-
-                    <script>
-
-                                                var data1 = <?php echo json_encode($de); ?>;
-                                              // alert(data1);
-
-
-                                                $(function () {
-                                                    // alert('hi');
-                                                    $("#searchplace").autocomplete({
-                                                        source: function (request, response) {
-                                                            var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                                                            response($.grep(data1, function (item) {
-                                                                return matcher.test(item.label);
-                                                            }));
-                                                        },
-                                                        minLength: 1,
-                                                        select: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#searchplace").val(ui.item.label);
-                                                            $("#selected-tag").val(ui.item.label);
-                                                            // window.location.href = ui.item.value;
-                                                        }
-                                                        ,
-                                                        focus: function (event, ui) {
-                                                            event.preventDefault();
-                                                            $("#searchplace").val(ui.item.label);
-                                                        }
-                                                    });
-                                                });
-
-                    </script>
-
-                    
-                    <!-- <script>
-                        //select2 autocomplete start for skill
-                        $('#searchskills').select2({
-
-                            placeholder: 'Find Your Skills',
-
-                            ajax: {
-
-                                url: "<?php echo base_url(); ?>artistic/keyskill",
-                                dataType: 'json',
-                                delay: 250,
-
-                                processResults: function (data) {
-
-                                    return {
-
-                                        results: data
-
-
-                                    };
-
-                                },
-                                cache: true
-                            }
-                        });
-                        //select2 autocomplete End for skill
-
-                        //select2 autocomplete start for Location
-                        $('#searchplace').select2({
-
-                            placeholder: 'Find Your Location',
-                            maximumSelectionLength: 1,
-                            ajax: {
-
-                                url: "<?php echo base_url(); ?>artistic/location",
-                                dataType: 'json',
-                                delay: 250,
-
-                                processResults: function (data) {
-
-                                    return {
-
-                                        results: data
-
-
-                                    };
-
-                                },
-                                cache: true
-                            }
-                        });
-                        //select2 autocomplete End for Location
-
-
-
-                    </script>
 <!-- popup form edit start -->
 
                     <script>

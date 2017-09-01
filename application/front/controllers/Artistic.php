@@ -12312,4 +12312,57 @@ public function art_avail_check($userid = " ")
      }
     
 
+
+
+    // for search function start
+
+     public function artistic_search_keyword($id = "") {
+       
+        $searchTerm = $_GET['term'];
+        if (!empty($searchTerm)) {
+        
+       
+       $contition_array = array('status' => '1', 'is_delete' => '0', 'art_step' => '4');
+        $search_condition = "(art_name LIKE '" . trim($searchTerm) . "%' OR art_lastname LIKE '" . trim($searchTerm) . "%' OR designation LIKE '" . trim($searchTerm) . "%'OR other_skill LIKE '" . trim($searchTerm) . "%')";
+        $artistic_postdata = $this->common->select_data_by_search('art_reg', $search_condition,$contition_array, $data = 'art_name,art_lastname,designation,other_skill', $sortby = 'art_name,art_lastname,designation,other_skill', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'art_name,art_lastname,designation,other_skill');
+
+        $contition_array = array('status' => '1', 'type' => '2');
+        $search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+        $skill = $this->common->select_data_by_search('skill', $search_condition, $contition_array, $data = 'skill', $sortby = 'skill', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'skill');
+        }
+        $unique = array_merge($skill, $artistic_postdata);
+        foreach ($unique as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach ($result as $key => $value) {
+            $result1[$key]['value'] = $value;
+        }
+        $result1 = array_values($result1);
+
+        echo json_encode($result1);
+    }
+public function artistic_search_city($id = "") {
+    $searchTerm = $_GET['term'];
+     if (!empty($searchTerm)) {
+        $contition_array = array('status' => '1');
+        $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
+        $location_list = $this->common->select_data_by_search('cities', $search_condition,$contition_array, $data = 'city_name', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
+          foreach ($location_list as $key1 => $value) {
+            foreach ($value as $ke1 => $val1) {
+                $location[] = $val1;
+            }
+        }
+        foreach ($location as $key => $value) {
+            $city_data[$key]['value'] = $value;
+        }
+       echo json_encode($city_data);
+     }
+}
+   
+ 
+ 
 }
