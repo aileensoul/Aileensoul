@@ -652,9 +652,6 @@
 
 //SCRIPT FOR CITY AUTOFILL OF SEARCH END
 
-
-
-
     </script>
 
                    

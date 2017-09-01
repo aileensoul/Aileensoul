@@ -176,131 +176,118 @@ $phoneno = form_error('phoneno');
 </html>
  <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
- 
+   
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
- <script>
-var data= <?php echo json_encode($demo); ?>;
-//alert(data);
-        
-$(function() {
-    // alert('hi');
-$( "#tags" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#tags").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#tags").val(ui.item.label);
-    }
-});
-});
-  
-</script>
 <script>
+    //SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START
+ var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_keyword" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_hire_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
 
-var data1= <?php echo json_encode($city_data); ?>;
-//alert(data);
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
 
-        
-$(function() {
-    // alert('hi');
-$( "#searchplace" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data1, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace").val(ui.item.label);
-    }
-});
-});
-  
-</script>
-<script>
-var data= <?php echo json_encode($demo); ?>;
-//alert(data);
-        
-$(function() {
-    // alert('hi');
-$( "#tags1" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#tags1").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#tags1").val(ui.item.label);
-    }
-});
-});
-  
-</script>
-<script>
 
-var data1= <?php echo json_encode($city_data); ?>;
-//alert(data);
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
 
-        
-$(function() {
-    // alert('hi');
-$( "#searchplace1" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data1, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace1").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace1").val(ui.item.label);
-    }
-});
-});
-  
-</script>
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_place" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH END
+
+
+
+
+    </script>
+ 
 <!-- <script>
                     
                     //select2 autocomplete start for Location

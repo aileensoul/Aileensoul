@@ -100,7 +100,7 @@ class Freelancer extends MY_Controller {
 //echo "<pre>";print_r( $this->data['phoneno1']);die();
         }
 
-     $this->freelancer_apply_search();
+     //$this->freelancer_apply_search();
         $this->load->view('freelancer/freelancer_post/freelancer_post_basic_information', $this->data);
     }
 
@@ -360,7 +360,7 @@ class Freelancer extends MY_Controller {
             }
         }
 
-      $this->freelancer_apply_search();
+     // $this->freelancer_apply_search();
 
         $this->load->view('freelancer/freelancer_post/freelancer_post_address_information', $this->data);
     }
@@ -559,7 +559,7 @@ class Freelancer extends MY_Controller {
         // $this->data['selectdata'] = $skildata;
 
 
-$this->freelancer_apply_search();
+//$this->freelancer_apply_search();
 
         $this->load->view('freelancer/freelancer_post/freelancer_post_professional_information', $this->data);
     }
@@ -666,7 +666,7 @@ $this->freelancer_apply_search();
             }
 //echo "<pre>";print_r( $this->data['fixed_rate1']);die();
         }
-      $this->freelancer_apply_search();
+     // $this->freelancer_apply_search();
 
 
         $this->load->view('freelancer/freelancer_post/freelancer_post_rate', $this->data);
@@ -767,7 +767,7 @@ $this->freelancer_apply_search();
             }
         }
 
-      $this->freelancer_apply_search();
+      //$this->freelancer_apply_search();
         $this->load->view('freelancer/freelancer_post/freelancer_post_avability', $this->data);
     }
 
@@ -881,7 +881,7 @@ $this->freelancer_apply_search();
             }
         }
 
-$this->freelancer_apply_search();
+//$this->freelancer_apply_search();
 
         $this->load->view('freelancer/freelancer_post/freelancer_post_education', $this->data);
     }
@@ -1049,7 +1049,7 @@ $this->freelancer_apply_search();
                 $this->data['portfolio_attachment1'] = $userdata[0]['freelancer_post_portfolio_attachment'];
             }
         }
-$this->freelancer_apply_search();
+//$this->freelancer_apply_search();
         $this->load->view('freelancer/freelancer_post/freelancer_post_portfolio', $this->data);
     }
 
@@ -1715,7 +1715,7 @@ $this->freelancer_apply_search();
 
         $this->data['postdetail'] = $unique;
 
-$this->freelancer_apply_search();
+//$this->freelancer_apply_search();
 
         $this->load->view('freelancer/freelancer_post/post_apply', $this->data);
     }
@@ -1994,7 +1994,7 @@ $this->freelancer_apply_search();
 
 
 //echo "<pre>"; print_r($postdata); die();
-        $this->freelancer_apply_search();
+       // $this->freelancer_apply_search();
         $this->load->view('freelancer/freelancer_post/freelancer_applied_post', $this->data);
     }
 
@@ -2233,7 +2233,7 @@ $this->freelancer_apply_search();
         $contition_array = array('freelancer_apply.job_delete' => 1, 'freelancer_apply.user_id' => $userid, 'freelancer_apply.job_save' => 2);
         $this->data['postdetail'] = $this->common->select_data_by_condition('freelancer_apply', $contition_array, $data = '*', $sortby = 'freelancer_apply.modify_date', $orderby = 'desc', $limit = '', $offset = '', $join_str, $groupby = '');
 
-$this->freelancer_apply_search();       
+//$this->freelancer_apply_search();       
         $this->load->view('freelancer/freelancer_post/freelancer_save_post', $this->data);
     }
 
@@ -2627,7 +2627,7 @@ $this->freelancer_apply_search();
             $this->data['freelancerpostdata'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
 
-      $this->freelancer_apply_search();
+      //$this->freelancer_apply_search();
         $this->load->view('freelancer/freelancer_post/freelancer_post_profile', $this->data);
     }
 
