@@ -3680,4 +3680,73 @@ public function rec_avail_check($userid = " ")
          
         $this->load->view('recruiter/notavalible', $this->data);  
      }
+     
+     //recrutier search end
+// RECRUITER SEARCH END
+// RECRUITER GET LOCATION START
+    public function get_location($id = "") {
+
+        //get search term
+        $searchTerm = $_GET['term'];
+
+        if (!empty($searchTerm)) {
+            $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
+            $citylist = $this->common->select_data_by_search('cities', $search_condition, $contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
+        }
+        foreach ($citylist as $key => $value) {
+
+            $citydata[$key]['value'] = $value['text'];
+        }
+
+        $cdata = array_values($citydata);
+        echo json_encode($cdata);
+    }
+
+// RECRUITER GET LOCATION END
+    public function get_job_tile($id = "") {  //echo "hi"; die();
+        $userid = $this->session->userdata('aileenuser');
+        //get search term
+        $searchTerm = $_GET['term'];
+
+        if (!empty($searchTerm)) {
+
+// JOB REGISTRATION DATA START (designation)
+            $contition_array = array('status' => '1', 'is_delete' => 0);
+            $search_condition = "(designation LIKE '" . trim($searchTerm) . "%')";
+            $designation = $this->common->select_data_by_search('job_reg', $search_condition, $contition_array, $data = 'designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'designation');
+// JOB REGISTRATION DATA END  (designation)
+// DEGREE DATA START
+            $contition_array = array('status' => '1');
+            $search_condition = "(degree_name LIKE '" . trim($searchTerm) . "%')";
+            $degreedata = $this->common->select_data_by_search('degree', $search_condition, $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'degree_name');
+// DEGREE DATA END
+// STREAM DATA START
+            $contition_array = array('status' => '1');
+            $search_condition = "(stream_name LIKE '" . trim($searchTerm) . "%')";
+            $streamdata = $this->common->select_data_by_search('stream', $search_condition, $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'stream_name');
+// STREAM DATA END
+// SKILL DATA START
+            $contition_array = array('status' => '1', 'type' => '1');
+            $search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+            $skilldata = $this->common->select_data_by_search('skill', $search_condition, $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'skill');
+// SKILL DATA END
+//MERGE DATA START
+            $uni = array_merge($designation, $degreedata, $streamdata, $skilldata);
+//MERGE DATA END
+        }
+        foreach ($uni as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+                    $result[] = $val;
+                }
+            }
+        }
+        foreach ($result as $key => $value) {
+
+            $result1[$key]['value'] = $value;
+        }
+
+        $all_data = array_values($result1);
+        echo json_encode($all_data);
+    }
 }

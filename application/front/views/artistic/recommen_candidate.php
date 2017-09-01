@@ -277,7 +277,7 @@ if($status == 0 || $status == " "){?>
                                 <?php } ?>
 </div>
       
-         <button onclick="window.location.href = '<?php echo base_url('chat/abc/' . $key['user_id']); ?>'"> Message</button>
+         <button onclick="window.location.href = '<?php echo base_url('chat/abc/6/6/' . $key['user_id']); ?>'"> Message</button>
       </div>
 <?php }?>
 
