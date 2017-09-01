@@ -926,7 +926,7 @@ if($experiance[0]['experience_year'] != ''){ ?>
 
 <script>
 
-var data= <?php echo json_encode($demo); ?>;
+//var data= <?php //echo json_encode($demo); ?>;
 //alert(data);
 
         
@@ -957,7 +957,7 @@ $( "#tags" ).autocomplete({
 </script>
 <script>
 
-var data1 = <?php echo json_encode($de); ?>;
+//var data1 = <?php //echo json_encode($de); ?>;
 //alert(data);
 
         
@@ -989,7 +989,7 @@ $( "#searchplace" ).autocomplete({
 
 <script>
 
-var data= <?php echo json_encode($demo); ?>;
+//var data= <?php //echo json_encode($demo); ?>;
 //alert(data);
 
         
@@ -1020,7 +1020,7 @@ $( "#tags1" ).autocomplete({
 </script>
 <script>
 
-var data1 = <?php echo json_encode($de); ?>;
+//var data1 = <?php// echo json_encode($de); ?>;
 //alert(data);
 
         
@@ -1482,3 +1482,130 @@ $(document).ready(function(){
 });
 //For Scroll page at perticular position js End
 </script>
+<script>
+    // recruiter search header 2  start
+// recruiter search header 2 location start
+  var base_url = '<?php echo base_url(); ?>';
+$(function () {  
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".rec_search_loc").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "recruiter/get_location", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join(", ");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+// recruiter searc location end
+// recruiter searc title start
+$(function () { 
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".rec_search_title").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "recruiter/get_job_tile", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join(", ");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+// recruiter searc title end
+// recruiter search end
+    </script>
