@@ -152,10 +152,10 @@ echo $leftmenu;
 
                 <tr id="delete<?php echo $user['post_id']?>">
                     <td><?php echo $i++; ?></td>
-
+                    
                     <td><?php echo ucfirst($user['rec_firstname']); echo ' ';echo ucfirst($user['rec_lastname']);  ?></td>
-
-                    <td><?php echo $user['post_name']; ?></td>
+                    <?php $job_name = $this->db->get_where('job_title', array('title_id' => $user['post_name'], 'status' => 1))->row()->name; ?>
+                    <td><?php  if($job_name){ echo $job_name; }else{ echo  $user['post_name'];} ?></td>
 
                     <td>
 

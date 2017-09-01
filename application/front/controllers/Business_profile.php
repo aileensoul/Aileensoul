@@ -5733,7 +5733,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -5746,11 +5746,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -5935,7 +5935,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -5947,11 +5947,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -7362,7 +7362,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
 
@@ -7376,7 +7376,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -7571,7 +7571,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -7583,7 +7583,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -7776,7 +7776,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -7788,7 +7788,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -7985,7 +7985,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
 
@@ -7998,7 +7998,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -8775,7 +8775,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $cmtinsert .= '<div class="post-img-div">';
-                        $cmtinsert .= ucfirst(strtolower($acr));
+                        $cmtinsert .= ucfirst($acr);
                         $cmtinsert .= '</div>';
                     } else {
 
@@ -8789,7 +8789,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
@@ -9507,7 +9507,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -9520,11 +9520,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div></a>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -9714,7 +9714,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div>';
                 } else {
 
@@ -9728,11 +9728,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                $cmtinsert .= ucfirst(strtolower($acr));
+                $cmtinsert .= ucfirst($acr);
                 $cmtinsert .= '</div></a>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
+            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -9897,7 +9897,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $cmtinsert .= '<div class="post-img-div">';
-                        $cmtinsert .= ucfirst(strtolower($acr));
+                        $cmtinsert .= ucfirst($acr);
                         $cmtinsert .= '</div>';
                     } else {
                         $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -9908,7 +9908,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
@@ -10191,7 +10191,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $cmtinsert .= '<div class="post-img-div">';
-                        $cmtinsert .= ucfirst(strtolower($acr));
+                        $cmtinsert .= ucfirst($acr);
                         $cmtinsert .= '</div>';
                     } else {
 
@@ -10203,7 +10203,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                    $cmtinsert .= ucfirst(strtolower($acr));
+                    $cmtinsert .= ucfirst($acr);
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
@@ -10346,7 +10346,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $mulimgfour .= '<div class="post-img-div">';
-                        $mulimgfour .= ucfirst(strtolower($acr));
+                        $mulimgfour .= ucfirst($acr);
                         $mulimgfour .= '</div>';
                     } else {
 
@@ -10359,12 +10359,12 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $mulimgfour .= '<div class="post-img-div"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
-                    $mulimgfour .= ucfirst(strtolower($acr));
+                    $mulimgfour .= ucfirst($acr);
                     $mulimgfour .= '</a></div>';
                     $mulimgfour .= '</div>';
                 }
                 $mulimgfour .= '<div class="comment-name"><b>';
-                $mulimgfour .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
+                $mulimgfour .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($companyname) . '</a></br></b></div>';
                 $mulimgfour .= '<div class="comment-details" id="imgshowcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: block;">';
 
 
@@ -10918,7 +10918,7 @@ class Business_profile extends MY_Controller {
                             $acr = substr($a, 0, 1);
 
                             $contactdata .= '<div class="post-img-div">';
-                            $contactdata .= ucfirst(strtolower($acr));
+                            $contactdata .= ucfirst($acr);
                             $contactdata .= '</div>';
                         } else {
 
@@ -10929,12 +10929,12 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $contactdata .= '<div class="post-img-div">';
-                        $contactdata .= ucfirst(strtolower($acr));
+                        $contactdata .= ucfirst($acr);
                         $contactdata .= '</div>';
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text">';
-                    $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b></span>';
+                    $contactdata .= '<span><b>' . ucfirst($busdata[0]['company_name']) . '</b></span>';
                     $contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
                     $contactdata .= '</a>';
@@ -10968,7 +10968,7 @@ class Business_profile extends MY_Controller {
                             $acr = substr($a, 0, 1);
 
                             $contactdata .= '<div class="post-img-div">';
-                            $contactdata .= ucfirst(strtolower($acr));
+                            $contactdata .= ucfirst($acr);
                             $contactdata .= '</div>';
                         } else {
 
@@ -10979,12 +10979,12 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $contactdata .= '<div class="post-img-div">';
-                        $contactdata .= ucfirst(strtolower($acr));
+                        $contactdata .= ucfirst($acr);
                         $contactdata .= '</div>';
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text_full">';
-                    $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b> confirmed your contact request</span>';
+                    $contactdata .= '<span><b>' . ucfirst($busdata[0]['company_name']) . '</b> confirmed your contact request</span>';
                     //$contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
                     $contactdata .= '</a>';
@@ -11409,7 +11409,7 @@ class Business_profile extends MY_Controller {
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text">';
-                    $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b> confirmed your contact request</span>';
+                    $contactdata .= '<span><b>' . ucfirst($busdata[0]['company_name']) . '</b> confirmed your contact request</span>';
 //$contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
                     $contactdata .= '</a>';
@@ -11563,7 +11563,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $contactdata .= '<div class="post-img-div">';
-                        $contactdata .= ucfirst(strtolower($acr));
+                        $contactdata .= ucfirst($acr);
                         $contactdata .= '</div>';
                     } else {
 
@@ -11574,7 +11574,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $contactdata .= '<div class="post-img-div">';
-                    $contactdata .= ucfirst(strtolower($acr));
+                    $contactdata .= ucfirst($acr);
                     $contactdata .= '</div>';
                 }
 
@@ -11902,7 +11902,7 @@ class Business_profile extends MY_Controller {
                                                                         <li style="width: 67%">
                                                                             <div class="">
                                                                                 <div class="follow-li-text " style="padding: 0;">
-                                            <a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">' . ucfirst(strtolower($cdata[0]['company_name'])) . '</a>
+                                            <a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">' . ucfirst($cdata[0]['company_name']) . '</a>
                                                                                 </div>
                                                                                 <div>';
                 $category = $this->db->get_where('industry_type', array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name;
@@ -12210,7 +12210,7 @@ class Business_profile extends MY_Controller {
 
         if ($this->data['businessdata'][0]['product_description']) {
 
-            $editpostdes .= $this->common->make_links($this->data['businessdata'][0]['product_description']);
+            $editpostdes .= nl2br($this->common->make_links($this->data['businessdata'][0]['product_description']));
         }
         //echo $editpost;   echo $editpostdes;
         echo json_encode(

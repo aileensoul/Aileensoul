@@ -54,7 +54,7 @@ public function user()
 
             $sortby = 'rec_id';
 
-            $orderby = 'asc';
+            $orderby = 'desc';
 
         }
   
@@ -357,7 +357,7 @@ public function post()
 
             $sortby = 'post_id';
 
-            $orderby = 'asc';
+            $orderby = 'desc';
 
         }
   
@@ -647,6 +647,18 @@ public function clear_search_post()
     } 
 }
 //clear search POST is used for unset session End
+
+public function post_profile($id=''){
+    //echo "fff";die();
+   // $data='reg_id,username ,fullname ,email ,skyupid ,phone,country,state,city,pincode,professional_info,freelancer_hire_user_image'; 
+    $contition_array = array('is_delete' => '0','post_id' => $id,'status'=>'1');
+     $post_data=$this->data['post_data'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data='*', $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+     
+     $contition_array = array('type' => '1','status'=>'1');
+     $skill_data=$this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data='*', $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+   // echo "<pre>";print_r($post_data);die();
+    $this->load->view('recruiter/view_post', $this->data);
+}
 
 }
 

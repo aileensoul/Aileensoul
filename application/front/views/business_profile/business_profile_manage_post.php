@@ -36,15 +36,13 @@
 <!-- script for cropiee immage End-->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
 
 <!-- END HEADER -->
 
 <?php echo $business_header2_border ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css');           ?>">
---><link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -1576,7 +1574,7 @@
                                                         <div id="<?php echo "khyati" . $row['business_profile_post_id']; ?>" style="display:block;">
                                                             <?php
                                                             $small = substr($row['product_description'], 0, 180);
-                                                            echo $this->common->make_links($small);
+                                                            echo nl2br($this->common->make_links($small));
                                                             if (strlen($row['product_description']) > 180) {
                                                                 echo '... <span id="kkkk" onClick="khdiv(' . $row['business_profile_post_id'] . ')">View More</span>';
                                                             }
@@ -1584,7 +1582,7 @@
                                                         </div>
                                                         <div id="<?php echo "khyatii" . $row['business_profile_post_id']; ?>" style="display:none;">
                                                             <?php
-                                                            echo $row['product_description'];
+                                                            echo nl2br($row['product_description']);
                                                             ?>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">                                                                                                 <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>                                                    </textarea> 
@@ -2057,7 +2055,7 @@
                                                                             <div id="<?php echo "lessmore" . $rowdata['business_profile_post_comment_id']; ?>" style="display:block;">
                                                                                 <?php
                                                                                 $small = substr($rowdata['comments'], 0, 180);
-                                                                                echo $this->common->make_links($small);
+                                                                                echo nl2br($this->common->make_links($small));
 
                                                                                 if (strlen($rowdata['comments']) > 180) {
                                                                                     echo '... <span id="kkkk" onClick="seemorediv(' . $rowdata['business_profile_post_comment_id'] . ')">view More</span>';
@@ -2431,7 +2429,6 @@
             </script>
 
             <!-- tabing script start -->
-          <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
             <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
             <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
             <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
@@ -2650,35 +2647,7 @@
               } );
               </script>  -->
             <!-- end of business search auto fill -->
-            <script>
-
-                //select2 autocomplete start for Location
-                // $('#searchplace').select2({
-
-                //     placeholder: 'Find Your Location',
-                //     maximumSelectionLength: 1,
-                //     ajax: {
-
-                //         url: "<?php echo base_url(); ?>business_profile/location",
-                //         dataType: 'json',
-                //         delay: 250,
-
-                //         processResults: function (data) {
-
-                //             return {
-
-                //                 results: data
-
-
-                //             };
-
-                //         },
-                //         cache: true
-                //     }
-                // });
-                //select2 autocomplete End for Location
-
-            </script>
+            
 
             <!-- tabing script end -->
             <!-- footer end -->

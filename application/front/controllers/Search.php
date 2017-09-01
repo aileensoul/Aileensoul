@@ -1658,7 +1658,7 @@ foreach ($resul as $key => $value) {
 
 
         $cache_time = $this->db->get_where('cities', array('city_name' => $search_place))->row()->city_id;
-
+       // echo $cache_time;
         $this->data['keyword1'] = $search_place;
         // $searchplace[] = $search_place;
         //print_r($search_place)  ; die(); 
@@ -1688,7 +1688,7 @@ foreach ($resul as $key => $value) {
 
         $contition_array = array('freelancer_post_city' => $cache_time, 'status' => '1', 'freelancer_post_reg.user_id !=' => $userid , 'free_post_step' => 7);
             $unique = $this->data['results'] = $this->common->select_data_by_condition('freelancer_post_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
+            //echo "<pre>"; print_r($unique);die();
         }
         elseif ($searchplace == "" || $this->uri->segment(4) =="0") {
 
@@ -1802,7 +1802,7 @@ foreach ($resul as $key => $value) {
             }
 
 
-            // echo "unique". count($unique);
+           //  echo "unique". count($unique);die();
             // echo "<pre>"; print_r($new1);die();
         } else {
             // echo "ehfkj";
@@ -1916,8 +1916,9 @@ foreach ($resul as $key => $value) {
 
 //echo "<pre>";print_r($unique);die();
         }
-
+        
         $this->data['freelancerpostdata'] = $unique;
+      //  echo count($unique);die();
         // echo "<pre>";print_r($this->data['freelancerpostdata']);die();
 // code for search
         $contition_array = array('status' => '1', 'is_delete' => '0');
@@ -2078,7 +2079,7 @@ foreach ($resul as $key => $value) {
         } 
         elseif ($search_place == "") {
 
-            $contition_array = array('is_delete' => '0', 'status' => '1');
+            $contition_array = array('status' => '1','type'=>'1');
 
             $search_condition = "(skill LIKE '%$search_skill%')";
 
@@ -2158,7 +2159,7 @@ foreach ($resul as $key => $value) {
 // echo "<pre>";print_r($unique);die();
         } else {
         //echo "both"; die();
-            $contition_array = array('is_delete' => '0', 'status' => '1');
+            $contition_array = array('status' => '1','type'=>'1');
 
             $search_condition = "(skill LIKE '%$search_skill%')";
 
@@ -2392,7 +2393,7 @@ foreach ($resul as $key => $value) {
 //echo "<pre>"; print_r($unique); die();
         } 
         elseif ($search_place == "") {
-            // echo "hello";
+          //   echo "hello";die();
 
             $contition_array = array('is_delete' => '0', 'status' => '1');
 
@@ -2426,7 +2427,7 @@ foreach ($resul as $key => $value) {
             //For get titleid  to search by post name
               $cache_time = $this->db->get_where('job_title', array('name' => $search_job))->row()->title_id;
 
-           // echo $cache_time;
+          // echo $cache_time;die();
 
             $this->data['rec_skill'] = $recskillpost;
             //  echo "<pre>"; print_r( $this->data['rec_skill']);  die();
@@ -2438,13 +2439,18 @@ foreach ($resul as $key => $value) {
             $join_str[0]['from_table_id'] = 'rec_post.user_id';
             $join_str[0]['join_type'] = '';
 
+            
             $contition_array = array('recruiter.user_id !=' => $userid , 'recruiter.re_step' => 3,'post_last_date >=' => $date,'rec_post.is_delete'=>0);
 
             $data = 'rec_post.post_name,rec_post.post_description,rec_post.post_skill,rec_post.post_position,rec_post.post_last_date,rec_post.min_month,rec_post.min_year,rec_post.min_sal,rec_post.max_sal,rec_post.other_skill,rec_post.user_id,rec_post.post_id,rec_post.country,rec_post.city,rec_post.interview_process,rec_post.max_month,rec_post.max_year,rec_post.created_date,rec_post.industry_type,rec_post.emp_type,rec_post.salary_type,rec_post.degree_name';
 
+             
             //if post name is null then $cache time is not pass to search condition Strat 
             if($cache_time == "")
             {
+                //echo "hii";die();
+               
+                //echo "fhdf";die();
                  $search_condition = "(rec_post.post_name LIKE '%$search_job%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
                     rec_firstname,' ',rec_lastname) LIKE '%$search_job%')";
 
@@ -2453,7 +2459,9 @@ foreach ($resul as $key => $value) {
             }
             else
             {
-                $search_condition = "(rec_post.post_name LIKE '%$cache_time%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
+               
+                 //echo "rrrrr";die();
+                $search_condition = "((post_name = $cache_time) or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
                     rec_firstname,' ',rec_lastname) LIKE '%$search_job%')";
 
                // $search_condition = "concat(rec_firstname,' ',rec_lastname) like '%search_job%';";
@@ -2571,8 +2579,9 @@ foreach ($resul as $key => $value) {
             }
             else
             {
-                $search_condition = "(rec_post.post_name LIKE '%$cache_time%' or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
+                $search_condition = "((post_name = $cache_time) or rec_post.max_sal LIKE '%$search_job%' or rec_post.min_sal LIKE '%$search_job%' or  recruiter.re_comp_name LIKE '%$search_job%' or recruiter.rec_firstname LIKE '%$search_job%' or recruiter.rec_lastname LIKE '%$search_job%' or rec_post.other_skill LIKE '%$search_job%' or concat(
                     rec_firstname,' ',rec_lastname) LIKE '%$search_job%')";
+              
 
                // $search_condition = "concat(rec_firstname,' ',rec_lastname) like '%search_job%';";
             }

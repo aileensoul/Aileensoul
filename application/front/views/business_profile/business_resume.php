@@ -7,7 +7,6 @@
 </style>
 <?php echo $head; ?>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
@@ -1070,7 +1069,6 @@ foreach ($busimagedata as $image) {
                 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
                 <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
                 <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
 
@@ -1249,36 +1247,6 @@ foreach ($busimagedata as $image) {
                         $('#bidmodal-2').modal('show');
                     }
                 </script>
-                <script>
-
-                    //select2 autocomplete start for Location
-                    $('#searchplace').select2({
-
-                        placeholder: 'Find Your Location',
-                        maximumSelectionLength: 1,
-                        ajax: {
-
-                            url: "<?php echo base_url(); ?>business_profile/location",
-                            dataType: 'json',
-                            delay: 250,
-
-                            processResults: function (data) {
-
-                                return {
-
-                                    results: data
-
-
-                                };
-
-                            },
-                            cache: true
-                        }
-                    });
-                    //select2 autocomplete End for Location
-
-                </script>
-
                 <!-- cover image start -->
                 <script>
                     function myFunction() {

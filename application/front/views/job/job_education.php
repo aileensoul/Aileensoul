@@ -1693,16 +1693,9 @@
     $.validator.addMethod("valueNotEquals", function(value, element, arg){ 
       if(arg == value)
       { 
-         if ($('.message').length > 0) {
-     alert(121233);
-       
-               if($('#input1 #university1').hasClass('error') )
-               {
-                     $("#input1 .university").removeClass("error");
-                     $('label.error').remove();
+         if ($('.message').length > 0) 
+         {
                     return true;     
-                }
-
          }
 
          return false;
@@ -1734,6 +1727,7 @@
                'degree[]': {
    
                    required: true,
+                   valueNotEquals: 54,
    
                },
    

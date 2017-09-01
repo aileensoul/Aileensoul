@@ -477,4 +477,87 @@ public function edit_insert($id){
             }
 
 }
+
+public function project() 
+{
+      $date=date('Y-m-d', time()); 
+// This is userd for pagination offset and limoi start
+          $limit = $this->paging['per_page'];
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
+
+            $sortby = $this->uri->segment(3);
+
+            $orderby = $this->uri->segment(4);
+
+        } else {
+
+            $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
+
+            $sortby = 'post_id';
+
+            $orderby = 'desc';
+
+        }
+  
+        $this->data['offset'] = $offset;
+
+        $join_str[0]['table'] = 'freelancer_hire_reg';
+        $join_str[0]['join_table_id'] = 'freelancer_hire_reg.user_id';
+        $join_str[0]['from_table_id'] = 'freelancer_post.user_id';
+        $join_str[0]['join_type'] = '';
+        
+       $data='freelancer_post.post_id,freelancer_post.post_name,freelancer_post.post_field_req,freelancer_post.post_skill,freelancer_post.post_exp_month,freelancer_post.post_exp_year,freelancer_post.created_date,freelancer_post.modify_date,freelancer_post.country,freelancer_post.state,freelancer_post.city,freelancer_post.user_id,freelancer_hire_reg.username,freelancer_hire_reg.fullname,freelancer_post.status';
+       $contition_array = array('freelancer_post.is_delete' => '0','freelancer_post.post_last_date >='=>$date,'freelancer_post.status' => '1');
+        $this->data['users'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str, $groupby = '');
+// This is userd for pagination offset and limoi End
+
+      //echo "<pre>";print_r($this->data['users'] );die();
+
+        //This if and else use for asc and desc while click on any field start
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $this->paging['base_url'] = site_url("freelancer_hire/project/" . $short_by . "/" . $order_by);
+
+        } else {
+
+            $this->paging['base_url'] = site_url("freelancer_hire/project/");
+
+        }
+
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $this->paging['uri_segment'] = 5;
+
+        } else {
+
+            $this->paging['uri_segment'] = 3;
+
+        }
+        //This if and else use for asc and desc while click on any field End
+
+        $contition_array = array( 'is_delete =' => '0','post_last_date >='=>$date);
+        $this->paging['total_rows'] = count($this->common->select_data_by_condition('freelancer_post', $contition_array, 'post_id'));
+        $this->data['total_rows'] = $this->paging['total_rows'];
+        $this->data['limit'] = $limit;
+        $this->pagination->initialize($this->paging);
+        $this->data['search_keyword'] = '';
+        
+        $this->load->view('freelancer_hire/post', $this->data);
+    
+}
+
+public function post_profile($id=''){
+    $date=date('Y-m-d', time());
+    $contition_array = array('is_delete' => '0','post_id' => $id,'status'=>'1','post_last_date >='=>$date);
+     $post_data=$this->data['post_data'] = $this->common->select_data_by_condition('freelancer_post', $contition_array, $data='*', $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+     
+     $contition_array = array('type' => '1','status'=>'1');
+     $skill_data=$this->data['skill'] = $this->common->select_data_by_condition('skill', $contition_array, $data='*', $sortby, $orderby, $limit, $offset, $join_str, $groupby);
+   // echo "<pre>";print_r($post_data);die();
+    $this->load->view('freelancer_hire/view_post', $this->data);
+    
+}
+
 }
