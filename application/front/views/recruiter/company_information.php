@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
 <!-- This Css is used for call popup -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 

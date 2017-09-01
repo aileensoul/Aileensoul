@@ -2,11 +2,11 @@
 <?php  echo $head; ?>
     <!-- END HEAD -->
     <!-- start header -->
-      <link href="<?php echo base_url('css/jquery-ui.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('css/jquery-ui.css') ?>" rel="stylesheet" type="text/css" />
    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.2.0/select2.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
 
 
@@ -695,7 +695,7 @@
     <!-- BEGIN FOOTER -->
     <!-- BEGIN INNER FOOTER -->
 
-     <!-- Bid-modal  -->
+     <!-- Bid-modal start -->
           <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
               <div class="modal-dialog modal-lm">
                   <div class="modal-content">
@@ -707,7 +707,7 @@
                 </div>
           </div>
        </div>
-                    <!-- Model Popup Close -->
+                    <!-- Bid-modal start -->
     <?php echo $footer; ?>
   
     

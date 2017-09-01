@@ -1,6 +1,55 @@
-<IfModule authz_core_module>
-    Require all denied
+allow from all
+<IfModule mod_expires.c>
+# Enable expirations
+ExpiresActive On 
+# Default directive
+ExpiresDefault "access plus 1 month"
+# My favicon
+ExpiresByType image/x-icon "access plus 1 year"
+# Images
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+# CSS
+ExpiresByType text/css "access plus 1 month"
+# Javascript
+ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
-<IfModule !authz_core_module>
-    Deny from all
+
+<IfModule mod_php5.c>
+    #Session timeout
+    php_value session.cookie_lifetime 144000
+    php_value session.gc_maxlifetime 144000
 </IfModule>
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+allow from all
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]  
+
+
+
+ RewriteCond %{THE_REQUEST} ^GET.*index\.php [NC]
+    RewriteRule (.*?)index\.php/*(.*) /$1$2 [R=301,NE,L]
+    
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteCond $1 !^(index\.php|images|robots\.txt|css|docs|js|system)
+   RewriteRule ^(.*)$ /index.php?/$1 [L]
+   
+   RewriteCond %{HTTP_HOST} ^aileensoul.com [NC]
+RewriteRule ^(.*)$ https://www.aileensoul.com/$1 [L,R=301]
+   #RewriteRule ^(.*)$ https://www.aileensoul.com/$1 [L,R=301,NC]
+#RewriteRule ^(.*)$ https://www.aileensoul.com/$1 [R=301,L]
+
+
+
+
+

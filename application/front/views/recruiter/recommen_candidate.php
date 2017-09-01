@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <!--link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /-->
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!--post save success pop up style end -->
 <!-- END HEAD -->
