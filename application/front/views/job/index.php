@@ -649,32 +649,39 @@ $pincode_error = form_error('pincode_error');
 
 <!-- FOr city data fetch start -->
 <script>
-   var data1= <?php echo json_encode($city_data); ?>;
-   //alert(data);
-   
-           
    $(function() {
-       // alert('hi');
-   $( "#city" ).autocomplete({
-        source: function( request, response ) {
-            var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-            response( $.grep( data1, function( item ){
-                return matcher.test( item.label );
-            }) );
+       function split( val ) {
+           return val.split( /,\s*/ );
+       }
+       function extractLast( term ) {
+           return split( term ).pop();
+       }
+       
+       $( "#city" ).bind( "keydown", function( event ) {
+           if ( event.keyCode === $.ui.keyCode.TAB &&
+               $( this ).autocomplete( "instance" ).menu.active ) {
+               event.preventDefault();
+           }
+       })
+       .autocomplete({
+           minLength: 2,
+           source: function( request, response ) { 
+               // delegate back to autocomplete, but extract the last term
+               $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+           },
+           focus: function() {
+               // prevent value inserted on focus
+               return false;
+           },
+   
+            select: function(event, ui) {
+          event.preventDefault();
+          $("#city").val(ui.item.label);
+          $("#selected-tag").val(ui.item.label);
+          // window.location.href = ui.item.value;
       },
-       minLength: 1,
-       select: function(event, ui) {
-           event.preventDefault();
-           $("#city").val(ui.item.label);
-           $("#selected-tag").val(ui.item.label);
-           // window.location.href = ui.item.value;
-       }
-       ,
-       focus: function(event, ui) {
-           event.preventDefault();
-           $("#city").val(ui.item.label);
-       }
-   });
+    
+       });
    });
      
 </script>
