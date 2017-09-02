@@ -8,13 +8,13 @@
                 <!--    <label>Find Your Skills</label>
                 -->   
               <!-- <input type="text" name="searchartistic" placeholder="Find Your Art"> -->
-                <input type="text" id="tags" name="skills" placeholder="Companies, Category, Products">
+                <input type="text" id="tags" class="bus_search_comp" name="skills" placeholder="Companies, Category, Products">
             </fieldset>
             <fieldset class="col-md-3 col-sm-5 col-xs-5 sec_h2">
                 <!--    <label>Find Your Location</label>
                 -->   
 
-                <input type="text" id="searchplace" name="searchplace" placeholder="Find Location">
+                <input type="text" id="searchplace" class="bus_search_loc" name="searchplace" placeholder="Find Location">
             </fieldset>
             <!--                            <fieldset class="col-md-2">
                                            <input type="submit" name="search_submit" value="Search" onclick="return checkvalue()">

@@ -158,8 +158,8 @@
                                     <button type="button" class="close">×</button>
                                     <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
-                                           <input type="text" id="tags1" name="skills" placeholder="Companies, Category, products">
-                                             <input type="text" id="searchplace1" name="searchplace" placeholder="Find Location">
+                                           <input type="text" id="tags1" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
+                                            <input type="text" id="searchplace1" class="bus_search_loc" name="searchplace" placeholder="Find Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
@@ -309,8 +309,8 @@
                                     <button type="button" class="close">×</button>
                                    <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
-                                            <input type="text" id="tags1" name="skills" placeholder="Companies, Category, products">
-                                            <input type="text" id="searchplace1" name="searchplace" placeholder="Find Location">
+                                            <input type="text" id="tags1" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
+                                            <input type="text" id="searchplace1" class="bus_search_loc" name="searchplace" placeholder="Find Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>

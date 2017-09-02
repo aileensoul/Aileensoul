@@ -1344,40 +1344,6 @@ class Business_profile extends MY_Controller {
         //echo "<pre>"; print_r($this->data['businessprofiledata']) ; die();
 // code for search
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
         $contition_array = array('status' => '1');
         $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
@@ -13502,5 +13468,82 @@ class Business_profile extends MY_Controller {
 
         $this->load->view('business_profile/notavalible', $this->data);
     }
+    
+    
+    // BUSINESS GET LOCATION START
+    public function get_location($id = "") {
+
+        //get search term
+        $searchTerm = $_GET['term'];
+
+        if (!empty($searchTerm)) {
+            $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
+            $citylist = $this->common->select_data_by_search('cities', $search_condition, $contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
+        }
+        foreach ($citylist as $key => $value) {
+
+            $citydata[$key]['value'] = $value['text'];
+        }
+
+        $cdata = array_values($citydata);
+        echo json_encode($cdata);
+    }
+
+// BUSINESS GET LOCATION END
+// BUSINESS GET ALL START
+    public function get_all_data($id = "") {
+
+        //get search term
+        $searchTerm = $_GET['term'];
+
+        if (!empty($searchTerm)) {
+            
+// BUSINESS PROFILE DATA START (COMPANY NAME)
+            $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
+            $search_condition = "(company_name LIKE '" . trim($searchTerm) . "%')";
+            $buscompdata = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'company_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'company_name');
+       
+// BUSINESS PROFILE DATA END 
+// BUSINESS PROFILE DATA START (COMPANY NAME)
+            $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
+            $search_condition = "(other_industrial LIKE '" . trim($searchTerm) . "%')";
+            $businddata = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'other_industrial', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'other_industrial');
+// BUSINESS PROFILE DATA END 
+// BUSINESS PROFILE DATA START (COMPANY NAME)
+            $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
+            $search_condition = "(other_business_type LIKE '" . trim($searchTerm) . "%')";
+            $busothertypedata = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array, $data = 'other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'other_business_type');
+// BUSINESS PROFILE DATA END 
+// BUSINESS TYPE DATA START (business_name)
+        $contition_array = array('status' => '1', 'is_delete' => '0');
+        $search_condition = "(business_name LIKE '" . trim($searchTerm) . "%')";
+        $businesstype = $this->common->select_data_by_search('business_type', $search_condition, $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'business_name');
+// BUSINESS TYPE DATA END  
+// INDUSTRY TYPE DATA START  
+ $contition_array = array('status' => '1', 'is_delete' => '0');
+        $search_condition = "(industry_name LIKE '" . trim($searchTerm) . "%')";
+        $industrytype = $this->common->select_data_by_search('industry_type', $search_condition, $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = 'industry_name');
+// INDUSTRY TYPE DATA END  
+        $unique = array_merge($buscompdata, $businddata,$busothertypedata,$businesstype, $industrytype);
+        }
+        foreach ($unique as $key => $value) {
+            foreach ($value as $ke => $val) {
+                if ($val != "") {
+
+
+                    $result[] = $val;
+                }
+            }
+        }
+
+        $results = array_unique($result);
+        foreach ($results as $key => $value) {
+          
+            $result1[$key]['value'] = $value;
+        }
+ $cdata = array_values($result1);
+        echo json_encode($cdata);
+    }
+// BUSINESS GET ALL END
 
 }
