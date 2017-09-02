@@ -26,11 +26,7 @@ class Recruiter extends MY_Controller {
 
         $contition_array = array('user_id' => $userid, 're_status' => '0');
         $artdata = $this->common->select_data_by_condition('recruiter', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-       // echo "<pre>"; print_r($artdata); die();
         if ($artdata) {
-
-
             $this->load->view('recruiter/reactivate', $this->data);
         } else {
             $userid = $this->session->userdata('aileenuser');
@@ -43,9 +39,7 @@ class Recruiter extends MY_Controller {
             } else if ($recrdata[0]['re_step'] == 3) {
                 redirect('recruiter/recommen_candidate', refresh);
             } 
-            // else if ($recrdata[0]['re_step'] == 3) {
-            //     redirect('recruiter/recommen_candidate', refresh);
-            // } 
+             
             else if ($recrdata[0]['re_step'] == 0) {
                 redirect('recruiter/rec_basic_information', refresh);
             } else {
@@ -91,64 +85,6 @@ class Recruiter extends MY_Controller {
             }
         }
 
-         $contition_array = array('status' => '1', 'is_delete' => '0' , 'job_step' => 10);
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1', 'type' => '1');
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-       foreach($result as $key =>$value){
-            $result1[$key]['label']=$value;
-            $result1[$key]['value']=$value;
-          }
-//echo '<pre>'; print_r($result1); die();
-         
-         $this->data['demo']= $result1;
-            $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
-
-
-
         $this->load->view('recruiter/rec_basic_information', $this->data);
     }
 
@@ -172,10 +108,6 @@ class Recruiter extends MY_Controller {
         }
      //if user deactive profile then redirect to recruiter/index untill active profile End
 
-
-        
-
-
         $this->form_validation->set_rules('first_name', 'first Name', 'required');
         $this->form_validation->set_rules('last_name', 'last Name', 'required');
         $this->form_validation->set_rules('email', ' EmailId', 'required|valid_email');
@@ -186,9 +118,6 @@ class Recruiter extends MY_Controller {
                 $usre1 = $_FILES["file1"]['name'];
             }
         }
-
-
-
         if ($this->form_validation->run() == FALSE) {
 
 
@@ -459,63 +388,6 @@ class Recruiter extends MY_Controller {
 
             }
         }
-        $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1', 'type' => '1');
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-       foreach($result as $key =>$value){
-            $result1[$key]['label']=$value;
-            $result1[$key]['value']=$value;
-          }
-//echo '<pre>'; print_r($result1); die();
-         
-         $this->data['demo']= $result1;
-
-   $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
-
 
         $this->load->view('recruiter/company_information', $this->data);
     }
@@ -1097,61 +969,6 @@ class Recruiter extends MY_Controller {
           // echo "<pre>"; print_r($this->data['postdata']); die();
         }
         
-       
-        $contition_array = array('status' => '1', 'is_delete' => '0','job_step' => 10);
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1');
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        $contition_array = array('status' => '1', 'type' => '1');
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-                    $result[] = $val;
-                }
-            }
-        }
-       foreach($result as $key =>$value){
-            $result1[$key]['label']=$value;
-            $result1[$key]['value']=$value;
-          }
-//echo '<pre>'; print_r($result1); die();
-         
-         $this->data['demo']= $result1;
-            $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
-
 
         //     echo "<pre>";print_r($this->data['postdata']);die();
         $this->load->view('recruiter/rec_post', $this->data);
@@ -1198,82 +1015,6 @@ class Recruiter extends MY_Controller {
 
         $this->data['recdata'] = $this->common->select_data_by_id('recruiter', 'user_id', $userid, $data = '*', $join_str = array());
 
-
-        $contition_array = array('status' => '1', 'user_id' => $userid);
-
-        $edudata = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
-
-
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1');
-
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_id,degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-         //skill data fetch
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $this->data['demo'] = array_values($result1);
-           $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
 
          //jobtitle data fetch
         $contition_array = array('status' => 'publish');
@@ -1353,81 +1094,6 @@ class Recruiter extends MY_Controller {
          $contition_array = array('status' => 1);
         $this->data['degree'] = $this->common->select_data_by_condition('degree', $contition_array, $data = '*', $sortby = 'degree_name', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
-
-
-        $contition_array = array('status' => '1', 'user_id' => $userid);
-
-        $edudata = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
-
-
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1');
-
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-         
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $this->data['demo'] = array_values($result1);
-           $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
 
 
 
@@ -1721,78 +1387,6 @@ $select1 = '<option value="" selected option disabled>Select your industry</opti
            
 
 
-       // code for search
-         $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
-
-
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-        $contition_array = array('status' => '1');
-
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-
-        $contition_array = array('status' => '1');
-
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-
-        $contition_array = array('status' => '1');
-
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $this->data['demo'] = array_values($result1);
-
-           $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
-
-
 
 
         $this->load->view('recruiter/view_apply_list', $this->data);
@@ -1960,80 +1554,6 @@ $select1 = '<option value="" selected option disabled>Select your industry</opti
  $this->data['country1'] = $this->data['postdata'][0]['country'];
         $this->data['city1'] = $this->data['postdata'][0]['city'];
         
-
-        // code for search 
-$contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
-
-
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-        $contition_array = array('status' => '1');
-
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-
-        $contition_array = array('status' => '1');
-
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-
-        $contition_array = array('status' => '1');
-
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby='');
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $this->data['demo'] = array_values($result1);
-
-           $contition_array = array('status' => '1');
-
-       
-        $citiesss = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-          foreach($citiesss as $key){
-    $location[]=$key['city_name'];
-   }
-
- //          foreach ($location_list as $key1 => $value1) {
- //              foreach ($value1 as $ke1 => $val1) {
- //                 $location[] = $val1;
- //              }
- //          }
- //          //echo "<pre>"; print_r($location);die();
-          foreach ($location as $key => $value) {
-              $loc[$key]['label'] =$value;
-              $loc[$key]['value'] =$value;
-          }
-         
- // //echo "<pre>"; print_r($loc);die();
-
-        //$this->data['city_data']= array_values($loc);
-        $this->data['de'] = $loc;
 
          //jobtitle data fetch
         $contition_array = array('status' => 'publish');
@@ -2362,77 +1882,6 @@ $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
         }
 //echo '<pre>'; print_r( $this->data['recdata']); die();
 
-        $contition_array = array('status' => '1', 'is_delete' => '0' ,'job_step' => 10);
-
-
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1');
-
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $this->data['demo'] = array_values($result1);
-
-           $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
-
-
 
         $this->load->view('recruiter/rec_profile', $this->data);
     }
@@ -2501,78 +1950,6 @@ foreach ($recdata1 as $ke => $arr) {
                  $this->data['recdata'] = $new;
      //   echo"<pre>"; print_r($this->data['recdata']); die();
 
-
-        $contition_array = array('status' => '1', 'is_delete' => '0','job_step' => 10);
-
-
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby='');
-
-        $contition_array = array('status' => '1');
-
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $this->data['demo'] = array_values($result1);
-
-           $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
-
-        //echo "<pre>";print_r($this->data['recdata']);die();
         $this->load->view('recruiter/saved_candidate', $this->data);
     }
 
@@ -3293,88 +2670,8 @@ foreach ($recdata1 as $ke => $arr) {
       
         $this->data['candidatejob'] = $new;
       
-//code for search
-
-        $contition_array = array('status' => '1', 'user_id' => $userid);
-
-        $edudata = $this->data['edudata'] = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $recdata = $this->data['results'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = 'other_skill,designation', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $contition_array = array('status' => '1');
-
-        $jobdata = $this->data['results'] = $this->common->select_data_by_condition('job_add_workexp', $contition_array, $data = 'jobtitle', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $degreedata = $this->data['results'] = $this->common->select_data_by_condition('degree', $contition_array, $data = 'degree_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1');
-
-        $streamdata = $this->data['results'] = $this->common->select_data_by_condition('stream', $contition_array, $data = 'stream_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        $contition_array = array('status' => '1', 'type' => '1');
-
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>"; print_r($artpost);die();
-
-
-        $uni = array_merge($recdata, $jobdata, $degreedata, $streamdata, $skill, $edudata);
-        //   echo count($unique);
-
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-                    $result[] = $val;
-                }
-            }
-        }
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $this->data['demo'] = array_values($result1);
-
-           $contition_array = array('status' => '1');
-
-       
-        $cty = $this->data['cty'] = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-           
-
-            foreach ($cty as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $resu[] = $val;
-                }
-            }
-        }
-        $resul = array_unique($resu);
-        foreach ($resul as $key => $value) {
-            $res[$key]['label'] = $value;
-            $res[$key]['value'] = $value;
-        }
-        
-        $this->data['de'] = array_values($res);
-
-
 
         $this->load->view('recruiter/recommen_candidate', $this->data);
-
-
-        
-
 
     }
 
