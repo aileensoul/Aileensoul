@@ -14360,13 +14360,13 @@ images css start*/
 }
 .three-image-top {
     float: left;
-   /* height: 50%;
-    width: 100%;*/
+    height: 50%;
+    width: 100%;
     padding: 1px;
 }
 .three-image-top img {
-    /*height: 100%;
-    width: 100%;*/
+    height: 100%;
+    width: 100%;
 }
 .four-image {
     float: left;

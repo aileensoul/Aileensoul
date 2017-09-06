@@ -8,13 +8,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
-
 <!-- END HEAD -->
 <!-- start header -->
 <?php echo $header; ?>
 <!-- script for cropiee immage End-->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-
 <script type="text/javascript">
    //For Scroll page at perticular position js Start
    $(document).ready(function(){
@@ -26,8 +24,7 @@
    });
    //For Scroll page at perticular position js End
 </script>
-<script src="<?php //echo base_url('js/fb_login.js'); ?>"></script>
-
+<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- END HEADER -->
 <?php echo $art_header2_border; ?>
 <body   class="page-container-bg-solid page-boxed">
@@ -344,10 +341,10 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
                <div class="padding_less main_art" >
                   <div class="top-tab">
                      <ul class="nav nav-tabs tabs-left remove_tab">
-                        <li class="active"> <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
-                        <li> <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
-                        <li><a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
-                        <li>    <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
+                        <li class="active"> <a href="<?php echo base_url('artistic/art_photos/' . $artisticdata[0]['user_id']) ?>"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
+                        <li> <a href="<?php echo base_url('artistic/art_videos/' . $artisticdata[0]['user_id']) ?>"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
+                        <li><a href="<?php echo base_url('artistic/art_audios/' . $artisticdata[0]['user_id']) ?>"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
+                        <li>    <a href="<?php echo base_url('artistic/art_pdf/' . $artisticdata[0]['user_id']) ?>"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
                      </ul>
                   </div>
                   <!-- Tab panes -->
@@ -882,6 +879,103 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 <footer>
 <?php echo $footer; ?>
         </footer>
+
+        
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+<!--<script src="<?php //echo base_url('js/jquery.jMosaic.js');  ?>"></script>-->
+
+
+<script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
+
+<!-- designation script start -->
+<script type="text/javascript">
+   function divClicked() {
+       var divHtml = $(this).html();
+        divHtml = divHtml.trim();
+       var editableText = $("<textarea />");
+       editableText.val(divHtml);
+       $(this).replaceWith(editableText);
+       editableText.focus();
+       // setup the blur event for this new textarea
+       editableText.blur(editableTextBlurred);
+   }
+   
+   function editableTextBlurred() {
+      
+      var html = $(this).val();
+      html = html.trim();
+       var viewableText = $("<a>");
+      
+       if (html.match(/^\s*$/) || html == '') { 
+       html = "Current Work";
+       } 
+       
+       viewableText.html(html);
+       $(this).replaceWith(viewableText);
+       // setup the click event for this new div
+       viewableText.click(divClicked);
+   
+       $.ajax({
+           url: "<?php echo base_url(); ?>artistic/art_designation",
+           type: "POST",
+           data: {"designation": html},
+           success: function (response) {
+   
+           }
+       });
+   }
+   
+   $(document).ready(function () {
+   //alert("hi");
+       $("a.designation").click(divClicked);
+   });
+</script>
+<!-- designation script end -->
+<script type="text/javascript">
+   //validation for edit email formate form
+   
+   $(document).ready(function () {
+   
+       $("#userimage").validate({
+   
+           rules: {
+   
+               profilepic: {
+   
+                   required: true,
+   
+               },
+   
+           },
+   
+           messages: {
+   
+               profilepic: {
+   
+                   required: "Photo Required",
+   
+               },
+   
+           },
+   
+       });
+   });
+   
+   
+   
+   $(document).on('keydown', function (e) {
+       if (e.keyCode === 27) {
+           $("#myModal1").hide();
+       }
+   });
+</script>
+
+
 <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
@@ -985,71 +1079,6 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
         });
     });
 </script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
-        
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-<script src="<?php //echo base_url('js/bootstrap.min.js'); ?>"></script>
-<!-- <script src="<?php //echo base_url('js/jquery.jMosaic.js');    ?>"></script> -->
-<script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-
-<script>
-   function updateprofilepopup(id) {
-       $('#bidmodal-2').modal('show');
-   }
-</script>
-
-<!-- designation script start -->
-<script type="text/javascript">
-   function divClicked() {
-       var divHtml = $(this).html();
-        divHtml = divHtml.trim();
-       var editableText = $("<textarea />");
-       editableText.val(divHtml);
-       $(this).replaceWith(editableText);
-       editableText.focus();
-       // setup the blur event for this new textarea
-       editableText.blur(editableTextBlurred);
-   }
-   
-   function editableTextBlurred() {
-      
-      var html = $(this).val();
-      html = html.trim();
-       var viewableText = $("<a>");
-      
-       if (html.match(/^\s*$/) || html == '') { 
-       html = "Current Work";
-       } 
-       
-       viewableText.html(html);
-       $(this).replaceWith(viewableText);
-       // setup the click event for this new div
-       viewableText.click(divClicked);
-   
-       $.ajax({
-           url: "<?php echo base_url(); ?>artistic/art_designation",
-           type: "POST",
-           data: {"designation": html},
-           success: function (response) {
-   
-           }
-       });
-   }
-   
-   $(document).ready(function () {
-   //alert("hi");
-       $("a.designation").click(divClicked);
-   });
-</script>
-<!-- designation script end -->
-
-
-
-
 <script type="text/javascript">
    function checkvalue() {
        //alert("hi");
@@ -1104,49 +1133,6 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
    
    
    </script> -->
-
-
-   <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
-
-<script type="text/javascript">
-   //validation for edit email formate form
-   
-   $(document).ready(function () {
-   
-       $("#userimage").validate({
-   
-           rules: {
-   
-               profilepic: {
-   
-                   required: true,
-   
-               },
-   
-           },
-   
-           messages: {
-   
-               profilepic: {
-   
-                   required: "Photo Required",
-   
-               },
-   
-           },
-   
-       });
-   });
-   
-   
-   
-   $(document).on('keydown', function (e) {
-       if (e.keyCode === 27) {
-           $("#myModal1").hide();
-       }
-   });
-</script>
-
 <script type="text/javascript">
    //For blocks or images of size, you can use $(document).ready
    $(document).ready(function () {
@@ -1747,7 +1733,12 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 </script>
 <!-- commenmt delete end -->
 <!-- end search validation -->
-
+<script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+<script>
+   function updateprofilepopup(id) {
+       $('#bidmodal-2').modal('show');
+   }
+</script>
 <!-- cover image start -->
 <script>
    function myFunction() {

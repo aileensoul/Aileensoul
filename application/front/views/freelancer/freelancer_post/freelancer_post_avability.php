@@ -256,9 +256,8 @@ $work_hour = form_error('work_hour');
 //SCRIPT FOR CITY AUTOFILL OF SEARCH END
 
 
-
-
     </script>
+
 
  <!-- <script>
                     

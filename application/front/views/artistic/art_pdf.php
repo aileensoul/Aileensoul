@@ -384,10 +384,10 @@ if ($status == 0 || $status == " ") {
         <div class="padding_less main_art" >
                         <div class="top-tab">
                             <ul class="nav nav-tabs tabs-left remove_tab">
-                                <li> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
-                                <li> <a href="<?php echo base_url('artistic/art_videos/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
-                                <li><a href="<?php echo base_url('artistic/art_audios/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
-                                <li class="active">    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>" data-toggle="tab"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
+                                <li> <a href="<?php echo base_url('artistic/art_photos/'.$artisticdata[0]['user_id']) ?>"><i class="fa fa-camera" aria-hidden="true"></i>   Photos</a></li>
+                                <li> <a href="<?php echo base_url('artistic/art_videos/'.$artisticdata[0]['user_id']) ?>"><i class="fa fa-video-camera" aria-hidden="true"></i>  Video</a></li>
+                                <li><a href="<?php echo base_url('artistic/art_audios/'.$artisticdata[0]['user_id']) ?>"><i class="fa fa-music" aria-hidden="true"></i>  Audio</a></li>
+                                <li class="active">    <a href="<?php echo base_url('artistic/art_pdf/'.$artisticdata[0]['user_id']) ?>"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Pdf</a></li>
                               </ul>
                         </div>
           <!-- Tab panes -->
@@ -508,7 +508,6 @@ if ($status == 0 || $status == " ") {
     </div>
 
 
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
 
 </div>
@@ -560,6 +559,19 @@ if ($status == 0 || $status == " ") {
 <?php echo $footer; ?>
 </footer>
 
+
+
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+ <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
+ 
+
+
+<script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
+ 
 <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
@@ -663,20 +675,6 @@ if ($status == 0 || $status == " ") {
         });
     });
 </script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
-
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
-<script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-<script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
- <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-
- 
-
-
-<script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
- 
-
 <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");

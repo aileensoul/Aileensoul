@@ -1637,9 +1637,16 @@
 <footer>
 <?php echo $footer; ?>
 </footer>
+                    <!-- script for skill textbox automatic start (option 2)-->
+                    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
+                    <!-- script for skill textbox automatic end (option 2)-->
 
-<!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
+                    <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
+                   <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
                       var base_url = '<?php echo base_url(); ?>';
@@ -1742,17 +1749,6 @@
         });
     });
 </script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
-                    <!-- script for skill textbox automatic start (option 2)-->
-                    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
-                    <!-- script for skill textbox automatic end (option 2)-->
-
-                    <script src="<?php echo base_url('js/jquery.jMosaic.js'); ?>"></script>
-                    
                     <script type="text/javascript">
                         $(document).ready(function () {
                             $('.blocks').jMosaic({items_type: "li", margin: 0});
@@ -2238,8 +2234,6 @@
                             //document.getElementById('editbox' + clicked_id).style.display = 'none';
                             document.getElementById('editcommentbox' + clicked_id).style.display = 'none';
                             document.getElementById('editcancle' + clicked_id).style.display = 'block';
-                                   $('.all-comment-comment-box').css({"border-bottom": "0px"});
-
                             $($('#box_hide' + abc)).hide();
                         }
 
@@ -2250,7 +2244,7 @@
                             document.getElementById('editcomment' + clicked_id).style.display = 'none';
                             document.getElementById('showcomment' + clicked_id).style.display = 'block';
                             document.getElementById('editsubmit' + clicked_id).style.display = 'none';
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
+
                             $($('#box_hide' + abc)).show();
                         }
                         function comment_editboxtwo(clicked_id,abc) {
@@ -2267,8 +2261,6 @@
                             document.getElementById('editsubmittwo' + clicked_id).style.display = 'inline-block';
                             document.getElementById('editcommentboxtwo' + clicked_id).style.display = 'none';
                             document.getElementById('editcancletwo' + clicked_id).style.display = 'block';
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-
                             $($('#box_hide' + abc)).hide();
                         }
 
@@ -2281,8 +2273,6 @@
                             document.getElementById('editcommenttwo' + clicked_id).style.display = 'none';
                             document.getElementById('showcommenttwo' + clicked_id).style.display = 'block';
                             document.getElementById('editsubmittwo' + clicked_id).style.display = 'none';
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-
                             $($('#box_hide' + abc)).show();
                         }
                     </script>
@@ -2303,8 +2293,6 @@
                                     document.getElementById('editbox2' + abc).style.display = 'block';
                                     document.getElementById('editcancle2' + abc).style.display = 'none';
                                     $('#' + 'showcomment2' + abc).html(data);
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-
                                 }
                             });
                         }
@@ -2329,8 +2317,6 @@
                                                 document.getElementById('editbox2' + abc).style.display = 'block';
                                                 document.getElementById('editcancle2' + abc).style.display = 'none';
                                                 $('#' + 'showcomment2' + abc).html(data);
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-
                                             }
                                         });
                                         //alert(val);
@@ -2520,7 +2506,6 @@
        document.getElementById('editpostsubmit' + abc).style.display = 'block';
        document.getElementById('khyati' + abc).style.display = 'none';
        document.getElementById('khyatii' + abc).style.display = 'none';
-       
 
        editposttitle = editposttitle.trim()
        editpostdesc = editpostdesc.trim()
@@ -2865,8 +2850,6 @@
                                     document.getElementById('editcancle' + abc).style.display = 'none';
                                     $('#' + 'showcomment' + abc).html(data);
                                     $('#box_hide' + clicked_id).show();
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-
                                 }
                             });
                             $(".scroll").click(function (event) {
@@ -2915,8 +2898,6 @@
                                             document.getElementById('editcancle' + abc).style.display = 'none';
                                             $('#' + 'showcomment' + abc).html(data);
                                             $('#box_hide' + clicked_id).show();
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-
                                         }
                                     });
                                 }
@@ -2960,8 +2941,6 @@
                                     document.getElementById('editcancletwo' + abc).style.display = 'none';
                                     $('#' + 'showcommenttwo' + abc).html(data);
                                     $('#box_hide' + clicked_id).show();
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-                                    
                                 }
                             });
                             $(".scroll").click(function (event) {
@@ -3017,8 +2996,7 @@
 
                                             $('#' + 'showcommenttwo' + abc).html(data);
                                             $('#box_hide' + clicked_id).show();
-                            $('.all-comment-comment-box').css({"border-bottom": "1px solid #d9d9d9"});    
-                                            
+
                                         }
                                     });
                                 }

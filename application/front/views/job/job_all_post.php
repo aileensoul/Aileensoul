@@ -1,8 +1,5 @@
 <!-- start head -->
 <?php echo $head; ?>
-
- <title>Recommended Job - Aileensoul.com</title>
- 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!--post save success pop up style strat -->
 <!-- END HEAD -->
@@ -252,7 +249,7 @@
                         </div>
                      </div>
                   </div>
-                  <div class="edi_origde fw">
+                  <div class="edi_origde">
 
 <?php
             if($count_profile == 100)
@@ -313,29 +310,7 @@
 
 
         </div>
-        <div class="custom_footer_left fw">
-          <div class="fl">
-            <ul>
-              <li><a href=""> About Us </a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Contact Us</a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a  href="">Blogs</a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Terms & Condition </a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Privacy Policy</a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Send Us Feedback</a></li>
-            </ul>
-          </div>
-        <div>
-          
-        </div>
-
-        </div>
                </div>
-
             </div>
             <div class="col-md-7 col-sm-7 col-md-push-4 col-sm-push-4 custom-right animated fadeInUp">
                <div class="common-form">

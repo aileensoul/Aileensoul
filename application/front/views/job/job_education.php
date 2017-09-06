@@ -1,9 +1,6 @@
 <!-- start head -->
 <?php echo $head; ?> 
 <!-- END HEAD -->
-
-<title>Education Qualification - Aileensoul.com</title>
-
 <!-- start header -->
 <?php echo $header; ?> 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -779,7 +776,7 @@
                                                    }
                                                    }
                                                    ?>
-                <option value="<?php echo $university_otherdata[0]['university_id']; ?>"><?php echo $university_otherdata[0]['university_name']; ?></option>  
+                <option value="<?php echo $university_otherdata[0]['university_id']; ?> "><?php echo $university_otherdata[0]['university_name']; ?></option>  
                                              </select>
                                              <?php echo form_error('univercity'); ?>
                                              <!-- </fieldset>      
@@ -1693,9 +1690,19 @@
     $.validator.addMethod("valueNotEquals", function(value, element, arg){ 
       if(arg == value)
       { 
-         if ($('.message').length > 0) 
+         if(($.fancybox.open()))
          {
+                  
+               if($('#input1 #university1').hasClass('error') )
+               {
+                     
+             
+                     $("#input1 .university").removeClass("error");
+                     $('label.error').remove();
                     return true;     
+                }
+
+          
          }
 
          return false;
@@ -1727,7 +1734,6 @@
                'degree[]': {
    
                    required: true,
-                   valueNotEquals: 54,
    
                },
    

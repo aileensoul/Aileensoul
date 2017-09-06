@@ -34,7 +34,13 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
 <!-- This Css is used for call popup -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6060111582812113",
+            enable_page_level_ads: true
+          });
+        </script>
 </head>
 <body class="blog-detail blog">
 <div class="main-inner">

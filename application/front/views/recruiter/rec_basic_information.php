@@ -6,7 +6,6 @@
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/test.css'); ?>">
     <!-- start header -->
 <?php echo $header; ?>
@@ -139,7 +138,7 @@
  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
-
+<!-- <script type="text/javascript" src="<?php //echo base_url('js/jquery.validate.js'); ?>"></script> -->
 <!-- Field Validation Js End -->
 
 
@@ -249,7 +248,7 @@ var jquery_validate = $.noConflict(true);
   </script>
   <script>
 
-                                       // var data1 = <?php// echo json_encode($de); ?>;
+                                      //  var data1 = <?php// echo json_encode($de); ?>;
 
                                         $(function () {
                                             // alert('hi');
@@ -278,7 +277,7 @@ var jquery_validate = $.noConflict(true);
 </script>
  <script>
 
-                                       // var data = <?php //echo json_encode($demo); ?>;
+                                 //       var data = <?php //echo json_encode($demo); ?>;
 
                                         $(function () {
                                             // alert('hi');
@@ -307,7 +306,7 @@ var jquery_validate = $.noConflict(true);
 </script>
 <script>
 
-                                       // var data1 = <?php //echo json_encode($de); ?>;
+                                       // var data1 = <?php// echo json_encode($de); ?>;
 
                                         $(function () {
                                             // alert('hi');
@@ -336,7 +335,7 @@ var jquery_validate = $.noConflict(true);
 </script>
  <script>
 
-                                        //var data = <?php //echo json_encode($demo); ?>;
+                                //        var data = <?php //echo json_encode($demo); ?>;
 
                                         $(function () {
                                             // alert('hi');
@@ -395,7 +394,7 @@ $(window).load(function(){
 });
 });
 </script>
-<script>
+ <script>
     // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
@@ -433,7 +432,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -444,7 +443,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();
@@ -494,7 +493,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -505,7 +504,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();

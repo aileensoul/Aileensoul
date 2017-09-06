@@ -138,62 +138,11 @@
 
                     <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
                     <script src="<?php echo base_url('js/jquery.min.js'); ?>"></script>
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $('#country').on('change', function () {
-                                var countryID = $(this).val();
-                                if (countryID) {
-                                    $.ajax({
-                                        type: 'POST',
-                                        url: '<?php echo base_url() . "edit_business_profile/ajax_data"; ?>',
-                                        data: 'country_id=' + countryID,
-                                        success: function (html) {
-                                            $('#state').html(html);
-                                            $('#city').html('<option value="">Select state first</option>');
-                                        }
-                                    });
-                                } else {
-                                    $('#state').html('<option value="">Select country first</option>');
-                                    $('#city').html('<option value="">Select state first</option>');
-                                }
-                            });
-
-                            $('#state').on('change', function () {
-                                var stateID = $(this).val();
-                                if (stateID) {
-                                    $.ajax({
-                                        type: 'POST',
-                                        url: '<?php echo base_url() . "edit_business_profile/ajax_data"; ?>',
-                                        data: 'state_id=' + stateID,
-                                        success: function (html) {
-                                            $('#city').html(html);
-                                        }
-                                    });
-                                } else {
-                                    $('#city').html('<option value="">Select state first</option>');
-                                }
-                            });
-                        });
-                    </script>
-
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
-
-</body>
-</html>
-
-
-<script>
-    // recruiter search header 2  start
+                            <script>
+   // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
-$(function () {  
+$(function () { 
     function split(val) {
         return val.split(/,\s*/);
     }
@@ -316,3 +265,54 @@ $(function () {
 // recruiter searc title end
 // recruiter search end
     </script>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#country').on('change', function () {
+                                var countryID = $(this).val();
+                                if (countryID) {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "edit_business_profile/ajax_data"; ?>',
+                                        data: 'country_id=' + countryID,
+                                        success: function (html) {
+                                            $('#state').html(html);
+                                            $('#city').html('<option value="">Select state first</option>');
+                                        }
+                                    });
+                                } else {
+                                    $('#state').html('<option value="">Select country first</option>');
+                                    $('#city').html('<option value="">Select state first</option>');
+                                }
+                            });
+
+                            $('#state').on('change', function () {
+                                var stateID = $(this).val();
+                                if (stateID) {
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '<?php echo base_url() . "edit_business_profile/ajax_data"; ?>',
+                                        data: 'state_id=' + stateID,
+                                        success: function (html) {
+                                            $('#city').html(html);
+                                        }
+                                    });
+                                } else {
+                                    $('#city').html('<option value="">Select state first</option>');
+                                }
+                            });
+                        });
+                    </script>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+
+</body>
+</html>
+
+
