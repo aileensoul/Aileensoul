@@ -58,140 +58,148 @@ class Registration extends CI_Controller {
     }
 
    
-    public function reg_insert() {
+   public function reg_insert()
+    {  
 //        $bod = $this->input->post('datepicker');
 //                $bod = str_replace('/', '-', $bod);
 
-        $date = $this->input->post('selday');
-        $month = $this->input->post('selmonth');
-        $year = $this->input->post('selyear');
-        $email_reg = $this->input->post('email_reg');
-
-        $dob = $year . '-' . $month . '-' . $date;
-
-        if ($this->session->userdata('fbuser')) {
-            $this->session->unset_userdata('fbuser');
-        }
+      $date = $this->input->post('selday');
+      $month = $this->input->post('selmonth');
+      $year = $this->input->post('selyear');
+      $email_reg = $this->input->post('email_reg');
+      
+      $dob = $year . '-' . $month . '-' . $date;
+     
+       if ($this->session->userdata('fbuser')) {
+          $this->session->unset_userdata('fbuser');
+       }
         //echo "<pre>";print_r($_POST);die();
         //form validation rule for registration
 
         $ip = $this->input->ip_address();
         // $this->form_validation->set_rules('uname', 'Username', 'required');
-
+      
         $this->form_validation->set_rules('first_name', 'Firstname', 'required');
         $this->form_validation->set_rules('last_name', 'Lastname', 'required');
         $this->form_validation->set_rules('email_reg', 'Store  email', 'required|valid_email');
         $this->form_validation->set_rules('password_reg', 'Password', 'trim|required');
         // $this->form_validation->set_rules('password2', 'Confirm Password', 'trim|required|matches[password]');
-        $this->form_validation->set_rules('selday', 'date', 'required');
-        $this->form_validation->set_rules('selmonth', 'month', 'required');
-        $this->form_validation->set_rules('selyear', 'year', 'required');
+        $this->form_validation->set_rules('selday','date','required'); 
+        $this->form_validation->set_rules('selmonth','month','required'); 
+        $this->form_validation->set_rules('selyear','year','required'); 
         $this->form_validation->set_rules('selgen', 'Gender', 'required');
+     
+         
+       //  $username=$this->input->post('user');
+       
+       // if($username != "Available" || $username == " ")
+       // {
+       //    redirect('registration');  
+       //  }
 
-        $contition_array = array('user_email' => $email_reg, 'is_delete' => '0', 'status' => '1');
-        $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-        if ($userdata) {
+       
+        //echo ($this->input->valid_ip($ip)?'Valid':'Not Valid');
+
+
+         $contition_array = array('user_email' => $email_reg, 'is_delete' => '0' , 'status' => '1');
+         $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+         if($userdata){
+
+         }else{
+
+
+        if ($this->form_validation->run() == FALSE) 
+        { 
+        
+         $this->load->view('registration/registration'); 
+         } 
+
+         else
+         { 
+           
             
-        } else {
+           
+        $contition_array = array('user_email' => $email_reg);
+        $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
+        if($userdata){}else{ 
 
 
-            if ($this->form_validation->run() == FALSE) {
+             $data = array(
+               //  'user_name' => $this->input->post('uname'),
+                 'first_name' => $this->input->post('first_name'),
+                 'last_name' => $this->input->post('last_name'),
+                 'user_email' => $this->input->post('email_reg'),
+                 'user_password' => md5($this->input->post('password_reg')),
+                 'user_dob' => $dob,
+                 'user_gender' => $this->input->post('selgen'),
+                 'user_agree' => '1',
+                 'is_delete' => '0',
+                 'status' => '1',
+                 'created_date' => date('Y-m-d h:i:s',time()),
+                 'edit_ip'=> $ip,
+                 'user_last_login'=> date('Y-m-d h:i:s',time()),
+                 'user_verify'=> '0',
+                 'user_slider'=> '1',
+        ); 
+             
+            $insert_id = $this->common->insert_data_getid($data,'user'); 
+         }
+        //for getting last insrert id
+            $user_id = $this->db->insert_id();
 
-                $this->load->view('registration/registration');
-            } else {
+       // setcookie('cookie_userid',$user_id, time() + (10 * 365 * 24 * 60 * 60) , '/' );
 
-
-
-                $contition_array = array('user_email' => $email_reg);
-                $userdata = $this->common->select_data_by_condition('user', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-                if ($userdata) {
-                    
-                } else {
-
-
-                    $data = array(
-                        //  'user_name' => $this->input->post('uname'),
-                        'first_name' => $this->input->post('first_name'),
-                        'last_name' => $this->input->post('last_name'),
-                        'user_email' => $this->input->post('email_reg'),
-                        'user_password' => md5($this->input->post('password_reg')),
-                        'user_dob' => $dob,
-                        'user_gender' => $this->input->post('selgen'),
-                        'user_agree' => '1',
-                        'is_delete' => '0',
-                        'status' => '1',
-                        'created_date' => date('Y-m-d h:i:s', time()),
-                        'edit_ip' => $ip,
-                        'user_last_login' => date('Y-m-d h:i:s', time()),
-                        'user_verify' => '0',
-                        'user_slider' => '1',
-                    );
-
-                    $insert_id = $this->common->insert_data_getid($data, 'user');
-                }
-                //for getting last insrert id
-                $user_id = $this->db->insert_id();
-
-                // setcookie('cookie_userid',$user_id, time() + (10 * 365 * 24 * 60 * 60) , '/' );
+           
+           if($user_id){ 
 
 
-                if ($user_id) {
+            $email= $this->input->post('email');
+            
+            $toemail= $this->input->post('email'); 
+            $userdata = $this->common->select_data_by_id('user','user_id', $userid, $data = '*', $join_str = array());
+               
+            $msg = 'Hey !' . " " . $toemail ."<br/>"; 
 
+            $msg .=  $this->input->post('fname') .$this->input->post('lname'). ',';
 
-                    $email = $this->input->post('email_reg');
+            $msg .= 'Click hear to verify your account';
 
-                    $toemail = $this->input->post('email_reg');
-                    $fname = $this->input->post('first_name');
-                    $lname = $this->input->post('last_name');
-                    $gender = $this->input->post('selgen');
-                    $userdata = $this->common->select_data_by_id('user', 'user_id', $user_id, $data = '*', $join_str = array());
-                   
-                   $msg = '<tr>
-                             <td style="text-align:center; padding-top:15px;">';
-                             if ($userdata[0]['user_image']) {
-                             $msg .= '<img src="' . base_url($this->config->item('user_thumb_upload_path') . $userdata[0]['user_image']) . '">';
-                     } else {
-                            if($gender == 'F'){
-                                 $msg .= '<img src="' . base_url(FNOIMAGE) . '">';
-                            }else{
-                                 $msg .= '<img src="' . base_url(MNOIMAGE) . '">';
-                            }
+            $msg .= "<br>";
 
-                          
-                        }
-                     $msg .= '</td>
-                              </tr>
-                            <tr>
-                               <td style="text-align:center; padding:10px 0 30px; font-size:15px;">';
-                    $msg .= '<p style="margin:0;">Hi,' . ucwords($fname) .' '.ucwords($lname) . '</p>
-                            <p style="padding:25px 0 ; margin:0;">Verify your email address.</p>
-                             <p><a class="btn" href="' . base_url() . 'registration/verify/' . $user_id . '">Verify</a></p>
-                              </td>
-                              </tr>';
-                              //echo "<pre>"; print_r($msg); die();
+            $msg .= "<b><u><a href=" .  base_url('registration/verify/' . $user_id) . ">click here</a></b></u>";
 
-                    $subject = "Welcome to aileensoul";
+            $msg .= $this->input->post('msg');
+            //print_r($msg) ;die();
+           
+            $subject = "contact message";
+          
+          
+            $mail = $this->email_model->do_email($msg, $subject,$toemail,$from);
+           
+           
+           }
+           
 
-                    $mail = $this->email_model->sendEmail($app_name = '', $app_email = '', $toemail, $subject, $msg);
-
-                    //$mail = $this->email_model->do_email($msg, $subject, $toemail, $from);
-                }
-
-
-                if ($insert_id) {
-                    $this->session->set_userdata('aileenuser', $insert_id);
-                    // $this->session->set_userdata('aileenusername', $user_check[0]['user_name']);
+           if($insert_id)
+        {
+             $this->session->set_userdata('aileenuser', $insert_id);
+                      // $this->session->set_userdata('aileenusername', $user_check[0]['user_name']);
                     // redirect('dashboard', 'refresh');
-                    echo "ok";
-                } else {
-                    $this->session->flashdata('error', 'Sorry!! Your data not inserted');
-                    redirect('registration', 'refresh');
-                }
-            }
-        }
-    }
+             echo "ok";
 
+        }
+       else
+        {
+                $this->session->flashdata('error','Sorry!! Your data not inserted');
+               redirect('registration', 'refresh');
+        }
+      
+
+      }
+     }
+
+    }
     //Show main registratin page insert End
 
 //Registrtaion email already exist checking controller start

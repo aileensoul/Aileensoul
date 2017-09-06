@@ -159,31 +159,6 @@ class General extends MY_Controller {
         echo json_encode($result1);   
 
     }
-
-    // DEGREE DATA START
-
-    public function get_degree($id="") {
-      
-     
-      // get search term
-   $searchTerm = $_GET['term']; 
-      if (!empty($searchTerm)) {
-
-    $contition_array = array('is_delete' => '0','degree_name !=' => "Other");
-     $search_condition = "((status = '2' AND user_id = $userid) OR (status = '1')) AND (name LIKE '" . trim($searchTerm) . "%')";
-      $degree = $this->data['degree'] = $this->common->select_data_by_search('degree', $search_condition, $contition_array, $data = '*', $sortby = 'degree_name as text', $orderby = 'ASC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-     }
-      foreach($degree as $key => $value){
-        //   $citydata[$key]['id'] = $value['id'];
-           $degreedata[$key]['value'] = $value['text'];
-      }
-      
-      $cdata = array_values($degreedata);
-     echo json_encode($cdata);
-
-    }
-
-    // DEGREE DATA END
    
 }
 

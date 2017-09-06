@@ -2,9 +2,6 @@
 echo $head;
 ?>
 <!-- END HEAD -->
-
-<title>Details - Aileensoul.com</title>
-
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
@@ -239,7 +236,9 @@ if ($returnpage == 'recruiter') {
 
                             <?php
                             $a = trim($job[0]['fname']);
+
                             $words = explode(" ", $a);
+                            //print_r($words) ;
                             foreach ($words as $w) {
                                 $acronym = $w[0];
                             }
@@ -253,6 +252,7 @@ if ($returnpage == 'recruiter') {
                             ?>
 
                             <div class="post-img-user">
+                           <?php //echo $acronym; ?>
                             <?php echo ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                  <!--  <img alt="" class="img-circle" src="<?php //echo base_url(NOIMAGE);  ?>" alt="" /> -->

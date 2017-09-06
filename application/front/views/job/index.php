@@ -2,9 +2,6 @@
 <!-- start head -->
 <?php echo $head; ?>
 <!-- END HEAD -->
-
- <title>Basic Information - Aileensoul.com</title>
- 
 <!-- Calender Css Start-->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">

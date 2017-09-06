@@ -348,6 +348,7 @@ textarea.onkeyup = function(evt) {
     this.scrollTop = this.scrollHeight;
 }
  </script>
+<!-- script for skill textbox automatic end (option 2)-->
 <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
@@ -451,7 +452,6 @@ textarea.onkeyup = function(evt) {
         });
     });
 </script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
 <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");

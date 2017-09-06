@@ -1068,6 +1068,60 @@ if($artuserdata1){
                     <footer>
 <?php echo $footer; ?>
         </footer>
+
+
+<script type="text/javascript">
+                        function checkvalue() {
+                            //alert("hi");
+                            var searchkeyword =$.trim(document.getElementById('tags').value);
+                            var searchplace =$.trim(document.getElementById('searchplace').value);
+                            // alert(searchkeyword);
+                            // alert(searchplace);
+                            if (searchkeyword == "" && searchplace == "") {
+                                //alert('Please enter Keyword');
+                                return false;
+                            }
+                        }
+</script>
+
+<script type="text/javascript">
+                        function check() {
+                            var keyword = $.trim(document.getElementById('tags1').value);
+                            var place = $.trim(document.getElementById('searchplace1').value);
+                            if (keyword == "" && place == "") {
+                                return false;
+                            }
+                        }
+                    </script>
+<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
+                    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+                  
+
+
+<script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
+
+
+
+
+
+<script type="text/javascript">
+                                                                        var text = document.getElementById("search").value;
+//alert(text);
+
+                                                                        $(".search").highlite({
+
+                                                                            text: text
+
+
+
+                                                                        });
+</script>
+
+
+
 <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
@@ -1171,63 +1225,6 @@ if($artuserdata1){
         });
     });
 </script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
-
-<script type="text/javascript">
-                        function checkvalue() {
-                            //alert("hi");
-                            var searchkeyword =$.trim(document.getElementById('tags').value);
-                            var searchplace =$.trim(document.getElementById('searchplace').value);
-                            // alert(searchkeyword);
-                            // alert(searchplace);
-                            if (searchkeyword == "" && searchplace == "") {
-                                //alert('Please enter Keyword');
-                                return false;
-                            }
-                        }
-</script>
-
-<script type="text/javascript">
-                        function check() {
-                            var keyword = $.trim(document.getElementById('tags1').value);
-                            var place = $.trim(document.getElementById('searchplace1').value);
-                            if (keyword == "" && place == "") {
-                                return false;
-                            }
-                        }
-                    </script>
-<script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
-                    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-                    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-                  
-
-
-<script src="<?php echo base_url('js/jquery.highlite.js'); ?>"></script>
-
-
-
-
-
-<script type="text/javascript">
-                                                                        var text = document.getElementById("search").value;
-//alert(text);
-
-                                                                        $(".search").highlite({
-
-                                                                            text: text
-
-
-
-                                                                        });
-</script>
-
-
-
-
-<!-- popup form edit start -->
-
                     <script>
                         // Get the modal
                         var modal = document.getElementById('myModal');

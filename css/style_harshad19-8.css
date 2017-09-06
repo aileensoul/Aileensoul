@@ -1,0 +1,879 @@
+/*header start*/
+
+/*.header ul li a{margin-top: 6px; margin-bottom: 6px; padding-top: 5px!important;}
+*/
+.header .mCSB_container ul li a{margin: 0; padding: 0; border: none; padding-top: 0px!important;}
+.main-menu-right ul{
+    width: 100%;
+    float: left;
+    padding-bottom: 0px;
+    margin-top: 5px;
+  
+}
+
+.header ul li{height:inherit; border-right:none!important;} 
+.header ul li a{ padding-top:5px!important; border-right: 1px solid #1985b3;}
+.header ul li.dropdown-user a{padding-top: 8px!important;}
+#notificationLink span{background: none;}
+#notificationLink span{top: 3px;}
+#notificationContainer{margin-top: 20px;}
+.dropdown-menu{top: 37px;}
+.header ul li #abody ul li a{border: none;}
+#atittle a{border: none;}
+#notificationTitle .see_link a{border: none;}
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+#inboxcontainer::before{right: 17px;}
+.header2 ul li{border-right: 1px solid #1985b3;}
+#InboxContainer{right: -17px;}
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+.art_no_post_img{text-align: center;}
+.art_no_post_text{text-align: center;}
+.flw_msg_btn{margin-top: 8px;}
+.modal-close1{padding: 0px 6px;
+float: right;
+border-radius: 100%;}
+.tabs-left > li.active > a .fa-file-pdf-o{font-size: inherit;}
+.fa-file-pdf-o{font-size: inherit;}
+.like_one_other a{padding-left: 21px;}
+.popup-text textarea{font-size: 15px!important;}
+.post-design-commnet-box .editable_text{line-height: 100%;}
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+.job-saved-box form .select2-selection__rendered li{margin: 0;}
+.rec_check{margin-top: -15px;}
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+#univer{background: #1b8ab9; color: white; margin-top: 10px;}
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+/*.profile-head-text{font-family: arial;}*/
+.else_post_d{padding-left: 7px;}
+.post-design-name ul li .post_dot{font-size: 15px;}
+.follow_left_box_main_btn .bg_following{margin-top: 0px;}
+
+.addcontact-text{width: 60%;}
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+/*--------------------------------------------------@media-profile-css-start-------------------------------------------------*/
+  
+@media screen and (min-width: 768px) {
+
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+}
+@media screen and (max-width: 1279px) {
+	
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+.header2{width:1140px;}
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+.common-form fieldset.mgrd input[type="radio"]{margin: 0px;}
+span.fu-time{font-size: 13px;}
+.pu-time{font-size: 13px;}
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+	
+}
+@media screen and (max-width: 1199px) {
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+.header2{width:940px;}
+
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+	
+}
+@media screen and (max-width: 1024px) {
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+
+}
+@media screen and (max-width: 991px) {
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+.header2 .job-search-box1 fieldset.sec_h2{width: 144px;}
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+	
+}
+@media screen and (max-width: 767px) {
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+.change-password{padding: 0px 0px;}
+
+/*extra css end*/
+
+}
+@media screen and (max-width: 640px) {
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+.post-img-user{width: 100%; height: 100%;}
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+}
+@media screen and (max-width: 479px) {
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+}
+@media screen and (max-width: 360px) {
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+}
+
+@media screen and (max-width: 320px){
+/*header start*/
+
+
+/*header end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*header2 start*/
+
+/*header2 end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*left side box start*/
+
+/*left side box end*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*all module-common start*/
+
+
+/*all module-common end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*chat module start*/
+
+/*chat module end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*popup start*/
+/*popup end*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*job profile start*/
+
+/*job profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*recruiter profile start*/
+
+/*recruiter profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+/*Freelancer hire profile start*/
+
+/*Freelancer hire profile End*/
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+
+/*Freelancer post profile start*/
+
+/*Freelancer post profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Business profile start*/
+
+/*Business profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*Artisitc profile start*/
+
+/*Artisitc profile End*/
+
+/*---------------------------------------------------profile-css--------------------------------------------------*/
+
+/*extra css start*/
+/*extra css end*/
+
+}

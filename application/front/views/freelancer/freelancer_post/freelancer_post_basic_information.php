@@ -176,9 +176,12 @@ $phoneno = form_error('phoneno');
 </html>
  <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-   
+    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+ 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate.js'); ?>"></script>
+
 <script>
     //SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START
  var base_url = '<?php echo base_url(); ?>';
@@ -287,7 +290,11 @@ $phoneno = form_error('phoneno');
 
 
     </script>
+
  
+
+
+
 <!-- <script>
                     
                     //select2 autocomplete start for Location

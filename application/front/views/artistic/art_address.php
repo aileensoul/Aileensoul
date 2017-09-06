@@ -251,6 +251,11 @@ textarea.onkeyup = function(evt) {
 }
  </script> -->
 
+  <script type="text/javascript" src="<?php echo site_url('js/jquery-ui.js') ?>"></script>
+  
+  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+
 <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
@@ -353,77 +358,6 @@ textarea.onkeyup = function(evt) {
             }
         });
     });
-</script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
-  <script type="text/javascript" src="<?php echo site_url('js/jquery-ui.js') ?>"></script>
-  
-  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-
-<!-- script for skill textbox automatic end (option 2)-->
-
-
-<script>
-
-var data= <?php echo json_encode($demo); ?>;
-// alert(data);
-
-        
-$(function() {
-    // alert('hi');
-$( "#tags1" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#tags1").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#tags1").val(ui.item.label);
-    }
-});
-});
-  
-</script>
-<script>
-
-var data1 = <?php echo json_encode($city_data); ?>;
-// alert(data);
-
-        
-$(function() {
-    // alert('hi');
-$( "#searchplace1" ).autocomplete({
-     source: function( request, response ) {
-         var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-         response( $.grep( data1, function( item ){
-             return matcher.test( item.label );
-         }) );
-   },
-    minLength: 1,
-    select: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace1").val(ui.item.label);
-        $("#selected-tag").val(ui.item.label);
-        // window.location.href = ui.item.value;
-    }
-    ,
-    focus: function(event, ui) {
-        event.preventDefault();
-        $("#searchplace1").val(ui.item.label);
-    }
-});
-});
-  
 </script>
 <script type="text/javascript">
                         function checkvalue() {
