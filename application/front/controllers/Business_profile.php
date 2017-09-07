@@ -3713,7 +3713,8 @@ class Business_profile extends MY_Controller {
 
 
         if ($id == $slug_id || $id == '') {
-            $contition_array = array('user_id' => $userid,'status' => 1);
+
+            $contition_array = array('user_id' => $userid);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
@@ -3722,23 +3723,27 @@ class Business_profile extends MY_Controller {
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4,'business_profile.status'=>1);
+            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else {
             $this->bus_avail_check($id);
-            $contition_array = array('business_slug' => $id, 'business_step' => 4,'status' => 1);
+            $contition_array = array('business_slug' => $id, 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+
 
             $join_str[0]['table'] = 'follow';
             $join_str[0]['join_table_id'] = 'follow.follow_to';
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4, 'business_profile.status'=> 1);
+            $contition_array = array('follow_from' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
+
+
+
 
         if ($this->data['businessdata1']) {
             $this->load->view('business_profile/business_following', $this->data);
@@ -10805,19 +10810,13 @@ class Business_profile extends MY_Controller {
             $limit = $perpage;
             $offset = $start;
 
-            $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2, 'business_profile.status' => 1);
+            $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2);
             $search_condition = "(contact_to_id = '$busuid' OR contact_from_id = '$busuid')";
-            
-            $join_str[0]['table'] = 'business_profile';
-            $join_str[0]['join_table_id'] = 'business_profile.user_id';
-            $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
-            $join_str[0]['join_type'] = '';
-            
-            $unique_user = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str, $groupby = '');
-            $unique_user1 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
+            $unique_user2 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str = '', $groupby = '');
+            $unique_user1 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
         } else {
 
-            $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4, 'business_profile.status' => 1);
+            $contition_array = array('business_slug' => $id, 'is_deleted' => 0, 'status' => 1, 'business_step' => 4);
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             $busuid = $this->data['busuid'] = $businessdata1[0]['user_id'];
 
@@ -10826,14 +10825,8 @@ class Business_profile extends MY_Controller {
 
             $contition_array = array('contact_person.status' => 'confirm', 'contact_type' => 2);
             $search_condition = "(contact_to_id = '$busuid' OR contact_from_id = '$busuid')";
-            
-            $join_str[0]['table'] = 'business_profile';
-            $join_str[0]['join_table_id'] = 'business_profile.user_id';
-            $join_str[0]['from_table_id'] = 'contact_person.contact_from_id';
-            $join_str[0]['join_type'] = '';
-            
-            $unique_user = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str, $groupby = '');
-            $unique_user1 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str, $groupby = '');
+            $unique_user2 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit, $offset, $join_str = '', $groupby = '');
+            $unique_user1 = $unique_user = $this->common->select_data_by_search('contact_person', $search_condition, $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = '', $groupby = '');
         }
         $return_html = '';
         if (empty($_GET["total_record"])) {
@@ -10847,7 +10840,7 @@ class Business_profile extends MY_Controller {
 //            echo '<pre>';
 //            print_r($unique_user);
 //            exit;
-            foreach ($unique_user as $user) {
+            foreach ($unique_user2 as $user) {
                 if ($busuid == $user['contact_from_id']) {
                     $cdata = $this->common->select_data_by_id('business_profile', 'user_id', $user['contact_to_id'], $data = '*', $join_str = array());
                     $contition_array = array('contact_from_id' => $login, 'contact_to_id' => $user['contact_to_id'], 'contact_type' => 2);
