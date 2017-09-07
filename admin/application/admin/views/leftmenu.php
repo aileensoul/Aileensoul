@@ -115,6 +115,21 @@
                 </ul>
             </li>
            <!--End Blog-->
+
+           <!--Start Blog-->
+            <li <?php if ($this->uri->segment(1) == 'email' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-envelope" aria-hidden="true"></i><span>Mailbox</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">     
+
+                 <!--    <li><a href="<?php //echo base_url('blog_tag/blog_list'); ?>"><i class="fa fa-tag" aria-hidden="true"></i></i>Tag List</a></li>
+ -->
+                    <li><a href="<?php echo base_url('email/compose/job'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Compose Mail</a></li>
+                </ul>
+            </li>
+           <!--End Blog-->
            
            <!--Start Change Password-->
             <li <?php if ($this->uri->segment(1) == 'change_password' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?> >

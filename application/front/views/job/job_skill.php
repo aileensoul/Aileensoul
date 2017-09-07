@@ -3,8 +3,6 @@
 <?php echo $head; ?>
 <!-- END HEAD -->
 
- <title>Work Area - Aileensoul.com</title>
- 
 <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.css" rel="stylesheet" />--> 
 <!--<link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />-->
 
@@ -638,18 +636,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
             },
             select: function( event, ui ) {
              
-                var text =this.value;
                 var terms = split( this.value );
-                 
-                text = text == null || text == undefined ? "" : text;
-                var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
-               if (checked == 'checked') {
-      
-                    terms.push( ui.item.value );
-                    this.value = terms.split( ", " );
-               }//if end
-
-              else {
                 if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
@@ -666,7 +653,6 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                     $(this).attr("style","border: solid 1px red;");
                     return false;
                 }
-              }//else end
             }
 
   
@@ -703,18 +689,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
             },
             select: function( event, ui ) {
                
-                var text =this.value;
                 var terms = split( this.value );
-                 
-                text = text == null || text == undefined ? "" : text;
-                var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
-               if (checked == 'checked') {
-      
-                    terms.push( ui.item.value );
-                    this.value = terms.split( ", " );
-               }//if end
-
-              else {
                 if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
@@ -731,7 +706,6 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                     $(this).attr("style","border: solid 1px red;");
                     return false;
                 }
-              }//else end
             }
 
   

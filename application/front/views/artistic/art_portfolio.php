@@ -173,6 +173,7 @@
   <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 
 
+<!-- script for skill textbox automatic end (option 2)-->
 <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
@@ -276,7 +277,7 @@
         });
     });
 </script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
+
 <script type="text/javascript">
                         function checkvalue() {
                             //alert("hi");

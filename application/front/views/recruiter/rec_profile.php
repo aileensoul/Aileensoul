@@ -12,7 +12,6 @@
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!-- END HEAD -->
     <!-- END HEAD -->
@@ -810,9 +809,9 @@ function text2link($text){
        <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
 
   <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
-<!--<script>
+<script>
 
-//var data= <?php // echo json_encode($demo); ?>;
+//var data= <?php// echo json_encode($demo); ?>;
 //alert(data);
 
         
@@ -844,7 +843,7 @@ $( "#tags" ).autocomplete({
 
 <script>
 
-var data1 = <?php //echo json_encode($de); ?>;
+//var data1 = <?php //echo json_encode($de); ?>;
 //alert(data);
 
         
@@ -909,7 +908,7 @@ $( "#tags1" ).autocomplete({
 
 <script>
 
-var data1 = <?php// echo json_encode($de); ?>;
+//var data1 = <?php //echo json_encode($de); ?>;
 //alert(data);
 
         
@@ -963,7 +962,7 @@ function checkvalue(){
                                 return false;
                             }
                         }
-                    </script>-->
+                    </script>
 <!-- <script>
 //select2 autocomplete start for skill
 
@@ -977,7 +976,7 @@ $('#searchplace').select2({
         ajax:{
 
          
-          url: "<?php// echo base_url(); ?>recruiter/location",
+          url: "<?php echo base_url(); ?>recruiter/location",
           dataType: 'json',
           delay: 250,
           
@@ -1287,6 +1286,7 @@ if (!files[0].name.match(/.(jpg|jpeg|png|gif)$/i)){
   </script>  
   <script>
                         function picpopup() {
+                            
                       
             $('.biderror .mes').html("<div class='pop_content'>Only image Type is Supported");
             $('#bidmodal').modal('show');
@@ -1316,7 +1316,6 @@ $(document).ready(function(){
 });
 //For Scroll page at perticular position js End
 </script>                           
-
 <script>
     // recruiter search header 2  start
 // recruiter search header 2 location start
@@ -1355,7 +1354,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -1366,7 +1365,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();
@@ -1416,7 +1415,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -1427,7 +1426,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();

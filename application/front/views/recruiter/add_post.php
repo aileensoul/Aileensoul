@@ -74,7 +74,6 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" /> 
 <!-- This Css is used for call popup -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
 <!-- <script src="<?php //echo base_url('js/fb_login.js');      ?>"></script> -->
 <?php echo $header; ?>
 <!-- END HEADER -->
@@ -621,8 +620,8 @@
 -->
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.validate1.15.0..min.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script>
+<script type="text/javascript" src="<?php echo base_url('js/additional-methods1.15.0.min.js'); ?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.js"></script>
 <script src="<?php echo base_url('js/jquery.fancybox.js'); ?>"></script>
 
 <!-- This Js is used for call popup -->
@@ -1043,7 +1042,7 @@
 
 <script>
 
-    //var data = <?php// echo json_encode($demo); ?>;
+   // var data = <?php// echo json_encode($demo); ?>;
 //alert(data);
 
 
@@ -1075,7 +1074,7 @@
 
 <script>
 
-  //  var data1 = <?php //echo json_encode($de); ?>;
+   // var data1 = <?php //echo json_encode($de); ?>;
 //alert(data);
 
 
@@ -1107,7 +1106,7 @@
 
 <script>
 
-    //var data = <?php //echo json_encode($demo); ?>;
+   // var data = <?php //echo json_encode($demo); ?>;
 //alert(data);
 
 

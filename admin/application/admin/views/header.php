@@ -3,6 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="google-site-verification" content="BKzvAcFYwru8LXadU4sFBBoqd0Z_zEVPOtF0dSxVyQ4" />
+        <meta name="msvalidate.01" content="41CAD663DA32C530223EE3B5338EC79E" />
+        <!-- Open Graph data -->
+        <meta property="og:title" content="Aileensoul" />
+        <meta  property="og:type" content="Email" />
+        <meta  property="og:image" content="<?php echo SITEURL.('images/favicon.png'); ?>"/>
+
         
         <link rel="icon" href="<?php echo SITEURL.('images/favicon.png'); ?>">
         <title><?= $title; ?></title>
@@ -63,8 +71,9 @@
         <!--<script src="<?php //echo base_url('admin/plugins/daterangepicker/daterangepicker.js'); ?>"></script>-->
         <!-- datepicker -->
         <!--<script src="<?php //echo base_url('admin/plugins/datepicker/bootstrap-datepicker.js'); ?>"></script>-->
+        
         <!-- Bootstrap WYSIHTML5 -->
-        <!--<script src="<?php //echo base_url('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'); ?>"></script>-->
+       <script src="<?php echo base_url('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js'); ?>"></script>
 
         <!-- Slimscroll -->
         <script src="<?php echo base_url('admin/plugins/slimScroll/jquery.slimscroll.min.js'); ?>"></script>

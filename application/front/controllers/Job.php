@@ -6670,10 +6670,12 @@ public function job_avail_check($userid = " ")
        redirect('job/noavailable');
          } 
     }
-// recruiter available chek
-   
-     public function noavailable() {
+
+ public function noavailable() {
          
         $this->load->view('job/notavalible', $this->data);  
      }
+// recruiter available chek
+   
+    
 }

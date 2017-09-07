@@ -146,13 +146,20 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $artisti
 
 
                             <?php 
-                         $a = $artisticdata[0]['art_name'];
-                                                                $acr = substr($a, 0, 1);
-                                                                $b = $artisticdata[0]['art_lastname'];
-                                                                $bcr = substr($b, 0, 1);?>
+                          $a = $artisticdata[0]['art_name'];
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $artisticdata[0]['art_lastname'];
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
 
                             <div class="post-img-user">
-                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                        
 
@@ -446,12 +453,19 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $uimage)
 
                            <?php 
                           $a = $art_name;
-                                                                $acr = substr($a, 0, 1);
-                                                                $b = $art_lastname;
-                                                                $bcr = substr($b, 0, 1);?>
+                          $words = explode(" ", $a);
+                          foreach ($words as $w) {
+                            $acronym = $w[0];
+                            }?>
+                          <?php 
+                          $b = $art_lastname;
+                          $words = explode(" ", $b);
+                          foreach ($words as $w) {
+                            $acronym1 = $w[0];
+                            }?>
 
                             <div class="post-img-userlist">
-                            <?php echo  ucfirst(strtolower($acr)) . ucfirst(strtolower($bcr)); ?>
+                            <?php echo  ucfirst(strtolower($acronym)) . ucfirst(strtolower($acronym1)); ?>
                             </div>
                             <?php } ?> 
                             </div>
@@ -624,6 +638,68 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $uimage)
   </footer>
 
 
+
+
+
+ <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
+  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
+
+
+ <!-- <script type="text/javascript" src="<?php echo base_url('js/3.3.0/select2.js'); ?>"></script> -->
+
+ 
+
+<!-- script for skill textbox automatic start (option 2)-->
+ 
+  
+<!-- script for skill textbox automatic end (option 2)-->
+
+<!-- designation script start -->
+<script type="text/javascript">
+                            function divClicked() {
+                                var divHtml = $(this).html();
+                                 divHtml = divHtml.trim();
+                                var editableText = $("<textarea />");
+                                editableText.val(divHtml);
+                                $(this).replaceWith(editableText);
+                                editableText.focus();
+                                // setup the blur event for this new textarea
+                                editableText.blur(editableTextBlurred);
+                            }
+
+                            function editableTextBlurred() {
+                                var html = $(this).val();
+                                html = html.trim();
+                                var viewableText = $("<a>");
+                               if (html.match(/^\s*$/) || html == '') { 
+                                html = "Current Work";
+                                } 
+                                viewableText.html(html);
+                                $(this).replaceWith(viewableText);
+                                // setup the click event for this new div
+                                viewableText.click(divClicked);
+
+                                $.ajax({
+                                    url: "<?php echo base_url(); ?>artistic/art_designation",
+                                    type: "POST",
+                                    data: {"designation": html},
+                                    success: function (response) {
+
+                                    }
+                                });
+                            }
+
+                            $(document).ready(function () {
+                            // alert("hi");
+                                $("a.designation").click(divClicked);
+                            });
+                        </script>
+
+<!-- designation script end -->
+ 
+<!-- script for skill textbox automatic end (option 2)-->
 <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
                     <script type="text/javascript">
@@ -727,125 +803,6 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $uimage)
         });
     });
 </script>
-<!-- SCRIPT FOR CITY AUTOFILL OF SEARCH END -->
-
-
- <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
-  <script src="<?php echo base_url('assets/js/croppie.js'); ?>"></script>
-
-
- <!-- <script type="text/javascript" src="<?php echo base_url('js/3.3.0/select2.js'); ?>"></script> -->
-
- 
-
-<!-- script for skill textbox automatic start (option 2)-->
- 
-  
-<!-- script for skill textbox automatic end (option 2)-->
-
-<!-- designation script start -->
-<script type="text/javascript">
-                            function divClicked() {
-                                var divHtml = $(this).html();
-                                 divHtml = divHtml.trim();
-                                var editableText = $("<textarea />");
-                                editableText.val(divHtml);
-                                $(this).replaceWith(editableText);
-                                editableText.focus();
-                                // setup the blur event for this new textarea
-                                editableText.blur(editableTextBlurred);
-                            }
-
-                            function editableTextBlurred() {
-                                var html = $(this).val();
-                                html = html.trim();
-                                var viewableText = $("<a>");
-                               if (html.match(/^\s*$/) || html == '') { 
-                                html = "Current Work";
-                                } 
-                                viewableText.html(html);
-                                $(this).replaceWith(viewableText);
-                                // setup the click event for this new div
-                                viewableText.click(divClicked);
-
-                                $.ajax({
-                                    url: "<?php echo base_url(); ?>artistic/art_designation",
-                                    type: "POST",
-                                    data: {"designation": html},
-                                    success: function (response) {
-
-                                    }
-                                });
-                            }
-
-                            $(document).ready(function () {
-                            // alert("hi");
-                                $("a.designation").click(divClicked);
-                            });
-                        </script>
-
-<!-- designation script end -->
- 
-
-<!-- <script>
-//select2 autocomplete start for skill
-$('#searchskills').select2({
-        
-        placeholder: 'Find Your Skills',
-       
-        ajax:{
-
-         
-          url: "<?php echo base_url(); ?>artistic/keyskill",
-          dataType: 'json',
-          delay: 250,
-          
-          processResults: function (data) {
-            
-            return {
-             
-              results: data
-
-
-            };
-            
-          },
-           cache: true
-        }
-      });
-//select2 autocomplete End for skill
-
-//select2 autocomplete start for Location
-$('#searchplace').select2({
-        
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-        ajax:{
-
-         
-          url: "<?php echo base_url(); ?>artistic/location",
-          dataType: 'json',
-          delay: 250,
-          
-          processResults: function (data) {
-            
-            return {
-              
-              results: data
-
-
-            };
-            
-          },
-           cache: true
-        }
-      });
-//select2 autocomplete End for Location
-
-</script>
-<!-- popup form edit start -->
  
 <script>
 // Get the modal

@@ -158,8 +158,8 @@
                                     <button type="button" class="close">×</button>
                                     <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
-                                           <input type="text" id="tags1" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
-                                            <input type="text" id="searchplace1" class="bus_search_loc" name="searchplace" placeholder="Find Location">
+                                           <input type="text" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
+                                             <input type="text"  class="bus_search_loc" name="searchplace" placeholder="Find Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
@@ -309,8 +309,8 @@
                                     <button type="button" class="close">×</button>
                                    <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
-                                            <input type="text" id="tags1" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
-                                            <input type="text" id="searchplace1" class="bus_search_loc" name="searchplace" placeholder="Find Location">
+                                            <input type="text" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
+                                            <input type="text"  class="bus_search_loc" name="searchplace" placeholder="Find Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
@@ -714,7 +714,7 @@
 </script>
 <!--  commen script harshad  -->
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 
     $(document).ready(function(){
 
@@ -722,4 +722,4 @@
      document.getElementById('searchplace1').value = null;
 
     });
-</script>
+</script>-->

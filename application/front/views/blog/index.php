@@ -20,9 +20,9 @@
  <!-- Open Graph data -->
 <meta property="og:title" content="<?php echo $blog['title']; ?>" />
 <meta  property="og:type" content="Blog" />
-<meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog['image'])?>" />
+<meta  property="og:image" content="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog['image'])?>" />
 <meta  property="og:description" content="<?php echo $blog['meta_description']; ?>" /> 
-<meta  property="og:url" content="<?php base_url('blog/'.$blog['blog_slug']) ?>" />
+<meta  property="og:url" content="<?php echo base_url('blog/'.$blog['blog_slug']) ?>" />
 <meta property="og:image:width" content="620" />
 <meta property="og:image:height" content="541" />
 <meta property="fb:app_id" content="825714887566997" />
@@ -47,7 +47,13 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style-main.css'); ?>">
 
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6060111582812113",
+            enable_page_level_ads: true
+          });
+        </script>
 
 </head>
 <body class="blog">

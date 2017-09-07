@@ -10,9 +10,9 @@
  <!-- Open Graph data -->
 <meta property="og:title" content="<?php echo $blog_detail[0]['title']; ?>" />
 <meta  property="og:type" content="Blog" />
-<meta  property="og:image" content="<?php base_url($this->config->item('blog_main_upload_path')  . $blog_detail[0]['image'])?>" />
+<meta  property="og:image" content="<?php echo base_url($this->config->item('blog_main_upload_path')  . $blog_detail[0]['image'])?>" />
 <meta  property="og:description" content="<?php echo $blog_detail[0]['meta_description']; ?>" /> 
-<meta  property="og:url" content="<?php base_url('blog/'.$blog_detail[0]['blog_slug']) ?>" />
+<meta  property="og:url" content="<?php echo base_url('blog/'.$blog_detail[0]['blog_slug']) ?>" />
 <meta property="fb:app_id" content="825714887566997" />
 
 <!-- <meta property="og:site_name" content="Site Name, i.e. Moz" />
@@ -34,7 +34,13 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/blog.css'); ?>">
 <!-- This Css is used for call popup -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/jquery.fancybox.css" />
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6060111582812113",
+            enable_page_level_ads: true
+          });
+        </script>
 </head>
 <body class="blog-detail blog">
 <div class="main-inner">
