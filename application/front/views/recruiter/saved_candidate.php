@@ -1055,7 +1055,10 @@ $( "#searchplace1" ).autocomplete({
 <script>
     function removepopup(id) {
         $('.biderror .mes').html("<div class='pop_content'>Do you want to remove this candidate?<div class='model_ok_cancel'><a class='okbtn' id=" + id + " onClick='remove_user(" + id + ")' href='javascript:void(0);' data-dismiss='modal'>Yes</a><a class='cnclbtn' href='javascript:void(0);' data-dismiss='modal'>No</a></div></div>");
-        $('#bidmodal').modal('show');
+        $('#bidmodal').modal('show').fadeIn('fast'); 
+		$('.profile-job-profile-button .button').click(function (e) {
+			//$('#bidmodal').modal('show').fadeIn('slow');
+		});
     }
     function updateprofilepopup(id) {
         $('#bidmodal-2').modal('show');
