@@ -22,6 +22,7 @@ class Job extends MY_Controller {
 
         include ('include.php');
         $this->data['aileenuser_id'] = $this->session->userdata('aileenuser');
+
     }
 
     //job seeker basic info controller start
@@ -4423,7 +4424,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
           //if user deactive profile then redirect to job/index untill active profile start
-         $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
+        $contition_array = array('user_id'=> $userid,'status' => '0','is_delete'=> '0');
 
         $job_deactive = $this->data['job_deactive'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
@@ -4432,6 +4433,7 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
         {
              redirect('job/');
         }
+
      //if user deactive profile then redirect to job/index untill active profile End
 //        echo $userid;
 // job seeker detail
@@ -4535,6 +4537,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
         //echo "<pre>";print_r($recommendata_industry);
      // die();
 
+
                  if (count($recommendata) == 0) {
                 
                 $unique = $recommendata1;
@@ -4583,7 +4586,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
                  $qbc  = array_filter($qbc);
               
             }
-        
+
               //$unique= array_merge($recommendata,$recommendata1);
 //array_unique is used for remove duplicate values
           
@@ -4596,77 +4599,77 @@ $work_job_title=$jobdata[0]['work_job_title'];
                  
               
         $this->data['falguni'] = 1;
-// code for search
-        $contition_array = array('re_status' => '1','re_step' => 3);
-        $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="");
+// // code for search
+//         $contition_array = array('re_status' => '1','re_step' => 3);
+//         $results_recruiter = $this->data['results'] = $this->common->select_data_by_condition('recruiter', $contition_array, $data = 're_comp_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="");
 
-        $contition_array = array('status' => '1');
-        $results_post = $this->data['results'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'post_name,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="post_name");
+//         $contition_array = array('status' => '1');
+//         $results_post = $this->data['results'] = $this->common->select_data_by_condition('rec_post', $contition_array, $data = 'post_name,other_skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="post_name");
 
-        // echo "<pre>"; print_r($results_post);die();
+//         // echo "<pre>"; print_r($results_post);die();
 
-        $contition_array = array('status' => '1', 'type' => '1');
+//         $contition_array = array('status' => '1', 'type' => '1');
 
-        $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby="skill");
-        // echo "<pre>"; print_r($skill);die();
-        // $return_array = array(); 
-        //        //  //echo  $return_array;
-        //           foreach ($artdata as $get) {
-        //               $return = array();
-        //               $return = $get;
-        //               $return['firstname'] =$get['art_name'] . " " . $get['art_lastname'];
-        //                            unset($return['art_name']);
-        //               unset($return['art_lastname']);
-        //               array_push($return_array, $return);
-        //             //echo $returnarray; 
-        //           }
-        // $contition_array = array('status' => '1');
-        // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
+//         $skill = $this->data['results'] = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby="skill");
+//         // echo "<pre>"; print_r($skill);die();
+//         // $return_array = array(); 
+//         //        //  //echo  $return_array;
+//         //           foreach ($artdata as $get) {
+//         //               $return = array();
+//         //               $return = $get;
+//         //               $return['firstname'] =$get['art_name'] . " " . $get['art_lastname'];
+//         //                            unset($return['art_name']);
+//         //               unset($return['art_lastname']);
+//         //               array_push($return_array, $return);
+//         //             //echo $returnarray; 
+//         //           }
+//         // $contition_array = array('status' => '1');
+//         // $artpost= $this->data['results'] =  $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
 
 
-        $uni = array_merge($results_recruiter, $results_post, $skill);
-        //   echo count($unique);
-
-        foreach ($uni as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
 
 
-                    $result[] = $val;
-                }
-            }
-        }
-        $results = array_unique($result);
-        //echo "<pre>"; print_r($results);die();
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
+//         $uni = array_merge($results_recruiter, $results_post, $skill);
+//         //   echo count($unique);
+
+//         foreach ($uni as $key => $value) {
+//             foreach ($value as $ke => $val) {
+//                 if ($val != "") {
 
 
- $contition_array = array('status' => '1');
-          $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="city_name");
+//                     $result[] = $val;
+//                 }
+//             }
+//         }
+//         $results = array_unique($result);
+//         //echo "<pre>"; print_r($results);die();
+//         foreach ($result as $key => $value) {
+//             $result1[$key]['label'] = $value;
+//             $result1[$key]['value'] = $value;
+//         }
+
+
+//  $contition_array = array('status' => '1');
+//           $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby ="city_name");
    
 
-          foreach ($location_list as $key1 => $value1) {
-              foreach ($value1 as $ke1 => $val1) {
-                 $location[] = $val1;
-              }
-          }
-          //echo "<pre>"; print_r($location);die();
-          foreach ($location as $key => $value) {
-              $loc[$key]['label'] =$value;
-              $loc[$key]['value'] =$value;
-          }
+//           foreach ($location_list as $key1 => $value1) {
+//               foreach ($value1 as $ke1 => $val1) {
+//                  $location[] = $val1;
+//               }
+//           }
+//           //echo "<pre>"; print_r($location);die();
+//           foreach ($location as $key => $value) {
+//               $loc[$key]['label'] =$value;
+//               $loc[$key]['value'] =$value;
+//           }
          
  //echo "<pre>"; print_r($loc);die();
 
-        $this->data['city_data']= array_values($loc);
+        // $this->data['city_data']= array_values($loc);
 
 
-        $this->data['demo'] = array_values($result1);
+        // $this->data['demo'] = array_values($result1);
 
      //For Counting Profile data start
     $contition_array = array('user_id'=> $userid,'status' => '1','is_delete'=> '0');
@@ -4743,6 +4746,7 @@ $work_job_title=$jobdata[0]['work_job_title'];
         $count++;
     }
 
+
      $contition_array = array('user_id' => $userid, 'status' => '1','is_delete' => '0');
     $job_add_edu = $this->common->select_data_by_condition('job_add_edu', $contition_array, $data = '*', $sortby = '', $orderby = 'desc', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -4775,7 +4779,6 @@ $jobgrad  = $this->common->select_data_by_condition('job_graduation', $contition
     // echo "<br>";
     // print_r( $this->data['count_profile_value']);die();
 //For Counting Profile data End
-
 
 
         $this->load->view('job/job_all_post', $this->data);
@@ -6656,6 +6659,7 @@ public function delete_workexp()
                   redirect('job/job_reg');
                 
             } 
+
             
     }
 //THIS FUNCTION IS USED TO CHECK IF USER NOT REGISTER AND OPEN DIRECT URL THEN GO TO REGISTRATION PAGE END
