@@ -3624,8 +3624,8 @@
                         // pop up open & close aarati code end
 
                     </script>
-                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+                    <script src="<?php //echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                    <script src="<?php// echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
                     <!-- script for skill textbox automatic end (option 2)-->
                     <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 
