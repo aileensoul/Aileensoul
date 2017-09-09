@@ -77,7 +77,7 @@ class Email_model extends CI_Model {
             <tr>
                 <td>
                     <table style="padding: 0px 15px;" width="100%" cellpadding="0" cellspacing="0">';
-                        $mail_html .= $mail_body;
+                       $mail_html .= $mail_body;
                        $mail_html .= '</br></table>
                 </td>
             </tr>
@@ -214,10 +214,13 @@ class Email_model extends CI_Model {
         $config['smtp_user'] = "info@aileensoul.com";
         $config['smtp_pass'] = "aileensoul@123";
         $config['charset'] = "utf-8";
-        //$config['mailtype'] = "html";
+        $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
-
-//         $this->email->initialize($config);
+        $config['protocol'] = "sendmail";
+        $config['wordwrap'] = TRUE;
+        $config['starttls'] = TRUE;
+ 
+        $this->email->initialize($config);
 //         $this->email->from($config['smtp_user'], $app_name);
 //          $this->email->cc($cc);
 //         $this->email->bcc($bcc);
@@ -235,14 +238,16 @@ class Email_model extends CI_Model {
         //$this->email->reply_to('no-replay@aileensoul.com', 'Explendid Videos');
         $this->email->subject($subject);
         $this->email->message($mail_html);
-      $this->email->set_mailtype("html");
-        $this->email->send();
+     // $this->email->set_mailtype("html");
+    $this->email->send();
    
 //echo '<pre>'; print_r($this->email->print_debugger()); die();
-         if ($this->email->send()) {
-          
+         if ( $this->email->send()) {
+       //  echo '<pre>'; print_r($this->email->print_debugger()); die();
+       //   echo '<pre>'; print_r($this->email); die();
              return true;
          } else { 
+           // echo '<pre>'; print_r($this->email); die();
              return FALSE;
         }
     }
