@@ -1716,3 +1716,7 @@ height: 40px;}
     font-size: 16px;
   }
 }
+
+.form-group select:focus ~ label {
+     color: #1b8ab9!important;
+}
