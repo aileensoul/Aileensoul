@@ -13,7 +13,7 @@
         {
             $('#addcontact_count').html(msg);
 
-            $('#addcontact_count').css({"background-color": "#FF4500" , "height": "16px" ,"width": "16px" , "padding" : "3px 4px"});
+            $('#addcontact_count').css({"background-color": "#FF4500", "height": "16px", "width": "16px", "padding": "3px 4px"});
             document.getElementById('addcontact_count').style.display = 'block';
 
             $('#addcontact_count').css({"background-color": "#FF4500", "height": "16px", "width": "16px", "padding": "3px 4px"});
@@ -158,8 +158,8 @@
                                     <button type="button" class="close">×</button>
                                     <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
-                                           <input type="text" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
-                                             <input type="text"  class="bus_search_loc" name="searchplace" placeholder="Find Location">
+                                            <input type="text" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
+                                            <input type="text"  class="bus_search_loc" name="searchplace" placeholder="Find Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
@@ -185,54 +185,53 @@
 
                                         </a>
                                         <div id="addcontactContainer">
-                                          <div id="addcontactBody" class="notifications">
-                                              
-                                              <?php
-                                              $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
-        $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                            <div id="addcontactBody" class="notifications">
 
-        $contition_array = array('contact_from_id' => $userid, 'status' => 'confirm');
-        $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
+                                                <?php
+                                                $contition_array = array('contact_to_id' => $userid, 'status' => 'pending');
+                                                $contactperson_req = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-
-        $unique_user = array_merge($contactperson_req, $contactperson_con);
+                                                $contition_array = array('contact_from_id' => $userid, 'status' => 'confirm');
+                                                $contactperson_con = $this->common->select_data_by_condition('contact_person', $contition_array, $data = '*', $sortby = 'contact_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
 
-        $new = array();
-        foreach ($unique_user as $value) {
-            $new[$value['contact_id']] = $value;
-        }
+                                                $unique_user = array_merge($contactperson_req, $contactperson_con);
 
-        $post = array();
 
-        foreach ($new as $key => $row) {
+                                                $new = array();
+                                                foreach ($unique_user as $value) {
+                                                    $new[$value['contact_id']] = $value;
+                                                }
 
-            $post[$key] = $row['contact_id'];
-        }
-        array_multisort($post, SORT_DESC, $new);
+                                                $post = array();
 
-        $contactperson = $new;
-        
-                                              ?>
-                                              
+                                                foreach ($new as $key => $row) {
 
-                                            <div id="addcontactTitle">Contact Request <span class="see_link" id="seecontact"></span></div>
-<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+                                                    $post[$key] = $row['contact_id'];
+                                                }
+                                                array_multisort($post, SORT_DESC, $new);
 
-<div>
-    <ul class="notification_data_in_con">
-        
-    </ul></div>
+                                                $contactperson = $new;
+                                                ?>
+
+
+                                                <div id="addcontactTitle">Contact Request <span class="see_link" id="seecontact"></span></div>
+                                                <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+
+                                                    <div>
+                                                        <ul class="notification_data_in_con">
+
+                                                        </ul></div>
 
                                                 </div>
-                                          
-</div>
+
+                                            </div>
                                         </div>
                                     </li>  
 
                                     <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
-                                                                   <!--  <span class="badge bg-theme"><?php //echo $message_count;    ?></span> -->
+                                                                       <!--  <span class="badge bg-theme"><?php //echo $message_count;    ?></span> -->
                                         <?php } ?>
                                         <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em><span class="message3-24x24-h"></span>
 
@@ -242,12 +241,12 @@
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
                                                 <div id="notificationTitle">Messages   <span class="see_link" id="seemsg"></span></div>
-<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+                                                <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
-<div>
-    <ul class="notification_data_in_h2">
-        
-    </ul></div>
+                                                    <div>
+                                                        <ul class="notification_data_in_h2">
+
+                                                        </ul></div>
 
                                                 </div>
                                             </div>
@@ -263,9 +262,9 @@
 
                                                 </span>
                                                 <a href="<?php echo base_url('business_profile/business_resume/' . $businessdata[0]['business_slug']); ?>"><span class="icon-view-profile edit_data"></span>
-      <span> View Profile </span></a> 
+                                                    <span> View Profile </span></a> 
                                                 <a href="<?php echo base_url('business_profile/business_information_update'); ?>"><span class="icon-edit-profile edit_data"></span>  
-      <span>Edit Profile </span></a>
+                                                    <span>Edit Profile </span></a>
 
                                                 <?php
                                                 $userid = $this->session->userdata('aileenuser');
@@ -307,7 +306,7 @@
                                 </div>
                                 <div id="search">
                                     <button type="button" class="close">×</button>
-                                   <form action=<?php echo base_url('search/business_search') ?> method="get">
+                                    <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
                                             <input type="text" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
                                             <input type="text"  class="bus_search_loc" name="searchplace" placeholder="Find Location">
@@ -336,24 +335,24 @@
 
                                         </a>
                                         <div id="addcontactContainer">
-                                          <div id="addcontactBody" class="notifications">
+                                            <div id="addcontactBody" class="notifications">
 
-                                            <div id="addcontactTitle">Contact Request <span class="see_link" id="seecontact"></span></div>
-<div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
+                                                <div id="addcontactTitle">Contact Request <span class="see_link" id="seecontact"></span></div>
+                                                <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark">
 
-<div>
-    <ul class="notification_data_in_con">
-        
-    </ul></div>
+                                                    <div>
+                                                        <ul class="notification_data_in_con">
+
+                                                        </ul></div>
 
                                                 </div>
-                                          
-</div>
+
+                                            </div>
                                         </div>
                                     </li>  
                                     <li id="Inbox_link">
                                         <?php if ($message_count) { ?>
-                                                                   <!--  <span class="badge bg-theme"><?php //echo $message_count;    ?></span> -->
+                                                                       <!--  <span class="badge bg-theme"><?php //echo $message_count;    ?></span> -->
                                         <?php } ?>
                                         <a class="action-button shadow animate" href="#" id="InboxLink" onclick = "return getmsgNotification()"><em class="hidden-xs"> </em> <span class="message3-24x24-h"></span>
                                             <span id="message_count"></span>
@@ -361,17 +360,17 @@
 
                                         <div id="InboxContainer">
                                             <div id="InboxBody" class="Inbox">
-                                                <!--<div id="notificationTitle">Messages   <span class="see_link"> <a href="<?php //echo base_url('chat/abc/5/5'); ?>">See All</a></span></div>-->
+                                                <!--<div id="notificationTitle">Messages   <span class="see_link"> <a href="<?php //echo base_url('chat/abc/5/5');  ?>">See All</a></span></div>-->
                                                 <div id="notificationTitle">Messages   <span class="see_link" id="seemsg"> </span></div>
-<!-- <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark"> -->
+                                                <!-- <div class="content mCustomScrollbar light notifications" id="notification_main_in" data-mcs-theme="minimal-dark"> -->
 
-<div>
-    <ul class="notification_data_in_h2">
-        
-    </ul>
-    </div>
+                                                <div>
+                                                    <ul class="notification_data_in_h2">
 
-                                             <!--    </div> -->
+                                                    </ul>
+                                                </div>
+
+                                                <!--    </div> -->
                                             </div>
                                     </li>      
                                     <li>
@@ -385,10 +384,10 @@
 
                                                 </span>
                                                 <a href="<?php echo base_url('business_profile/business_resume/' . $businessdata[0]['business_slug']); ?>"><span class="icon-view-profile edit_data"></span>
-      <span> View Profile </span></a> 
+                                                    <span> View Profile </span></a> 
                                                 <a href="<?php echo base_url('business_profile/business_information_update'); ?>">
-                                                <span class="icon-edit-profile edit_data"></span>  
-      <span>Edit Profile </span></a>
+                                                    <span class="icon-edit-profile edit_data"></span>  
+                                                    <span>Edit Profile </span></a>
 
                                                 <?php
                                                 $userid = $this->session->userdata('aileenuser');
@@ -437,7 +436,7 @@
 
     $(document).ready(function () {
         $('.dropdown_hover').click(function (event) {
-           event.stopPropagation();
+            event.stopPropagation();
             $(".dropdown-content_hover").fadeToggle("fast");
         });
         $(".dropdown-content_hover").on("dropdown_hover", function (event) {
@@ -454,9 +453,9 @@
             $(".dropdown-content_hover").hide();
 
             var classNames = $(e.target).attr("class").toString().split(' ').pop();
-                if (classNames != 'fa-ellipsis-v') {
+            if (classNames != 'fa-ellipsis-v') {
                 $('div[id^=myDropdown]').hide().removeClass('show');
-                }
+            }
             //e.stopPropagation();
         });
 
@@ -526,7 +525,7 @@
             success: function (data) {
 
                 //$('#addcontactBody').html(data);
-                
+
             }
         });
 
@@ -540,24 +539,39 @@
             type: "POST",
             data: 'toid=' + toid + '&status=' + status,
             dataType: "json",
-            success: function (data) { 
-            
-                $('.notification_data_in_con').html(data.contactdata);
-                var not_contact_count =  $('.addcontact-left').length;
-                $('.acceptcount').html(data.contactcount);
-                
+            success: function (data) {
+                /*
+                 $('.notification_data_in_con').html(data.contactdata);
+                 var not_contact_count =  $('.addcontact-left').length;
+                 $('.acceptcount').html(data.contactcount);
+                 
+                 var segment = '<?php echo $this->uri->segment(2); ?>';
+                 if(segment == 'bus_contact'){
+                 var slug = '<?php echo $slug_id; ?>';
+                 $('.art-img-nn').hide();
+                 business_contacts_header(slug);
+                 }
+                 if(not_contact_count == 0){
+                 
+                 var data_html = "<li><div class='art-img-nn' id='art-blank'><div class='art_no_post_img'><img src='<?php echo base_url(); ?>img/No_Contact_Request.png'></div><div class='art_no_post_text'>No Contact Request Available.</div></div></li>";
+                 $('#contactlist').html(data_html);
+                 }
+                 */
+                $('.mCS_no_scrollbar').html(data.contactdata);
+                $('.contactcount').html(data.contactcount);
                 var segment = '<?php echo $this->uri->segment(2); ?>';
-                if(segment == 'bus_contact'){
+                if (segment == 'contacts') {
                     var slug = '<?php echo $slug_id; ?>';
                     $('.art-img-nn').hide();
                     business_contacts_header(slug);
                 }
-                if(not_contact_count == 0){
-                    
+
+                var not_contact_count = $('.addcontact-left').length;
+                if (not_contact_count == 0) {
                     var data_html = "<li><div class='art-img-nn' id='art-blank'><div class='art_no_post_img'><img src='<?php echo base_url(); ?>img/No_Contact_Request.png'></div><div class='art_no_post_text'>No Contact Request Available.</div></div></li>";
                     $('#contactlist').html(data_html);
+                    $('#seecontact').hide();
                 }
-
             }
         });
 
@@ -602,10 +616,10 @@
         } else
         {
             $('#message_count').html(msg);
-         $('#message_count').css({"background": "#FF4500" , "padding" : '4px 6px 4px 5.5px',"line-height" : '1',"border-radius":' 100%',"line-height": '9px' ,"font-size": '10px' });
+            $('#message_count').css({"background": "#FF4500", "padding": '4px 6px 4px 5.5px', "line-height": '1', "border-radius": ' 100%', "line-height": '9px', "font-size": '10px'});
             $('#InboxLink').addClass('msg_notification_available');
-        //    $('#message_count').addClass('count_add');
-            
+            //    $('#message_count').addClass('count_add');
+
             //alert("welcome");
         }
     }
@@ -628,7 +642,8 @@
             error: function (XMLHttpRequest, textStatus, errorThrown) {
             }
         });
-    };
+    }
+    ;
 
     $(document).ready(function () {
         waitForMsg1();
@@ -647,41 +662,45 @@
 </script>
 <!-- script for fetch all unread message notification end-->
 
- 
+
 <!-- script for update all read notification start-->
 <script type="text/javascript">
     $(document).ready(function () {
-      
-   var segment = '<?php echo "" . $this->uri->segment(1) . "" ?>';
-   if(segment != "chat"){  chatmsg(); };
-           });  // khyati chnages  start
- function chatmsg()
-    {             
-             // khyati chnages  start
-       
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo base_url() . "chat/userajax/5/5" ?>',
-                dataType: 'json',
-                data: '',
-                success: function (data) {
-       
-                    $('#userlist').html(data.leftbar);
-                    $('.notification_data_in_h2').html(data.headertwo);
-                   $('#seemsg').html(data.seeall);
+
+        var segment = '<?php echo "" . $this->uri->segment(1) . "" ?>';
+        if (segment != "chat") {
+            chatmsg();
+        }
+        ;
+    });  // khyati chnages  start
+    function chatmsg()
+    {
+        // khyati chnages  start
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url() . "chat/userajax/5/5" ?>',
+            dataType: 'json',
+            data: '',
+            success: function (data) {
+
+                $('#userlist').html(data.leftbar);
+                $('.notification_data_in_h2').html(data.headertwo);
+                $('#seemsg').html(data.seeall);
                 setTimeout(
                         chatmsg,
-                       1000
+                        1000
                         );
-                },
-             error: function (XMLHttpRequest, textStatus, errorThrown) {
-            }           
-            });
-          
-            };
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+
+    }
+    ;
     function getmsgNotification() {
         msgNotification();
-       // msgheader();
+        // msgheader();
     }
 
     function msgNotification() {
@@ -706,7 +725,7 @@
             url: '<?php echo base_url() . "notification/msg_header/" . $this->uri->segment(3) . "" ?>',
             data: 'message_from_profile=5&message_to_profile=5',
             success: function (data) {
-               // $('.' + 'khyati2').html(data);
+                // $('.' + 'khyati2').html(data);
             }
         });
 
