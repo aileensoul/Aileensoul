@@ -846,7 +846,7 @@ $( "#tags" ).autocomplete({
 </script>
 <script>
 
-//var data1 = <?php// echo json_encode($de); ?>;
+//var data1 = <?php //echo json_encode($de); ?>;
 //alert(data);
 
         
@@ -879,7 +879,7 @@ $( "#searchplace" ).autocomplete({
 
 <script>
 
-//= <?php //echo json_encode($demo); ?>;
+//var data= <?php //echo json_encode($demo); ?>;
 //alert(data);
 
         

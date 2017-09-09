@@ -6,7 +6,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <!--link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /-->
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.min.css'); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
 <!--post save success pop up style end -->
 <!-- END HEAD -->
@@ -111,31 +110,10 @@
                                     </div>
        </div>                             
     </div>
-    <div class="custom_footer_left fw">
-          <div class="fl">
-            <ul>
-              <li><a href=""> About Us </a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Contact Us</a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Blogs</a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Terms &amp; Condition </a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Privacy Policy</a></li>
-              <span class="custom_footer_dot" role="presentation" aria-hidden="true"> · </span>
-              <li><a href="">Send Us Feedback</a></li>
-            </ul>
-          </div>
-        <div>
-          
-        </div>
-
-        </div>
     <?php
 
      if (($candidatejob != NULL) || ($recruiterdata != NULL)) { ?>
-                        <div  class="add-post-button fl">
+                        <div  class="add-post-button">
                             <a class="btn btn-3 btn-3b"  href="<?php echo base_url('recruiter/add_post'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>  Post a Job</a>
                         </div> <?php } ?>
                         </div>
@@ -775,7 +753,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
 
 <?php echo $footer; ?>
                     </footer>
-                    <!-- Bid-modal start -->
+                    <!-- Bid-modal  -->
                     <div class="modal fade message-box biderror" id="bidmodal" role="dialog">
                         <div class="modal-dialog modal-lm">
                             <div class="modal-content">
@@ -787,7 +765,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                             </div>
                         </div>
                     </div>
-                    <!-- Bid-modal  end-->
+                    <!-- Model Popup Close -->
                     </body>
                     </html>
 
@@ -795,10 +773,11 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                     <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
                     <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+                    
                    
                     <!-- script for skill textbox automatic end (option 2)--> 
                     <script>
-                                                          //  var data = <?php// echo json_encode($demo); ?>;
+                                                            //var data = <?php// echo json_encode($demo); ?>;
 //alert(data);
                                                             $(function () {
 // alert('hi');
@@ -826,7 +805,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                     </script>
 
                     <script>
-                                                           // var data1 = <?php// echo json_encode($de); ?>;
+                                                            //var data1 = <?php// echo json_encode($de); ?>;
 //alert(data);
                                                             $(function () {
 // alert('hi');
@@ -854,7 +833,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
                     </script>
 
                      <script>
-                                                           // var data = <?php //echo json_encode($demo); ?>;
+                                                          //  var data = <?php// echo json_encode($demo); ?>;
 //alert(data);
                                                             $(function () {
 // alert('hi');
@@ -1122,7 +1101,7 @@ $data = $this->common->select_data_by_condition('save', $contition_array, $data 
 
 });
  </script>
-<script>
+ <script>
     // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
@@ -1160,7 +1139,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -1171,7 +1150,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();
@@ -1221,7 +1200,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -1232,7 +1211,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();

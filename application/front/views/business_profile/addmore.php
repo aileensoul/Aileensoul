@@ -99,91 +99,11 @@
 <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-
-
-<!-- script for business autofill -->
-<script>
-
-    var data = <?php echo json_encode($demo); ?>;
-// alert(data);
-
-
-    $(function () {
-        // alert('hi');
-        $("#tags").autocomplete({
-            source: function (request, response) {
-                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
-                response($.grep(data, function (item) {
-                    return matcher.test(item.label);
-                }));
-            },
-            minLength: 1,
-            select: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-                $("#selected-tag").val(ui.item.label);
-                // window.location.href = ui.item.value;
-            }
-            ,
-            focus: function (event, ui) {
-                event.preventDefault();
-                $("#tags").val(ui.item.label);
-            }
-        });
-    });
-
-</script>
-
-<script type="text/javascript">
-    function checkvalue() {
-        //alert("hi");
-        var searchkeyword = $.trim(document.getElementById('tags').value);
-        var searchplace = $.trim(document.getElementById('searchplace').value);
-        // alert(searchkeyword);
-        // alert(searchplace);
-        if (searchkeyword == "" && searchplace == "") {
-            //alert('Please enter Keyword');
-            return false;
-        }
-    }
-</script>
-<!-- end of business search auto fill -->
-
-
-<script>
-
-//select2 autocomplete start for Location
-    $('#searchplace').select2({
-
-        placeholder: 'Find Your Location',
-        maximumSelectionLength: 1,
-        ajax: {
-
-            url: "<?php echo base_url(); ?>business_profile/location",
-            dataType: 'json',
-            delay: 250,
-
-            processResults: function (data) {
-
-                return {
-
-                    results: data
-
-
-                };
-
-            },
-            cache: true
-        }
-    });
-//select2 autocomplete End for Location
-
-</script>
-<script>
-    // recruiter search header 2  start
+        <script>
+   // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
-$(function () {  
+$(function () { 
     function split(val) {
         return val.split(/,\s*/);
     }
@@ -306,3 +226,82 @@ $(function () {
 // recruiter searc title end
 // recruiter search end
     </script>
+
+<!-- script for business autofill -->
+<script>
+
+   // var data = <?php //echo json_encode($demo); ?>;
+// alert(data);
+
+
+    $(function () {
+        // alert('hi');
+        $("#tags").autocomplete({
+            source: function (request, response) {
+                var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(request.term), "i");
+                response($.grep(data, function (item) {
+                    return matcher.test(item.label);
+                }));
+            },
+            minLength: 1,
+            select: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+                $("#selected-tag").val(ui.item.label);
+                // window.location.href = ui.item.value;
+            }
+            ,
+            focus: function (event, ui) {
+                event.preventDefault();
+                $("#tags").val(ui.item.label);
+            }
+        });
+    });
+
+</script>
+
+<script type="text/javascript">
+    function checkvalue() {
+        //alert("hi");
+        var searchkeyword = $.trim(document.getElementById('tags').value);
+        var searchplace = $.trim(document.getElementById('searchplace').value);
+        // alert(searchkeyword);
+        // alert(searchplace);
+        if (searchkeyword == "" && searchplace == "") {
+            //alert('Please enter Keyword');
+            return false;
+        }
+    }
+</script>
+<!-- end of business search auto fill -->
+
+
+<script>
+
+//select2 autocomplete start for Location
+    $('#searchplace').select2({
+
+        placeholder: 'Find Your Location',
+        maximumSelectionLength: 1,
+        ajax: {
+
+            url: "<?php echo base_url(); ?>business_profile/location",
+            dataType: 'json',
+            delay: 250,
+
+            processResults: function (data) {
+
+                return {
+
+                    results: data
+
+
+                };
+
+            },
+            cache: true
+        }
+    });
+//select2 autocomplete End for Location
+
+</script>

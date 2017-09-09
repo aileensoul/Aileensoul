@@ -1,13 +1,15 @@
 <?php
-$width = " <script>document.write(screen.width); </script>"; 
+$width = " <script>document.write(screen.width); </script>";
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
+        <?php echo $head; ?>
         <meta charset="utf-8">
         <title>Chat | Aileensoul</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="icon" href="<?php echo base_url('images/favicon.png'); ?>">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
@@ -16,12 +18,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
         <!-- http://bootsnipp.com/snippets/4jXW -->
 
-               <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
-                <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
-                <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
-                <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
-              <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
-              <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/sprite_img.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/common-style.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_new.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_harshad.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/media.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/sprite_img.css'); ?>">
 
         <style type="text/css">
             .msg_right:hover .messagedelete{ visibility: visible;opacity: 1;}
@@ -29,24 +31,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             .msg_left_data:hover .messagedelete{ visibility: visible;opacity: 1;}
             .msg_left_data .messagedelete{ visibility: hidden;  cursor: pointer; width:25px; float:left;}
         </style>
-        
+
 <!--         <script>
-                    $(document).ready(function ($) {
-                        if (screen.width <= 767) { alert("hi");
-                            document.getElementById('chat').style.display = 'block';
-                        }
-                    });
-                </script>
-                 <script>
-                    $(document).ready(function ($) {
-                        if (screen.width <= 767) { 
-                            $("#userlist").click(function ()
-        { alert("hi000");
-          document.getElementById('chat').style.display = 'block';  
-        });
-                        }
-                    });
-                </script>-->
+            $(document).ready(function ($) {
+                if (screen.width <= 767) { alert("hi");
+                    document.getElementById('chat').style.display = 'block';
+                }
+            });
+        </script>
+         <script>
+            $(document).ready(function ($) {
+                if (screen.width <= 767) { 
+                    $("#userlist").click(function ()
+{ alert("hi000");
+  document.getElementById('chat').style.display = 'block';  
+});
+                }
+            });
+        </script>-->
     <body>
         <?php
         echo $header;
@@ -67,10 +69,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         ?>
         <div class="container">
             <div class="" id="paddingtop_fixed">
-<!--                <div class="backdiv-mob">
-                    <a href="#" class="pull-left"><img src="<?php echo base_url(); ?>img/back-arrow.png"></a>
-                    <a href="#" class="pull-right"><img src="<?php echo base_url(); ?>img/chat-frd.png"></a>
-                </div>-->
+                <!--                <div class="backdiv-mob">
+                                    <a href="#" class="pull-left"><img src="<?php echo base_url(); ?>img/back-arrow.png"></a>
+                                    <a href="#" class="pull-right"><img src="<?php echo base_url(); ?>img/chat-frd.png"></a>
+                                </div>-->
                 <div class="chat_nobcx">
 
                     <div class="people-list" id="people-list">
@@ -93,11 +95,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php
                     $lstusrdata = $this->common->select_data_by_id('user', 'user_id', $toid, $data = '*');
 
- 
+
                     if ($lstusrdata) {
                         ?>
                         <div class="chat" id="chat"  style="display:block;">
-                      
+
                             <div class="chat-header clearfix border_btm">
 
                                 <?php
@@ -155,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             ?></div>
                                     </div>
                                 </a>
-                              
+
                                 <div class="chat_drop">
                                     <a onclick="myFunction()" class="chatdropbtn fr"><!-- <img src="<?php echo base_url('img/t_dot.png') ?>"> --></a>
                                     <div id="mychat_dropdown" class="chatdropdown-content">
@@ -180,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 $i = 0;
                                 foreach ($smiley_table as $key => $value) {
                                     ?>
-                                                            <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
+                                                                <img id="<?php echo $i; ?>" src="<?php echo base_url() . 'uploads/smileys/' . $value[0]; ?>" height="25" width="25"onClick="followclose(<?php echo $i; ?>)">
                                     <?php
                                     $i++;
                                 }
@@ -291,7 +293,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <!-- Model Popup Close -->
                 <!------  commen script khyati 15-7  ---------------->
-               
+
                 <script type="text/javascript">
                     var request_timestamp = 0;
 
@@ -379,9 +381,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             });
 
 
-                //            $.getJSON('<?php // echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id     ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
-                //                callback();
-                //            });
+                            //            $.getJSON('<?php // echo base_url() . 'api/send_message/' . $toid . '/' . $message_from_profile . '/' . $message_from_profile_id . '/' . $message_to_profile . '/' . $message_to_profile_id      ?>?message=' + encodeURIComponent(JSON.stringify(str)) + '&nickname=' + fname + ' ' + lname + '&guid=' + getCookie('user_guid'), function (data) {
+                            //                callback();
+                            //            });
                         }
                     }
 
@@ -445,7 +447,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 month[10] = "Nov";
                                 month[11] = "Dec";
                                 var formattedDate = ('0' + date.getDate()).slice(-2) + ' ' + ('0' + (month[date.getMonth()])).slice(-3) + ' ' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-                //                console.log(formattedDate);
+                                //                console.log(formattedDate);
 
                                 var print_message = data.message;
                                 var print_message = print_message.replace(/"/gi, " ");
@@ -491,8 +493,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     }
 
                     $('#submit').click(function (e) {
-                //        alert(12121);
-                //        return false;
+                        //        alert(12121);
+                        //        return false;
                         e.preventDefault();
 
                         var $field = $('#message');
@@ -536,10 +538,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             txt = txt.replace(/<div><br><\/div>/gi, " ");
                             txt = txt.replace(/<br>/, '');
 
-                           txt = txt.replace(/&nbsp;/gi, " ");
-                //            txt = txt.replace(/<div><br><\/div>/gi, " ");
-                //            txt = txt.replace(/&gt;/gi, ">");
-                //            txt = txt.replace(/div/gi, "p");
+                            txt = txt.replace(/&nbsp;/gi, " ");
+                            //            txt = txt.replace(/<div><br><\/div>/gi, " ");
+                            //            txt = txt.replace(/&gt;/gi, ">");
+                            //            txt = txt.replace(/div/gi, "p");
                             if (txt == '' || txt == '<br>') {
                                 return false;
                             }
@@ -623,7 +625,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             type: 'POST',
                             url: '<?php echo base_url() ?>api/last_messages',
                             data: 'timestamp=' + request_timestamp + '&id=' + id + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
-                //            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
+                            //            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
                             dataType: "json",
                             success: function (data) {
 
@@ -652,7 +654,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             type: 'POST',
                             url: '<?php echo base_url() ?>api/delete_history',
                             data: 'timestamp=' + request_timestamp + '&id=' + id + '&message_from_profile=' + message_from_profile + '&message_to_profile=' + message_to_profile + '&message_from_profile_id=' + message_from_profile_id + '&message_to_profile_id=' + message_to_profile_id,
-                //            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
+                            //            data: 'timestamp=' + request_timestamp + '&id='<?php echo $toid ?>'&message_from_profile='<?php echo $message_from_profile ?>'&message_to_profile='<?php echo $message_to_profile ?>'&message_from_profile_id='<?php echo $message_from_profile_id ?>'&message_to_profile_id='<?php echo $message_to_profile_id ?>,
                             dataType: "json",
                             success: function (data) {
                                 if (data.history == 1) {
@@ -718,7 +720,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 dataType: 'json',
                                 data: '',
                                 success: function (data) { //alert(data);
-                                    
+
                                     $('#userlist').html(data.leftbar);
                                     $('.notification_data_in_h2').html(data.headertwo);
                                     $('#seemsg').html(data.seeall);
@@ -730,8 +732,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                                 }
                             });
-                        };
-                    };
+                        }
+                        ;
+                    }
+                    ;
 
                 </script>
 
@@ -765,15 +769,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <script type="text/javascript">
                     function followclose(clicked_id)
                     {
-                //        var MyDiv1 = document.getElementById(clicked_id);
-                //       var data = MyDiv1.innerHTML;
+                        //        var MyDiv1 = document.getElementById(clicked_id);
+                        //       var data = MyDiv1.innerHTML;
 
                         var img = document.getElementById(clicked_id);
-                // alert(img.getAttribute('src')); // foo.jpg
-                //alert(img.src); 
+                        // alert(img.getAttribute('src')); // foo.jpg
+                        //alert(img.src); 
                         var img = img.src;
                         $('#message').append("<img  src=" + img + " height='21' width='21' >");
-                        
+
                     }
                 </script>
                 <!-- script for selact smily for message end-->
@@ -798,7 +802,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     sel.addRange(range);
 
 
-                //    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
+                    //    $('.chat .chat-history').scrollTop($('.chat .chat-history')[0].scrollHeight);
                 </script>
 
                 <script type="text/javascript">
@@ -922,7 +926,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         document.getElementById("mychat_dropdown").classList.toggle("show");
                     }
 
-                // Close the dropdown if the user clicks outs#submitide of it
+                    // Close the dropdown if the user clicks outs#submitide of it
                     window.onclick = function (event) {
                         if (!event.target.matches('.chatdropbtn')) {
 
@@ -942,13 +946,1479 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //							this.focus();
 //						}
 //					};
-                    
-                   //Disable part of page
-    $("#notificationContainer1").on("contextmenu",function(e){
-        return false;
+
+                    //Disable part of page
+                    $("#notificationContainer1").on("contextmenu", function (e) {
+                        return false;
+                    });
+                    //Disable part of page
+                    $('#notificationContainer1').bind('cut copy paste', function (e) {
+                        e.preventDefault();
+                    });
+                 
+                 </script>
+                     <script> 
+                           var message_from_profile = <?php echo $message_from_profile ?>;
+                           alert(message_from_profile);
+                  // business data start
+                  if (message_from_profile == 1) {
+           
+  var base_url = '<?php echo base_url(); ?>';
+$(function () {  
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".bus_search_loc").bind("keydown", function (event) {alert(1313); 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "business_profile/get_location", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join("");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+$(function () { 
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".bus_search_comp").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "business_profile/get_all_data", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split("");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join("");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+     }
+   //BUSINESS PROFILE SEARCH END  
+   //FREELANCER HIRE SERACH  
+   
+   if (message_from_profile == 3) {
+          //SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START
+ var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_keyword" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_hire_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
     });
-    //Disable part of page
-    $('#notificationContainer1').bind('cut copy paste', function (e) {
-        e.preventDefault();
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_place" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
     });
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH END
+
+
+   }
+   //FREELANCER HIRE SERACH
+   //FREELANCER POST SERACH
+   if (message_from_profile == 4) {
+         //SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START
+ var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_keyword" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_hire_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_place" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH END
+
+
+   }
+   //FREELANCER POST SERACH
+   //RECRUITER POST SERACH
+    if (message_from_profile == 2) {
+          // recruiter search header 2  start
+// recruiter search header 2 location start
+  var base_url = '<?php echo base_url(); ?>';
+$(function () {  
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".rec_search_loc").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "recruiter/get_location", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join(", ");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+// recruiter searc location end
+// recruiter searc title start
+$(function () { 
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".rec_search_title").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "recruiter/get_job_tile", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join(", ");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+    }
+   //RECRUITER POST SERACH
+   //JOB POST SERACH
+   if (message_from_profile == 1) {
+      
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#tags" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_alldata", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#tags").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for jobtitle,company and skill  end-->
+
+<!--new script for jobtitle,company and skill start for mobile view-->
+ 
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#tags1" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_alldata", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#tags1").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for jobtitle,company and skill for mobile view end-->
+
+<!--new script for cities start-->
+ 
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#searchplace" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#searchplace").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for cities end-->
+
+<!--new script for cities start mobile view-->
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#searchplace1" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#searchplace1").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for cities end mobile view-->
+   }
+   //JOB POST SERACH
+   //ARTUSTIC POST SERACH
+   if (message_from_profile == 3) {
+           var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#tags" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#searchplace" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+   }
+   //ARTUSTIC POST SERACH
+                </script>
+                
+                     <script> 
+                           var message_from_profile = <?php echo $message_from_profile ?>;
+                           
+                  // business data start
+                  if (message_from_profile == 1) {
+           
+  var base_url = '<?php echo base_url(); ?>';
+$(function () {  
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".bus_search_loc").bind("keydown", function (event) {alert(1313); 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "business_profile/get_location", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join("");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+$(function () { 
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".bus_search_comp").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "business_profile/get_all_data", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split("");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join("");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+     }
+   //BUSINESS PROFILE SEARCH END  
+   //FREELANCER HIRE SERACH  
+   
+   if (message_from_profile == 3) {
+          //SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START
+ var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_keyword" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_hire_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_place" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH END
+
+
+   }
+   //FREELANCER HIRE SERACH
+   //FREELANCER POST SERACH
+   if (message_from_profile == 4) {
+         //SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START
+ var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_keyword" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_hire_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( ".skill_place" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "freelancer/freelancer_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH END
+
+
+   }
+   //FREELANCER POST SERACH
+   //RECRUITER POST SERACH
+    if (message_from_profile == 2) {
+          // recruiter search header 2  start
+// recruiter search header 2 location start
+  var base_url = '<?php echo base_url(); ?>';
+$(function () {  
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".rec_search_loc").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "recruiter/get_location", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join(", ");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+// recruiter searc location end
+// recruiter searc title start
+$(function () { 
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".rec_search_title").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "recruiter/get_job_tile", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join(", ");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+    }
+   //RECRUITER POST SERACH
+   //JOB POST SERACH
+   if (message_from_profile == 1) {
+      
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#tags" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_alldata", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#tags").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for jobtitle,company and skill  end-->
+
+<!--new script for jobtitle,company and skill start for mobile view-->
+ 
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#tags1" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_alldata", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#tags1").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for jobtitle,company and skill for mobile view end-->
+
+<!--new script for cities start-->
+ 
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#searchplace" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#searchplace").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for cities end-->
+
+<!--new script for cities start mobile view-->
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) {
+            return split( term ).pop();
+        }
+        
+        $( "#searchplace1" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON("<?php echo base_url();?>general/get_location", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+
+             select: function(event, ui) {
+           event.preventDefault();
+           $("#searchplace1").val(ui.item.label);
+           $("#selected-tag").val(ui.item.label);
+           // window.location.href = ui.item.value;
+       },
+     
+        });
+    });
+
+<!--new script for cities end mobile view-->
+   }
+   //JOB POST SERACH
+   //ARTUSTIC POST SERACH
+   if (message_from_profile == 3) {
+           var base_url = '<?php echo base_url(); ?>';
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#tags" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+           
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_keyword", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                   
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+
+//SCRIPT FOR AUTOFILL OF SEARCH KEYWORD END
+
+
+//SCRIPT FOR CITY AUTOFILL OF SEARCH START
+
+    $(function() {
+        function split( val ) {
+            return val.split( /,\s*/ );
+        }
+        function extractLast( term ) { 
+            return split( term ).pop();
+        }
+        $( "#searchplace" ).bind( "keydown", function( event ) {
+            if ( event.keyCode === $.ui.keyCode.TAB &&
+                $( this ).autocomplete( "instance" ).menu.active ) {
+                event.preventDefault();
+            }
+        })
+        .autocomplete({
+            minLength: 2,
+            source: function( request, response ) { 
+                // delegate back to autocomplete, but extract the last term
+                $.getJSON(base_url + "artistic/artistic_search_city", { term : extractLast( request.term )},response);
+            },
+            focus: function() {
+                // prevent value inserted on focus
+                return false;
+            },
+            select: function( event, ui ) {
+               
+                var terms = split( this.value );
+                if(terms.length <= 1) {
+                    // remove the current input
+                    terms.pop();
+                    // add the selected item
+                    terms.push( ui.item.value );
+                    // add placeholder to get the comma-and-space at the end
+                    terms.push( "" );
+                    this.value = terms.join( "" );
+                    return false;
+                }else{
+                    var last = terms.pop();
+                    $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                    $(this).effect("highlight", {}, 1000);
+                    $(this).attr("style","border: solid 1px red;");
+                    return false;
+                }
+            }
+        });
+    });
+   }
+   //ARTUSTIC POST SERACH
                 </script>

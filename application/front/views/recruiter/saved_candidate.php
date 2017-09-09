@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/profiles/recruiter/recruiter.css'); ?>">
+
 
 
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-3.min.css'); ?>">
@@ -957,7 +957,7 @@ $( "#tags" ).autocomplete({
 </script>
 <script>
 
-//var data1 = <?php //echo json_encode($de); ?>;
+//var data1 = <?php// echo json_encode($de); ?>;
 //alert(data);
 
         
@@ -1485,7 +1485,7 @@ $(document).ready(function(){
 });
 //For Scroll page at perticular position js End
 </script>
-<script>
+ <script>
     // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
@@ -1523,7 +1523,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -1534,7 +1534,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();
@@ -1584,7 +1584,7 @@ $(function () {
                     if (checked == 'checked') {
 
                         terms.push(ui.item.value);
-                        this.value = terms.split(", ");
+                        this.value = terms.split("");
                     }//if end
 
                     else {
@@ -1595,7 +1595,7 @@ $(function () {
                             terms.push(ui.item.value);
                             // add placeholder to get the comma-and-space at the end
                             terms.push("");
-                            this.value = terms.join(", ");
+                            this.value = terms.join("");
                             return false;
                         } else {
                             var last = terms.pop();

@@ -275,8 +275,10 @@
 
  <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
    <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
-
- <script>
+    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+ 
+<script>
     //SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START
  var base_url = '<?php echo base_url(); ?>';
     $(function() {
@@ -293,11 +295,10 @@
             }
         })
         .autocomplete({
-           
             minLength: 2,
             source: function( request, response ) { 
                 // delegate back to autocomplete, but extract the last term
-                $.getJSON(base_url + "freelancer/freelancer_hire_search_keyword", { term : extractLast( request.term )},response);
+                $.getJSON(base_url + "freelancer/freelancer_apply_search_keyword", { term : extractLast( request.term )},response);
             },
             focus: function() {
                 // prevent value inserted on focus
@@ -316,7 +317,6 @@
                     this.value = terms.join( "" );
                     return false;
                 }else{
-                   
                     var last = terms.pop();
                     $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
                     $(this).effect("highlight", {}, 1000);
@@ -380,12 +380,8 @@
 
 //SCRIPT FOR CITY AUTOFILL OF SEARCH END
 
-
-
-
     </script>
 
-<!-- script for skill textbox automatic end (option 2)-->
 
 
 

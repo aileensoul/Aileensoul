@@ -36,13 +36,15 @@
 <!-- script for cropiee immage End-->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/croppie.css'); ?>">
 
+<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
 
 <!-- END HEADER -->
 
 <?php echo $business_header2_border ?>
 
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
+<!-- <link rel="stylesheet" type="text/css" href="<?php //echo base_url('css/3.3.0/select2.css');           ?>">
+--><link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>"> 
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
@@ -723,7 +725,7 @@
                                 <?php } ?>
                                 <tr>
                                     <td class="business_data_td1 detaile_map"><i class="fa fa-suitcase"></i></td>
-                                    <td class="business_data_td2"><span><?php echo $this->common->make_links($businessdata1[0]['details']); ?></span></td>
+                                    <td class="business_data_td2"><span><?php echo nl2br($this->common->make_links($businessdata1[0]['details'])); ?></span></td>
                                 </tr>
                             </table>
                         </div>
@@ -755,7 +757,7 @@
                                 }
                                 ?>
                                 <?php
-                                $allowed = array('jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
+                                $allowed = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
 
                                 foreach ($multipleimage as $mke => $mval) {
 
@@ -1582,7 +1584,8 @@
                                                         </div>
                                                         <div id="<?php echo "khyatii" . $row['business_profile_post_id']; ?>" style="display:none;">
                                                             <?php
-                                                            echo nl2br($row['product_description']);
+//                                                            echo nl2br($row['product_description']);
+                                                            echo nl2br(htmlspecialchars_decode(htmlentities($row['product_description'], ENT_QUOTES, 'UTF-8')));
                                                             ?>
                                                         </div>
                                                         <div id="<?php echo 'editpostdetailbox' . $row['business_profile_post_id']; ?>" style="display:none;">                                                                                                 <!-- <textarea id="<?php echo 'editpostdesc' . $row['business_profile_post_id']; ?>" name="editpostdesc"><?php echo $row['product_description']; ?>                                                    </textarea> 
@@ -1616,7 +1619,7 @@
                                                         <?php if (count($businessmultiimage) == 1) { ?>
 
                                                             <?php
-                                                            $allowed = array('jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
+                                                            $allowed = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
                                                             $allowespdf = array('pdf');
                                                             $allowesvideo = array('mp4', 'webm', 'MP4');
                                                             $allowesaudio = array('mp3');
@@ -1690,7 +1693,7 @@
 
                                                                 <!-- two image start -->
                                                                 <div  class="two-images" >
-                                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('bus_post_350_320_upload_path') . $multiimage['image_name']) ?>"> </a>
+                                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="two-columns" src="<?php echo base_url($this->config->item('bus_post_350_320_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
                                                                 </div>
 
                                                                 <!-- two image end -->
@@ -1702,13 +1705,13 @@
 
                                                             <!-- three image start -->
                                                             <div class="three-imag-top" >
-                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>"> </a>
+                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_main_upload_path') . $businessmultiimage[0]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                             </div>
                                                             <div class="three-image" >
-                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_350_320_upload_path') . $businessmultiimage[1]['image_name']) ?>"> </a>
+                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_350_320_upload_path') . $businessmultiimage[1]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                             </div>
                                                             <div class="three-image" >
-                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_350_320_upload_path') . $businessmultiimage[2]['image_name']) ?>"> </a>
+                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="three-columns" src="<?php echo base_url($this->config->item('bus_post_350_320_upload_path') . $businessmultiimage[2]['image_name']) ?>" style="width: 100%; height:100%; "> </a>
                                                             </div>
 
                                                             <!-- three image end -->
@@ -1723,7 +1726,7 @@
 
                                                                 <!-- four image start -->
                                                                 <div class="four-image">
-                                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_335_245_upload_path') . $multiimage['image_name']) ?>"> </a>
+                                                                    <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img class="breakpoint" src="<?php echo base_url($this->config->item('bus_post_335_245_upload_path') . $multiimage['image_name']) ?>" style="width: 100%; height: 100%;"> </a>
 
                                                                 </div>
 
@@ -1758,7 +1761,7 @@
                                                             <!-- this div view all image start -->
 
                                                             <div class="four-image">
-                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>"> </a>
+                                                                <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>"><img src="<?php echo base_url($this->config->item('bus_post_thumb_upload_path') . $businessmultiimage[3]['image_name']) ?>" style=" width: 100%; height: 100%;"> </a>
 
                                                                 <a href="<?php echo base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) ?>">
                                                                     <div class="more-image" >
@@ -2365,16 +2368,16 @@
                 $('#file-fr').fileinput({
                 language: 'fr',
                         uploadUrl: '#',
-                        allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf']
+                        allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf']
                 });
                 $('#file-es').fileinput({
                 language: 'es',
                         uploadUrl: '#',
-                        allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf']
+                        allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf']
                 });
                 $("#file-1").fileinput({
                 uploadUrl: '#', // you must set a valid URL here else you will get an error
-                        allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf'],
+                        allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf'],
                         overwriteInitial: false,
                         maxFileSize: 1000000,
                         maxFilesNum: 10,
@@ -2411,7 +2414,7 @@
                 $(document).ready(function () {
                 $("#test-upload").fileinput({
                 'showPreview': false,
-                        'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf'],
+                        'allowedFileExtensions': ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf'],
                         'elErrorContainer': '#errorBlock'
                 });
                 $("#kv-explorer").fileinput({
@@ -2429,6 +2432,7 @@
             </script>
 
             <!-- tabing script start -->
+          <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> -->
             <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
             <script src="<?php echo base_url('js/jquery.wallform.js'); ?>"></script>
             <script src="<?php echo base_url('js/jquery-ui.min.js'); ?>"></script>
@@ -2486,7 +2490,7 @@
 
             <script>
 
-                var //data1 = <?php// echo json_encode($city_data); ?>;
+                //var data1 = <?php //echo json_encode($city_data); ?>;
                 //alert(data);
 
 
@@ -2647,7 +2651,35 @@
               } );
               </script>  -->
             <!-- end of business search auto fill -->
-            
+            <script>
+
+                //select2 autocomplete start for Location
+                // $('#searchplace').select2({
+
+                //     placeholder: 'Find Your Location',
+                //     maximumSelectionLength: 1,
+                //     ajax: {
+
+                //         url: "<?php echo base_url(); ?>business_profile/location",
+                //         dataType: 'json',
+                //         delay: 250,
+
+                //         processResults: function (data) {
+
+                //             return {
+
+                //                 results: data
+
+
+                //             };
+
+                //         },
+                //         cache: true
+                //     }
+                // });
+                //select2 autocomplete End for Location
+
+            </script>
 
             <!-- tabing script end -->
             <!-- footer end -->
@@ -4100,7 +4132,7 @@
                 var vfirstname = fileInput[0].name;
                 var ext = vfirstname.split('.').pop();
                 var ext1 = vname.split('.').pop();
-                var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'];
+                var allowedExtensions = ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg'];
                 var allowesvideo = ['mp4', 'webm', 'qt', 'mov','MP4'];
                 var allowesaudio = ['mp3'];
                 var allowespdf = ['pdf'];
@@ -5017,11 +5049,12 @@ var b = document.getElementById('test-upload_des').value;
            this.controls = false; 
     }); 
 </script>
-<script>
+
+<script> 
     // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
-$(function () {  
+$(function () { 
     function split(val) {
         return val.split(/,\s*/);
     }

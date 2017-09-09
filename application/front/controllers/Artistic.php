@@ -116,6 +116,7 @@ class Artistic extends MY_Controller {
        // echo "<pre>"; print_r($this->data['email1']); die();
         
 
+
         $this->load->view('artistic/art_basic_information', $this->data);
     }
 
@@ -277,7 +278,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                 //$this->data['address1'] = $userdata[0]['art_address'];
             }
         }
-        
+
 
         $this->load->view('artistic/art_address', $this->data);
     }
@@ -435,6 +436,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         //echo "<pre>"; print_r( $this->data['selectdata']); die();
        
 
+
         $this->load->view('artistic/art_information', $this->data);
     }
 
@@ -460,8 +462,6 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
           if(count($skills) > 0){ 
           
           foreach($skills as $ski){
-           // echo '<pre>'; print_r($skills);
-          if($ski != " "){ //echo $ski;
      $contition_array = array('skill' => $ski,'type' => 6);
      //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
      $skilldata = $this->common->select_data_by_condition('skill',$contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
@@ -476,8 +476,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
                  );
       $skill[] = $this->common->insert_data_getid($data, 'skill');
            }
-         }
-          } //die();
+          }
           
           $skills = implode(',',$skill); 
       }
@@ -996,6 +995,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
         // die();
         // sorting end
 
+
        // echo "<pre>"; print_r($this->data['artisticdata'][0]['art_step']); die();
         if(!$this->data['artisticdata']){ //echo"mm"; die();
         redirect('artistic/');
@@ -1043,7 +1043,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
             $this->data['artsdata'] = $this->common->select_data_by_condition('art_post', $contition_array, $data = '*', $sortby = 'art_post_id', $orderby = 'DESC', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
         //echo "<pre>"; print_r($this->data['artsdata']); die();
-       
+   
 
        if(!$this->data['artisticdata'] && !$this->data['artsdata']){ //echo "22222222"; die();
       
@@ -2840,6 +2840,7 @@ $datacount = count($otherdata);
 
 
 
+
         if($this->data['artisticdata']){
         $this->load->view('artistic/artistic_profile', $this->data);
        }else if(!$this->data['artisticdata'] && $id != $userid){
@@ -2938,7 +2939,6 @@ $datacount = count($otherdata);
         $this->data['following'] = count($this->common->select_data_by_condition('art_reg', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = ''));
 
         //following end
-
 
 
         if($this->data['artisticdata']){
@@ -3673,6 +3673,7 @@ public function followtwo() {
         }
 
 
+
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_following', $this->data);
        }else if(!$this->data['artisticdata'] && $id != $userid){
@@ -3835,6 +3836,7 @@ public function followtwo() {
         }
 
 //artistics mange post data end
+
 
 
         $this->load->view('artistic/art_savepost', $this->data);
@@ -6478,7 +6480,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
 
         //echo "<pre>"; print_r($this->data['art_data']);die();
 
-       
+        
 
 
         if($this->data['artisticdata']){
@@ -6892,6 +6894,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
         }
 
 
+
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_photos', $this->data);
        }else if(!$this->data['artisticdata'] && $id != $userid){
@@ -6943,7 +6946,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
 
-        
+       
 
         if($this->data['artisticdata']){
         $this->load->view('artistic/art_videos', $this->data);
@@ -6997,7 +7000,6 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
         }
 
 
-      
 
 
         if($this->data['artisticdata']){
@@ -7052,6 +7054,7 @@ if (!file_exists($this->config->item('art_profile_thumb_upload_path') . $art_use
             $this->data['artistic_data'] = $this->common->select_data_by_condition('art_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
         
+
 
         if($this->data['artisticdata']){ 
         $this->load->view('artistic/art_pdf', $this->data);
@@ -11154,8 +11157,7 @@ public function art_avail_check($userid = " ")
     
 
 
-
-    // for search function start
+ // for search function start
 
      public function artistic_search_keyword($id = "") {
        
@@ -11203,7 +11205,5 @@ public function artistic_search_city($id = "") {
        echo json_encode($city_data);
      }
 }
-   
- 
- 
+
 }

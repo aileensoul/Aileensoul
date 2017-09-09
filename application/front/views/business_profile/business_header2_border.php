@@ -158,8 +158,8 @@
                                     <button type="button" class="close">×</button>
                                     <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
-                                           <input type="text" id="tags1" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
-                                            <input type="text" id="searchplace1" class="bus_search_loc" name="searchplace" placeholder="Find Location">
+                                           <input type="text" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
+                                             <input type="text"  class="bus_search_loc" name="searchplace" placeholder="Find Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
@@ -309,8 +309,8 @@
                                     <button type="button" class="close">×</button>
                                    <form action=<?php echo base_url('search/business_search') ?> method="get">
                                         <div class="new-search-input">
-                                            <input type="text" id="tags1" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
-                                            <input type="text" id="searchplace1" class="bus_search_loc" name="searchplace" placeholder="Find Location">
+                                            <input type="text" class="bus_search_comp" name="skills" placeholder="Companies, Category, products">
+                                            <input type="text"  class="bus_search_loc" name="searchplace" placeholder="Find Location">
                                             <button type="submit" class="btn btn-primary" onclick="return check()">Search</button>
                                         </div>
                                     </form>
@@ -542,20 +542,37 @@
             dataType: "json",
             success: function (data) { 
             
+               /*
+                 $('.notification_data_in_con').html(data.contactdata);
+                 var not_contact_count =  $('.addcontact-left').length;
+                 $('.acceptcount').html(data.contactcount);
+                 
+                 var segment = '<?php echo $this->uri->segment(2); ?>';
+                 if(segment == 'bus_contact'){
+                 var slug = '<?php echo $slug_id; ?>';
+                 $('.art-img-nn').hide();
+                 business_contacts_header(slug);
+                 }
+                 if(not_contact_count == 0){
+                 
+                 var data_html = "<li><div class='art-img-nn' id='art-blank'><div class='art_no_post_img'><img src='<?php echo base_url(); ?>img/No_Contact_Request.png'></div><div class='art_no_post_text'>No Contact Request Available.</div></div></li>";
+                 $('#contactlist').html(data_html);
+                 }
+                 */
                 $('.notification_data_in_con').html(data.contactdata);
-                var not_contact_count =  $('.addcontact-left').length;
-                $('.acceptcount').html(data.contactcount);
-                
+                $('.contactcount').html(data.contactcount);
                 var segment = '<?php echo $this->uri->segment(2); ?>';
-                if(segment == 'bus_contact'){
+                if (segment == 'bus_contact') {
                     var slug = '<?php echo $slug_id; ?>';
                     $('.art-img-nn').hide();
                     business_contacts_header(slug);
                 }
-                if(not_contact_count == 0){
-                    
+
+                var not_contact_count = $('.addcontact-left').length;
+                if (not_contact_count == 0) {
                     var data_html = "<li><div class='art-img-nn' id='art-blank'><div class='art_no_post_img'><img src='<?php echo base_url(); ?>img/No_Contact_Request.png'></div><div class='art_no_post_text'>No Contact Request Available.</div></div></li>";
                     $('#contactlist').html(data_html);
+                    $('#seecontact').hide();
                 }
 
             }
@@ -714,7 +731,7 @@
 </script>
 <!--  commen script harshad  -->
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 
     $(document).ready(function(){
 
@@ -722,4 +739,4 @@
      document.getElementById('searchplace1').value = null;
 
     });
-</script>
+</script>-->

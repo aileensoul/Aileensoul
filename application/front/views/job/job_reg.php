@@ -4,8 +4,6 @@
 <!-- END HEAD -->
 <!-- Calender Css Start-->
 
-<title>Job Profile - Aileensoul.com</title>
-
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.datetimepicker.css'); ?>">
 <!-- Calender Css End-->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -534,18 +532,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
             },
             select: function( event, ui ) {
                
-                var text =this.value;
-                 var terms = split( this.value );
-                 
-                text = text == null || text == undefined ? "" : text;
-                var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
-               if (checked == 'checked') {
-      
-                    terms.push( ui.item.value );
-                    this.value = terms.split( ", " );
-               }//if end
-
-              else {
+                var terms = split( this.value );
                 if(terms.length <= 10) {
                     // remove the current input
                     terms.pop();
@@ -562,7 +549,6 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                     $(this).attr("style","border: solid 1px red;");
                     return false;
                 }
-              }//else end
             }
 
   
@@ -599,19 +585,8 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
             },
             select: function( event, ui ) {
                
-                var text =this.value;
                 var terms = split( this.value );
-                 
-                text = text == null || text == undefined ? "" : text;
-                var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
-                if (checked == 'checked') {
-      
-                    terms.push( ui.item.value );
-                    this.value = terms.split( ", " );
-                }//if end
-
-                else {
-                  if(terms.length <= 20) {
+                if(terms.length <= 20) {
                     // remove the current input
                     terms.pop();
                     // add the selected item
@@ -620,14 +595,13 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
                     terms.push( "" );
                     this.value = terms.join( ", " );
                     return false;
-                  }else{
+                }else{
                     var last = terms.pop();
                     $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
                     $(this).effect("highlight", {}, 1000);
                     $(this).attr("style","border: solid 1px red;");
                     return false;
-                  }
-                }//else end
+                }
             }
 
   

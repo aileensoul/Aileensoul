@@ -219,7 +219,7 @@
                                                                 $acr = substr($a, 0, 1);
                                                                 ?>
                                                                 <div class="post-img-profile">
-                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                    <?php echo ucfirst($acr) ?>
                                                                 </div> 
                                                                 <?php
                                                             } else {
@@ -237,7 +237,7 @@
                                                             $acr = substr($a, 0, 1);
                                                             ?>
                                                             <div class="post-img-profile">
-                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                <?php echo ucfirst($acr) ?>
                                                             </div>
 
                                                         </div>  <?php } ?>                           
@@ -246,14 +246,14 @@
                                             </div>
                                             <div class="right_left_box_design ">
                                                 <span class="profile-company-name ">
-                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucfirst(strtolower($businessdata[0]['company_name'])); ?>"> 
+                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucfirst($businessdata[0]['company_name']); ?>"> 
                                                         <?php echo ucfirst($businessdata[0]['company_name']); ?>
                                                     </a> 
                                                 </span>
 
                                                 <?php $category = $this->db->get_where('industry_type', array('industry_id' => $businessdata[0]['industriyal'], 'status' => 1))->row()->industry_name; ?>
                                                 <div class="profile-boxProfile-name">
-                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucfirst(strtolower($businessdata[0]['company_name'])); ?>" >
+                                                    <a  href="<?php echo base_url('business_profile/business_profile_manage_post/'); ?> " title="<?php echo ucfirst($businessdata[0]['company_name']); ?>" >
                                                         <?php
                                                         if ($category) {
                                                             echo $category;
@@ -325,7 +325,7 @@
                                                                     <div class=" col-md-12 follow_left_box_main" id="<?php echo "fad" . $userlist['business_profile_id']; ?>">                   
                                                                         <div class="post-design-pro-img_follow">
                                                                             <?php if ($userlist['business_user_image']) { ?>
-                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst($userlist['company_name']); ?>">
 
                                                                                     <?php
                                                                                     if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $userlist['business_user_image'])) {
@@ -334,7 +334,7 @@
                                                                                         $acr = substr($a, 0, 1);
                                                                                         ?>
                                                                                         <div class="post-img-profile">
-                                                                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                            <?php echo ucfirst($acr) ?>
                                                                                         </div>
                                                                                         <?php
                                                                                     } else {
@@ -349,7 +349,7 @@
 
                                                                                 </a>
                                                                             <?php } else { ?>
-                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst($userlist['company_name']); ?>">
 
                                                                                                                                                                                                         <!-- <img src="<?php echo base_url(NOIMAGE); ?>" alt="<?php echo ucwords($userlist['company_name']); ?>"> -->
 
@@ -358,7 +358,7 @@
                                                                                     $acr = substr($a, 0, 1);
                                                                                     ?>
                                                                                     <div class="post-img-profile">
-                                                                                        <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                        <?php echo ucfirst($acr) ?>
                                                                                     </div>
                                                                                 </a>
                                                                             <?php } ?>
@@ -367,7 +367,7 @@
                                                                             <ul>
                                                                                 <li>
                                                                                     <div class="post-design-product_follow">
-                                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                                                                                        <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst($userlist['company_name']); ?>">
                                                                                             <h6>
                                                                                                 <?php echo ucfirst($userlist['company_name']); ?>
                                                                                             </h6>
@@ -428,7 +428,7 @@
 
 
                                                                             <?php if ($userlist['business_user_image']) { ?>
-                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst(strtolower($userlist['company_name'])); ?>">
+                                                                                <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst($userlist['company_name']); ?>">
 
 
                                                                                     <?php
@@ -438,7 +438,7 @@
                                                                                         $acr = substr($a, 0, 1);
                                                                                         ?>
                                                                                         <div class="post-img-profile">
-                                                                                            <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                            <?php echo ucfirst($acr) ?>
                                                                                         </div>
                                                                                         <?php
                                                                                     } else {
@@ -460,7 +460,7 @@
                                                                                     $acr = substr($a, 0, 1);
                                                                                     ?>
                                                                                     <div class="post-img-profile">
-                                                                                        <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                        <?php echo ucfirst($acr) ?>
                                                                                     </div>
                                                                                 </a>
                                                                             <?php } ?>                    
@@ -471,7 +471,7 @@
                                                                                     <div class="post-design-product_follow">
                                                                                         <a href="<?php echo base_url('business_profile/business_profile_manage_post/' . $userlist['business_slug'] . ''); ?>" title="<?php echo ucfirst($userlist['company_name']); ?>">
                                                                                             <h6>
-                                                                                                <?php echo ucfirst(strtolower($userlist['company_name']));
+                                                                                                <?php echo ucfirst($userlist['company_name']);
                                                                                                 ?>
                                                                                             </h6>
                                                                                         </a> 
@@ -872,7 +872,7 @@
                                                                                 $acr = substr($a, 0, 1);
                                                                                 ?>
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                    <?php echo ucfirst($acr) ?>
                                                                                 </div> 
                                                                                 <?php
                                                                             } else {
@@ -889,7 +889,7 @@
                                                                             $acr = substr($a, 0, 1);
                                                                             ?>
                                                                             <div class="post-img-div">
-                                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                <?php echo ucfirst($acr) ?>
                                                                             </div>
                                                                         </a>
                                                                     <?php } ?>
@@ -905,7 +905,7 @@
                                                                                 $acr = substr($a, 0, 1);
                                                                                 ?>
                                                                                 <div class="post-img-div">
-                                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                    <?php echo ucfirst($acr) ?>
                                                                                 </div> 
                                                                                 <?php
                                                                             } else {
@@ -921,7 +921,7 @@
                                                                             $acr = substr($a, 0, 1);
                                                                             ?>
                                                                             <div class="post-img-div">
-                                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                <?php echo ucfirst($acr) ?>
                                                                             </div>
                                                                         </a>
                                                                         <?php
@@ -947,8 +947,8 @@
                                                                         <li>
                                                                             <div class="else_post_d">
                                                                                 <div class="post-design-product">
-                                                                                    <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucfirst(strtolower($companynameposted)); ?></a>
-                                                                                    <p class="posted_with" > Posted With</p> <a class="other_name name_business post_dot_2"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucfirst(strtolower($companyname)); ?></a>
+                                                                                    <a class="post_dot_2" href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugnameposted); ?>"><?php echo ucfirst($companynameposted); ?></a>
+                                                                                    <p class="posted_with" > Posted With</p> <a class="other_name name_business post_dot_2"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>"><?php echo ucfirst($companyname); ?></a>
                                                                                     <span role="presentation" aria-hidden="true"> · </span> <span class="ctre_date"  >
                                                                                         <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>  
 
@@ -975,8 +975,8 @@
                                                                     <?php } else { ?>
                                                                         <li>
                                                                             <div class="post-design-product">
-                                                                                <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucfirst(strtolower($companyname)); ?>";>
-                                                                                    <?php echo ucfirst(strtolower($companyname)); ?>  </a>
+                                                                                <a class="post_dot"  href="<?php echo base_url('business_profile/business_profile_manage_post/' . $slugname); ?>" title="<?php echo ucfirst($companyname); ?>";>
+                                                                                    <?php echo ucfirst($companyname); ?>  </a>
                                                                                 <span role="presentation" aria-hidden="true"> · </span>
                                                                                 <div class="datespan"> <span class="ctre_date" > 
                                                                                         <?php echo $this->common->time_elapsed_string(date('Y-m-d H:i:s', strtotime($row['created_date']))); ?>
@@ -1125,7 +1125,7 @@
                                                                 <?php if (count($businessmultiimage) == 1) { ?>
                                                                     <?php
 //                                                                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
-                                                                    $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp');
+                                                                    $allowed = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
                                                                     $allowespdf = array('pdf');
                                                                     $allowesvideo = array('mp4', 'webm', 'qt', 'mov', 'MP4');
                                                                     $allowesaudio = array('mp3');
@@ -1483,7 +1483,7 @@
                                                                                                 $acr = substr($a, 0, 1);
                                                                                                 ?>
                                                                                                 <div class="post-img-profile">
-                                                                                                    <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                                    <?php echo ucfirst($acr) ?>
                                                                                                 </div> 
                                                                                                 <?php
                                                                                             } else {
@@ -1501,7 +1501,7 @@
                                                                                             $acr = substr($a, 0, 1);
                                                                                             ?>
                                                                                             <div class="post-img-div">
-                                                                                                <?php echo ucfirst(strtolower($acr)) ?>
+                                                                                                <?php echo ucfirst($acr) ?>
                                                                                             </div>
                                                                                         </a>
                                                                                     <?php } ?>
@@ -1974,7 +1974,133 @@
 <!-- <script type="text/javascript">jQuery.noConflict();</script> -->
 
 <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script> 
+<script> 
+    // recruiter search header 2  start
+// recruiter search header 2 location start
+  var base_url = '<?php echo base_url(); ?>';
+$(function () { 
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
 
+    $(".bus_search_loc").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "business_profile/get_location", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split(", ");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join("");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+// recruiter searc location end
+// recruiter searc title start
+$(function () { 
+    function split(val) {
+        return val.split(/,\s*/);
+    }
+    function extractLast(term) {
+        return split(term).pop();
+    }
+
+    $(".bus_search_comp").bind("keydown", function (event) { 
+        if (event.keyCode === $.ui.keyCode.TAB &&
+                $(this).autocomplete("instance").menu.active) {
+            event.preventDefault();
+        }
+    })
+            .autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    // delegate back to autocomplete, but extract the last term
+                    $.getJSON(base_url + "business_profile/get_all_data", {term: extractLast(request.term)}, response);
+                },
+                focus: function () {
+                    // prevent value inserted on focus
+                    return false;
+                },
+                select: function (event, ui) {
+
+                    var text = this.value;
+                    var terms = split(this.value);
+
+                    text = text == null || text == undefined ? "" : text;
+                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
+                    if (checked == 'checked') {
+
+                        terms.push(ui.item.value);
+                        this.value = terms.split("");
+                    }//if end
+
+                    else {
+                        if (terms.length <= 1) {
+                            // remove the current input
+                            terms.pop();
+                            // add the selected item
+                            terms.push(ui.item.value);
+                            // add placeholder to get the comma-and-space at the end
+                            terms.push("");
+                            this.value = terms.join("");
+                            return false;
+                        } else {
+                            var last = terms.pop();
+                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
+                            $(this).effect("highlight", {}, 1000);
+                            $(this).attr("style", "border: solid 1px red;");
+                            return false;
+                        }
+                    }
+                }//end else
+            });
+});
+
+// recruiter searc title end
+// recruiter search end
+    </script>
 
 <script>
 
@@ -1982,7 +2108,7 @@
                                                                     (function ($) {
 
 
-                                                                   // var data = <?php// echo json_encode($demo);
+                                                                   // var data = <?php //echo json_encode($demo);
             ?>;
                                                                     //alert(data);
                                                                     $(function () {
@@ -2018,7 +2144,7 @@
     jQuery.noConflict();
     (function ($) {
 
-    //var// data1 = <?php// echo json_encode($city_data);
+    //var data1 = <?php //echo json_encode($city_data);
             ?>;
     //alert(data);
     $(function () {
@@ -2048,11 +2174,11 @@
     );
     })(jQuery);</script>
 
-<script>
+<!--<script>
     jQuery.noConflict();
     (function ($) {
 
-   // var data = <?php// echo json_encode($demo); ?>;
+  //  var data = <?php //echo json_encode($demo); ?>;
     //alert(data);
 
 
@@ -2079,12 +2205,12 @@
             }
     });
     });
-    })(jQuery);</script>
+    })(jQuery);</script>-->
 <script>
     jQuery.noConflict();
     (function ($) {
 
-    var// data1 = <?php //echo json_encode($de); ?>;
+    var data1 = <?php echo json_encode($de); ?>;
     //alert(data);
 
 
@@ -2113,7 +2239,7 @@
     });
     })(jQuery);</script>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     function check() {
     var keyword = $.trim(document.getElementById('tags1').value);
     var place = $.trim(document.getElementById('searchplace1').value);
@@ -2121,7 +2247,7 @@
     return false;
     }
     }
-</script>
+</script>-->
 
 <script>
     $('#content').on('change keyup keydown paste cut', 'textarea', function () {
@@ -2131,19 +2257,19 @@
 
 
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     function checkvalue() {
     //alert("hi");
-    var searchkeyword = $.trim(document.getElementById('tags').value);
-    var searchplace = $.trim(document.getElementById('searchplace').value);
+    //var searchkeyword = $.trim(document.getElementById('tags').value);
+   // var searchplace = $.trim(document.getElementById('searchplace').value);
     // alert(searchkeyword);
     // alert(searchplace);
-    if (searchkeyword == "" && searchplace == "") {
+    //if (searchkeyword == "" && searchplace == "") {
     //alert('Please enter Keyword');
-    return false;
+   // return false;
     }
-    }
-</script>
+  //  }
+</script>-->
 <!-- <script>
     //select2 autocomplete start for Location
     $('#searchplace').select2({
@@ -3355,19 +3481,19 @@
     $('#file-fr').fileinput({
     language: 'fr',
             uploadUrl: '#',
-            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf']
+            allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf']
     });
     $('#file-es').fileinput({
     language: 'es',
             uploadUrl: '#',
-            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf']
+            allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf']
     });
     $("#file-0").fileinput({
-    'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp']
+    'allowedFileExtensions': ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg']
     });
     $("#file-1").fileinput({
     uploadUrl: '#', // you must set a valid URL here else you will get an error
-            allowedFileExtensions: ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf'],
+            allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf'],
             overwriteInitial: false,
             maxFileSize: 1000000,
             maxFilesNum: 10,
@@ -3432,7 +3558,7 @@
     $(document).ready(function () {
     $("#test-upload").fileinput({
     'showPreview': false,
-            'allowedFileExtensions': ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp', 'mp4', 'mp3', 'pdf'],
+            'allowedFileExtensions': ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf'],
             'elErrorContainer': '#errorBlock'
     });
     $("#kv-explorer").fileinput({
@@ -3505,7 +3631,7 @@
     var vfirstname = fileInput[0].name;
     var ext = vfirstname.split('.').pop();
     var ext1 = vname.split('.').pop();
-    var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png', 'psd', 'bmp', 'tiff', 'iff', 'xbm', 'webp'];
+    var allowedExtensions = ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg'];
     var allowesvideo = ['mp4', 'webm', 'MP4'];
     var allowesaudio = ['mp3'];
     var allowespdf = ['pdf'];
@@ -4064,11 +4190,10 @@
     document.getElementById('khyatii' + abc).style.display = 'none';
     document.getElementById('khyati' + abc).style.display = 'none';
     
-    editposttitle = editposttitle.trim();
-    editpostdesc = editpostdesc.trim();
+    editposttitle = editposttitle.trim()
+    editpostdesc = editpostdesc.trim()
     
     $('#editpostname' + abc).val(editposttitle);
-    $('#editpostdesc' + abc).html('');
     $('#editpostdesc' + abc).html(editpostdesc);
     }
 </script>
@@ -4309,134 +4434,6 @@
      });
      });*/
 </script>
-
-<script>
-    // recruiter search header 2  start
-// recruiter search header 2 location start
-  var base_url = '<?php echo base_url(); ?>';
-$(function () {  
-    function split(val) {
-        return val.split(/,\s*/);
-    }
-    function extractLast(term) {
-        return split(term).pop();
-    }
-
-    $(".bus_search_loc").bind("keydown", function (event) { 
-        if (event.keyCode === $.ui.keyCode.TAB &&
-                $(this).autocomplete("instance").menu.active) {
-            event.preventDefault();
-        }
-    })
-            .autocomplete({
-                minLength: 2,
-                source: function (request, response) {
-                    // delegate back to autocomplete, but extract the last term
-                    $.getJSON(base_url + "business_profile/get_location", {term: extractLast(request.term)}, response);
-                },
-                focus: function () {
-                    // prevent value inserted on focus
-                    return false;
-                },
-                select: function (event, ui) {
-
-                    var text = this.value;
-                    var terms = split(this.value);
-
-                    text = text == null || text == undefined ? "" : text;
-                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
-                    if (checked == 'checked') {
-
-                        terms.push(ui.item.value);
-                        this.value = terms.split(", ");
-                    }//if end
-
-                    else {
-                        if (terms.length <= 1) {
-                            // remove the current input
-                            terms.pop();
-                            // add the selected item
-                            terms.push(ui.item.value);
-                            // add placeholder to get the comma-and-space at the end
-                            terms.push("");
-                            this.value = terms.join("");
-                            return false;
-                        } else {
-                            var last = terms.pop();
-                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
-                            $(this).effect("highlight", {}, 1000);
-                            $(this).attr("style", "border: solid 1px red;");
-                            return false;
-                        }
-                    }
-                }//end else
-            });
-});
-
-// recruiter searc location end
-// recruiter searc title start
-$(function () { 
-    function split(val) {
-        return val.split(/,\s*/);
-    }
-    function extractLast(term) {
-        return split(term).pop();
-    }
-
-    $(".bus_search_comp").bind("keydown", function (event) { 
-        if (event.keyCode === $.ui.keyCode.TAB &&
-                $(this).autocomplete("instance").menu.active) {
-            event.preventDefault();
-        }
-    })
-            .autocomplete({
-                minLength: 2,
-                source: function (request, response) {
-                    // delegate back to autocomplete, but extract the last term
-                    $.getJSON(base_url + "business_profile/get_all_data", {term: extractLast(request.term)}, response);
-                },
-                focus: function () {
-                    // prevent value inserted on focus
-                    return false;
-                },
-                select: function (event, ui) {
-
-                    var text = this.value;
-                    var terms = split(this.value);
-
-                    text = text == null || text == undefined ? "" : text;
-                    var checked = (text.indexOf(ui.item.value + ', ') > -1 ? 'checked' : '');
-                    if (checked == 'checked') {
-
-                        terms.push(ui.item.value);
-                        this.value = terms.split("");
-                    }//if end
-
-                    else {
-                        if (terms.length <= 1) {
-                            // remove the current input
-                            terms.pop();
-                            // add the selected item
-                            terms.push(ui.item.value);
-                            // add placeholder to get the comma-and-space at the end
-                            terms.push("");
-                            this.value = terms.join("");
-                            return false;
-                        } else {
-                            var last = terms.pop();
-                            $(this).val(this.value.substr(0, this.value.length - last.length - 2)); // removes text from input
-                            $(this).effect("highlight", {}, 1000);
-                            $(this).attr("style", "border: solid 1px red;");
-                            return false;
-                        }
-                    }
-                }//end else
-            });
-});
-
-// recruiter searc title end
-// recruiter search end
-    </script>
 
 
 

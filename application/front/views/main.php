@@ -8,6 +8,7 @@
         <meta property="og:title" content="Find the Best Jobs, Hiring, Freelance for Free | Grow Business Network - Aileensoul.com" />
         <meta property="og:description" content="Aileensoul provides best opportunity where you can Hire, Recruit, Freelance, Business and find or search jobs of your preference in your required field."/>
         <meta property="og:image" content="<?php echo base_url('images/meta-icon.png'); ?>" />
+        <meta name="msvalidate.01" content="41CAD663DA32C530223EE3B5338EC79E" />
         <script>
             (function (i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -25,14 +26,14 @@
             ga('send', 'pageview');
 
         </script>
-        <!--
+        
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({
             google_ad_client: "ca-pub-6060111582812113",
             enable_page_level_ads: true
           });
-        </script>-->
+        </script>
         <script type="application/ld+json">
             {
             "@context":"http://schema.org",

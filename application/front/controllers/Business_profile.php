@@ -1,5 +1,4 @@
 <?php
-
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -167,62 +166,6 @@ class Business_profile extends MY_Controller {
         }
 
 
-// code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $citiesss = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($citiesss as $key1) {
-
-            $location[] = $key1['city_name'];
-        }
-        // echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = $loc;
-        $this->data['demo'] = array_values($result1);
         $this->load->view('business_profile/business_info', $this->data);
     }
 
@@ -396,63 +339,6 @@ class Business_profile extends MY_Controller {
         }
 
 
-        // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
 
         $this->load->view('business_profile/contact_info', $this->data);
     }
@@ -592,64 +478,6 @@ class Business_profile extends MY_Controller {
             }
         }
         //cho "<pre>"; print_r($this->data['industriyal1']); die();
-        // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
-
 
         $this->load->view('business_profile/description', $this->data);
     }
@@ -744,54 +572,6 @@ class Business_profile extends MY_Controller {
                 $this->data['busimage'] = $this->common->select_data_by_condition('bus_image', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
             }
         }
-// code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
-
 
 
         $this->load->view('business_profile/image', $this->data);
@@ -1047,66 +827,6 @@ class Business_profile extends MY_Controller {
             }
         }
 
-        // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
-
-
-
-
-
 
         $this->load->view('business_profile/addmore', $this->data);
     }
@@ -1246,7 +966,7 @@ class Business_profile extends MY_Controller {
 
         foreach ($followerdata as $fdata) {
 
-            $contition_array = array('business_profile_id' => $fdata['follow_to'], 'business_step' => 4);
+            $contition_array = array('business_profile_id' => $fdata['follow_to'], 'business_step' => 4, 'business_profile.status' => 1);
 
             $this->data['business_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
@@ -1341,31 +1061,6 @@ class Business_profile extends MY_Controller {
 
         $this->data['businessprofiledatapost'] = $new;
 
-        //echo "<pre>"; print_r($this->data['businessprofiledata']) ; die();
-// code for search
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
-        // echo '<pre>'; print_r($result); die();
 
         if ($this->data['businessdata']) {
 
@@ -1420,67 +1115,6 @@ class Business_profile extends MY_Controller {
         }
 
         //manage post end
-// code for search
-
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = $result1;
-        // echo '<pre>'; print_r($result1); die();
-        //echo "<pre>"; print_r($this->data['business_profile_data']); die();
-
 
         if (!$this->data['businessdata1'] && !$this->data['business_profile_data']) { //echo "22222222"; die();
             $this->load->view('business_profile/notavalible');
@@ -1903,7 +1537,7 @@ class Business_profile extends MY_Controller {
                         $business_profile_post_thumb[$i]['width'] = $n_w;
                         $business_profile_post_thumb[$i]['height'] = $n_h;
 //                        $business_profile_post_thumb[$i]['master_dim'] = 'width';
-                        $business_profile_post_thumb[$i]['quality'] = "50%";
+                        $business_profile_post_thumb[$i]['quality'] = "75%";
                         $business_profile_post_thumb[$i]['x_axis'] = '0';
                         $business_profile_post_thumb[$i]['y_axis'] = '0';
                         $instanse = "image_$i";
@@ -2454,7 +2088,7 @@ class Business_profile extends MY_Controller {
 
             if (count($businessmultiimage) == 1) {
 
-                $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
+                $allowed = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
                 $allowespdf = array('pdf');
                 $allowesvideo = array('mp4', 'webm', 'MP4');
                 $allowesaudio = array('mp3');
@@ -2554,9 +2188,9 @@ class Business_profile extends MY_Controller {
 
                 $return_html .= '<div class="four-image">
                                             <a href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
-                                                <img src="' . base_url($this->config->item('bus_post_335_245_upload_path') . $businessmultiimage[3]['image_name']) . '"> 
+                                                <img src="' . base_url($this->config->item('bus_post_335_245_upload_path') . $businessmultiimage[3]['image_name']) . '" > 
                                             </a>
-                                            <a class="text-center" href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '">
+                                            <a class="text-center" href="' . base_url('business_profile/postnewpage/' . $row['business_profile_post_id']) . '" >
                                                 <div class="more-image" >
                                                     <span>View All (+
                      ' . (count($businessmultiimage) - 4) . ')</span>
@@ -2852,7 +2486,7 @@ class Business_profile extends MY_Controller {
                         </div>
                     </div>
                     <div class="post-design-commnet-box col-md-12">
-                        <div class="post-design-proo-img">';
+                        <div class="post-design-proo-img  hidden-mob">';
 
             $userid = $this->session->userdata('aileenuser');
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
@@ -2881,9 +2515,14 @@ class Business_profile extends MY_Controller {
 
                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                             <div contenteditable="true" class="edt_2 editable_text" name="' . $row['business_profile_post_id'] . '"  id="post_comment' . $row['business_profile_post_id'] . '" placeholder="Add a Comment ..." onClick="entercomment(' . $row['business_profile_post_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);"></div>
-                        </div>
+                       
+                        
+                                                                <div class="mob-comment">
+                                                                    <button  id="'. $row['business_profile_post_id'].'" onClick="insert_comment(this.id)"><img src="'. base_url('img/send.png') .'"></button> 
+                                                                </div>
+ </div>
                       ' . form_error('post_comment') . ' 
-                        <div class="comment-edit-butn">       
+                        <div class="comment-edit-butn hidden-mob">       
                             <button id="' . $row['business_profile_post_id'] . '" onClick="insert_comment(this.id)">Comment
                             </button>
                         </div>
@@ -3003,65 +2642,6 @@ class Business_profile extends MY_Controller {
         //if user deactive profile then redirect to business_profile/index untill active profile End
         $contition_array = array('user_id' => $id, 'status' => '1', 'business_step' => 4);
         $this->data['contactperson'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
-
-        // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
 
 
         $this->load->view('business_profile/business_profile_contactperson', $this->data);
@@ -3396,69 +2976,6 @@ class Business_profile extends MY_Controller {
         }
 
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        //echo "<pre>";print_r($this->data['busimagedata']);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-
-
-
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
-
-
-
-
         if ($this->data['businessdata1']) {
             $this->load->view('business_profile/business_resume', $this->data);
         } else if (!$this->data['businessdata1'] && $id != $slug_id) {
@@ -3660,59 +3177,6 @@ class Business_profile extends MY_Controller {
         $this->data['following'] = count($this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = ''));
 
         //following end
-
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
 
 
 
@@ -4196,11 +3660,11 @@ class Business_profile extends MY_Controller {
 
 
             $join_str[0]['table'] = 'follow';
-            $join_str[0]['join_table_id'] = 'follow.follow_to';
+            $join_str[0]['join_table_id'] = 'follow.follow_from';
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4);
+            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4, 'business_profile.status' => 1);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         } else { //echo "hii"; die();
@@ -4210,77 +3674,17 @@ class Business_profile extends MY_Controller {
             $businessdata1 = $this->data['businessdata1'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
             $join_str[0]['table'] = 'follow';
-            $join_str[0]['join_table_id'] = 'follow.follow_to';
+            $join_str[0]['join_table_id'] = 'follow.follow_from';
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
-            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4);
+            $contition_array = array('follow_to' => $businessdata1[0]['business_profile_id'], 'follow_status' => 1, 'follow_type' => 2, 'business_profile.business_step' => 4, 'business_profile.status' => 1);
 
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
 
             //echo "<pre>"; print_r($this->data['userlist']); die();
         }
 
-
-
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
-
-        //echo "<pre>"; print_r($this->data['userlist']); die();
 
         if ($this->data['businessdata1']) {
             $this->load->view('business_profile/business_followers', $this->data);
@@ -4319,7 +3723,7 @@ class Business_profile extends MY_Controller {
 
 
             $join_str[0]['table'] = 'follow';
-            $join_str[0]['join_table_id'] = 'follow.follow_from';
+            $join_str[0]['join_table_id'] = 'follow.follow_to';
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
@@ -4333,7 +3737,7 @@ class Business_profile extends MY_Controller {
 
 
             $join_str[0]['table'] = 'follow';
-            $join_str[0]['join_table_id'] = 'follow.follow_from';
+            $join_str[0]['join_table_id'] = 'follow.follow_to';
             $join_str[0]['from_table_id'] = 'business_profile.business_profile_id';
             $join_str[0]['join_type'] = '';
 
@@ -4342,66 +3746,6 @@ class Business_profile extends MY_Controller {
             $this->data['userlist'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
 
-
-
-// code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
 
 
 
@@ -4452,7 +3796,7 @@ class Business_profile extends MY_Controller {
 
         include_once 'getExtension.php';
 
-        $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG", "GIF", "BMP");
+        $valid_formats = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
         if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST" && isset($session_uid)) {
             $name = $_FILES['photoimg']['name'];
             $size = $_FILES['photoimg']['size'];
@@ -5699,7 +5043,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -5712,11 +5056,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -5901,7 +5245,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -5913,11 +5257,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
+            $cmtinsert .= '</a><div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -6090,64 +5434,6 @@ class Business_profile extends MY_Controller {
         $contition_array = array('business_profile_post_id' => $id, 'status' => '1');
         $this->data['busienss_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data = '*', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0');
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = $result1;
-
-        //echo "<pre>"; print_r($this->data['art_data']);die();
         if ($this->data['businessdata']) {
             $this->load->view('business_profile/postnewpage', $this->data);
         } else {
@@ -6518,62 +5804,6 @@ class Business_profile extends MY_Controller {
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str, $groupby = '');
         }
 
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = $result1;
-
 
         if ($this->data['businessdata1']) {
             $this->load->view('business_profile/business_photos', $this->data);
@@ -6630,58 +5860,6 @@ class Business_profile extends MY_Controller {
         $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
 
 
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = $result1;
 
 
         if ($this->data['businessdata1']) {
@@ -6737,66 +5915,6 @@ class Business_profile extends MY_Controller {
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
 
-        // code for search
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = array_values($result1);
-
-
 
         if ($this->data['businessdata1']) {
             $this->load->view('business_profile/business_audios', $this->data);
@@ -6850,63 +5968,6 @@ class Business_profile extends MY_Controller {
 
             $this->data['business_profile_data'] = $this->common->select_data_by_condition('business_profile_post', $contition_array, $data, $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
         }
-
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-
-
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businessdata);die();
-
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($businesstype);
-
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-
-
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-        // echo "<pre>";print_r($industrytype);die();
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-
-
-                    $result[] = $val;
-                }
-            }
-        }
-
-        foreach ($result as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-        //echo "<pre>"; print_r($location);die();
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        //echo "<pre>"; print_r($loc);die();
-        // echo "<pre>"; print_r($loc);
-        // echo "<pre>"; print_r($result1);die();
-
-        $this->data['city_data'] = array_values($loc);
-        $this->data['demo'] = $result1;
-
 
         if ($this->data['businessdata1']) {
             $this->load->view('business_profile/business_pdf', $this->data);
@@ -7328,7 +6389,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
 
@@ -7342,7 +6403,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -7537,7 +6598,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -7549,7 +6610,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -7742,7 +6803,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -7754,7 +6815,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -7951,7 +7012,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
 
@@ -7964,7 +7025,7 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div>';
                 $cmtinsert .= '</div>';
             }
@@ -8741,7 +7802,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $cmtinsert .= '<div class="post-img-div">';
-                        $cmtinsert .= ucfirst($acr);
+                        $cmtinsert .= ucfirst(strtolower($acr));
                         $cmtinsert .= '</div>';
                     } else {
 
@@ -8755,7 +7816,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
@@ -9473,7 +8534,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
                     $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -9486,11 +8547,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div></a>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
+            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id="showcomment' . $business_profile['business_profile_post_comment_id'] . '">';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -9680,7 +8741,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div>';
                 } else {
 
@@ -9694,11 +8755,11 @@ class Business_profile extends MY_Controller {
                 $acr = substr($a, 0, 1);
 
                 $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                $cmtinsert .= ucfirst($acr);
+                $cmtinsert .= ucfirst(strtolower($acr));
                 $cmtinsert .= '</div></a>';
                 $cmtinsert .= '</div>';
             }
-            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($company_name) . '</a></b>';
+            $cmtinsert .= '<div class="comment-name"><b><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($company_name)) . '</a></b>';
             $cmtinsert .= '</div>';
             $cmtinsert .= '<div class="comment-details" id= "showcommenttwo' . $business_profile['business_profile_post_comment_id'] . '" >';
             $cmtinsert .= $this->common->make_links($business_profile['comments']);
@@ -9863,7 +8924,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $cmtinsert .= '<div class="post-img-div">';
-                        $cmtinsert .= ucfirst($acr);
+                        $cmtinsert .= ucfirst(strtolower($acr));
                         $cmtinsert .= '</div>';
                     } else {
                         $cmtinsert .= '<img  src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $business_userimage) . '" alt="">';
@@ -9874,7 +8935,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
@@ -10157,7 +9218,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $cmtinsert .= '<div class="post-img-div">';
-                        $cmtinsert .= ucfirst($acr);
+                        $cmtinsert .= ucfirst(strtolower($acr));
                         $cmtinsert .= '</div>';
                     } else {
 
@@ -10169,7 +9230,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $cmtinsert .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '"><div class="post-img-div">';
-                    $cmtinsert .= ucfirst($acr);
+                    $cmtinsert .= ucfirst(strtolower($acr));
                     $cmtinsert .= '</div></a>';
                     $cmtinsert .= '</div>';
                 }
@@ -10312,7 +9373,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $mulimgfour .= '<div class="post-img-div">';
-                        $mulimgfour .= ucfirst($acr);
+                        $mulimgfour .= ucfirst(strtolower($acr));
                         $mulimgfour .= '</div>';
                     } else {
 
@@ -10325,12 +9386,12 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $mulimgfour .= '<div class="post-img-div"><a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">';
-                    $mulimgfour .= ucfirst($acr);
+                    $mulimgfour .= ucfirst(strtolower($acr));
                     $mulimgfour .= '</a></div>';
                     $mulimgfour .= '</div>';
                 }
                 $mulimgfour .= '<div class="comment-name"><b>';
-                $mulimgfour .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst($companyname) . '</a></br></b></div>';
+                $mulimgfour .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $companyslug) . '">' . ucfirst(strtolower($companyname)) . '</a></br></b></div>';
                 $mulimgfour .= '<div class="comment-details" id="imgshowcommenttwo' . $rowdata['post_image_comment_id'] . '" style="display: block;">';
 
 
@@ -10880,27 +9941,29 @@ class Business_profile extends MY_Controller {
                     if ($busdata[0]['business_user_image']) {
 
                         if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
-                            $a = $busdata[0]['company_name'];
+                           /* $a = $busdata[0]['company_name'];
                             $acr = substr($a, 0, 1);
 
                             $contactdata .= '<div class="post-img-div">';
-                            $contactdata .= ucfirst($acr);
-                            $contactdata .= '</div>';
+                            $contactdata .= ucfirst(strtolower($acr));
+                            $contactdata .= '</div>'; */
+                            $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
                         } else {
 
                             $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
                         }
                     } else {
-                        $a = $busdata[0]['company_name'];
+                        /*$a = $busdata[0]['company_name'];
                         $acr = substr($a, 0, 1);
 
                         $contactdata .= '<div class="post-img-div">';
-                        $contactdata .= ucfirst($acr);
-                        $contactdata .= '</div>';
+                        $contactdata .= ucfirst(strtolower($acr));
+                        $contactdata .= '</div>';*/
+                        $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text">';
-                    $contactdata .= '<span><b>' . ucfirst($busdata[0]['company_name']) . '</b></span>';
+                    $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b></span>';
                     $contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
                     $contactdata .= '</a>';
@@ -10930,27 +9993,29 @@ class Business_profile extends MY_Controller {
                     if ($busdata[0]['business_user_image']) {
 
                         if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
-                            $a = $busdata[0]['company_name'];
-                            $acr = substr($a, 0, 1);
-
-                            $contactdata .= '<div class="post-img-div">';
-                            $contactdata .= ucfirst($acr);
-                            $contactdata .= '</div>';
+//                            $a = $busdata[0]['company_name'];
+//                            $acr = substr($a, 0, 1);
+//
+//                            $contactdata .= '<div class="post-img-div">';
+//                            $contactdata .= ucfirst(strtolower($acr));
+//                            $contactdata .= '</div>';
+                            $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
                         } else {
 
                             $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
                         }
                     } else {
-                        $a = $busdata[0]['company_name'];
-                        $acr = substr($a, 0, 1);
-
-                        $contactdata .= '<div class="post-img-div">';
-                        $contactdata .= ucfirst($acr);
-                        $contactdata .= '</div>';
+//                        $a = $busdata[0]['company_name'];
+//                        $acr = substr($a, 0, 1);
+//
+//                        $contactdata .= '<div class="post-img-div">';
+//                        $contactdata .= ucfirst(strtolower($acr));
+//                        $contactdata .= '</div>';
+                        $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text_full">';
-                    $contactdata .= '<span><b>' . ucfirst($busdata[0]['company_name']) . '</b> confirmed your contact request</span>';
+                    $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b> confirmed your contact request</span>';
                     //$contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
                     $contactdata .= '</a>';
@@ -11354,7 +10419,7 @@ class Business_profile extends MY_Controller {
                     $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
 
                     $contactdata .= '<li>';
-                    $contactdata .= '<div class="addcontact-left">';
+                    $contactdata .= '<div class="addcontact-left custome-approved-contact">';
                     $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
                     $contactdata .= '<div class="addcontact-pic">';
 
@@ -11374,8 +10439,8 @@ class Business_profile extends MY_Controller {
                         $contactdata .= '<img  src="' . base_url(NOBUSIMAGE) . '"  alt="">';
                     }
                     $contactdata .= '</div>';
-                    $contactdata .= '<div class="addcontact-text">';
-                    $contactdata .= '<span><b>' . ucfirst($busdata[0]['company_name']) . '</b> confirmed your contact request</span>';
+                    $contactdata .= '<div class="addcontact-text_full">';
+                    $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b> confirmed your contact request</span>';
 //$contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
                     $contactdata .= '</a>';
@@ -11529,7 +10594,7 @@ class Business_profile extends MY_Controller {
                         $acr = substr($a, 0, 1);
 
                         $contactdata .= '<div class="post-img-div">';
-                        $contactdata .= ucfirst($acr);
+                        $contactdata .= ucfirst(strtolower($acr));
                         $contactdata .= '</div>';
                     } else {
 
@@ -11540,7 +10605,7 @@ class Business_profile extends MY_Controller {
                     $acr = substr($a, 0, 1);
 
                     $contactdata .= '<div class="post-img-div">';
-                    $contactdata .= ucfirst($acr);
+                    $contactdata .= ucfirst(strtolower($acr));
                     $contactdata .= '</div>';
                 }
 
@@ -11699,52 +10764,6 @@ class Business_profile extends MY_Controller {
     public function bus_contact($id = "") {
         $this->data['slug_id'] = $id;
         $id = $this->uri->segment(3);
-        // CODE FOR SECOND HEADER SEARCH START
-
-        $contition_array = array('status' => '1', 'is_deleted' => '0', 'business_step' => 4);
-        $businessdata = $this->data['results'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'company_name,other_industrial,other_business_type', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-// GET BUSINESS TYPE
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-        $businesstype = $this->data['results'] = $this->common->select_data_by_condition('business_type', $contition_array, $data = 'business_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-// GET INDUSTRIAL TYPE
-        $contition_array = array('status' => '1', 'is_delete' => '0');
-        $industrytype = $this->data['results'] = $this->common->select_data_by_condition('industry_type', $contition_array, $data = 'industry_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        $unique = array_merge($businessdata, $businesstype, $industrytype);
-        foreach ($unique as $key => $value) {
-            foreach ($value as $ke => $val) {
-                if ($val != "") {
-                    $result[] = $val;
-                }
-            }
-        }
-
-        $results = array_unique($result);
-        foreach ($results as $key => $value) {
-            $result1[$key]['label'] = $value;
-            $result1[$key]['value'] = $value;
-        }
-
-// GET LOCATION DATA
-        $contition_array = array('status' => '1');
-        $location_list = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $$join_str = array(), $groupby);
-
-        foreach ($location_list as $key1 => $value1) {
-            foreach ($value1 as $ke1 => $val1) {
-                $location[] = $val1;
-            }
-        }
-
-        foreach ($location as $key => $value) {
-            $loc[$key]['label'] = $value;
-            $loc[$key]['value'] = $value;
-        }
-
-        $this->data['city_data'] = array_values($loc);
-
-        $this->data['demo'] = array_values($result1);
 
         $contition_array = array('user_id' => $userid, 'status' => '1');
         $this->data['slug_data'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data = 'business_slug', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str = array(), $groupby = '');
@@ -11868,7 +10887,7 @@ class Business_profile extends MY_Controller {
                                                                         <li style="width: 67%">
                                                                             <div class="">
                                                                                 <div class="follow-li-text " style="padding: 0;">
-                                            <a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">' . ucfirst($cdata[0]['company_name']) . '</a>
+                                            <a href="' . base_url('business_profile/business_profile_manage_post/' . $cdata[0]['business_slug']) . '">' . ucfirst(strtolower($cdata[0]['company_name'])) . '</a>
                                                                                 </div>
                                                                                 <div>';
                 $category = $this->db->get_where('industry_type', array('industry_id' => $cdata[0]['industriyal'], 'status' => 1))->row()->industry_name;
@@ -13469,7 +12488,7 @@ class Business_profile extends MY_Controller {
         $this->load->view('business_profile/notavalible', $this->data);
     }
     
-    
+        
     // BUSINESS GET LOCATION START
     public function get_location($id = "") {
 
@@ -13545,5 +12564,6 @@ class Business_profile extends MY_Controller {
         echo json_encode($cdata);
     }
 // BUSINESS GET ALL END
+
 
 }

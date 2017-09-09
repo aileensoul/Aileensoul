@@ -2,8 +2,6 @@
 <!-- start head -->
 <?php echo $head; ?>
 
- <title>Search - Aileensoul.com</title>
- 
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/demo.css'); ?>">
 <!--post save success pop up style strat -->
 

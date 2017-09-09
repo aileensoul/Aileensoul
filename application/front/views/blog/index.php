@@ -47,7 +47,13 @@
  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style-main.css'); ?>">
 
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6060111582812113",
+            enable_page_level_ads: true
+          });
+        </script>
 
 </head>
 <body class="blog">

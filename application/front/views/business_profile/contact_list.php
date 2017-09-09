@@ -5,6 +5,11 @@
 <?php echo $header; ?>
 <!-- END HEADER -->
 <?php echo $business_header2_border ?>
+  <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/jquery.jMosaic.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/1.10.3.jquery-ui.css'); ?>">
+      
 <body class="page-container-bg-solid page-boxed">
 
     <?php echo $dash_header; ?>
@@ -339,49 +344,19 @@
     <!-- END CONTENT -->
 </div>
 <!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
-<!-- BEGIN INNER FOOTER -->
-<?php echo $footer; ?>
+<script src="https://www.aileensoul.com/js/jquery-ui.min.js"></script>
+<script src="https://www.aileensoul.com/js/jquery.wallform.js"></script> 
+<script src="https://www.aileensoul.com/js/demo/jquery-1.9.1.js"></script>
+<script src="https://www.aileensoul.com/js/demo/jquery-ui-1.9.1.js"></script>
+<script src="https://www.aileensoul.com/assets/js/croppie.js"></script>
+<script src="https://www.aileensoul.com/js/bootstrap.min.js"></script>
 
-<!-- script for update all read notification start-->
-<script type="text/javascript">
-
-
-//    function contactperson() {
-//
-//        $.ajax({
-//            url: "<?php echo base_url(); ?>business_profile/contact_notification",
-//            type: "POST",
-//            success: function (data) {
-//
-//                $('#addcontactBody').html(data);
-//
-//            }
-//        });
-//
-//    }
-
-    function contactapprove1(toid, status) {
-
-        $.ajax({
-            url: "<?php echo base_url(); ?>business_profile/contact_list_approve",
-            type: "POST",
-            data: 'toid=' + toid + '&status=' + status,
-            success: function (data) {
-                //document.getElementById(toid).remove();
-                $('#contactlist').html(data);
-            }
-        });
-
-    }
-
-</script>
-<!-- script for update all read notification end -->
-<script>
-    // recruiter search header 2  start
+<!-- script for business autofill -->
+        <script>
+   // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
-$(function () {  
+$(function () { 
     function split(val) {
         return val.split(/,\s*/);
     }
@@ -504,3 +479,42 @@ $(function () {
 // recruiter searc title end
 // recruiter search end
     </script>
+
+<!-- BEGIN FOOTER -->
+<!-- BEGIN INNER FOOTER -->
+<?php echo $footer; ?>
+
+<!-- script for update all read notification start-->
+<script type="text/javascript">
+
+
+//    function contactperson() {
+//
+//        $.ajax({
+//            url: "<?php echo base_url(); ?>business_profile/contact_notification",
+//            type: "POST",
+//            success: function (data) {
+//
+//                $('#addcontactBody').html(data);
+//
+//            }
+//        });
+//
+//    }
+
+    function contactapprove1(toid, status) {
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>business_profile/contact_list_approve",
+            type: "POST",
+            data: 'toid=' + toid + '&status=' + status,
+            success: function (data) {
+                //document.getElementById(toid).remove();
+                $('#contactlist').html(data);
+            }
+        });
+
+    }
+
+</script>
+<!-- script for update all read notification end -->

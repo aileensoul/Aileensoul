@@ -246,97 +246,11 @@
 
 
 <script src="<?php echo base_url('js/fb_login.js'); ?>"></script>
-<script type="text/javascript">
-
-            //validation for edit email formate form
-
-            $(document).ready(function () {
-
-                $("#business_profile_addpost").validate({
-
-                    rules: {
-
-                        productname: {
-
-                            required: true,
-                        },
-
-                        image: {
-
-                            required: true,
-                        },
-
-                        description: {
-                            required: true,
-
-                        },
-
-                    },
-
-                    messages: {
-
-                        productname: {
-
-                            required: "Product name Is Required.",
-
-                        },
-
-                        image: {
-
-                            required: "Image Is Required.",
-
-                        },
-
-                        description: {
-                            required: "Description is required",
-
-                        },
-
-                    },
-
-                });
-            });
-</script>
-
-<!-- script for skill textbox automatic start (option 2)-->
-
-<script src="<?php echo base_url('js/select2-4.0.3.min.js'); ?>"></script>
-<!-- script for skill textbox automatic end (option 2)-->
-
-<script>
-
-//select2 autocomplete start for Location
-            $('#searchplace').select2({
-
-                placeholder: 'Find Your Location',
-                maximumSelectionLength: 1,
-                ajax: {
-
-                    url: "<?php echo base_url(); ?>business_profile/location",
-                    dataType: 'json',
-                    delay: 250,
-
-                    processResults: function (data) {
-
-                        return {
-
-                            results: data
-
-
-                        };
-
-                    },
-                    cache: true
-                }
-            });
-//select2 autocomplete End for Location
-
-</script>
-<script>
-    // recruiter search header 2  start
+        <script>
+   // recruiter search header 2  start
 // recruiter search header 2 location start
   var base_url = '<?php echo base_url(); ?>';
-$(function () {  
+$(function () { 
     function split(val) {
         return val.split(/,\s*/);
     }
@@ -459,3 +373,89 @@ $(function () {
 // recruiter searc title end
 // recruiter search end
     </script>
+<script type="text/javascript">
+
+            //validation for edit email formate form
+
+            $(document).ready(function () {
+
+                $("#business_profile_addpost").validate({
+
+                    rules: {
+
+                        productname: {
+
+                            required: true,
+                        },
+
+                        image: {
+
+                            required: true,
+                        },
+
+                        description: {
+                            required: true,
+
+                        },
+
+                    },
+
+                    messages: {
+
+                        productname: {
+
+                            required: "Product name Is Required.",
+
+                        },
+
+                        image: {
+
+                            required: "Image Is Required.",
+
+                        },
+
+                        description: {
+                            required: "Description is required",
+
+                        },
+
+                    },
+
+                });
+            });
+</script>
+
+<!-- script for skill textbox automatic start (option 2)-->
+
+<script src="<?php echo base_url('js/select2-4.0.3.min.js'); ?>"></script>
+<!-- script for skill textbox automatic end (option 2)-->
+
+<script>
+
+//select2 autocomplete start for Location
+            $('#searchplace').select2({
+
+                placeholder: 'Find Your Location',
+                maximumSelectionLength: 1,
+                ajax: {
+
+                    url: "<?php echo base_url(); ?>business_profile/location",
+                    dataType: 'json',
+                    delay: 250,
+
+                    processResults: function (data) {
+
+                        return {
+
+                            results: data
+
+
+                        };
+
+                    },
+                    cache: true
+                }
+            });
+//select2 autocomplete End for Location
+
+</script>
