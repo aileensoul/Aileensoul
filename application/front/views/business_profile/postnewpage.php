@@ -310,7 +310,7 @@
                             <!-- pop up box end-->
                             <div  class="">
                                 <div class="post-design-top col-md-12" >
-                                    <div class="post-design-pro-img " style="padding-left: 17px;"> 
+                                    <div class="post-design-pro-img " > 
                                         <?php
                                         $companyname = $this->db->get_where('business_profile', array('user_id' => $busienss_data[0]['user_id'], 'status' => 1))->row()->company_name;
 

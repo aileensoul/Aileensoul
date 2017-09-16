@@ -2486,7 +2486,7 @@ class Business_profile extends MY_Controller {
                         </div>
                     </div>
                     <div class="post-design-commnet-box col-md-12">
-                        <div class="post-design-proo-img  hidden-mob">';
+                        <div class="post-design-proo-img hidden-mob">';
 
             $userid = $this->session->userdata('aileenuser');
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
@@ -2516,13 +2516,12 @@ class Business_profile extends MY_Controller {
                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                             <div contenteditable="true" class="edt_2 editable_text" name="' . $row['business_profile_post_id'] . '"  id="post_comment' . $row['business_profile_post_id'] . '" placeholder="Add a Comment ..." onClick="entercomment(' . $row['business_profile_post_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);"></div>
                        
-                        
-                                                                <div class="mob-comment">
+ <div class="mob-comment">
                                                                     <button  id="'. $row['business_profile_post_id'].'" onClick="insert_comment(this.id)"><img src="'. base_url('img/send.png') .'"></button> 
                                                                 </div>
- </div>
+</div>
                       ' . form_error('post_comment') . ' 
-                        <div class="comment-edit-butn hidden-mob">       
+                        <div class="comment-edit-butn  hidden-mob">       
                             <button id="' . $row['business_profile_post_id'] . '" onClick="insert_comment(this.id)">Comment
                             </button>
                         </div>
@@ -12496,8 +12495,9 @@ class Business_profile extends MY_Controller {
         $searchTerm = $_GET['term'];
 
         if (!empty($searchTerm)) {
+            $contition_array = array('state_id !=' => '0');
             $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
-            $citylist = $this->common->select_data_by_search('cities', $search_condition, $contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
+            $citylist = $this->common->select_data_by_search('cities', $search_condition, $contition_array, $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
         }
         foreach ($citylist as $key => $value) {
 
@@ -12567,3 +12567,4 @@ class Business_profile extends MY_Controller {
 
 
 }
+ 

@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/timeline.css'); ?>">
 <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" /> -->
 <link rel="stylesheet" href="<?php echo base_url() ?>css/bootstrap.min.css" />
+
 <!-- start header -->
 <?php echo $header; ?>
 <?php echo $job_header2_border; ?>
@@ -358,7 +359,7 @@
                                                 <p title="Location"><i class="fa fa-map-marker" aria-hidden="true">
                                                     
                                                    </i>
-												   <?php  if($cityname){echo $cityname;echo ', ';}
+                           <?php  if($cityname){echo $cityname;echo ', ';}
                                                       echo $countryname; ?>
                                                 </p>
                                              </div>
@@ -617,7 +618,7 @@
                               </div>
                            </div>
                            <div class="col-md-1">
-			
+      
                            </div>
                         </div>
                         <?php
@@ -1329,10 +1330,10 @@
 
 // Disable progress bar when 100% complete Start
    $(document).ready(function () {
-		$('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
-		$('.edit_profile_job').fadeIn('slow').delay(5000);
-		$('.tr_text').fadeIn('slow').delay(500);
-		$('.true_progtree img').fadeIn('slow').delay(500);
+    $('.complete_profile').fadeIn('fast').delay(5000).fadeOut('slow');
+    $('.edit_profile_job').fadeIn('slow').delay(5000);
+    $('.tr_text').fadeIn('slow').delay(500);
+    $('.true_progtree img').fadeIn('slow').delay(500);
     });
 // Disable progress bar when 100% complete End
 

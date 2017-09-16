@@ -1591,7 +1591,7 @@ $contition_array = array('user_id' => $userid, 'is_delete' => '0', 'status' => '
 
                     if (count($artmultiimage) == 1) {
 
-                        $allowed = array('gif', 'PNG', 'jpg', 'jpeg','png');
+                        $allowed = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
                         $allowespdf = array('pdf');
                         $allowesvideo = array('mp4', 'webm', 'MP4');
                         $allowesaudio = array('mp3');
@@ -3887,7 +3887,7 @@ public function followtwo() {
 
         include_once 'getExtension.php';
 
-        $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG", "GIF", "BMP");
+        $valid_formats = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
         if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST" && isset($session_uid)) {
             $name = $_FILES['photoimg']['name'];
             $size = $_FILES['photoimg']['size'];
@@ -11191,7 +11191,7 @@ public function art_avail_check($userid = " ")
 public function artistic_search_city($id = "") {
     $searchTerm = $_GET['term'];
      if (!empty($searchTerm)) {
-        $contition_array = array('status' => '1', 'state_id !=' => '0' );
+         $contition_array = array('status' => '1', 'state_id !=' => '0' );
         $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
         $location_list = $this->common->select_data_by_search('cities', $search_condition,$contition_array, $data = 'city_name', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
           foreach ($location_list as $key1 => $value) {

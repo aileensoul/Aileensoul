@@ -508,10 +508,11 @@ class Chat extends MY_Controller {
     }
 
     public function abc($message_from_profile = '', $message_to_profile = '', $id = '', $not_id = '') {
-       
-         $this->data['id'] = $id;
-         $this->chat_search($id, $message_from_profile, $message_to_profile);
-         $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
+
+
+        $this->data['id'] = $id;
+        $this->chat_search($id, $message_from_profile, $message_to_profile);
+        $this->data['userid'] = $userid = $this->session->userdata('aileenuser');
 
         if ($id == $userid) {
             redirect('chat/noavailable');
@@ -2652,7 +2653,7 @@ class Chat extends MY_Controller {
         $this->load->view('scroll');
     }
 
-    public function chat_search($id, $message_from_profile, $message_to_profile) { 
+    public function chat_search($id, $message_from_profile, $message_to_profile) {
         // search result script start 
         // search code for job
         if ($message_from_profile == 1) {

@@ -819,9 +819,9 @@ $pincode_error = form_error('pincode_error');
  //    }, "No space please and don't leave it empty");
 
 
-$.validator.addMethod("lowercase", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "Email Should be in Small Character");
+// $.validator.addMethod("lowercase", function(value, element, regexpr) {          
+//     return regexpr.test(value);
+// }, "Email Should be in Small Character");
 
 $.validator.addMethod("regx", function(value, element, regexpr) {          
     return regexpr.test(value);
@@ -984,7 +984,7 @@ $.validator.addMethod("required1", function(value, element, regexpr) {
 
                     required: true,
                     email: true,
-                    lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
+                   // lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
                     remote: {
                         url: "<?php echo site_url() . 'job/check_email' ?>",
                         type: "post",
