@@ -239,15 +239,14 @@ class Email_model extends CI_Model {
         $this->email->subject($subject);
         $this->email->message($mail_html);
      // $this->email->set_mailtype("html");
-    $this->email->send();
-   
+      //   $this->email->send();
+ 
 //echo '<pre>'; print_r($this->email->print_debugger()); die();
          if ( $this->email->send()) {
-       //  echo '<pre>'; print_r($this->email->print_debugger()); die();
-       //   echo '<pre>'; print_r($this->email); die();
+      
              return true;
          } else { 
-           // echo '<pre>'; print_r($this->email); die();
+          
              return FALSE;
         }
     }
