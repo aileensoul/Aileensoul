@@ -53,7 +53,7 @@ public function user()
 
             $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
 
-            $sortby = 'job_id';
+            $sortby = 'business_profile_id';
 
             $orderby = 'asc';
 
@@ -61,7 +61,7 @@ public function user()
   
         $this->data['offset'] = $offset;
 
-       $data='job_id,fname,lname,email,phnno,gender,country_id,state_id,city_id,status,created_date,modified_date,job_user_image';
+       $data='business_profile_id,fname,lname,email,phnno,gender,country_id,state_id,city_id,status,created_date,modified_date,job_user_image';
        $contition_array = array('is_delete' => '0');
         $this->data['users'] = $this->common->select_data_by_condition('job_reg', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str = array(), $groupby = '');
 // This is userd for pagination offset and limoi End
