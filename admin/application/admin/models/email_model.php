@@ -20,6 +20,7 @@ class Email_model extends CI_Model {
          $mail_html = '<!DOCTYPE html>
 <html>
 <head>
+
 <title>Mail</title>
 <style>
     p{margin:0;}
@@ -38,14 +39,19 @@ class Email_model extends CI_Model {
         text-decoration:none;
     }
     .btn:hover{}
+   
+   @media only screen and (max-device-width: 600px) {
+        .res-email{padding:0px !important;}
+ }
+    
 </style>
 </head>
 <body>
-    <div style="max-width:600px; margin:0 auto; background:#f4f4f4; padding:30px;">
-        <table width="100%" style="background:#fff;padding: 0px 25px;" cellpadding="0" cellspacing="0" >
+    <div class="res-email" style="max-width:600px; margin:0 auto; background:#f4f4f4; padding:30px;">
+        <table width="100%" style="background:#fff; border:5px solid #f4f4f4;" cellpadding="0" cellspacing="0" >
             <tr>
-                <td style="border-bottom:1px solid #ddd;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
+                <td style="">
+                    <table style="padding: 0px 15px;" width="100%" cellpadding="0" cellspacing="0">
                         <tr>
                             <td style="text-align:center">
                                 <h2>
@@ -53,46 +59,68 @@ class Email_model extends CI_Model {
                                 </h2>
                             </td>
                         </tr>
+                        
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="padding: 0px 15px;" width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="border-bottom:1px solid #ddd;">
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>
 
             <tr>
-                <td style="border-bottom:1px solid #ddd;">
-                    <table width="100%" cellpadding="0" cellspacing="0">';
-                        $mail_html .= $mail_body;
+                <td>
+                    <table style="padding: 0px 15px;" width="100%" cellpadding="0" cellspacing="0">';
+                       $mail_html .= $mail_body;
                        $mail_html .= '</br></table>
                 </td>
             </tr>
             <tr>
-                <td style="padding:25px 0px;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
+                <td>
+                    <table style="padding: 0px 15px;" width="100%" cellpadding="0" cellspacing="0">
                         <tr>
-                            <td style="text-align:center; padding:0 10px;" width="20%">
+                            <td style="border-bottom:1px solid #ddd;">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:25px 0px;">
+                    <table style="padding: 0px 15px;" width="100%" cellpadding="0" cellspacing="0">
+                        
+                        <tr>
+                            <td class="mob-none" style="text-align:center; padding:0 10px; vertical-align:top;" width="20%">
                                 <img src="'.SITEURL .'img/m1.png" style="margin: 0 auto;
     display: block;">
                                 <h3 style="font-size:13px;">Job Profile</h3>
                                 <p style="font-size:9px;">Find best job options and connect with recruiters.</p>
                             </td>
-                            <td style="text-align:center; padding:0 10px;" width="20%">
+                            <td class="mob-none" style="text-align:center; padding:0 10px; vertical-align:top;" width="20%">
                                 <img src="'.SITEURL .'img/m2.png" style="margin: 0 auto;
     display: block;">
                                 <h3 style="font-size:13px;">Recruiter Profile</h3>
                                 <p style="font-size:9px;">Hire quality employees here.</p>
                             </td>
-                            <td style="text-align:center; padding:0 10px;" width="20%">
+                            <td class="mob-none" style="text-align:center; padding:0 10px; vertical-align:top;" width="20%">
                                 <img src="'.SITEURL .'img/m3.png" style="margin: 0 auto;
     display: block;">
                                 <h3 style="font-size:13px; ">Freelance Profile</h3>
                                 <p style="font-size:9px;">Hire freelancers and also find freelance work.</p>
                             </td>
-                            <td style="text-align:center; padding:0 10px;" width="20%">
+                            <td class="mob-none" style="text-align:center; padding:0 10px; vertical-align:top;" width="20%">
                                 <img src="'.SITEURL .'img/m4.png" style="margin: 0 auto;
     display: block;">
                                 <h3 style="font-size:13px;">Business Profile</h3>
                                 <p style="font-size:9px;">Grow your business network.</p>
                             </td>
-                            <td style="text-align:center; padding:0 10px;" width="20%">
+                            <td class="mob-none" style="text-align:center; padding:0 10px; vertical-align:top;" width="20%">
                                 <img src="'.SITEURL .'img/m5.png" style="margin: 0 auto;
     display: block;">
                                 <h3 style="font-size:13px;">Artistic Profile</h3>
@@ -103,14 +131,65 @@ class Email_model extends CI_Model {
                     </table>
                 </td>
             </tr>
-        </table>
-        <table width="100%" cellpadding="0" cellspacing="0">
+            
+            <!-- extra  
             <tr>
-                <td style="text-align:center; padding:10px 0;"> 
-                    <a style="color:#505050; padding:5px 15px; text-decoration:none;" href="#">Unsubscribe</a>|
-                    <a style="color:#505050; padding:5px 15px; text-decoration:none;" href="#">Help</a></td>
+                <td style="padding:25px 0px;">
+                    <table style="padding: 0px 15px;" width="100%" cellpadding="0" cellspacing="0">
+                        
+                        <tr>
+                            <td>
+                            <div class="mob-width" style="text-align:center; float:left; padding:0 10px; vertical-align:top; width:100px;">
+                                <img src="'.SITEURL .'img/m1.png" style="margin: 0 auto;
+    display: block;">
+                                <h3 style="font-size:13px;">Job Profile</h3>
+                                <p style="font-size:9px;">Find best job options and connect with recruiters.</p>
+                            </div>
+                            <div class="mob-width" style="text-align:center; float:left; padding:0 10px; vertical-align:top; width:100px;">
+                                <img src="'.SITEURL .'img/m2.png" style="margin: 0 auto;
+    display: block;">
+                                <h3 style="font-size:13px;">Recruiter Profile</h3>
+                                <p style="font-size:9px;">Hire quality employees here.</p>
+                            </div>
+                            <div class="mob-width" style="text-align:center; float:left; padding:0 10px; vertical-align:top; width:100px;">
+                                <img src="'.SITEURL .'img/m3.png" style="margin: 0 auto;
+    display: block;">
+                                <h3 style="font-size:13px; ">Freelance Profile</h3>
+                                <p style="font-size:9px;">Hire freelancers and also find freelance work.</p>
+                            </div>
+                            <div class="mob-width" style="text-align:center; float:left; padding:0 10px; vertical-align:top; width:100px;">
+                                <img src="'.SITEURL .'img/m4.png" style="margin: 0 auto;
+    display: block;">
+                                <h3 style="font-size:13px;">Business Profile</h3>
+                                <p style="font-size:9px;">Grow your business network.</p>
+                            </div>
+                            <div class="mob-width" style="text-align:center; float:left; padding:0 10px; vertical-align:top; width:100px;">
+                                <img src="'.SITEURL .'img/m5.png" style="margin: 0 auto;
+    display: block;">
+                                <h3 style="font-size:13px;">Artistic Profile</h3>
+                                <p style="font-size:9px;">Show your art & talent to the world.</p>
+                            </div>
+                            </td>
+          
+                        </tr>
+                    
+                    </table>
+                </td>
+            </tr>
+              end extra  -->
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4">
+                        <tr>
+                            <td style="text-align:center; padding:10px 0;"> 
+                                <a style="color:#505050; padding:5px 15px; text-decoration:none;" href="#">Unsubscribe</a>|
+                                <a style="color:#505050; padding:5px 15px; text-decoration:none;" href="#">Help</a></td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
+        
     </div>
 </body>
 </html>';
@@ -137,8 +216,11 @@ class Email_model extends CI_Model {
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
         $config['newline'] = "\r\n";
-
-//         $this->email->initialize($config);
+        $config['protocol'] = "sendmail";
+        $config['wordwrap'] = TRUE;
+        $config['starttls'] = TRUE;
+ 
+        $this->email->initialize($config);
 //         $this->email->from($config['smtp_user'], $app_name);
 //          $this->email->cc($cc);
 //         $this->email->bcc($bcc);
@@ -156,14 +238,15 @@ class Email_model extends CI_Model {
         //$this->email->reply_to('no-replay@aileensoul.com', 'Explendid Videos');
         $this->email->subject($subject);
         $this->email->message($mail_html);
-        $this->email->set_mailtype("html");
-        $this->email->send();
-   
+     // $this->email->set_mailtype("html");
+      //   $this->email->send();
+ 
 //echo '<pre>'; print_r($this->email->print_debugger()); die();
-         if ($this->email->send()) {
-          
+         if ( $this->email->send()) {
+      
              return true;
          } else { 
+          
              return FALSE;
         }
     }

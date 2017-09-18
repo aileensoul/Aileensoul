@@ -1028,7 +1028,7 @@
                                                             ?>
                                                             <?php if (count($artmultiimage) == 1) { ?>
                                                                 <?php
-                                                                $allowed = array('gif', 'PNG', 'jpg', 'png');
+                                                                $allowed = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
                                                                 $allowespdf = array('pdf');
                                                                 $allowesvideo = array('mp4', '3gp', 'avi', 'ogg', '3gp', 'webm','MP4');
                                                                 $allowesaudio = array('mp3');
@@ -1852,16 +1852,16 @@
                         $('#file-fr').fileinput({
                         language: 'fr',
                                 uploadUrl: '#',
-                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4']
+                                allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf','MP4']
                         });
                         $('#file-es').fileinput({
                         language: 'es',
                                 uploadUrl: '#',
-                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4']
+                                allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf','MP4']
                         });
                         $("#file-1").fileinput({
                         uploadUrl: '#', // you must set a valid URL here else you will get an error
-                                allowedFileExtensions: ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4'],
+                                allowedFileExtensions: ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf','MP4'],
                                 overwriteInitial: false,
                                 maxFileSize: 1000000,
                                 maxFilesNum: 10,
@@ -1898,7 +1898,7 @@
                         $(document).ready(function () {
                         $("#test-upload").fileinput({
                         'showPreview': false,
-                                'allowedFileExtensions': ['jpg', 'png', 'gif', 'mp4', 'mp3', 'pdf','MP4'],
+                                'allowedFileExtensions': ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg', 'mp4', 'mp3', 'pdf','MP4'],
                                 'elErrorContainer': '#errorBlock'
                         });
                         $("#kv-explorer").fileinput({
@@ -3261,7 +3261,7 @@
                         var vfirstname = fileInput[0].name;
                         var ext = vfirstname.split('.').pop();
                         var ext1 = vname.split('.').pop();
-                        var allowedExtensions = ['jpg', 'jpeg', 'PNG', 'gif', 'png'];
+                        var allowedExtensions = ['jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg'];
                         var allowesvideo = ['mp4', 'webm', 'MP4'];
                         var allowesaudio = ['mp3'];
                         var allowespdf = ['pdf'];
@@ -3624,8 +3624,8 @@
                         // pop up open & close aarati code end
 
                     </script>
-                    <script src="<?php echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
-                    <script src="<?php echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
+                    <script src="<?php //echo base_url('js/demo/jquery-1.9.1.js'); ?>"></script>
+                    <script src="<?php //echo base_url('js/demo/jquery-ui-1.9.1.js'); ?>"></script>
                     <!-- script for skill textbox automatic end (option 2)-->
                     <!-- SCRIPT FOR AUTOFILL OF SEARCH KEYWORD START -->
 

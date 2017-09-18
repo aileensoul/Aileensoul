@@ -182,7 +182,7 @@
                                 </fieldset>
                                 <fieldset class="full-width">
                                     <label >Email Address <font  color="red">*</font> :</label>
-                                    <input type="text" name="email" id="email" tabindex="3" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>" maxlength="255">
+                                    <input type="email" name="email" id="email" tabindex="3" placeholder="Enter your Email Address" value="<?php echo $job[0]['user_email'];?>" maxlength="255">
                                 </fieldset>
 
                                 <fieldset class="fresher_radio col-xs-12" >
@@ -303,9 +303,9 @@
 
 <script>
 
-$.validator.addMethod("lowercase", function(value, element, regexpr) {          
-    return regexpr.test(value);
-}, "email Should be in Small Character");
+// $.validator.addMethod("lowercase", function(value, element, regexpr) {          
+//     return regexpr.test(value);
+// }, "email Should be in Small Character");
 
 
  $.validator.addMethod("regx2", function(value, element, regexpr) {          
@@ -392,7 +392,7 @@ $.validator.addMethod("regx1", function(value, element, regexpr) {
 
                     required: true,
                     email: true,
-                    lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
+                   // lowercase: /^[0-9a-z\s\r\n@!#\$\^%&*()+=_\-\[\]\\\';,\.\/\{\}\|\":<>\?]+$/,
                    remote: {
                        url: "<?php echo base_url() . 'job/check_email' ?>",
                        //async is used for double click on submit avoid

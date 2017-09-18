@@ -793,7 +793,7 @@
                                              <h6>
                                                 Grade :<!-- <span class="red">*</span> -->
                                              </h6>
-                                             <input type="text" name="grade[]" id="grade1" class="grade" tabindex="5" placeholder="Enter Grade" value="<?php
+                                             <input type="text" name="grade[]" id="grade1" class="grade" tabindex="5" placeholder="Ex : (A+,B+,C+,D+)" style="text-transform: uppercase;"  value="<?php
                                                 if ($grade1) {
                                                 echo $grade1;
                                                      }
@@ -1003,7 +1003,7 @@
                                           <h6>
                                              Grade :<!-- <span class="red">*</span> -->
                                           </h6>
-                                          <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Enter Grade" value="<?php
+                                          <input type="text" name="grade[]" id="grade1" class="grade" placeholder="Ex : (A+,B+,C+,D+)" style="text-transform: uppercase;"  value="<?php
                                              if ($grade1) {
                                                  echo $grade1;
                                              }

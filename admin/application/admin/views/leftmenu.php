@@ -82,6 +82,30 @@
                 </ul>
             </li>
             <!--End Freelancer Hire Management-->
+
+            <!--Start Business Management-->
+            <li <?php if ($this->uri->segment(1) == 'business' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-briefcase margin-r-5"></i> <span>Business Management</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url('business/user'); ?>"><i class="fa fa-users"></i>List Business User</a></li>
+                </ul>
+            </li>
+            <!--End Business Management-->
+
+            <!--Start Artistic Management-->
+            <li <?php if ($this->uri->segment(1) == 'artistic' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-briefcase margin-r-5"></i> <span>Artistic Management</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url('artistic/user'); ?>"><i class="fa fa-users"></i>List Artistic User</a></li>
+                </ul>
+            </li>
+            <!--End Artistic Management-->
             
              <!--Start search keyword  Management-->
             <li <?php if ($this->uri->segment(1) == 'search_keyword' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>

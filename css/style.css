@@ -6611,6 +6611,9 @@ word-break:break-word;
 .tabordion input[name="sections"]:checked ~ article {
     display: block;
 }
+.addcontact-text_full{width: 100%;
+text-align: left;
+font-size: 13px;}
 @media (max-width: 533px) {
     h1 {
         width: 100%;
@@ -16970,6 +16973,7 @@ padding-top: 7px !important;}
     .people-list .search input{width:95%;}
 }
 @media screen and (max-width: 479px) {
+    .post-design-name {width: 70%;}
     .designation_rec {
   width: 39% !important;
 }
@@ -17095,8 +17099,8 @@ padding: 5px 8px; font-size: 12px;}
         padding-left: 0;
     }
     .post-design-name ul li .post_dot {
-        font-size: 14px;
-        max-width: 61%;
+        font-size: 12px!important;
+        max-width: 55%;
     }
     .post-design-product {
         font-size: 12px;
@@ -17359,6 +17363,7 @@ padding: 5px 8px; font-size: 12px;}
     .people-list .search input{width:93%;}
 }
 @media screen and (max-width: 360px) {
+        .post-design-name {width: 65%;}
     #industry option{width:100%;}
     .designation_rec_1{width: 75%;}
     .bg-search .header2{margin-top:-7px;}

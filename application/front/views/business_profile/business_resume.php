@@ -787,7 +787,7 @@ if ($businessdata1[0]['user_id'] == $userid) {
                                                     <li><b>Details Of Your Business </b> 
 
                                                         <span>
-                                                            <p> <?php echo $this->common->make_links($businessdata1[0]['details']);
+                                                            <p> <?php echo nl2br($this->common->make_links($businessdata1[0]['details']));
                                                             ?></p>
                                                         </span>
                                                     </li>

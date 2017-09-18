@@ -21,6 +21,7 @@
 <!--<div class="countdown styled"></div> -->
 </div>
 </section>
+    <div class="countdown styled"></div>
 <section class="features spacing">
   <div class="container">
     <h2 class="text-center">Our Profiles</h2>
@@ -84,9 +85,9 @@
   </div>
 </section>
 <!--Scripts-->
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> 
-<script type="text/javascript" src="js/jquery.countdown.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>js/jquery-3.2.1.min.js"></script> 
+<script type="text/javascript" src="<?php echo base_url() ?>js/jquery.countdown.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>js/global.js"></script>
 
 </body>
 </html>

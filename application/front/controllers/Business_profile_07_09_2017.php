@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
@@ -2088,7 +2089,7 @@ class Business_profile extends MY_Controller {
 
             if (count($businessmultiimage) == 1) {
 
-                $allowed = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
+                $allowed = array('gif', 'PNG', 'jpg', 'jpeg', 'png');
                 $allowespdf = array('pdf');
                 $allowesvideo = array('mp4', 'webm', 'MP4');
                 $allowesaudio = array('mp3');
@@ -2486,7 +2487,7 @@ class Business_profile extends MY_Controller {
                         </div>
                     </div>
                     <div class="post-design-commnet-box col-md-12">
-                        <div class="post-design-proo-img hidden-mob">';
+                        <div class="post-design-proo-img">';
 
             $userid = $this->session->userdata('aileenuser');
             $business_userimage = $this->db->get_where('business_profile', array('user_id' => $userid, 'status' => 1))->row()->business_user_image;
@@ -2515,13 +2516,9 @@ class Business_profile extends MY_Controller {
 
                         <div id="content" class="col-md-12  inputtype-comment cmy_2" >
                             <div contenteditable="true" class="edt_2 editable_text" name="' . $row['business_profile_post_id'] . '"  id="post_comment' . $row['business_profile_post_id'] . '" placeholder="Add a Comment ..." onClick="entercomment(' . $row['business_profile_post_id'] . ')" onpaste="OnPaste_StripFormatting(this, event);"></div>
-                       
- <div class="mob-comment">
-                                                                    <button  id="'. $row['business_profile_post_id'].'" onClick="insert_comment(this.id)"><img src="'. base_url('img/send.png') .'"></button> 
-                                                                </div>
-</div>
+                        </div>
                       ' . form_error('post_comment') . ' 
-                        <div class="comment-edit-butn  hidden-mob">       
+                        <div class="comment-edit-butn">       
                             <button id="' . $row['business_profile_post_id'] . '" onClick="insert_comment(this.id)">Comment
                             </button>
                         </div>
@@ -3795,7 +3792,7 @@ class Business_profile extends MY_Controller {
 
         include_once 'getExtension.php';
 
-        $valid_formats = array('jpg', 'JPG', 'jpeg', 'JPEG', 'PNG', 'png', 'gif', 'GIF', 'psd', 'PSD', 'bmp', 'BMP', 'tiff', 'TIFF', 'iff', 'IFF', 'xbm', 'XBM', 'webp', 'WebP', 'HEIF', 'heif', 'BAT', 'bat', 'BPG', 'bpg', 'SVG', 'svg');
+        $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg", "PNG", "JPG", "JPEG", "GIF", "BMP");
         if (isset($_POST) && $_SERVER['REQUEST_METHOD'] == "POST" && isset($session_uid)) {
             $name = $_FILES['photoimg']['name'];
             $size = $_FILES['photoimg']['size'];
@@ -9940,25 +9937,23 @@ class Business_profile extends MY_Controller {
                     if ($busdata[0]['business_user_image']) {
 
                         if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
-                           /* $a = $busdata[0]['company_name'];
+                            $a = $busdata[0]['company_name'];
                             $acr = substr($a, 0, 1);
 
                             $contactdata .= '<div class="post-img-div">';
                             $contactdata .= ucfirst(strtolower($acr));
-                            $contactdata .= '</div>'; */
-                            $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
+                            $contactdata .= '</div>';
                         } else {
 
                             $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
                         }
                     } else {
-                        /*$a = $busdata[0]['company_name'];
+                        $a = $busdata[0]['company_name'];
                         $acr = substr($a, 0, 1);
 
                         $contactdata .= '<div class="post-img-div">';
                         $contactdata .= ucfirst(strtolower($acr));
-                        $contactdata .= '</div>';*/
-                        $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
+                        $contactdata .= '</div>';
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text">';
@@ -9992,25 +9987,23 @@ class Business_profile extends MY_Controller {
                     if ($busdata[0]['business_user_image']) {
 
                         if (!file_exists($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image'])) {
-//                            $a = $busdata[0]['company_name'];
-//                            $acr = substr($a, 0, 1);
-//
-//                            $contactdata .= '<div class="post-img-div">';
-//                            $contactdata .= ucfirst(strtolower($acr));
-//                            $contactdata .= '</div>';
-                            $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
+                            $a = $busdata[0]['company_name'];
+                            $acr = substr($a, 0, 1);
+
+                            $contactdata .= '<div class="post-img-div">';
+                            $contactdata .= ucfirst(strtolower($acr));
+                            $contactdata .= '</div>';
                         } else {
 
                             $contactdata .= '<img src="' . base_url($this->config->item('bus_profile_thumb_upload_path') . $busdata[0]['business_user_image']) . '">';
                         }
                     } else {
-//                        $a = $busdata[0]['company_name'];
-//                        $acr = substr($a, 0, 1);
-//
-//                        $contactdata .= '<div class="post-img-div">';
-//                        $contactdata .= ucfirst(strtolower($acr));
-//                        $contactdata .= '</div>';
-                        $contactdata .= '<img src="'. base_url() . NOBUSIMAGE . '">';
+                        $a = $busdata[0]['company_name'];
+                        $acr = substr($a, 0, 1);
+
+                        $contactdata .= '<div class="post-img-div">';
+                        $contactdata .= ucfirst(strtolower($acr));
+                        $contactdata .= '</div>';
                     }
                     $contactdata .= '</div>';
                     $contactdata .= '<div class="addcontact-text_full">';
@@ -10418,7 +10411,7 @@ class Business_profile extends MY_Controller {
                     $inddata = $this->common->select_data_by_id('industry_type', 'industry_id', $busdata[0]['industriyal'], $data = '*', $join_str = array());
 
                     $contactdata .= '<li>';
-                    $contactdata .= '<div class="addcontact-left custome-approved-contact">';
+                    $contactdata .= '<div class="addcontact-left">';
                     $contactdata .= '<a href="' . base_url('business_profile/business_profile_manage_post/' . $busdata[0]['business_slug']) . '">';
                     $contactdata .= '<div class="addcontact-pic">';
 
@@ -10438,7 +10431,7 @@ class Business_profile extends MY_Controller {
                         $contactdata .= '<img  src="' . base_url(NOBUSIMAGE) . '"  alt="">';
                     }
                     $contactdata .= '</div>';
-                    $contactdata .= '<div class="addcontact-text_full">';
+                    $contactdata .= '<div class="addcontact-text">';
                     $contactdata .= '<span><b>' . ucfirst(strtolower($busdata[0]['company_name'])) . '</b> confirmed your contact request</span>';
 //$contactdata .= '' . $inddata[0]['industry_name'] . '';
                     $contactdata .= '</div>';
@@ -12495,9 +12488,8 @@ class Business_profile extends MY_Controller {
         $searchTerm = $_GET['term'];
 
         if (!empty($searchTerm)) {
-            $contition_array = array('state_id !=' => '0');
             $search_condition = "(city_name LIKE '" . trim($searchTerm) . "%')";
-            $citylist = $this->common->select_data_by_search('cities', $search_condition, $contition_array, $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
+            $citylist = $this->common->select_data_by_search('cities', $search_condition, $contition_array = array(), $data = 'city_id as id,city_name as text', $sortby = 'city_name', $orderby = 'desc', $limit = '', $offset = '', $join_str5 = '', $groupby = 'city_name');
         }
         foreach ($citylist as $key => $value) {
 
@@ -12567,4 +12559,3 @@ class Business_profile extends MY_Controller {
 
 
 }
- 
