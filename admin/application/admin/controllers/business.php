@@ -10,7 +10,7 @@ if (!defined('BASEPATH'))
 
 class Business extends CI_Controller {
 
-    //public $data;
+    public $data;
 
 public function __construct()
 {
@@ -38,71 +38,71 @@ public function __construct()
 //for list of all user start
 public function user() 
 {
-   echo "hi";die();
-// This is userd for pagination offset and limoi start
-//           $limit = $this->paging['per_page'];
-//         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
-
-//             $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
-
-//             $sortby = $this->uri->segment(3);
-
-//             $orderby = $this->uri->segment(4);
-
-//         } else {
-
-//             $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
-
-//             $sortby = 'business_profile_id';
-
-//             $orderby = 'asc';
-
-//         }
   
-//         $this->data['offset'] = $offset;
+//This is userd for pagination offset and limoi start
+          $limit = $this->paging['per_page'];
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
 
-//        $data='business_profile_id,contact_person,company_name,contact_email,country ,state,city,business_profile_image,created_date,modified_date ,status','is_deleted';
-//        $contition_array = array('is_deleted' => '0');
-//         $this->data['users'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str = array(), $groupby = '');
-// // This is userd for pagination offset and limoi End
+            $offset = ($this->uri->segment(5) != '') ? $this->uri->segment(5) : 0;
 
+            $sortby = $this->uri->segment(3);
 
-//         //This if and else use for asc and desc while click on any field start
-//         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+            $orderby = $this->uri->segment(4);
 
-//             $this->paging['base_url'] = site_url("business/user/" . $short_by . "/" . $order_by);
+        } else {
 
-//         } else {
+            $offset = ($this->uri->segment(3) != '') ? $this->uri->segment(3) : 0;
 
-//             $this->paging['base_url'] = site_url("business/user/");
+            $sortby = 'business_profile_id';
 
-//         }
+            $orderby = 'asc';
 
-//         if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+        }
+  
+        $this->data['offset'] = $offset;
 
-//             $this->paging['uri_segment'] = 5;
-
-//         } else {
-
-//             $this->paging['uri_segment'] = 3;
-
-//         }
-//         //This if and else use for asc and desc while click on any field End
+       $data='business_profile_id,contact_person,company_name,contact_email,country ,state,city,business_profile_image,created_date,modified_date ,status,is_deleted';
+       $contition_array = array('is_deleted' => '0');
+        $this->data['users'] = $this->common->select_data_by_condition('business_profile', $contition_array, $data, $sortby, $orderby, $limit, $offset, $join_str = array(), $groupby = '');
+// This is userd for pagination offset and limoi End
 
 
-//         $contition_array = array( 'is_deleted =' => '0');
-//         $this->paging['total_rows'] = count($this->common->select_data_by_condition('business_profile', $contition_array, 'business_profile_id'));
+        //This if and else use for asc and desc while click on any field start
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
 
-//         $this->data['total_rows'] = $this->paging['total_rows'];
+            $this->paging['base_url'] = site_url("business/user/" . $short_by . "/" . $order_by);
 
-//         $this->data['limit'] = $limit;
+        } else {
 
-//         $this->pagination->initialize($this->paging);
+            $this->paging['base_url'] = site_url("business/user/");
 
-//         $this->data['search_keyword'] = '';
+        }
+
+        if ($this->uri->segment(3) != '' && $this->uri->segment(4) != '') {
+
+            $this->paging['uri_segment'] = 5;
+
+        } else {
+
+            $this->paging['uri_segment'] = 3;
+
+        }
+        //This if and else use for asc and desc while click on any field End
 
 
-        $this->load->view('business/user');
+        $contition_array = array( 'is_deleted =' => '0');
+        $this->paging['total_rows'] = count($this->common->select_data_by_condition('business_profile', $contition_array, 'business_profile_id'));
+
+        $this->data['total_rows'] = $this->paging['total_rows'];
+
+        $this->data['limit'] = $limit;
+
+        $this->pagination->initialize($this->paging);
+
+        $this->data['search_keyword'] = '';
+
+
+        $this->load->view('business/user',$this->data);
 }
 //for list of all user End
 
@@ -196,8 +196,8 @@ public function search()
   
         $this->data['offset'] = $offset;
         
-          $data='business_profile_id,contact_person,company_name,contact_email,country ,state,city,business_profile_image,created_date,modified_date ,status','is_deleted';
-           $search_condition = "(company_name LIKE '%$search_keyword%' OR email LIKE '%$search_keyword%')";
+          $data='business_profile_id,contact_person,company_name,contact_email,country ,state,city,business_profile_image,created_date,modified_date ,status,is_deleted';
+           $search_condition = "(company_name LIKE '%$search_keyword%' OR contact_email LIKE '%$search_keyword%')";
             $contition_array = array('is_deleted' => '0');
             $this->data['users'] = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array,$data, $sortby, $orderby, $limit, $offset);
  
@@ -262,8 +262,8 @@ public function search()
   
         $this->data['offset'] = $offset;
         
-           $data='business_profile_id,contact_person,company_name,contact_email,country ,state,city,business_profile_image,created_date,modified_date ,status','is_deleted';
-           $search_condition = "(company_name LIKE '%$search_keyword%' OR email LIKE '%$search_keyword%')";
+           $data='business_profile_id,contact_person,company_name,contact_email,country ,state,city,business_profile_image,created_date,modified_date ,status,is_deleted';
+           $search_condition = "(company_name LIKE '%$search_keyword%' OR contact_email LIKE '%$search_keyword%')";
             $contition_array = array('is_deleted' => '0');
             $this->data['users'] = $this->common->select_data_by_search('business_profile', $search_condition, $contition_array,$data, $sortby, $orderby, $limit, $offset);
 // This is userd for pagination offset and limoi End

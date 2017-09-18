@@ -19,7 +19,7 @@
                     Home
                 </a>
             </li>
-            <li class="active">Job profile</li>
+            <li class="active">Business profile</li>
         </ol>
     </section>
 
@@ -38,21 +38,14 @@
              <?php  if($user[0]['job_user_image']) 
                                 {
                         ?>
-                                <img class="profile-user-img img-responsive img-circle" src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user[0]['job_user_image']; ?>" alt=""  style="height: 100px; width: 100px;">
+                                <img class="profile-user-img img-responsive img-circle" src="<?php echo SITEURL . $this->config->item('bus_profile_thumb_upload_path') . $user[0]['business_profile_image']; ?>" alt=""  style="height: 100px; width: 100px;">
                         <?php }else{
                         ?>
                                 <img class="profile-user-img img-responsive img-circle" alt="" style="height: 100px; width: 100px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
                         <?php } ?>
             
-              <h3 class="profile-username text-center"><?php echo ucfirst($user[0]['fname']); echo ' ';echo ucfirst($user[0]['lname']);  ?></h3>
+              <h3 class="profile-username text-center"><?php echo ucfirst($user[0]['company_name']);?></h3>
 
-              <?php if($user[0]['designation'])
-                    {
-              ?>
-              <p class="text-muted text-center"><?php echo ucwords($user[0]['designation']); ?></p>
-              <?php
-                    }
-              ?>
             </div>
             <!-- /.box-body -->
           </div>
@@ -71,121 +64,26 @@
                <p class="text-muted">
                <?php 
 
-                            $cityname = $this->db->get_where('cities', array('city_id' => $user[0]['city_id']))->row()->city_name;
+                            $cityname = $this->db->get_where('cities', array('city_id' => $user[0]['city']))->row()->city_name;
 
                             echo $cityname; if( $cityname){echo ",";}
 
-                            $statename = $this->db->get_where('states', array('state_id' => $user[0]['state_id']))->row()->state_name;
+                            $statename = $this->db->get_where('states', array('state_id' => $user[0]['state']))->row()->state_name;
 
                             echo $statename;if( $statename){echo ",";}
 
-                            $countryname = $this->db->get_where('countries', array('country_id' => $user[0]['country_id']))->row()->country_name; 
+                            $countryname = $this->db->get_where('countries', array('country_id' => $user[0]['country']))->row()->country_name; 
                                             
                             echo $countryname;
                 ?>
                 </p>
               
-
-          <?php 
-            if($user[0]['keyskill'])
-            {
-           ?>
-           <hr>
-              <strong><i class="fa fa-pencil margin-r-5"></i>Skills</strong>
-
-              <p>
-                 <?php
-                            $aud = $user[0]['keyskill'];
-                                                            
-                            $aud_res = explode(',', $aud);
-                                                            
-                            foreach ($aud_res as $skill) 
-                            {
-                                                            
-                                $cache_time = $this->db->get_where('skill', array('skill_id' => $skill))->row()->skill;
-                              ?>
-                              <span class="label label-primary"><?php echo  $cache_time; ?></span>
-                  <?php
-                              }
-                  ?>    
-                          
-              </p>
-
-              
-              <?php
-                }
-              ?>
-
-            <?php 
-              if($other_skill)
-              {
-            ?>
-            <hr>
-              <strong><i class="fa fa-pencil margin-r-5"></i>Other Skills</strong>
-
-              <p>
-                 <?php
-                            foreach ($other_skill as $skill) 
-                            {
-                                                            
-                            
-                  ?>
-                    <span class="label bg-red"><?php echo  $skill['skill']; ?></span>
-                  <?php
-                              }
-                  ?>    
-                          
-              </p>
-
-             
-              <?php
-                }
-              ?>
-
-            <?php 
-            if($user[0]['curricular'])
-            {
-           ?>
+           
              <hr>
-              <strong><i class="fa fa-pencil-square-o margin-r-5"></i>Extra Curricular Activities</strong>
+              <strong><i class="fa fa-pencil-square-o margin-r-5"></i>Postal Address</strong>
 
-              <p><?php echo $user[0]['curricular']; ?></p>
-                
-            <?php
-                }
-            ?>
-
-             <hr>
-              <strong><i class="fa fa-thumbs-o-up margin-r-5"></i>Interest</strong>
-
-              <p><?php echo $user[0]['interest']; ?></p>
-                
-
-            <?php 
-            if($user[0]['reference'])
-            {
-           ?>
-             <hr>
-              <strong><i class="fa fa-newspaper-o margin-r-5"></i>Reference</strong>
-
-              <p><?php echo $user[0]['reference']; ?></p>
-                
-            <?php
-                }
-            ?>
-
-            <?php 
-            if($user[0]['carrier'])
-            {
-           ?>
-              <hr>
-              <strong><i class="fa fa-file-text-o margin-r-5"></i>Carrier Objectives</strong>
-
-              <p><?php echo $user[0]['carrier']; ?></p>
-
-            <?php
-                }
-            ?>
+              <p><?php echo $user[0]['address']; if($user[0]['pincode']){echo ' -';echo $user[0]['pincode'];} ?></p>
+          
             </div>
             <!-- /.box-body -->
           </div>
@@ -196,25 +94,24 @@
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
 
-              <li class="active"><a href="#basic_information" data-toggle="tab"><i class="fa fa-fw fa-info-circle margin-r-5"></i>Basic Information</a>
+              <li class="active"><a href="#basic_information" data-toggle="tab"><i class="fa fa-fw fa-info-circle margin-r-5"></i>Contact Information</a>
               </li>
 
-              <li><a href="#address" data-toggle="tab"><i class="fa fa-fw fa-home margin-r-5"></i>Address</a>
-              </li>
-
-              <li><a href="#education" data-toggle="tab"><i class="fa fa-fw fa-university margin-r-5"></i>Education Qualification</a>
+              <li><a href="#address" data-toggle="tab"><i class="fa fa-fw fa-industry margin-r-5"></i>Description</a>
               </li>
 
 <?php
-    if ($user[0]['project_name'] != "" || $user[0]['project_duration'] != "" || $user[0]['project_description'] != "" || $user[0]['training_as'] != "" || $user[0]['training_duration'] != "" || $user[0]['training_organization'] != "") 
+    if ($user[0]['business_profile_image']) 
     {
 ?>
-              <li><a href="#project" data-toggle="tab"><i class="fa fa-fw fa-tasks margin-r-5"></i>Project And Training / Internship</a>
+              <li><a href="#education" data-toggle="tab"><i class="fa fa-fw fa-university margin-r-5"></i>Business Images</a>
               </li>
+
 <?php
     }
 ?>
-              <li><a href="#work_exp" data-toggle="tab"><i class="fa fa-fw fa-industry margin-r-5"></i>Work Experience</a>
+
+     <li><a href="#work_exp" data-toggle="tab"><i class="fa fa-fw fa-industry margin-r-5"></i>Work Experience</a>
               </li>
 
             </ul>
