@@ -19,7 +19,7 @@ echo $leftmenu;
                     Home
                 </a>
             </li>
-            <li class="active">Job User</li>
+            <li class="active">Art User</li>
         </ol>
         <!-- <div class="fr">
                          <button name="Add" class="btn bg-orange btn-flat margin" ><i class="fa fa-fw fa-user-plus" aria-hidden="true"></i> Add User</button>
@@ -49,10 +49,10 @@ echo $leftmenu;
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Job User</h3>      
+                        <h3 class="box-title">Art User</h3>      
                     
                     <div class="box-tools">
-                       <?php echo form_open('job/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
+                       <?php echo form_open('artistic/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
                            <div class="input-group input-group-sm" >
 
 
@@ -67,7 +67,7 @@ echo $leftmenu;
                             { 
                     ?>
 
-                            <a href="<?php echo base_url('job/clear_search') ?>">Clear Search</a>
+                            <a href="<?php echo base_url('artistic/clear_search') ?>">Clear Search</a>
 
                         <?php 
                                 } 
@@ -118,10 +118,10 @@ echo $leftmenu;
                      <a href="javascript:void(0);">Phone No.</a>
                      </th>
 
-                    <th><i class="fa fa-fw fa-venus"></i> 
+                    <!-- <th><i class="fa fa-fw fa-venus"></i> 
                      <a href="javascript:void(0);">Gender</a>
                      </th>
-
+ -->
                     <th><i class="fa fa-fw fa-home"></i> 
                      <a href="javascript:void(0);">Location</a>
                      </th>
@@ -155,16 +155,16 @@ echo $leftmenu;
                         foreach ($users as $user) {
                 ?>
 
-                <tr id="delete<?php echo $user['job_id']?>">
+                <tr id="delete<?php echo $user['art_id']?>">
                     <td><?php echo $i++; ?></td>
 
-                    <td><?php echo ucfirst($user['fname']); echo ' ';echo ucfirst($user['lname']);  ?></td>
+                    <td><?php echo ucfirst($user['art_name']); echo ' ';echo ucfirst($user['art_lastname']);  ?></td>
 
-                    <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user['art_email']; ?></td>
 
-                    <td><?php if($user['phnno'])
+                    <td><?php if($user['art_phnno'])
                               {
-                                echo $user['phnno']; 
+                                echo $user['art_phnno']; 
                               }
                               else
                               {
@@ -173,7 +173,7 @@ echo $leftmenu;
                             ?>
                       </td>
 
-                    <td><?php echo $user['gender']; ?>
+                   <!--  <td><?php echo $user['gender']; ?>
                         <?php if($user['gender']=="female")
                         {
                         ?>
@@ -188,45 +188,45 @@ echo $leftmenu;
                         }
                         ?>
                     </td>
-
+ -->
 
                     <td> 
                         <?php 
 
-                            $cityname = $this->db->get_where('cities', array('city_id' => $user['city_id']))->row()->city_name;
+                            $cityname = $this->db->get_where('cities', array('city_id' => $user['art_city']))->row()->city_name;
 
                             echo $cityname; if( $cityname){echo ",<br>";}
 
-                            $statename = $this->db->get_where('states', array('state_id' => $user['state_id']))->row()->state_name;
+                            $statename = $this->db->get_where('states', array('state_id' => $user['art_state']))->row()->state_name;
 
                             echo $statename;if( $statename){echo ",<br>";}
 
-                            $countryname = $this->db->get_where('countries', array('country_id' => $user['country_id']))->row()->country_name; 
+                            $countryname = $this->db->get_where('countries', array('country_id' => $user['art_country']))->row()->country_name; 
                                             
                             echo $countryname;
                         ?>
                     </td>
 
                     <td> 
-                        <?php  if($user['job_user_image']) 
+                        <?php  if($user['art_user_image']) 
                                 {
                         ?>
-                                <img src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user['job_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
+                                <img src="<?php echo SITEURL . $this->config->item('art_profile_thumb_upload_path') . $user['art_user_image']; ?>" alt=""  style="height: 70px; width: 70px;">
                         <?php }else{
                         ?>
                                 <img alt="" style="height: 70px; width: 70px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
                         <?php } ?>
                     </td>
 
-                    <td id="active<?php echo $user['job_id']?>">
+                    <td id="active<?php echo $user['art_id']?>">
                         <?php if ($user['status'] == 1) 
                               {
                         ?>
-                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['job_id']; ?>);">Active</button>
+                                    <button class="btn btn-block btn-primary btn-sm"  onclick="deactive_user(<?php echo $user['art_id']; ?>);">Active</button>
                         <?php 
                             }else{ ?>
 
-                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['job_id']; ?>);">Deactive</button>
+                                        <button class="btn btn-block btn-success btn-sm" onclick="active_user(<?php echo $user['art_id']; ?>);">Deactive</button>
 
                          <?php }?></button>
                     </td>
@@ -241,11 +241,11 @@ echo $leftmenu;
                          <i class="fa fa-pencil"></i>
                         </button> -->
 
-                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['job_id']; ?>);">
+                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['art_id']; ?>);">
                         <i class="fa fa-trash-o"></i>
                         </button>
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('job/profile/'.$user['job_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('artistic/profile/'.$user['art_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
@@ -359,7 +359,7 @@ echo $leftmenu;
 
 <script>
 //deactive user Start
-   function deactive_user(job_id) 
+   function deactive_user(art_id) 
    {
    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
@@ -368,12 +368,12 @@ echo $leftmenu;
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/deactive_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "artistic/deactive_user" ?>',
+                          data: 'art_id=' + art_id,
                           success: function (response) 
                           {    
                                  $.fancybox.close();
-                                $('#' + 'active' + job_id).html(response);
+                                $('#' + 'active' + art_id).html(response);
                           }
             });   
         });
@@ -381,7 +381,7 @@ echo $leftmenu;
 //deactive user End
 
 //active user Start
-   function active_user(job_id) 
+   function active_user(art_id) 
    {
    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
@@ -390,12 +390,12 @@ echo $leftmenu;
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/active_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "artistic/active_user" ?>',
+                          data: 'art_id=' + art_id,
                           success: function (response) 
                           {        
                                   $.fancybox.close();  
-                                  $('#' + 'active' + job_id).html(response);
+                                  $('#' + 'active' + art_id).html(response);
                           }
             });   
         });
@@ -403,7 +403,7 @@ echo $leftmenu;
 //active user End\
 
 //Delete user Start
-   function delete_user(job_id) 
+   function delete_user(art_id) 
    {
    
        $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
@@ -412,8 +412,8 @@ echo $leftmenu;
         {
             $.ajax({
                          type: 'POST',
-                          url: '<?php echo base_url() . "job/delete_user" ?>',
-                          data: 'job_id=' + job_id,
+                          url: '<?php echo base_url() . "artistic/delete_user" ?>',
+                          data: 'art_id=' + art_id,
                           success: function (response) 
                           {          
                                 window.location.reload();

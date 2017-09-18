@@ -19,7 +19,7 @@
                     Home
                 </a>
             </li>
-            <li class="active">Job profile</li>
+            <li class="active">Artistic profile</li>
         </ol>
     </section>
 
@@ -35,16 +35,16 @@
           <div class="box box-primary mt0">
             <div class="box-body box-profile">
 
-             <?php  if($user[0]['job_user_image']) 
+             <?php  if($user[0]['art_user_image']) 
                                 {
                         ?>
-                                <img class="profile-user-img img-responsive img-circle" src="<?php echo SITEURL . $this->config->item('job_profile_thumb_upload_path') . $user[0]['job_user_image']; ?>" alt=""  style="height: 100px; width: 100px;">
+                                <img class="profile-user-img img-responsive img-circle" src="<?php echo SITEURL . $this->config->item('art_profile_thumb_upload_path') . $user[0]['art_user_image']; ?>" alt=""  style="height: 100px; width: 100px;">
                         <?php }else{
                         ?>
                                 <img class="profile-user-img img-responsive img-circle" alt="" style="height: 100px; width: 100px;" class="img-circle" src="<?php echo SITEURL.(NOIMAGE); ?>" alt="" />
                         <?php } ?>
             
-              <h3 class="profile-username text-center"><?php echo ucfirst($user[0]['fname']); echo ' ';echo ucfirst($user[0]['lname']);  ?></h3>
+              <h3 class="profile-username text-center"><?php echo ucfirst($user[0]['art_name']); echo ' ';echo ucfirst($user[0]['art_lastname']);  ?></h3>
 
               <?php if($user[0]['designation'])
                     {
@@ -71,15 +71,15 @@
                <p class="text-muted">
                <?php 
 
-                            $cityname = $this->db->get_where('cities', array('city_id' => $user[0]['city_id']))->row()->city_name;
+                            $cityname = $this->db->get_where('cities', array('city_id' => $user[0]['art_city']))->row()->city_name;
 
                             echo $cityname; if( $cityname){echo ",";}
 
-                            $statename = $this->db->get_where('states', array('state_id' => $user[0]['state_id']))->row()->state_name;
+                            $statename = $this->db->get_where('states', array('state_id' => $user[0]['art_state']))->row()->state_name;
 
                             echo $statename;if( $statename){echo ",";}
 
-                            $countryname = $this->db->get_where('countries', array('country_id' => $user[0]['country_id']))->row()->country_name; 
+                            $countryname = $this->db->get_where('countries', array('country_id' => $user[0]['art_country']))->row()->country_name; 
                                             
                             echo $countryname;
                 ?>
@@ -202,19 +202,10 @@
               <li><a href="#address" data-toggle="tab"><i class="fa fa-fw fa-home margin-r-5"></i>Address</a>
               </li>
 
-              <li><a href="#education" data-toggle="tab"><i class="fa fa-fw fa-university margin-r-5"></i>Education Qualification</a>
+              <li><a href="#education" data-toggle="tab"><i class="fa fa-fw fa-university margin-r-5"></i>Art Information</a>
               </li>
 
-<?php
-    if ($user[0]['project_name'] != "" || $user[0]['project_duration'] != "" || $user[0]['project_description'] != "" || $user[0]['training_as'] != "" || $user[0]['training_duration'] != "" || $user[0]['training_organization'] != "") 
-    {
-?>
-              <li><a href="#project" data-toggle="tab"><i class="fa fa-fw fa-tasks margin-r-5"></i>Project And Training / Internship</a>
-              </li>
-<?php
-    }
-?>
-              <li><a href="#work_exp" data-toggle="tab"><i class="fa fa-fw fa-industry margin-r-5"></i>Work Experience</a>
+              <li><a href="#work_exp" data-toggle="tab"><i class="fa fa-fw fa-industry margin-r-5"></i>Portfolio</a>
               </li>
 
             </ul>
@@ -230,14 +221,14 @@
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Name</label>
                     <div class="col-sm-2 control-label">
-                     <?php echo ucfirst($user[0]['fname']); echo ' ';echo ucfirst($user[0]['lname']);  ?>
+                     <?php echo ucfirst($user[0]['art_name']); echo ' ';echo ucfirst($user[0]['art_lastname']);  ?>
                     </div>
                   </div>
 
                   <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-2 control-label">
-                     <?php echo $user[0]['email']; ?> 
+                     <?php echo $user[0]['art_email']; ?> 
                     </div>
                   </div>
 
@@ -245,10 +236,10 @@
                      <label for="inputName" class="col-sm-2 control-label">Phone Number</label>
                     <div class="col-sm-2 control-label">
 
-                  <?php if( $user[0]['phnno'])
+                  <?php if( $user[0]['art_phnno'])
                         {
                     ?>
-                    <?php echo $user[0]['phnno']; ?>
+                    <?php echo $user[0]['art_phnno']; ?>
                      <?php 
                         }
                         else
@@ -260,13 +251,13 @@
                   </div>
                  
 
-                   <div class="form-group">
+                   <!-- <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Marital Status</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['marital_status']; ?>
                     </div>
-                  </div>
-
+                  </div> -->
+<!-- 
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Nationality</label>
                     <div class="col-sm-2 control-label">
@@ -275,9 +266,9 @@
                               echo $cache_time;
                         ?>
                     </div>
-                  </div>
+                  </div> -->
 
-                   <div class="form-group">
+                  <!--  <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Language</label>
                     <div class="col-sm-2 control-label">
                    <?php
@@ -293,21 +284,21 @@
                                              echo $listFinal;
                                              ?>   
                     </div>
-                  </div>
+                  </div> -->
 
-                   <div class="form-group">
+                  <!--  <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Date Of Birth</label>
                     <div class="col-sm-2 control-label">
                       <?php echo date('d/m/Y',strtotime($user[0]['dob'])); ?>
                     </div>
-                  </div>
+                  </div> -->
 
-                   <div class="form-group">
+                   <!-- <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Gender</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['gender']; ?>
                     </div>
-                  </div>
+                  </div> -->
                 </form>
 
                 </div>
@@ -323,14 +314,14 @@
                   <form class="form-horizontal">
 
                         <div class="text-center">
-                                <h3 class="head_title">Present Address</h3>
+                                <h3 class="head_title">Address</h3>
                         </div>
 
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Country</label>
                     <div class="col-sm-2 control-label">
                      <?php
-                              $cache_time = $this->db->get_where('countries', array('country_id' => $user[0]['country_id']))->row()->country_name;
+                              $cache_time = $this->db->get_where('countries', array('country_id' => $user[0]['art_country']))->row()->country_name;
                               echo $cache_time;
                       ?>  
                     </div>
@@ -340,7 +331,7 @@
                      <label for="inputName" class="col-sm-2 control-label">State</label>
                     <div class="col-sm-2 control-label">
                      <?php
-                                $cache_time = $this->db->get_where('states', array('state_id' => $user[0]['state_id']))->row()->state_name;
+                                $cache_time = $this->db->get_where('states', array('state_id' => $user[0]['art_state']))->row()->state_name;
                                 echo $cache_time;
                       ?> 
                     </div>
@@ -349,9 +340,9 @@
                    <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">City</label>
                     <div class="col-sm-2 control-label">
-                     <?php if($user[0]['city_id'])
+                     <?php if($user[0]['art_city'])
                           {
-                             $cache_time = $this->db->get_where('cities', array('city_id' => $user[0]['city_id']))->row()->city_name;
+                             $cache_time = $this->db->get_where('cities', array('city_id' => $user[0]['art_city']))->row()->city_name;
                               echo $cache_time;
                           }
                           else
@@ -366,9 +357,9 @@
                      <label for="inputName" class="col-sm-2 control-label">Pincode</label>
                     <div class="col-sm-2 control-label">
                     <?php 
-                          if($user[0]['pincode'])
+                          if($user[0]['art_pincode'])
                           {
-                            echo $user[0]['pincode']; 
+                            echo $user[0]['art_pincode']; 
                           }
                           else
                           {
@@ -378,18 +369,18 @@
                     </div>
                   </div>
 
-                   <div class="form-group">
+                   <!-- <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Address</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['address']; ?>
                     </div>
-                  </div>
+                  </div> -->
 
-                    <div class="text-center">
+                   <!--  <div class="text-center">
                                 <h3 class="head_title">Permenant Address</h3>
-                    </div>
+                    </div> -->
 
-                     <div class="form-group">
+                    <!--  <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Country</label>
                     <div class="col-sm-2 control-label">
                     <?php
@@ -398,8 +389,8 @@
                     ?>
                     </div>
                   </div>
-
-                   <div class="form-group">
+ -->
+                  <!--  <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">State</label>
                     <div class="col-sm-2 control-label">
                      <?php
@@ -407,9 +398,9 @@
                             echo $cache_time;
                       ?>
                     </div>
-                  </div>
+                  </div> -->
 
-                   <div class="form-group">
+                   <!-- <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">City</label>
                     <div class="col-sm-2 control-label">
                      <?php
@@ -425,8 +416,8 @@
                       ?>
                     </div>
                   </div>
-
-                   <div class="form-group">
+ -->
+                   <!-- <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Pincode</label>
                     <div class="col-sm-2 control-label">
                      <?php 
@@ -440,15 +431,15 @@
                             }
                       ?>
                     </div>
-                  </div>
+                  </div> -->
 
-                   <div class="form-group">
+                  <!--  <div class="form-group">
                      <label for="inputName" class="col-sm-2 control-label">Address</label>
                     <div class="col-sm-2 control-label">
                      <?php echo $user[0]['address_permenant']; ?>
                     </div>
                   </div>
-
+ -->
                 </form>
 
                 </div>
