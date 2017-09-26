@@ -119,6 +119,18 @@
                 </ul>
             </li>
             <!--End Artistic Management-->
+
+              <!--Start CSV Management-->
+            <li <?php if ($this->uri->segment(1) == 'csv_file' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-briefcase margin-r-5"></i> <span>CSV Upload</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url('csv_file/index'); ?>"><i class="fa fa-users"></i>Upload CSV</a></li>
+                </ul>
+            </li>
+            <!--End CSV Management-->
             
              <!--Start search keyword  Management-->
             <li <?php if ($this->uri->segment(1) == 'search_keyword' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
