@@ -165,6 +165,23 @@
             </li>
            <!--End Blog-->
 
+
+            <!--Start Feedback-->
+            <li <?php if ($this->uri->segment(1) == 'feedback' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
+                <a href="#">
+                    <i class="fa fa-rss" aria-hidden="true"></i><span>Feedback</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">     
+
+                 <!--    <li><a href="<?php //echo base_url('blog_tag/blog_list'); ?>"><i class="fa fa-tag" aria-hidden="true"></i></i>Tag List</a></li>
+ -->
+                    <li><a href="<?php echo base_url('feedback'); ?>"><i class="fa fa-plus" aria-hidden="true"></i>Feedback List</a></li>
+                </ul>
+            </li>
+           <!--End Feedback-->
+
+
            <!--Start Blog-->
             <li <?php if ($this->uri->segment(1) == 'email' || $this->uri->segment(1) == '') { ?> class="active treeview" <?php } else { ?> class="treeview"   <?php } ?>>
                 <a href="#">
