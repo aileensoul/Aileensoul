@@ -42,7 +42,7 @@ class Csv_file extends CI_Controller {
             if ($_FILES["file"]["size"] > 0) {
                 $file = fopen($filename, "r");
                 fgetcsv($file);
-                while (($line = fgetcsv($file, 100)) !== FALSE) {
+                while (($line = fgetcsv($file, 10000)) !== FALSE) {
 
                     $prevQuery = $this->db->get_where('user', array('user_email' => $line[4]))->row()->user_id;
                     if (count($prevResult) > 0) {
@@ -81,11 +81,13 @@ class Csv_file extends CI_Controller {
                             if($insert_id){
                                 //echo "444";die();
                                 $user_id = $this->db->get_where('user', array('user_email' => $line[4]))->row()->user_id;
-                                echo trim($line[22]);
-                                echo trim($line[23]);
-                                 echo trim($line[24]);
+                                
+                               // echo $line[23];
+                                 
                                 $keyskill= explode(',', $line[23]);
-                                echo "<pre>";print_r($keyskill);die();
+                                foreach ($keyskill as $skill){
+                                    
+                                }
                                 
                                 
                                 $data = array(
@@ -98,7 +100,7 @@ class Csv_file extends CI_Controller {
                             // 'user_image' => $line[6],
                             'gender' => trim($line[8]),
                             'keyskill' => trim($line[9]),
-                            'experience' => trim($line[10]),
+                            'experience' => trim($line[24]),
                             'work_job_title' => trim($line[11]),
                             'work_job_industry' => date('Y-m-d h:i:s', time()),
                             'work_job_city' => date('Y-m-d h:i:s', time()),
