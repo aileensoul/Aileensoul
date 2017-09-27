@@ -146,7 +146,7 @@ class Csv_file extends CI_Controller {
                                     } else {
                                         $data = array(
                                             'name' => ucfirst($jobtitle),
-                                            'status' => 'draft',
+                                            'status' => 'publish',
                                         );
                                         $jobtitle = $this->common->insert_data_getid($data, 'job_title');
                                     }
