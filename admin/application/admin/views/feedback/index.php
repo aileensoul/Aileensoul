@@ -52,7 +52,7 @@ echo $leftmenu;
                         <h3 class="box-title">Feedback</h3>      
                     
                     <div class="box-tools">
-                       <?php echo form_open('artistic/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
+                       <?php echo form_open('feedback/search', array('method' => 'post', 'id' => 'search_frm', 'class' => 'form-inline','autocomplete' => 'off')); ?>
                            <div class="input-group input-group-sm" >
 
 
@@ -67,7 +67,7 @@ echo $leftmenu;
                             { 
                     ?>
 
-                            <a href="<?php echo base_url('artistic/clear_search') ?>">Clear Search</a>
+                            <a href="<?php echo base_url('feedback/clear_search') ?>">Clear Search</a>
 
                         <?php 
                                 } 
@@ -119,9 +119,9 @@ echo $leftmenu;
                     <a href="javascript:void(0);">Subject</a>
                     </th>
 
-                    <th><i class="fa fa-fw fa-pencil"></i> 
+                   <!--  <th><i class="fa fa-fw fa-pencil"></i> 
                     <a href="javascript:void(0);">Description</a>
-                    </th>
+                    </th> -->
 
                      <th><i class="fa fa-fw fa-pencil"></i> 
                     <a href="javascript:void(0);">Created_date</a>
@@ -140,7 +140,7 @@ echo $leftmenu;
                         foreach ($users as $user) {
                 ?>
 
-                <tr id="delete<?php echo $user['art_id']?>">
+                <tr>
                     <td><?php echo $i++; ?></td>
 
                     <td><?php echo ucfirst($user['first_name']); echo ' ';echo ucfirst($user['last_name']);  ?></td>
@@ -148,17 +148,17 @@ echo $leftmenu;
                     <td><?php echo $user['user_email']; ?></td>
 
                     <td><?php 
-                                echo $user['subject'];;
+                                echo $user['subject'];
                              
                             ?>
                       </td>
 
-                    <td id="active<?php echo $user['art_id']?>">
+                   <!--  <td id="active<?php echo $user['art_id']?>">
                         <?php 
                                 echo $user['description'];;
                              
                             ?>
-                    </td>
+                    </td> -->
 
                     <td><?php echo $user['created_date']; ?></td>
 
@@ -170,11 +170,11 @@ echo $leftmenu;
                          <i class="fa fa-pencil"></i>
                         </button> -->
 
-                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['art_id']; ?>);">
+                        <!-- <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['art_id']; ?>);">
                         <i class="fa fa-trash-o"></i>
-                        </button>
+                        </button> -->
 
-                        <a class="btn btn-success btn-xs" href="<?php echo base_url('artistic/profile/'.$user['art_id'] ); ?>">
+                        <a class="btn btn-success btn-xs" href="<?php echo base_url('feedback/profile/'.$user['feedback_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
                         </a>
                       <!--   <button class="btn btn-success btn-xs onclick="<?php //echo base_url('job/profile');?>">
