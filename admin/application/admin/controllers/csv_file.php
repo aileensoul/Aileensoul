@@ -35,6 +35,23 @@ class Csv_file extends CI_Controller {
 
 
         if (isset($_POST["importSubmit"])) {
+            
+ 
+ 
+        $user['upload_path'] = '../uploads/csv/job';
+        $user['allowed_types'] = 'text/plain|text/csv|csv';
+
+        $this->load->library('upload');
+        $this->upload->initialize($user);
+//Uploading Image
+        $this->upload->do_upload('file');
+//Getting Uploaded Image File Data
+        $imgdata = $this->upload->data();
+       
+        $imgerror = $this->upload->display_errors();
+        
+
+            
 
             $filename = $_FILES["file"]["tmp_name"];
 
@@ -42,13 +59,15 @@ class Csv_file extends CI_Controller {
             if ($_FILES["file"]["size"] > 0) {
                 $file = fopen($filename, "r");
                 fgetcsv($file);
-                while (($line = fgetcsv($file, 10000)) !== FALSE) {
+                while (($line = fgetcsv($file, 100000000)) !== FALSE) {
 
                     $prevQuery = $this->db->get_where('user', array('user_email' => $line[4]))->row()->user_id;
-                    if (count($prevResult) > 0) {
-                        
+                  
+                    if (count($prevQuery) > 0) {
+                       
+                       
                     } else {
-
+                      
                         $data = array(
                             'first_name' => trim($line[2]),
                             'last_name' => trim($line[3]),
@@ -68,72 +87,156 @@ class Csv_file extends CI_Controller {
 //                            'profile_background' =>$line[16],
 //                            'profile_background_main' =>$line[17],
 //                            'fb_id' =>$line[18],
-                            'user_slider' =>trim($line[20]),
+                            'user_slider' => trim($line[20]),
                             'password_code' => trim($line[21])
                         );
 
-                      //  echo "<pre>"; print_r($data);
-                        if($data['first_name'] == ''){
-                           
-                        }else{
-                           
+                        //  echo "<pre>"; print_r($data);
+                        if ($data['first_name'] == '') {
+                            
+                        } else {
+
                             $insert_id = $this->common->insert_data($data, 'user');
-                            if($insert_id){
-                                //echo "444";die();
+                            if ($insert_id) {
+                               
                                 $user_id = $this->db->get_where('user', array('user_email' => $line[4]))->row()->user_id;
+
                                 
-                               // echo $line[23];
-                                 
-                                $keyskill= explode(',', $line[23]);
-                                foreach ($keyskill as $skill){
-                                    
+
+                                $keyskill = explode(',', $line[23]);
+                               
+                                foreach ($keyskill as $ski) {
+                                  
+                                    if ($ski != " ") {
+                                        $contition_array = array('skill' => trim($ski), 'type' => 1);
+                                        $skilldata = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+
+                                        if (count($skilldata) == 0) {
+                                            $contition_array = array('skill' => trim($ski), 'type' => 4);
+
+                                            $skilldata = $this->common->select_data_by_condition('skill', $contition_array, $data = 'skill_id,skill', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                        }
+                                        if ($skilldata) {
+                                            $skill1[] = $skilldata[0]['skill_id'];
+                                        } else {
+                                            $data = array(
+                                                'skill' => trim($ski),
+                                                'status' => '1',
+                                                'type' => 4,
+                                                'user_id' => $userid,
+                                            );
+                                            $skill1[] = $this->common->insert_data_getid($data, 'skill');
+                                        }
+                                    }
                                 }
+                                $skills = implode(',', $skill1);
+                              
+                                $jobtitle = trim($line[25]);
                                 
-                                
-                                $data = array(
-                            'user_id' => $user_id,
-                            'fname' => trim($line[2]),
-                            'lname' => trim($line[3]),
-                            'email' => md5($line[4]),
-                             'phnno' => trim($line[22]),
-                            'dob' => date('y-m-d', strtotime($line[6])),
-                            // 'user_image' => $line[6],
-                            'gender' => trim($line[8]),
-                            'keyskill' => trim($line[9]),
-                            'experience' => trim($line[24]),
-                            'work_job_title' => trim($line[11]),
-                            'work_job_industry' => date('Y-m-d h:i:s', time()),
-                            'work_job_city' => date('Y-m-d h:i:s', time()),
-                            'is_delete' => 0,
-                            'status' => 1,
-                            'created_date' => date('Y-m-d h:i:s', time()),
+                              
+
+                                if ($jobtitle != " ") {
+                                  
+                                    $contition_array = array('name' => $jobtitle);
+                                    $jobdata = $this->common->select_data_by_condition('job_title', $contition_array, $data = 'title_id,name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                   
+                                    if ($jobdata) {
+                                        
+                                        $jobtitle = $jobdata[0]['title_id'];
+                                    } else {
+                                        $data = array(
+                                            'name' => ucfirst($jobtitle),
+                                            'status' => 'draft',
+                                        );
+                                        $jobtitle = $this->common->insert_data_getid($data, 'job_title');
+                                    }
+                                }
+                               
+                                $cities=explode(',', $line[27]);
+                              
+                                if (count($cities) > 0) {
+                                    foreach ($cities as $cit) {
+                                        $contition_array = array('city_name' => $cit);
+                                        //$search_condition = "(skill LIKE '" . trim($searchTerm) . "%')";
+                                        $citydata = $this->common->select_data_by_condition('cities', $contition_array, $data = 'city_id,city_name', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                        if ($citydata) {
+                                            $city[] = $citydata[0]['city_id'];
+                                        } else {
+                                            $data = array(
+                                                'city_name' => $cit,
+                                                'status' => '1',
+                                            );
+                                            $city[] = $this->common->insert_data_getid($data, 'cities');
+                                        }
+                                    }
+                                    $city = implode(',', $city);
+                                }
+                              
+                                $indutry=explode(',', $line[26]);
+                               
+                                if(count($indutry)>0){
+                                    foreach ($indutry as $ind){
+                                      
+                                        $contition_array = array('industry_name' => $ind);
+                                        $indutrydata = $this->common->select_data_by_condition('job_industry', $contition_array, $data = 'industry_id', $sortby = '', $orderby = '', $limit = '', $offset = '', $join_str5 = '', $groupby = '');
+                                       
+                                        if($indutrydata){
+                                          
+                                            $indutry = $indutrydata[0]['industry_id'];
+                                        }
+                                        else{
+                                           
+                                            $data= array(
+                                                'industry_name'=> $ind,
+                                                'status'=>'1',
+                                                'is_delete'=>'0',
+                                                'is_other'=>'0',
+                                                'user_id'=>'205',
+                                                'created_date'=>date('Y-m-d h:i:s', time()),
+                                                'modify_date'=>date('Y-m-d h:i:s', time())
+                                            );
+                                            $indutry = $this->common->insert_data_getid($data, 'job_industry');
+                                        }
+                                    }
+                                }
+                            
+                                $data1 = array(
+                                    'user_id' => $user_id,
+                                    'fname' => trim($line[2]),
+                                    'lname' => trim($line[3]),
+                                    'email' => trim($line[4]),
+                                    'phnno' => trim($line[22]),
+                                    'dob' => date('y-m-d', strtotime($line[6])),
+                                    // 'user_image' => $line[6],
+                                    'gender' => trim($line[8]),
+                                    'keyskill' => $skills,
+                                    'experience' => trim($line[24]),
+                                    'work_job_title' => $jobtitle,
+                                    'work_job_industry' =>$indutry,
+                                    'work_job_city' => $city,
+                                    'is_delete' => 0,
+                                    'status' => 1,
+                                    'created_date' => date('Y-m-d h:i:s', time()),
 //                            'profile_background' =>$line[16],
 //                            'profile_background_main' =>$line[17],
 //                            'fb_id' =>$line[18],
-                            'modified_date' =>date('Y-m-d h:i:s', time()),
-                            'job_step' => 10
-                        );
-                                
+                                    'modified_date' => date('Y-m-d h:i:s', time()),
+                                    'job_step' => 10
+                                );
+                               
+                                 $insertjob_id = $this->common->insert_data($data1, 'job_reg');
+                                 unset($skill1);
+                                 unset($city);
                                 
                             }
+                            
                         }
-                       // $insert_id = $this->common->insert_data($data, 'user');
+                        // $insert_id = $this->common->insert_data($data, 'user');
 
-                        if (!isset($insert_id)) {
-                            echo "<script type=\"text/javascript\">
-							alert(\"Invalid File:Please Upload CSV File.\");
-                                                        window.location= '<?php echo base_url('csv_file/index'); ?>';
-							
-						  </script>";
-                        } else {
-                            echo "<script type=\"text/javascript\">
-						alert(\"CSV File has been successfully Imported.\");
-                                                window.location= '<?php echo base_url('csv_file/index'); ?>';
-						
-					</script>";
-                        }
+                        
                     }
-                } 
+                }
+                
 
                 fclose($file);
             }

@@ -253,8 +253,8 @@ $config['encryption_key'] = 'Kvp@123!@#321#@!pvK';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'ci_session';
-$config['sess_expiration']		= 7200;
+$config['sess_cookie_name']		= 'aileensoul_admin_session';
+$config['sess_expiration']		= 7200000;
 $config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= FALSE;
 $config['sess_use_database']	= FALSE;
