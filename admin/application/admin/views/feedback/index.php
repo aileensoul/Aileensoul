@@ -140,8 +140,8 @@ echo $leftmenu;
                         foreach ($users as $user) {
                 ?>
 
-                <tr>
-                    <td><?php echo $i++; ?></td>
+                <tr id="<?php echo "feedbackdel" . $user['feedback_id']; ?>">
+                    <td><?php echo $user['feedback_id']; ?></td>
 
                     <td><?php echo ucfirst($user['first_name']); echo ' ';echo ucfirst($user['last_name']);  ?></td>
 
@@ -170,9 +170,9 @@ echo $leftmenu;
                          <i class="fa fa-pencil"></i>
                         </button> -->
 
-                        <!-- <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['art_id']; ?>);">
+                        <button class="btn btn-danger btn-xs" onclick="delete_user(<?php echo $user['feedback_id']; ?>);">
                         <i class="fa fa-trash-o"></i>
-                        </button> -->
+                        </button>
 
                         <a class="btn btn-success btn-xs" href="<?php echo base_url('feedback/profile/'.$user['feedback_id'] ); ?>">
                          <i class="fa fa-fw fa-eye"></i>
@@ -287,70 +287,6 @@ echo $leftmenu;
 </script>
 
 <script>
-//deactive user Start
-   function deactive_user(art_id) 
-   {
-   
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  deactive this User?</h2><button id="activate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
-
-        $('.message #activate').on('click', function () 
-        {
-            $.ajax({
-                         type: 'POST',
-                          url: '<?php echo base_url() . "artistic/deactive_user" ?>',
-                          data: 'art_id=' + art_id,
-                          success: function (response) 
-                          {    
-                                 $.fancybox.close();
-                                $('#' + 'active' + art_id).html(response);
-                          }
-            });   
-        });
-    }
-//deactive user End
-
-//active user Start
-   function active_user(art_id) 
-   {
-   
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to  active this User?</h2><button id="deactivate" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
-
-        $('.message #deactivate').on('click', function () 
-        {
-            $.ajax({
-                         type: 'POST',
-                          url: '<?php echo base_url() . "artistic/active_user" ?>',
-                          data: 'art_id=' + art_id,
-                          success: function (response) 
-                          {        
-                                  $.fancybox.close();  
-                                  $('#' + 'active' + art_id).html(response);
-                          }
-            });   
-        });
-    }
-//active user End\
-
-//Delete user Start
-   function delete_user(art_id) 
-   {
-   
-       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this User?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
-
-        $('.message #delete').on('click', function () 
-        {
-            $.ajax({
-                         type: 'POST',
-                          url: '<?php echo base_url() . "artistic/delete_user" ?>',
-                          data: 'art_id=' + art_id,
-                          success: function (response) 
-                          {          
-                                window.location.reload();
-                          }
-            });   
-        });
-    }
-//Delete user End
 
 //Enable search button when user write something on textbox Start
  $(document).ready(function(){
@@ -380,4 +316,28 @@ echo $leftmenu;
 // $(function() {
  
 // });
+</script>
+
+<script type="text/javascript">
+  //Delete feedback Start
+   function delete_user(feedback_id) 
+   {
+   
+       $.fancybox.open('<div class="message"><h2>Are you Sure you want to Delete this feedback?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+
+        $('.message #delete').on('click', function () 
+        { 
+            $.ajax({
+                         type: 'POST',
+                          url: '<?php echo base_url() . "feedback/delete_user" ?>',
+                          data: 'feedback_id=' + feedback_id,
+                          success: function (response) 
+                          {          
+                                 $('#' + 'feedbackdel' + feedback_id).remove();
+                                  $.fancybox.close('<div class="message"><h2>Are you Sure you want to Delete this feedback?</h2><button id="delete" class="mesg_link btn btn1">OK</a><button data-fancybox-close="" class="btn btn1">Cancel</button></div>');
+                          }
+            });   
+        });
+    }
+//Delete feedback End
 </script>

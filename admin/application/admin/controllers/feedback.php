@@ -348,4 +348,16 @@ public function search()
         $this->load->view('feedback/index', $this->data);
 }
 
+//Delete feedback with ajax Start
+public function delete_user() 
+{
+     $feedback_id = $_POST['feedback_id'];
+      $data = array(
+            'is_delete' => 1
+        );
+
+        $update = $this->common->update_data($data, 'feedback', 'feedback_id', $feedback_id);
+}
+//Delete feedback with ajax End
+
 }
