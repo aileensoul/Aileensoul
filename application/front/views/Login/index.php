@@ -262,7 +262,7 @@ document.getElementById('error1').style.display = 'none';
                                 /* login submit */
                                 function submitForm()
                                 {  
-                                 
+									alert(123);
                                     var email_login = $("#email_login").val();
                                     var password_login = $("#password_login").val();
                                     var post_data = {
@@ -270,6 +270,7 @@ document.getElementById('error1').style.display = 'none';
                                         'password_login': password_login,
                                         '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>'
                                     }
+									
                                     $.ajax({
                                         type: 'POST',
                                         url: '<?php echo base_url() ?>registration/check_login',
@@ -282,6 +283,7 @@ document.getElementById('error1').style.display = 'none';
                                         },
                                         success: function (response)
                                         {   
+										debugger;
                                             if (response.data == "ok") {
                                                 $("#btn-login").html('<img src="<?php echo base_url() ?>images/btn-ajax-loader.gif" /> &nbsp; Login ...');
 
